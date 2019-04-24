@@ -12,9 +12,9 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/main.js', 'public/js')
-  .sass('resources/sass/main.scss', 'public/css')
-  .version();
+  .sass('resources/sass/main.scss', 'public/css');
 
-// if (mix.inProduction()) {
-//   mix.version();
-// }
+
+if (mix.inProduction()) {
+  mix.version();
+}
