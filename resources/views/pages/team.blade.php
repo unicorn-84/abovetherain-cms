@@ -1,9 +1,11 @@
 @component('layouts.app', [
-  'title' => 'Главная',
-  'pageSelector' => $pageSelector
+  'title' => 'Мы'
 ])
   {{--Header--}}
-  @component('inc.header', ['title' => 'Главная'])
+  @component('inc.header', ['title' => 'Мы'])
+  @endcomponent
+  @component('inc.page-title', ['title' => 'Мы'])
+    {{ Breadcrumbs::render('team') }}
   @endcomponent
   {{--Content--}}
   @component('inc.content')

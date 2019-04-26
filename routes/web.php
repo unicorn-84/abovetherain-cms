@@ -12,5 +12,45 @@
 */
 Route::get('/', [
   'as' => 'index',
-  'uses' => 'PageController@index',
+  'uses' => 'PageController@index'
+]);
+
+Route::get('/services', [
+  'as' => 'services',
+  'uses' => 'PageController@services'
+]);
+
+Route::get('services/{id}', [
+  'as' => 'service',
+  'uses' => 'PageController@service'
+]);
+
+Route::get('/schedule', [
+  'as' => 'schedule',
+  'uses' => 'PageController@schedule'
+]);
+
+Route::get('/events', [
+  'as' => 'events',
+  'uses' => 'PageController@events'
+]);
+
+Route::get('/events/{id}', [
+  'as' => 'event',
+  'uses' => 'PageController@event'
+]);
+
+Route::get('/team', [
+  'as' => 'team',
+  'uses' => 'PageController@team'
+]);
+
+Route::get('/coaches', [
+  'as' => 'coaches',
+  'uses' => 'PageController@coaches'
+]);
+
+Route::get('/coach/{id}', [
+  'as' => 'coach',
+  'uses' => 'PageController@coach'
 ]);
