@@ -62,17 +62,6 @@
 }
 
 #abovetherain__index {
-  &.fon-loaded {
-    &::before {
-      //background-image: url('../images/fon/mobile-index-fon.jpg');
-    }
-
-    @include media-breakpoint-up(lg) {
-      &::before {
-        //background-image: url('../images/fon/index-fon.jpg');
-      }
-    }
-  }
 
   .caption {
     position: absolute;
