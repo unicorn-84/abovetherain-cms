@@ -3,7 +3,7 @@
     <div class="py-5">
       <div class="container">
         <div class="row">
-          <div class="col-sm-6 col-lg-4 d-flex justify-content-center mb-4 mb-lg-0">
+          <div class="col-sm-6 col-lg-4 d-flex justify-content-center mb-4 mb-lg-0 order-lg-last">
             <a href="tel:+7 952 3999930" class="text-reset text-decoration-none lead">
               <i class="fas fa-phone fa-rotate-90"></i>&nbsp;&nbsp;+7 952 3999930</a>
           </div>
@@ -18,7 +18,7 @@
               <i class="fab fa-facebook fa-2x"></i>
             </a>
           </div>
-          <div class="col-sm-6 col-lg-4 d-flex justify-content-center">
+          <div class="col-sm-6 col-lg-4 d-flex justify-content-center order-lg-first">
             <ul class="list-unstyled text-left p-0 m-0">
               <li class="mb-2"><a href="{{ url('requisites') }}" class="text-reset">Реквизиты для оплаты</a></li>
               <li><a href="{{ url('login') }}" class="text-reset">Вход</a></li>
@@ -27,10 +27,10 @@
         </div>
       </div>
     </div>
-    <div class="text-center"><span>2019&nbsp;<i class="far fa-copyright fa-fw"></i>&nbsp;Над Дождём</span></div>
+    <div class="text-center pb-3"><span>2019&nbsp;<i class="far fa-copyright fa-fw"></i>&nbsp;Над Дождём</span></div>
   </footer>
 @else
-  <footer id="abovetherain__footer" class="text-white p-3">
+  <footer id="abovetherain__footer" class="text-white px-3">
     <div class="py-5">
       <div class="container">
         <div class="row">

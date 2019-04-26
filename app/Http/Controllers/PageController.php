@@ -10,7 +10,7 @@ class PageController extends Controller
   {
     return view('pages.index', [
       'title' => 'Главная | Над Дождём',
-      'pageSelector' => config('app.name') . '__' . 'index',
+      'pageSelector' => 'abovetherain' . '__' . 'index',
       'name' => 'Главная'
     ]);
   }
@@ -19,7 +19,7 @@ class PageController extends Controller
   {
     return view('pages.services', [
       'title' => 'Услуги | Над Дождём',
-      'pageSelector' => config('app.name') . '__' . 'services',
+      'pageSelector' => 'abovetherain' . '__' . 'services',
       'name' => 'Услуги'
     ]);
   }
@@ -28,7 +28,7 @@ class PageController extends Controller
   {
     return view('pages.schedule', [
       'title' => 'Расписание | Над Дождём',
-      'pageSelector' => config('app.name') . '__' . 'schedule',
+      'pageSelector' => 'abovetherain' . '__' . 'schedule',
       'name' => 'Расписание'
     ]);
   }
@@ -37,7 +37,7 @@ class PageController extends Controller
   {
     return view('pages.events', [
       'title' => 'События | Над Дождём',
-      'pageSelector' => config('app.name') . '__' . 'events',
+      'pageSelector' => 'abovetherain' . '__' . 'events',
       'name' => 'События'
     ]);
   }
@@ -46,7 +46,7 @@ class PageController extends Controller
   {
     return view('pages.team', [
       'title' => 'Мы | Над Дождём',
-      'pageSelector' => config('app.name') . '__' . 'team',
+      'pageSelector' => 'abovetherain' . '__' . 'team',
       'name' => 'Мы'
     ]);
   }
@@ -55,7 +55,7 @@ class PageController extends Controller
   {
     return view('pages.coaches', [
       'title' => 'Тренеры | Над Дождём',
-      'pageSelector' => config('app.name') . '__' . 'coaches',
+      'pageSelector' => 'abovetherain' . '__' . 'coaches',
       'name' => 'Тренеры'
     ]);
   }
@@ -64,7 +64,7 @@ class PageController extends Controller
   {
     return view('pages.gallery', [
       'title' => 'Галерея | Над Дождём',
-      'pageSelector' => config('app.name') . '__' . 'gallery',
+      'pageSelector' => 'abovetherain' . '__' . 'gallery',
       'name' => 'Галерея'
     ]);
   }
@@ -73,7 +73,7 @@ class PageController extends Controller
   {
     return view('pages.contacts', [
       'title' => 'Контакты | Над Дождём',
-      'pageSelector' => config('app.name') . '__' . 'contacts',
+      'pageSelector' => 'abovetherain' . '__' . 'contacts',
       'name' => 'Контакты'
     ]);
   }

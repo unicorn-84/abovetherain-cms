@@ -54,3 +54,18 @@ Route::get('/coach/{id}', [
   'as' => 'coach',
   'uses' => 'PageController@coach'
 ]);
+
+Route::get('/gallery', [
+  'as' => 'gallery',
+  'uses' => 'PageController@gallery'
+]);
+
+Route::get('/contacts', [
+  'as' => 'contacts',
+  'uses' => 'PageController@contacts'
+]);
+
+Route::get('/requisites', [
+  'as' => 'requisites',
+  'uses' => 'PageController@requisites'
+]);

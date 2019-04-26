@@ -1,7 +1,5 @@
 @component('layouts.app', [
-  'title' => 'Тренеры',
-  'bgi' => 'images/mobile-common-fon.jpg',
-  'bgiLaptop' => 'images/laptop-common-fon.jpg',
+  'title' => 'Тренеры'
 ])
   {{--Header--}}
   @component('inc.header', ['title' => 'Тренеры'])
