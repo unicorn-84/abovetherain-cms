@@ -1,9 +1,6 @@
-@component('layouts.app', [
-  'title' => 'Главная',
-  'pageSelector' => $pageSelector
-])
+@component('layouts.app', ['pageSelector' => $pageSelector, 'title' => $title])
   {{--Header--}}
-  @component('inc.header', ['title' => 'Главная'])
+  @component('inc.header')
   @endcomponent
   {{--Content--}}
   @component('inc.content')

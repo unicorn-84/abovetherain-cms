@@ -1,10 +1,8 @@
-@component('layouts.app', [
-  'title' => 'Контакты'
-])
+@component('layouts.app', ['pageSelector' => $pageSelector, 'title' => $title])
   {{--Header--}}
-  @component('inc.header', ['title' => 'Контакты'])
+  @component('inc.header')
   @endcomponent
-  @component('inc.page-title', ['title' => 'Контакты'])
+  @component('inc.page-title', ['name' => $name])
     {{ Breadcrumbs::render('contacts') }}
   @endcomponent
   {{--Content--}}

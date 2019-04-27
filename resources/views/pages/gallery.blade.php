@@ -1,10 +1,8 @@
-@component('layouts.app', [
-  'title' => 'Галерея'
-])
+@component('layouts.app', ['pageSelector' => $pageSelector, 'title' => $title])
   {{--Header--}}
-  @component('inc.header', ['title' => 'Галерея'])
+  @component('inc.header')
   @endcomponent
-  @component('inc.page-title', ['title' => 'Галерея'])
+  @component('inc.page-title', ['name' => $name])
     {{ Breadcrumbs::render('gallery') }}
   @endcomponent
   {{--Content--}}
