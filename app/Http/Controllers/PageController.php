@@ -6,11 +6,15 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+  private $siteName = 'Над Дождём';
+  private $siteDescription = 'Школа танцев в Санкт-Петербурге';
+
   public function index()
   {
     return view('pages.index', [
-      'title' => 'Главная | Над Дождём',
-      'pageSelector' => 'abovetherain' . '__' . 'index',
+      'title' => 'Главная | ' . $this->siteName,
+      'description' => $this->siteDescription,
+      'pageSelector' => env('APP_NAME') . '__' . 'index',
       'name' => 'Главная'
     ]);
   }
@@ -18,8 +22,9 @@ class PageController extends Controller
   public function services()
   {
     return view('pages.services', [
-      'title' => 'Услуги | Над Дождём',
-      'pageSelector' => 'abovetherain' . '__' . 'services',
+      'title' => 'Услуги | ' . $this->siteName,
+      'description' => $this->siteDescription,
+      'pageSelector' => env('APP_NAME') . '__' . 'services',
       'name' => 'Услуги'
     ]);
   }
@@ -27,8 +32,9 @@ class PageController extends Controller
   public function schedule()
   {
     return view('pages.schedule', [
-      'title' => 'Расписание | Над Дождём',
-      'pageSelector' => 'abovetherain' . '__' . 'schedule',
+      'title' => 'Расписание | ' . $this->siteName,
+      'description' => $this->siteDescription,
+      'pageSelector' => env('APP_NAME') . '__' . 'schedule',
       'name' => 'Расписание'
     ]);
   }
@@ -36,8 +42,9 @@ class PageController extends Controller
   public function events()
   {
     return view('pages.events', [
-      'title' => 'События | Над Дождём',
-      'pageSelector' => 'abovetherain' . '__' . 'events',
+      'title' => 'События | ' . $this->siteName,
+      'description' => $this->siteDescription,
+      'pageSelector' => env('APP_NAME') . '__' . 'events',
       'name' => 'События'
     ]);
   }
@@ -45,8 +52,9 @@ class PageController extends Controller
   public function team()
   {
     return view('pages.team', [
-      'title' => 'Мы | Над Дождём',
-      'pageSelector' => 'abovetherain' . '__' . 'team',
+      'title' => 'Мы | ' . $this->siteName,
+      'description' => $this->siteDescription,
+      'pageSelector' => env('APP_NAME') . '__' . 'team',
       'name' => 'Мы'
     ]);
   }
@@ -54,8 +62,9 @@ class PageController extends Controller
   public function coaches()
   {
     return view('pages.coaches', [
-      'title' => 'Тренеры | Над Дождём',
-      'pageSelector' => 'abovetherain' . '__' . 'coaches',
+      'title' => 'Тренеры | ' . $this->siteName,
+      'description' => $this->siteDescription,
+      'pageSelector' => env('APP_NAME') . '__' . 'coaches',
       'name' => 'Тренеры'
     ]);
   }
@@ -63,8 +72,9 @@ class PageController extends Controller
   public function gallery()
   {
     return view('pages.gallery', [
-      'title' => 'Галерея | Над Дождём',
-      'pageSelector' => 'abovetherain' . '__' . 'gallery',
+      'title' => 'Галерея | ' . $this->siteName,
+      'description' => $this->siteDescription,
+      'pageSelector' => env('APP_NAME') . '__' . 'gallery',
       'name' => 'Галерея'
     ]);
   }
@@ -72,9 +82,20 @@ class PageController extends Controller
   public function contacts()
   {
     return view('pages.contacts', [
-      'title' => 'Контакты | Над Дождём',
-      'pageSelector' => 'abovetherain' . '__' . 'contacts',
+      'title' => 'Контакты | ' . $this->siteName,
+      'description' => $this->siteDescription,
+      'pageSelector' => env('APP_NAME') . '__' . 'contacts',
       'name' => 'Контакты'
+    ]);
+  }
+
+  public function requisites()
+  {
+    return view('pages.requisites', [
+      'title' => 'Реквизиты для оплаты | ' . $this->siteName,
+      'description' => $this->siteDescription,
+      'pageSelector' => env('APP_NAME') . '__' . 'requisites',
+      'name' => 'Реквизиты для оплаты'
     ]);
   }
 }

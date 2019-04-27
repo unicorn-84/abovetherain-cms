@@ -33,7 +33,7 @@
   @component('inc.header')
   @endcomponent
   @component('inc.page-title', ['name' => $name])
-    {{ Breadcrumbs::render('schedule') }}
+    {{ Breadcrumbs::render('requisites') }}
   @endcomponent
   {{--Content--}}
   @component('inc.content')

@@ -10142,6 +10142,32 @@ html {
   height: 1px;
   min-height: 100%;
 }
+html::before {
+  content: " ";
+  display: block;
+  background: transparent center no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  z-index: -10;
+}
+html::after {
+  position: fixed;
+  content: "";
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -9;
+}
 
 body {
   min-height: 100%;
@@ -10187,35 +10213,35 @@ img {
 }
 
 @media (min-width: 992px) {
-  #abovetherain__header nav {
+  #abovetherain-cms__header nav {
     background-color: transparent !important;
     box-shadow: none !important;
   }
 }
-#abovetherain__header nav .navbar-brand img {
+#abovetherain-cms__header nav .navbar-brand img {
   min-height: 48px;
   height: 3rem;
   min-width: 48px;
   width: 3rem;
 }
 @media (min-width: 992px) {
-  #abovetherain__header nav .navbar-brand img {
+  #abovetherain-cms__header nav .navbar-brand img {
     min-height: 96px;
     height: 6rem;
     min-width: 96px;
     width: 6rem;
   }
 }
-#abovetherain__header nav .nav-link {
+#abovetherain-cms__header nav .nav-link {
   letter-spacing: 1px;
 }
 @media (min-width: 992px) {
-  #abovetherain__header nav .nav-link {
+  #abovetherain-cms__header nav .nav-link {
     font-size: 1.25rem;
     color: #fff;
     position: relative;
   }
-  #abovetherain__header nav .nav-link:hover::after, #abovetherain__header nav .nav-link:focus::after {
+  #abovetherain-cms__header nav .nav-link:hover::after, #abovetherain-cms__header nav .nav-link:focus::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -10226,7 +10252,7 @@ img {
   }
 }
 @media (min-width: 992px) {
-  #abovetherain__header nav .nav-item.active .nav-link::after {
+  #abovetherain-cms__header nav .nav-item.active .nav-link::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -10260,11 +10286,11 @@ img {
   display: table-row;
 }
 
-.abovetherain__schedule-select {
+.abovetherain-cms__schedule-select {
   cursor: pointer;
 }
 
-#abovetherain__index .caption {
+#abovetherain-cms__index .caption {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -10273,7 +10299,7 @@ img {
   padding-top: 80px;
 }
 @media (min-width: 992px) {
-  #abovetherain__index .caption {
+  #abovetherain-cms__index .caption {
     width: 960px;
     padding-top: 0;
     top: auto;
@@ -10283,11 +10309,11 @@ img {
   }
 }
 @media (min-width: 1200px) {
-  #abovetherain__index .caption {
+  #abovetherain-cms__index .caption {
     width: 1140px;
   }
 }
-#abovetherain__index .caption h1 {
+#abovetherain-cms__index .caption h1 {
   font-family: "hercules_modern", serif;
   text-transform: uppercase;
   text-align: center;
@@ -10295,44 +10321,44 @@ img {
   margin: 0;
   line-height: 1;
 }
-#abovetherain__index .caption h1 > span {
+#abovetherain-cms__index .caption h1 > span {
   display: block;
   overflow: hidden;
 }
-#abovetherain__index .caption h1 > span > span {
+#abovetherain-cms__index .caption h1 > span > span {
   display: inline-block;
 }
 @media (min-width: 992px) {
-  #abovetherain__index .caption h1 > span > span {
+  #abovetherain-cms__index .caption h1 > span > span {
     -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
     -webkit-transform: translateY(100%);
             transform: translateY(100%);
   }
 }
-#abovetherain__index .caption h1 > span:last-child > span {
+#abovetherain-cms__index .caption h1 > span:last-child > span {
   -webkit-animation-delay: 0.2s;
           animation-delay: 0.2s;
 }
 @media screen and (min-width: 2000px) {
-  #abovetherain__index .caption h1 {
+  #abovetherain-cms__index .caption h1 {
     font-size: 70px;
   }
 }
 @media (min-width: 992px) {
-  #abovetherain__index .caption h1 {
+  #abovetherain-cms__index .caption h1 {
     text-align: left;
   }
 }
 
-#abovetherain__coaches .card {
+#abovetherain-cms__coaches .card {
   padding: 0.25rem;
 }
-#abovetherain__coaches .card > div:first-child {
+#abovetherain-cms__coaches .card > div:first-child {
   position: relative;
   overflow: hidden;
 }
-#abovetherain__coaches .card > div:first-child::after {
+#abovetherain-cms__coaches .card > div:first-child::after {
   content: "";
   position: absolute;
   top: -5px;
@@ -10342,6 +10368,6 @@ img {
   background: linear-gradient(to bottom, transparent 30%, rgba(0, 0, 0, 0.8) 100%);
 }
 
-#abovetherain__footer {
+#abovetherain-cms__footer {
   line-height: 1;
 }

@@ -53,3 +53,8 @@ Breadcrumbs::for('contacts', function ($trail) {
   $trail->parent('index');
   $trail->push('Контакты', route('contacts'));
 });
+
+Breadcrumbs::for('requisites', function ($trail) {
+  $trail->parent('index');
+  $trail->push('Реквизиты для оплаты', route('requisites'));
+});

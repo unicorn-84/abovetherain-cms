@@ -1,5 +1,5 @@
 @if(Request::segment(1))
-  <footer id="abovetherain__footer" class="border-beige border-top text-white p-3">
+  <footer id="abovetherain-cms__footer" class="border-beige border-top text-white p-3">
     <div class="py-5">
       <div class="container">
         <div class="row">
@@ -30,7 +30,7 @@
     <div class="text-center pb-3"><span>{{ now()->year }}&nbsp;<i class="far fa-copyright fa-fw"></i>&nbsp;Над Дождём</span></div>
   </footer>
 @else
-  <footer id="abovetherain__footer" class="text-white px-3">
+  <footer id="abovetherain-cms__footer" class="text-white px-3">
     <div class="py-5">
       <div class="container">
         <div class="row">
