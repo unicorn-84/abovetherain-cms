@@ -69,3 +69,8 @@ Route::get('/requisites', [
   'as' => 'requisites',
   'uses' => 'PageController@requisites'
 ]);
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
