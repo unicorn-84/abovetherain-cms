@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-    <div class="text-center pb-3"><span>2019&nbsp;<i class="far fa-copyright fa-fw"></i>&nbsp;Над Дождём</span></div>
+    <div class="text-center pb-3"><span>{{ now()->year }}&nbsp;<i class="far fa-copyright fa-fw"></i>&nbsp;Над Дождём</span></div>
   </footer>
 @else
   <footer id="abovetherain__footer" class="text-white px-3">
