@@ -9,7 +9,7 @@
         </div>
         <div class="d-flex align-items-center justify-content-center justify-content-lg-start w-100">
           <a class="navbar-brand m-0" href="{{ url('/') }}" title="Главная">
-            <img src="{{ asset('images/logo.png') }}" alt="Логотип | Над Дождём">
+            <img src="{{ mix('images/logo/logo.png') }}" alt="Логотип | Над Дождём">
           </a>
         </div>
         <div class="w-100 d-lg-none"></div>

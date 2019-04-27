@@ -12,7 +12,7 @@
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link rel="stylesheet", href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,500,500i&amp;subset=cyrillic">
   <!--Icons-->
-  <link rel='icon' type='image/x-icon' href={{  asset('images/favicon.ico') }}>
+  <link rel='icon' type='image/x-icon' href={{  mix('images/icons/favicon.ico') }}>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <!-- Styles -->
   <link href="{{ mix('css/main.css') }}" rel="stylesheet">

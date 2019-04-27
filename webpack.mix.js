@@ -13,6 +13,8 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/main.js', 'public/js')
   .sass('resources/sass/main.scss', 'public/css')
+  .copy('resources/images/icons/favicon.ico', 'public/images/icons/favicon.ico')
+  .copy('resources/images/logo/logo.png', 'public/images/logo/logo.png')
   .disableNotifications();
 
 

@@ -10189,12 +10189,16 @@ img {
 }
 #abovetherain__header nav .navbar-brand img {
   min-height: 48px;
+  height: 3rem;
   min-width: 48px;
+  width: 3rem;
 }
 @media (min-width: 992px) {
   #abovetherain__header nav .navbar-brand img {
     min-height: 96px;
+    height: 6rem;
     min-width: 96px;
+    width: 6rem;
   }
 }
 #abovetherain__header nav .nav-link {

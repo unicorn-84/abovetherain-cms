@@ -8,11 +8,15 @@
     .navbar-brand {
       img {
         min-height: 48px;
+        height: 3rem;
         min-width: 48px;
+        width: 3rem;
 
         @include media-breakpoint-up(lg) {
           min-height: 96px;
+          height: 6rem;
           min-width: 96px;
+          width: 6rem;
         }
       }
     }
