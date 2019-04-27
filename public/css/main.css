@@ -10147,6 +10147,12 @@ body {
   min-height: 100%;
 }
 
+@font-face {
+  font-family: "hercules_modern";
+  src: url("../fonts/hercules_modern/hercules_modern.woff2") format("woff2"), url("../fonts/hercules_modern/hercules_modern.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 @-webkit-keyframes inUp {
   from {
     -webkit-transform: translateY(100%);
@@ -10157,7 +10163,6 @@ body {
             transform: translateY(0);
   }
 }
-
 @keyframes inUp {
   from {
     -webkit-transform: translateY(100%);
@@ -10290,22 +10295,22 @@ img {
   margin: 0;
   line-height: 1;
 }
-#abovetherain__index .caption h1 > div {
+#abovetherain__index .caption h1 > span {
   display: block;
   overflow: hidden;
 }
-#abovetherain__index .caption h1 > div > span {
+#abovetherain__index .caption h1 > span > span {
   display: inline-block;
 }
 @media (min-width: 992px) {
-  #abovetherain__index .caption h1 > div > span {
+  #abovetherain__index .caption h1 > span > span {
     -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
     -webkit-transform: translateY(100%);
             transform: translateY(100%);
   }
 }
-#abovetherain__index .caption h1 > div:last-child > span {
+#abovetherain__index .caption h1 > span:last-child > span {
   -webkit-animation-delay: 0.2s;
           animation-delay: 0.2s;
 }

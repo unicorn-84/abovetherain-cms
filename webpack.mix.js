@@ -13,10 +13,19 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/main.js', 'public/js')
   .sass('resources/sass/main.scss', 'public/css')
-  .copy('resources/images/icons/favicon.ico', 'public/images/icons/favicon.ico')
-  .copy('resources/images/logo/logo.png', 'public/images/logo/logo.png')
   .disableNotifications();
 
+mix.options({
+  processCssUrls: false,
+});
+
+mix.copyDirectory('resources/fonts', 'public/fonts')
+  .copy('resources/images/icons/favicon.ico', 'public/images/icons/favicon.ico')
+  .copy('resources/images/logo/logo.png', 'public/images/logo/logo.png')
+  .copy('resources/images/fon/mobile-index-fon.jpg', 'public/images/fon/mobile-index-fon.jpg')
+  .copy('resources/images/fon/mobile-common-fon.jpg', 'public/images/fon/mobile-common-fon.jpg')
+  .copy('resources/images/fon/index-fon.jpg', 'public/images/fon/index-fon.jpg')
+  .copy('resources/images/fon/common-fon.jpg', 'public/images/fon/common-fon.jpg');
 
 if (mix.inProduction()) {
   mix.version();
