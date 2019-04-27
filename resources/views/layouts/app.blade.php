@@ -1,6 +1,6 @@
 <!--MARKUP-->
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @isset($pageSelector) id="{{ $pageSelector }}" @endisset class="fon-loaded">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @isset($pageSelector) id="{{ $pageSelector }}" @endisset>
 <!--HEAD-->
 <head>
   <meta charset="utf-8">

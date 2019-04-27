@@ -33,6 +33,7 @@
     "axios": "^0.18",
     "bootstrap": "^4.0.0",
     "laravel-mix": "^4.0.15",
-    "lodash": "^4.17.5"
+    "lodash": "^4.17.5",
+    "webfontloader": "^1.6.28"
   }
 }
