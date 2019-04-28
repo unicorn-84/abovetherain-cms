@@ -6,19 +6,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  {{ $customMeta }}
-  <title>{{ $title ?? Voyager::setting("site.title")}}</title>
-  {{ $description }}
+  <title>{{ $title ?? Voyager::setting("site.title") }}</title>
+  <meta name="description" content="{{ $description ?? Voyager::setting("site.description") }}">
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
-  <link rel="stylesheet", href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,500,500i&amp;subset=cyrillic">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,500,500i&amp;subset=cyrillic">
   <!--Icons-->
-  <link rel='icon' type='image/x-icon' href={{  mix('images/icons/favicon.ico') }}>
+  <link rel="shortcut icon" href="{{ Voyager::image( Voyager::setting("site.favicon"), mix('images/icons/favicon.ico') ) }}" type="image/x-icon">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <!-- Styles -->
   <link href="{{ mix('css/main.css') }}" rel="stylesheet">
   {{ $styles }}
-  {{ $customStyles }}
 </head>
 <!--Body-->
 <body class="d-flex flex-column bg-dark">
