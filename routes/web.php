@@ -71,6 +71,6 @@ Route::get('/requisites', [
 ]);
 
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'atr-admin'], function () {
     Voyager::routes();
 });

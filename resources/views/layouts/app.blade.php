@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   {{ $customMeta }}
-  {{ $title }}
+  <title>{{ $title ?? Voyager::setting("site.title")}}</title>
   {{ $description }}
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">

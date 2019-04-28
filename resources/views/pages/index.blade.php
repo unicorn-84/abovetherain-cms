@@ -20,9 +20,9 @@
   @endslot
 
   {{--Title--}}
-  @slot('title')
-    <title>{{ $title }}</title>
-  @endslot
+  {{--@slot('title')--}}
+    {{--<title>{{ $title }}</title>--}}
+  {{--@endslot--}}
 
   {{--Description--}}
   @slot('description')
