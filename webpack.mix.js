@@ -27,6 +27,8 @@ mix.copyDirectory('resources/fonts', 'public/fonts')
   .copy('resources/images/fon/index-fon.jpg', 'public/images/fon/index-fon.jpg')
   .copy('resources/images/fon/common-fon.jpg', 'public/images/fon/common-fon.jpg');
 
+mix.sass('resources/sass/admin/admin.scss', 'public/css');
+
 if (mix.inProduction()) {
   mix.version();
 }

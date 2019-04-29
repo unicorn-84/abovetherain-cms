@@ -7,7 +7,7 @@
     <meta name="assets-path" content="{{ route('voyager.assets') }}"/>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=cyrillic"" rel="stylesheet">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ Voyager::image( Voyager::setting("admin.favicon"), voyager_asset("images/icon-image.png") ) }}" type="image/x-icon">
@@ -50,9 +50,9 @@
 <div id="voyager-loader">
     <?php $admin_loader_img = Voyager::setting('admin.loader', ''); ?>
     @if($admin_loader_img == '')
-        <img src="{{ voyager_asset('images/logo-icon.png') }}" alt="Voyager Loader">
+        <img src="{{ voyager_asset('images/logo-icon.png') }}" alt="Voyager Loader" style="width: 50px; height: auto;">
     @else
-        <img src="{{ Voyager::image($admin_loader_img) }}" alt="Voyager Loader">
+        <img src="{{ Voyager::image($admin_loader_img) }}" alt="Voyager Loader" style="width: 50px; height: auto;">
     @endif
 </div>
 
@@ -105,7 +105,7 @@ if (starts_with(app('VoyagerAuth')->user()->avatar, 'http://') || starts_with(ap
         </div>
     </div>
 </div>
-@include('voyager::partials.app-footer')
+{{--@include('voyager::partials.app-footer')--}}
 
 <!-- Javascript Libs -->
 

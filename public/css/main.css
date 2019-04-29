@@ -10212,6 +10212,9 @@ img {
   font-size: 1rem;
 }
 
+#abovetherain-cms__header .navbar {
+  z-index: 1030;
+}
 @media (min-width: 992px) {
   #abovetherain-cms__header nav {
     background-color: transparent !important;

@@ -3632,6 +3632,17 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window
 
 /***/ }),
 
+/***/ "./resources/sass/admin/admin.scss":
+/*!*****************************************!*\
+  !*** ./resources/sass/admin/admin.scss ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/main.scss":
 /*!**********************************!*\
   !*** ./resources/sass/main.scss ***!
@@ -3644,14 +3655,15 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window
 /***/ }),
 
 /***/ 0:
-/*!***************************************************************!*\
-  !*** multi ./resources/js/main.js ./resources/sass/main.scss ***!
-  \***************************************************************/
+/*!*************************************************************************************************!*\
+  !*** multi ./resources/js/main.js ./resources/sass/main.scss ./resources/sass/admin/admin.scss ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\Users\unicorn\websites\abovetherain-cms\resources\js\main.js */"./resources/js/main.js");
-module.exports = __webpack_require__(/*! C:\Users\unicorn\websites\abovetherain-cms\resources\sass\main.scss */"./resources/sass/main.scss");
+__webpack_require__(/*! C:\Users\unicorn\websites\abovetherain-cms\resources\sass\main.scss */"./resources/sass/main.scss");
+module.exports = __webpack_require__(/*! C:\Users\unicorn\websites\abovetherain-cms\resources\sass\admin\admin.scss */"./resources/sass/admin/admin.scss");
 
 
 /***/ })
