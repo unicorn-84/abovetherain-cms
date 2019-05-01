@@ -8,8 +8,13 @@
           </button>
         </div>
         <div class="d-flex align-items-center justify-content-center justify-content-lg-start w-100">
+          <?php $logo = Voyager::setting("site.logo"); ?>
           <a class="navbar-brand m-0" href="{{ url('/') }}" title="Главная">
-            <img src="{{ Voyager::image( Voyager::setting("site.logo"), mix('images/logo/logo.png')) }}" alt="Логотип | Над Дождём">
+          @if($logo)
+            <img src="{{ Voyager::image($logo) }}" alt="Логотип">
+          @else
+            <img src="{{ mix('images/empty.png') }}">
+          @endif
           </a>
         </div>
         <div class="w-100 d-lg-none"></div>

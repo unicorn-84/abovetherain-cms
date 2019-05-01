@@ -20,7 +20,7 @@ mix.options({
 });
 
 mix.copyDirectory('resources/fonts', 'public/fonts')
-  .copy('resources/images/icons/favicon.ico', 'public/images/icons/favicon.ico')
+  .copy('resources/images/empty.png', 'public/images/empty.png')
   .copy('resources/images/logo/logo.png', 'public/images/logo/logo.png')
   .copy('resources/images/fon/mobile-index-fon.jpg', 'public/images/fon/mobile-index-fon.jpg')
   .copy('resources/images/fon/mobile-common-fon.jpg', 'public/images/fon/mobile-common-fon.jpg')
