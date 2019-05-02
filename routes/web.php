@@ -69,3 +69,8 @@ Route::get('/requisites', [
   'as' => 'requisites',
   'uses' => 'PageController@requisites'
 ]);
+
+
+Route::group(['prefix' => 'atr-admin'], function () {
+    Voyager::routes();
+});

@@ -1,7 +1,8 @@
 {
     "/js/main.js": "/js/main.js",
     "/css/main.css": "/css/main.css",
-    "/images/icons/favicon.ico": "/images/icons/favicon.ico",
+    "/css/admin.css": "/css/admin.css",
+    "/images/empty.png": "/images/empty.png",
     "/images/logo/logo.png": "/images/logo/logo.png",
     "/images/fon/mobile-index-fon.jpg": "/images/fon/mobile-index-fon.jpg",
     "/images/fon/mobile-common-fon.jpg": "/images/fon/mobile-common-fon.jpg",

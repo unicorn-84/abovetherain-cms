@@ -12,8 +12,6 @@ class PageController extends Controller
   public function index()
   {
     return view('pages.index', [
-      'title' => 'Главная | ' . $this->siteName,
-      'description' => $this->siteDescription,
       'pageSelector' => env('APP_NAME') . '__' . 'index',
       'name' => 'Главная'
     ]);
@@ -71,6 +69,7 @@ class PageController extends Controller
 
   public function gallery()
   {
+
     return view('pages.gallery', [
       'title' => 'Галерея | ' . $this->siteName,
       'description' => $this->siteDescription,
