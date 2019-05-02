@@ -20,11 +20,13 @@
             <a href="{{ $instagram }}" class="mx-3 text-decoration-none text-reset" title="Instagram">
               <i class="fab fa-instagram fa-2x"></i>
             </a>
-          @elseif($vk)
+          @endif
+          @if($vk)
             <a href="{{ $vk }}" class="mx-3 text-decoration-none text-reset" title="VKontakte">
               <i class="fab fa-vk fa-2x"></i>
             </a>
-          @elseif($facebook)
+          @endif
+          @if($facebook)
             <a href="{{ $facebook }}" class="mx-3 text-decoration-none text-reset" title="Facebook">
               <i class="fab fa-facebook fa-2x"></i>
             </a>
