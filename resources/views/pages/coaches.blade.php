@@ -1,3 +1,4 @@
+@component('layouts.app', ['pageSelector' => $pageSelector])
   {{--Header--}}
   @component('inc.header')
   @endcomponent
