@@ -1,8 +1,13 @@
-@component('layouts.app', ['pageSelector' => $pageSelector])
-  {{--Header--}}
-  @component('inc.header')
-  @endcomponent
-  {{--Content--}}
+@extends('layouts.app')
+
+@section('header')
+  @if($page->menu_name || Voyager::setting('site.logo'))
+    @component('inc.header', ['page' => $page])
+    @endcomponent
+  @endif
+@endsection
+
+@section('content')
   @component('inc.content')
     <div class="caption">
       <div class="container">
@@ -17,7 +22,19 @@
       </div>
     </div>
   @endcomponent
-  {{--Footer--}}
-  @component('inc.footer')
-  @endcomponent
-@endcomponent
+  @if(Voyager::setting("site.phone_number"))
+    <footer id="abovetherain-cms__footer" class="text-white px-3">
+      <div class="py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col d-flex justify-content-end d-lg-none">
+              <a href="tel:{{ Voyager::setting("site.phone_number") }}" class="text-decoration-none text-reset" title="{{ Voyager::setting("site.phone_number") }}">
+                <i class="fas fa-phone-square fa-3x"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  @endif
+@endsection

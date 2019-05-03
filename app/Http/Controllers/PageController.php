@@ -2,99 +2,62 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class PageController extends Controller
 {
-  private $siteName = 'Над Дождём';
-  private $siteDescription = 'Школа танцев в Санкт-Петербурге';
-
   public function index()
   {
-    return view('pages.index', [
-      'pageSelector' => env('APP_NAME') . '__' . 'index',
-      'name' => 'Главная'
-    ]);
+    $page = DB::table('pages')->where('slug', 'index')->first();
+    return view('pages.index', ['page' => $page]);
   }
 
   public function services()
   {
-    return view('pages.services', [
-      'title' => 'Услуги | ' . $this->siteName,
-      'description' => $this->siteDescription,
-      'pageSelector' => env('APP_NAME') . '__' . 'services',
-      'name' => 'Услуги'
-    ]);
+    $page = DB::table('pages')->where('slug', 'services')->first();
+    return view('pages.services', compact($page));
   }
 
   public function schedule()
   {
-    return view('pages.schedule', [
-      'title' => 'Расписание | ' . $this->siteName,
-      'description' => $this->siteDescription,
-      'pageSelector' => env('APP_NAME') . '__' . 'schedule',
-      'name' => 'Расписание'
-    ]);
+    $page = DB::table('pages')->where('slug', 'schedule')->first();
+    return view('pages.schedule', ['page', $page]);
   }
 
   public function events()
   {
-    return view('pages.events', [
-      'title' => 'События | ' . $this->siteName,
-      'description' => $this->siteDescription,
-      'pageSelector' => env('APP_NAME') . '__' . 'events',
-      'name' => 'События'
-    ]);
+    $page = DB::table('pages')->where('slug', 'events')->first();
+    return view('pages.events', ['page', $page]);
   }
 
   public function team()
   {
-    return view('pages.team', [
-      'title' => 'Мы | ' . $this->siteName,
-      'description' => $this->siteDescription,
-      'pageSelector' => env('APP_NAME') . '__' . 'team',
-      'name' => 'Мы'
-    ]);
+    $page = DB::table('pages')->where('slug', 'team')->first();
+    return view('pages.team', ['page', $page]);
   }
 
   public function coaches()
   {
-    return view('pages.coaches', [
-      'title' => 'Тренеры | ' . $this->siteName,
-      'description' => $this->siteDescription,
-      'pageSelector' => env('APP_NAME') . '__' . 'coaches',
-      'name' => 'Тренеры'
-    ]);
+    $page = DB::table('pages')->where('slug', 'coaches')->first();
+    return view('pages.coaches', ['page', $page]);
   }
 
   public function gallery()
   {
-
-    return view('pages.gallery', [
-      'title' => 'Галерея | ' . $this->siteName,
-      'description' => $this->siteDescription,
-      'pageSelector' => env('APP_NAME') . '__' . 'gallery',
-      'name' => 'Галерея'
-    ]);
+    $page = DB::table('pages')->where('slug', 'gallery')->first();
+    return view('pages.gallery', ['page', $page]);
   }
 
   public function contacts()
   {
-    return view('pages.contacts', [
-      'title' => 'Контакты | ' . $this->siteName,
-      'description' => $this->siteDescription,
-      'pageSelector' => env('APP_NAME') . '__' . 'contacts',
-      'name' => 'Контакты'
-    ]);
+    $page = DB::table('pages')->where('slug', 'contacts')->first();
+    return view('pages.contacts', ['page', $page]);
   }
 
   public function requisites()
   {
-    return view('pages.requisites', [
-      'title' => 'Реквизиты для оплаты | ' . $this->siteName,
-      'description' => $this->siteDescription,
-      'pageSelector' => env('APP_NAME') . '__' . 'requisites',
-      'name' => 'Реквизиты для оплаты'
-    ]);
+    $page = DB::table('pages')->where('slug', 'requisites')->first();
+    return view('pages.requisites', ['page', $page]);
   }
 }

@@ -2,48 +2,31 @@
   <nav class="navbar navbar-expand-lg bg-beige navbar-light shadow-sm">
     <div class="container">
       <div class="d-flex align-items-center justify-content-between w-100">
-        <div class="d-flex align-items-center w-100 d-lg-none">
+        @isset($page->menu_name)
+          <div class="d-flex align-items-center w-100 d-lg-none">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
+        @endisset
         <div class="d-flex align-items-center justify-content-center justify-content-lg-start w-100">
-          <?php $logo = Voyager::setting("site.logo"); ?>
           <a class="navbar-brand m-0" href="{{ url('/') }}" title="Главная">
-          @if($logo)
-            <img src="{{ Voyager::image($logo) }}" alt="Логотип">
-          @else
-            <img src="{{ mix('images/empty.png') }}">
-          @endif
+            @if(isset($page->logo))
+              <img src="{{ Voyager::image($page->logo) }}" alt="Логотип">
+            @else
+              <img src="{{ mix('images/empty.png') }}">
+            @endif
           </a>
         </div>
-        <div class="w-100 d-lg-none"></div>
+        @isset($page->menu_name)
+          <div class="w-100 d-lg-none"></div>
+        @endisset
       </div>
-      <div id='navbarSupportedContent' class="collapse navbar-collapse">
-        <ul class="navbar-nav ml-auto text-uppercase">
-          <li class="{{ Request::is('services') ? 'active ' : '' }}nav-item px-lg-3">
-            <a href="{{ url('services') }}" class="nav-link py-lg-1 px-lg-0" title="Услуги">Услуги</a>
-          </li>
-          <li class="{{ Request::is('schedule') ? 'active ' : '' }}nav-item px-lg-3">
-            <a href="{{ url('schedule') }}" class="nav-link py-lg-1 px-lg-0" title="Расписание">Расписание</a>
-          </li>
-          <li class="{{ Request::is('events') ? 'active ' : '' }}nav-item px-lg-3">
-            <a href="{{ url('events') }}" class="nav-link py-lg-1 px-lg-0" title="События">События</a>
-          </li>
-          <li class="{{ Request::is('team') ? 'active ' : '' }}nav-item px-lg-3">
-            <a href="{{ url('team') }}" class="nav-link py-lg-1 px-lg-0" title="Мы">Мы</a>
-          </li>
-          <li class="{{ Request::is('coaches') ? 'active ' : '' }}nav-item px-lg-3">
-            <a href="{{ url('coaches') }}" class="nav-link py-lg-1 px-lg-0" title="Тренеры">Тренеры</a>
-          </li>
-          <li class="{{ Request::is('gallery') ? 'active ' : '' }}nav-item px-lg-3">
-            <a href="{{ url('gallery') }}" class="nav-link py-lg-1 px-lg-0" title="Галерея">Галерея</a>
-          </li>
-          <li class="{{ Request::is('contacts') ? 'active ' : '' }}nav-item px-lg-3">
-            <a href="{{ url('contacts') }}" class="nav-link py-lg-1 px-lg-0" title="Контакты">Контакты</a>
-          </li>
-        </ul>
-      </div>
+      @isset($page->menu_name)
+        <div id='navbarSupportedContent' class="collapse navbar-collapse">
+          {{ menu($page->menu_name, 'menu') }}
+        </div>
+      @endisset
     </div>
   </nav>
 </header>
