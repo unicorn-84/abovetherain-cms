@@ -12,62 +12,62 @@
 */
 Route::get('/', [
   'as' => 'index',
-  'uses' => 'PageController@index'
+  'uses' => 'PageController@show'
 ]);
 
 Route::get('/services', [
   'as' => 'services',
-  'uses' => 'PageController@services'
+  'uses' => 'PageController@show'
 ]);
 
 Route::get('services/{id}', [
   'as' => 'service',
-  'uses' => 'PageController@service'
+  'uses' => 'PageController@show'
 ]);
 
 Route::get('/schedule', [
   'as' => 'schedule',
-  'uses' => 'PageController@schedule'
+  'uses' => 'PageController@show'
 ]);
 
 Route::get('/events', [
   'as' => 'events',
-  'uses' => 'PageController@events'
+  'uses' => 'PageController@show'
 ]);
 
 Route::get('/events/{id}', [
   'as' => 'event',
-  'uses' => 'PageController@event'
+  'uses' => 'PageController@show'
 ]);
 
 Route::get('/team', [
   'as' => 'team',
-  'uses' => 'PageController@team'
+  'uses' => 'PageController@show'
 ]);
 
 Route::get('/coaches', [
   'as' => 'coaches',
-  'uses' => 'PageController@coaches'
+  'uses' => 'PageController@show'
 ]);
 
 Route::get('/coach/{id}', [
   'as' => 'coach',
-  'uses' => 'PageController@coach'
+  'uses' => 'PageController@show'
 ]);
 
 Route::get('/gallery', [
   'as' => 'gallery',
-  'uses' => 'PageController@gallery'
+  'uses' => 'PageController@show'
 ]);
 
 Route::get('/contacts', [
   'as' => 'contacts',
-  'uses' => 'PageController@contacts'
+  'uses' => 'PageController@show'
 ]);
 
 Route::get('/requisites', [
   'as' => 'requisites',
-  'uses' => 'PageController@requisites'
+  'uses' => 'PageController@show'
 ]);
 
 

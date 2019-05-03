@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('header')
-  @if($page->menu_name || Voyager::setting('site.logo'))
+  @if($page->menu_name || $page->logo)
     @component('inc.header', ['page' => $page])
     @endcomponent
   @endif

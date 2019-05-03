@@ -58,3 +58,8 @@ Breadcrumbs::for('requisites', function ($trail) {
   $trail->parent('index');
   $trail->push('Реквизиты для оплаты', route('requisites'));
 });
+
+Breadcrumbs::for('page', function ($trail, $page) {
+  $trail->parent('index');
+  $trail->push($page->name, route($page->slug));
+});
