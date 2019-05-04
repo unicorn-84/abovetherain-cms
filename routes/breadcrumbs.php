@@ -61,5 +61,5 @@ Breadcrumbs::for('requisites', function ($trail) {
 
 Breadcrumbs::for('page', function ($trail, $page) {
   $trail->parent('index');
-  $trail->push($page->name, route($page->slug));
+  $trail->push($page->title, route($page->name));
 });

@@ -14,9 +14,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $seo_description
  * @property string|null $fon
  * @property string|null $mobile_fon
- * @property int $is_header
- * @property int $is_page-title
- * @property int $is_footer
+ * @property int $has_header
+ * @property int $has_pagetitle
+ * @property int $has_footer
  * @property string|null $head_code
  * @property string|null $content_code
  * @property \Illuminate\Support\Carbon|null $created_at

@@ -1,6 +1,6 @@
 <!--MARKUP-->
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @isset($page->slug) id="{{ config('app.name') . '__' . $page->slug }}" @endisset>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @isset($page->name) id="{{ config('app.name') . '__' . $page->name }}" @endisset>
 
 <!--HEAD-->
 <head>
@@ -9,17 +9,17 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <!--TITLE-->
-  @if(isset($page->title))
-    <title>{{ $page->title }}</title>
-  @elseif(Voyager::setting("site.title"))
-    <title>{{ Voyager::setting("site.title") }}</title>
+  @if(isset($page->seo_title))
+    <title>{{ $page->seo_title }}</title>
+  @elseif(Voyager::setting("site.seo_title"))
+    <title>{{ Voyager::setting("site.seo_title") }}</title>
   @endif
 
   <!--DESCRIPTION-->
-  @if(isset($page->direction))
-    <meta name="description" content="{{ $page->direction }}">
-  @elseif(Voyager::setting("site.description"))
-    <meta name="description" content="{{ Voyager::setting("site.description") }}">
+  @if(isset($page->seo_direction))
+    <meta name="description" content="{{ $page->seo_direction }}">
+  @elseif(Voyager::setting("site.seo_description"))
+    <meta name="description" content="{{ Voyager::setting("site.seo_description") }}">
   @endif
 
   <!--FONTS-->
@@ -51,6 +51,8 @@
   @elseif(Voyager::setting("site.fon"))
     <style>@media (min-width: 992px) {html.fon-loaded::before {background-image: url({{ Voyager::image(Voyager::setting("site.fon")) }});}}</style>
   @endif
+
+  @yield('head_code')
 </head>
 <!--Body-->
 <body class="d-flex flex-column bg-dark">
