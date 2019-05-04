@@ -15,7 +15,17 @@ class CreatePagesTable extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->nullable();
+            $table->string('name');
+            $table->string('title');
+            $table->string('seo_title')->nullable();
+            $table->text('seo_description')->nullable();
+            $table->string('fon')->nullable();
+            $table->string('mobile_fon')->nullable();
+            $table->boolean('is_header')->default(true);
+            $table->boolean('is_page-title')->default(true);
+            $table->boolean('is_footer')->default(true);
+            $table->text('head_code')->nullable();
+            $table->text('content_code')->nullable();
             $table->timestamps();
         });
     }

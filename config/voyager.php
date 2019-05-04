@@ -165,7 +165,7 @@ return [
 
     'bread' => [
         // When a BREAD is added, create the Menu item using the BREAD properties.
-        'add_menu_item' => false,
+        'add_menu_item' => true,
 
         // which menu add item to
         'default_menu' => 'admin',
