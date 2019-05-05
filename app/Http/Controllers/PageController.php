@@ -11,7 +11,6 @@ class PageController extends Controller
   {
     $name = \Request::route()->getName();
     $page = DB::table('pages')->where('name', $name)->first();
-    $has_menu = DB::table('menus')->where('name', 'Main')->exists();
     if (!$page) {
       abort('404');
     }
@@ -20,6 +19,6 @@ class PageController extends Controller
     } else {
       $view = 'page';
     }
-    return view($view, ['page' => $page, 'has_menu' => $has_menu]);
+    return view($view, ['page' => $page]);
   }
 }

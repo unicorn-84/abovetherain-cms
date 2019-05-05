@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $has_pagetitle
  * @property int $has_footer
  * @property string|null $head_code
- * @property string|null $content_code
+ * @property string|null $content
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Page newModelQuery()

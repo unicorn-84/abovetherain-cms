@@ -6,7 +6,7 @@ return [
     'avatar' => 'Аватар',
     'body' => 'Содержимое',
     'category' => 'Категория',
-    'content_code' => 'Код для секции контента',
+    'content' => 'Контент',
     'created_at' => 'Дата создания',
     'display_name' => 'Отображаемое имя',
     'email' => 'Email',

@@ -8,7 +8,7 @@
 
 @section('header')
   @if($page->has_header)
-    @component('inc.header', ['page' => $page, 'has_menu' => $has_menu])
+    @component('inc.header', ['page' => $page])
     @endcomponent
   @endif
 @endsection
@@ -23,8 +23,8 @@
 
 @section('content')
   <main class="py-5 flex-fill">
-    @isset($page->content_code)
-      {!! $page->content_code !!}
+    @isset($page->content)
+      {!! $page->content !!}
     @endisset
     <div class="caption">
       <div class="container">

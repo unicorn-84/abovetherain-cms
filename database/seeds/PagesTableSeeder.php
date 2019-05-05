@@ -199,6 +199,21 @@ class PagesTableSeeder extends Seeder
       ])->save();
     }
 
+    $dataRow = $this->dataRow($pageDataType, 'content');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'rich_text_box',
+        'display_name' => __('voyager::seeders.data_rows.content'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 11,
+      ])->save();
+    }
+
     $dataRow = $this->dataRow($pageDataType, 'head_code');
     if (!$dataRow->exists) {
       $dataRow->fill([
@@ -210,22 +225,39 @@ class PagesTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 11,
+        'order' => 12,
       ])->save();
     }
 
-    $dataRow = $this->dataRow($pageDataType, 'content_code');
+
+
+    $dataRow = $this->dataRow($pageDataType, 'created_at');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'code_editor',
-        'display_name' => __('voyager::seeders.data_rows.content_code'),
-        'required' => 0,
-        'browse' => 0,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
-        'order' => 12,
+        'type'         => 'timestamp',
+        'display_name' => __('voyager::seeders.data_rows.created_at'),
+        'required'     => 1,
+        'browse'       => 1,
+        'read'         => 1,
+        'edit'         => 0,
+        'add'          => 0,
+        'delete'       => 0,
+        'order'        => 13,
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($pageDataType, 'updated_at');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type'         => 'timestamp',
+        'display_name' => __('voyager::seeders.data_rows.updated_at'),
+        'required'     => 1,
+        'browse'       => 0,
+        'read'         => 0,
+        'edit'         => 0,
+        'add'          => 0,
+        'delete'       => 0,
+        'order'        => 14,
       ])->save();
     }
 
@@ -299,7 +331,7 @@ class PagesTableSeeder extends Seeder
     ]);
     if (!$page->exists) {
       $page->fill([
-        'title' => 'Мы',
+        'title' => 'Мы'
       ])->save();
     }
 
