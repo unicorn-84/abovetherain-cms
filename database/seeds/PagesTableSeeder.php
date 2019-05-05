@@ -251,6 +251,7 @@ class PagesTableSeeder extends Seeder
     Permission::generateFor('pages');
 
     //Content
+    //Index
     $page = Page::firstOrNew([
       'name' => 'index',
     ]);
@@ -262,12 +263,83 @@ class PagesTableSeeder extends Seeder
       ])->save();
     }
 
+    //Services
     $page = Page::firstOrNew([
       'name' => 'services',
     ]);
     if (!$page->exists) {
       $page->fill([
         'title' => 'Услуги',
+      ])->save();
+    }
+
+    //Schedule
+    $page = Page::firstOrNew([
+      'name' => 'schedule',
+    ]);
+    if (!$page->exists) {
+      $page->fill([
+        'title' => 'Расписание',
+      ])->save();
+    }
+
+    //События
+    $page = Page::firstOrNew([
+      'name' => 'events',
+    ]);
+    if (!$page->exists) {
+      $page->fill([
+        'title' => 'События',
+      ])->save();
+    }
+
+    //Мы
+    $page = Page::firstOrNew([
+      'name' => 'team',
+    ]);
+    if (!$page->exists) {
+      $page->fill([
+        'title' => 'Мы',
+      ])->save();
+    }
+
+    //Тренеры
+    $page = Page::firstOrNew([
+      'name' => 'coaches',
+    ]);
+    if (!$page->exists) {
+      $page->fill([
+        'title' => 'Тренеры',
+      ])->save();
+    }
+
+    //Галерея
+    $page = Page::firstOrNew([
+      'name' => 'gallery',
+    ]);
+    if (!$page->exists) {
+      $page->fill([
+        'title' => 'Галерея',
+      ])->save();
+    }
+
+    //Контакты
+    $page = Page::firstOrNew([
+      'name' => 'contacts',
+    ]);
+    if (!$page->exists) {
+      $page->fill([
+        'title' => 'Контакты',
+      ])->save();
+    }
+
+    //Реквизиты
+    $page = Page::firstOrNew([
+      'name' => 'requisites',
+    ]);
+    if (!$page->exists) {
+      $page->fill([
+        'title' => 'Реквизиты',
       ])->save();
     }
   }

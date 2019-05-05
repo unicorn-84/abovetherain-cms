@@ -16,7 +16,7 @@ class MenuItemsTableSeeder extends Seeder
     $menu_admin = Menu::where('name', 'admin')->firstOrFail();
     $menu_main = Menu::where('name', 'main')->firstOrFail();
 
-//        Панель
+    //Панель
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu_admin->id,
       'title' => __('voyager::seeders.menu_items.dashboard'),
@@ -33,7 +33,7 @@ class MenuItemsTableSeeder extends Seeder
       ])->save();
     }
 
-//        Медиа
+    //Медиа
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu_admin->id,
       'title' => __('voyager::seeders.menu_items.media'),
@@ -50,7 +50,7 @@ class MenuItemsTableSeeder extends Seeder
       ])->save();
     }
 
-//        Пользователи
+    //Пользователи
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu_admin->id,
       'title' => __('voyager::seeders.menu_items.users'),
@@ -67,7 +67,7 @@ class MenuItemsTableSeeder extends Seeder
       ])->save();
     }
 
-//        Роли
+    //Роли
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu_admin->id,
       'title' => __('voyager::seeders.menu_items.roles'),
@@ -84,7 +84,7 @@ class MenuItemsTableSeeder extends Seeder
       ])->save();
     }
 
-//        Инструменты
+    //Инструменты
     $toolsMenuItem = MenuItem::firstOrNew([
       'menu_id' => $menu_admin->id,
       'title' => __('voyager::seeders.menu_items.tools'),
@@ -100,7 +100,7 @@ class MenuItemsTableSeeder extends Seeder
       ])->save();
     }
 
-//        Конструктор меню
+    //Конструктор меню
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu_admin->id,
       'title' => __('voyager::seeders.menu_items.menu_builder'),
@@ -117,7 +117,7 @@ class MenuItemsTableSeeder extends Seeder
       ])->save();
     }
 
-//        Базы
+    //Базы
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu_admin->id,
       'title' => __('voyager::seeders.menu_items.database'),
@@ -134,7 +134,7 @@ class MenuItemsTableSeeder extends Seeder
       ])->save();
     }
 
-//        Компас
+    //Компас
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu_admin->id,
       'title' => __('voyager::seeders.menu_items.compass'),
@@ -151,7 +151,7 @@ class MenuItemsTableSeeder extends Seeder
       ])->save();
     }
 
-//        Хлеб
+    //Хлеб
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu_admin->id,
       'title' => __('voyager::seeders.menu_items.bread'),
@@ -168,7 +168,7 @@ class MenuItemsTableSeeder extends Seeder
       ])->save();
     }
 
-//        Настройки
+    //Настройки
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu_admin->id,
       'title' => __('voyager::seeders.menu_items.settings'),
@@ -185,21 +185,123 @@ class MenuItemsTableSeeder extends Seeder
       ])->save();
     }
 
-//        MAIN
-//    Услуги
+    //MAIN
+    //Услуги
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu_main->id,
-      'title'   => 'Услуги',
-      'url'     => '',
-      'route'   => 'services',
+      'title' => 'Услуги',
+      'url' => '',
+      'route' => 'services',
     ]);
     if (!$menuItem->exists) {
       $menuItem->fill([
-        'target'     => '_self',
+        'target' => '_self',
         'icon_class' => '',
-        'color'      => null,
-        'parent_id'  => null,
-        'order'      => 1,
+        'color' => null,
+        'parent_id' => null,
+        'order' => 1,
+      ])->save();
+    }
+
+    //Расписание
+    $menuItem = MenuItem::firstOrNew([
+      'menu_id' => $menu_main->id,
+      'title' => 'Расписание',
+      'url' => '',
+      'route' => 'schedule',
+    ]);
+    if (!$menuItem->exists) {
+      $menuItem->fill([
+        'target' => '_self',
+        'icon_class' => '',
+        'color' => null,
+        'parent_id' => null,
+        'order' => 2,
+      ])->save();
+    }
+
+    //События
+    $menuItem = MenuItem::firstOrNew([
+      'menu_id' => $menu_main->id,
+      'title' => 'События',
+      'url' => '',
+      'route' => 'events',
+    ]);
+    if (!$menuItem->exists) {
+      $menuItem->fill([
+        'target' => '_self',
+        'icon_class' => '',
+        'color' => null,
+        'parent_id' => null,
+        'order' => 3,
+      ])->save();
+    }
+
+    //Мы
+    $menuItem = MenuItem::firstOrNew([
+      'menu_id' => $menu_main->id,
+      'title' => 'Мы',
+      'url' => '',
+      'route' => 'team',
+    ]);
+    if (!$menuItem->exists) {
+      $menuItem->fill([
+        'target' => '_self',
+        'icon_class' => '',
+        'color' => null,
+        'parent_id' => null,
+        'order' => 4,
+      ])->save();
+    }
+
+    //Тренеры
+    $menuItem = MenuItem::firstOrNew([
+      'menu_id' => $menu_main->id,
+      'title' => 'Тренеры',
+      'url' => '',
+      'route' => 'coaches',
+    ]);
+    if (!$menuItem->exists) {
+      $menuItem->fill([
+        'target' => '_self',
+        'icon_class' => '',
+        'color' => null,
+        'parent_id' => null,
+        'order' => 5,
+      ])->save();
+    }
+
+    //Галерея
+    $menuItem = MenuItem::firstOrNew([
+      'menu_id' => $menu_main->id,
+      'title' => 'Галерея',
+      'url' => '',
+      'route' => 'gallery',
+    ]);
+    if (!$menuItem->exists) {
+      $menuItem->fill([
+        'target' => '_self',
+        'icon_class' => '',
+        'color' => null,
+        'parent_id' => null,
+        'order' => 6,
+      ])->save();
+    }
+
+    //Контакты
+    $menuItem = MenuItem::firstOrNew([
+      'menu_id' => $menu_main->id,
+      'title' => 'Контакты',
+      'url' => '',
+      'route' => 'contacts',
+    ]);
+    if (!$menuItem->exists) {
+      $menuItem->fill([
+        'target' => '_self',
+        'icon_class' => '',
+        'color' => null,
+        'parent_id' => null,
+        'order' => 7,
       ])->save();
     }
   }
