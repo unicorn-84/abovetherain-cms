@@ -8,9 +8,9 @@
   <meta name="description" content="{{ Voyager::setting("admin.meta_description") }}">
   <!-- Favicon -->
   <link rel="shortcut icon"
-        href="{{ Voyager::image( Voyager::setting('admin.favicon'), '') }}"
+        href="{{ Voyager::image( Voyager::setting('site.icon'), '') }}"
         type="image/x-icon">
-  <title>{{ Voyager::setting("admin.title") }}</title>
+  <title>{{ Voyager::setting("admin.seo_title") }}</title>
   <link rel="stylesheet" href="{{ voyager_asset('css/app.css') }}">
   @if (__('voyager::generic.is_rtl') == 'true')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.4.0/css/bootstrap-rtl.css">
@@ -18,9 +18,8 @@
   @endif
   <style>
     body {
-      <?php $admin_bg_image = Voyager::setting('admin.icon_image'); ?>
-      @if($admin_bg_image)
-         background: {{ Voyager::setting('admin.bg_color', '' ) }} url({{ Voyager::image( Voyager::setting('admin.bg_image', '')) }});
+      @if(Voyager::setting('admin.fon'))
+         background: {{ Voyager::setting('admin.bg_color', '') }} url({{ Voyager::image( Voyager::setting('admin.fon', '')) }});
       @endif
     }
 
@@ -58,13 +57,12 @@
       <div class="clearfix">
         <div class="col-sm-12 col-md-10 col-md-offset-2">
           <div class="logo-title-container">
-            <?php $admin_logo_img = Voyager::setting('admin.icon_image'); ?>
-            @if($admin_logo_img)
+            @if(Voyager::setting('admin.logo'))
               <img class="img-responsive pull-left flip logo hidden-xs animated fadeIn"
-                   src="{{ Voyager::image($admin_logo_img) }}" alt="{{ Voyager::setting('admin.name', '') }}">
+                   src="{{ Voyager::image(Voyager::setting('admin.logo')) }}" alt="{{ Voyager::setting('admin.name', '') }}">
             @endif
             <div class="copy animated fadeIn">
-              <h1>{{ Voyager::setting('admin.name', '') }}</h1>
+              <h1>{{ Voyager::setting('admin.title', '') }}</h1>
               <p>{{ Voyager::setting('admin.description', '') }}</p>
             </div>
           </div> <!-- .logo-title-container -->
@@ -97,8 +95,8 @@
           </div>
 
           <div class="form-group" id="rememberMeGroup">
-            <div class="controls">
-              <input type="checkbox" name="remember" value="1"><span
+            <div class="controls" style="display: flex; align-items: center;">
+              <input type="checkbox" name="remember" value="1" style="margin: 0;"><span
                 class="remember-me-text">{{ __('voyager::generic.remember_me') }}</span>
             </div>
           </div>

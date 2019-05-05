@@ -16,8 +16,8 @@
   @endif
 
   <!--DESCRIPTION-->
-  @if(isset($page->seo_direction))
-    <meta name="description" content="{{ $page->seo_direction }}">
+  @if(isset($page->seo_description))
+    <meta name="description" content="{{ $page->seo_description }}">
   @elseif(Voyager::setting("site.seo_description"))
     <meta name="description" content="{{ Voyager::setting("site.seo_description") }}">
   @endif
@@ -27,8 +27,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,500,500i&amp;subset=cyrillic">
 
   <!--ICONS-->
-  @if(Voyager::setting("site.favicon"))
-    <link rel="icon" type="image/png" href="{{ Voyager::image(Voyager::setting("site.favicon")) }}">
+  @if(Voyager::setting("site.icon"))
+    <link rel="icon" type="image/png" href="{{ Voyager::image(Voyager::setting("site.icon")) }}">
   @endif
 
   <!--FONT AWESOME-->

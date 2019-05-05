@@ -87,19 +87,32 @@ return [
 //  todo: Изменить превод настроек
   'settings' => [
     'admin' => [
-      'background_image' => 'Фоновое Изображение для Админки',
-      'description' => 'Описание Админки',
+      'description' => 'Описание админки',
       'description_value' => 'Добро пожаловать в Voyager. Пропавшую Админку для Laravel',
+      'fon' => 'Фоновое изображение для админки',
       'google_analytics_client_id' => 'Google Analytics Client ID (используется для панели администратора)',
-      'icon_image' => 'Иконка Админки',
-      'loader' => 'Загрузчик Админки',
-      'title' => 'Название Админки',
+      'icon' => 'Иконка админки',
+      'loader' => 'Прелоадер админки',
+      'logo' => 'Логотип админки',
+      'seo_title' => 'SEO Название админки',
+      'title' => 'Название админки',
     ],
     'site' => [
-      'description' => 'Описание Сайта',
+      'description' => 'Описание сайта',
+      'fon' => 'Фоновое изображение для сайта',
       'google_analytics_tracking_id' => 'Google Analytics Tracking ID',
-      'logo' => 'Логотип Сайта',
-      'title' => 'Название Сайта',
+      'header_menu' => 'Меню для header',
+      'icon' => 'Иконка сайта',
+      'logo' => 'Логотип сайта',
+      'mobile_fon' => 'Мобильное фоновое изображение для сайта',
+      'name' => 'Имя',
+      'title' => 'Название сайта',
+      'seo_description' => 'SEO Описание сайта',
+      'seo_title' => 'SEO Название сайта',
     ],
+    'content' => [
+      'phone' => 'Номер телефона',
+      'address' => 'Адрес'
+    ]
   ]
 ];

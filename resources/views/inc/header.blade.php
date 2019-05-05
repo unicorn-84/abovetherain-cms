@@ -9,8 +9,8 @@
         </div>
         <div class="d-flex align-items-center justify-content-center justify-content-lg-start w-100">
           <a class="navbar-brand m-0" href="{{ url('/') }}" title="Главная">
-            @if(isset($page->logo))
-              <img src="{{ Voyager::image($page->logo) }}" alt="Логотип">
+            @if(Voyager::setting('site.logo'))
+              <img src="{{ Voyager::image(Voyager::setting('site.logo')) }}" alt="Логотип">
             @else
               <img src="{{ mix('images/empty.png') }}">
             @endif
