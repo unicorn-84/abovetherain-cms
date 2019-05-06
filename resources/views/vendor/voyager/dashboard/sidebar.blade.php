@@ -3,19 +3,19 @@
         <div class="side-menu-container">
             <!-- <div class="navbar-header">
                 <a class="navbar-brand" href="{{ route('voyager.dashboard') }}">
-                    <div class="logo-icon-container">
+                    <div class="logo-icon-container"> -->
                         <?php $admin_logo_img = Voyager::setting('admin.icon_image', ''); ?>
                         @if($admin_logo_img)
-                            <img src="{{ Voyager::image($admin_logo_img) }}" alt="{{ Voyager::setting('admin.name', '') }}">
+                            <!-- <img src="{{ Voyager::image($admin_logo_img) }}" alt="{{ Voyager::setting('admin.name', '') }}"> -->
                         @endif
-                    </div>
-                    <div class="title">{{Voyager::setting('admin.title', 'VOYAGER')}}</div>
+                    <!-- </div>
+                    <div class="title">{{ Voyager::setting('admin.title', 'VOYAGER') }}</div>
                 </a>
             </div> -->
             <!-- .navbar-header -->
 
             <div class="panel widget center bgimage"
-                 style="background: center center url({{ Voyager::image( Voyager::setting('admin.bg_image', '')) }}); background-size: cover;">
+                 style="background: center center url({{ Voyager::image( Voyager::setting('admin.fon', '')) }}); background-size: cover;">
                 <div class="dimmer"></div>
                 <div class="panel-content">
                     <img src="{{ $user_avatar }}" class="avatar" alt="{{ app('VoyagerAuth')->user()->name }} avatar">
