@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta name="description" content="{{ Voyager::setting("admin.meta_description") }}">
   <!-- Favicon -->
-  <link rel="shortcut icon"
-        href="{{ Voyager::image( Voyager::setting('site.icon'), '') }}"
-        type="image/x-icon">
+  @if(Voyager::setting('site.icon'))
+    <link rel="shortcut icon" href="{{ Voyager::image( Voyager::setting('site.icon')) }}" type="image/x-icon">
+  @endif
   <title>{{ Voyager::setting("admin.seo_title") }}</title>
   <link rel="stylesheet" href="{{ voyager_asset('css/app.css') }}">
   @if (__('voyager::generic.is_rtl') == 'true')
