@@ -38,22 +38,22 @@
         </div>
       </div>
     </div>
-    @if(Voyager::setting("site.phone_number"))
-      <footer id="abovetherain-cms__footer" class="text-white px-3">
-        <div class="py-5">
-          <div class="container">
-            <div class="row">
-              <div class="col d-flex justify-content-end d-lg-none">
-                <a href="tel:{{ Voyager::setting("site.phone_number") }}" class="text-decoration-none text-reset" title="{{ Voyager::setting("site.phone_number") }}">
-                  <i class="fas fa-phone-square fa-3x"></i>
-                </a>
-              </div>
+  </main>
+  @if(Voyager::setting("content.phone"))
+    <footer id="abovetherain-cms__footer" class="text-white px-3">
+      <div class="py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col d-flex justify-content-end d-lg-none">
+              <a href="tel:{{ Voyager::setting("content.phone") }}" class="text-decoration-none text-reset" title="{{ Voyager::setting("content.phone") }}">
+                <i class="fas fa-phone-square fa-3x"></i>
+              </a>
             </div>
           </div>
         </div>
-      </footer>
-    @endif
-  </main>
+      </div>
+    </footer>
+  @endif
 @endsection
 
 @section('footer')
