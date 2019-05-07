@@ -6,8 +6,11 @@ window.tinymce_setup_callback = (editor) => {
   tinymce.settings.extended_valid_elements = 'span[!class]';
   tinymce.settings.toolbar_drawer = 'sliding';
   tinymce.settings.toolbar = 'undo redo | styleselect | formatselect | fontselect | fontsizeselect | bold italic underline | forecolor backcolor | alignleft aligncenter alignright | bullist numlist outdent indent | link image table | code';
-  tinymce.settings.forced_root_block_attrs = {
-    class: 'card-text',
+  tinymce.settings.formats = {
+    'img-fluid': { selector: 'img', classes: 'img-fluid' },
   };
+  tinymce.settings.style_formats = [
+    { title: 'img-fluid', format: 'img-fluid' },
+  ];
   return tinymce;
 };
