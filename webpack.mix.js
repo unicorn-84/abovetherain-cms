@@ -20,6 +20,7 @@ mix.options({
 
 mix.copyDirectory('resources/fonts', 'public/fonts');
 mix.copyDirectory('resources/js/tinymce', 'public/js/tinymce');
+mix.copyDirectory('resources/images/icons', 'public/images/icons');
 
 mix.sass('resources/sass/admin/admin.scss', 'public/css')
   .js('resources/js/admin.js', 'public/js');
