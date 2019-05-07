@@ -292,6 +292,8 @@ class PagesTableSeeder extends Seeder
         'title' => 'Главная',
         'has_pagetitle' => false,
         'has_footer' => false,
+        'fon' => 'demo\pages\index\fon.jpg',
+        'mobile_fon' => 'demo\pages\index\mobile_fon.jpg'
       ])->save();
     }
 
@@ -331,7 +333,8 @@ class PagesTableSeeder extends Seeder
     ]);
     if (!$page->exists) {
       $page->fill([
-        'title' => 'Мы'
+        'title' => 'Мы',
+        'content' => ''
       ])->save();
     }
 

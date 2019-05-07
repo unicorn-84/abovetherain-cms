@@ -18,10 +18,11 @@ mix.options({
   processCssUrls: false,
 });
 
-mix.copyDirectory('resources/fonts', 'public/fonts')
-  .copy('resources/images/empty.png', 'public/images/empty.png');
+mix.copyDirectory('resources/fonts', 'public/fonts');
+mix.copyDirectory('resources/js/tinymce', 'public/js/tinymce');
 
-mix.sass('resources/sass/admin/admin.scss', 'public/css');
+mix.sass('resources/sass/admin/admin.scss', 'public/css')
+  .js('resources/js/admin.js', 'public/js');
 
 if (mix.inProduction()) {
   mix.version();
