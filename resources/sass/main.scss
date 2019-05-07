@@ -67,6 +67,10 @@ img {
   font-size: 1rem;
 }
 
+p:last-child {
+  margin-bottom: 0;
+}
+
 @import 'header';
 @import 'content';
 @import 'footer';
