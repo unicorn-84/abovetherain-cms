@@ -8,25 +8,25 @@
 
         @can('edit', $dataTypeContent)
             <a href="{{ route('voyager.'.$dataType->slug.'.edit', $dataTypeContent->getKey()) }}" class="btn btn-info">
-                <span class="glyphicon glyphicon-pencil"></span>&nbsp;
-                {{ __('voyager::generic.edit') }}
+              <i class="voyager-pen"></i>
+              <span class="hidden-xs hidden-sm">&nbsp;{{ __('voyager::generic.edit') }}</span>
             </a>
         @endcan
         @can('delete', $dataTypeContent)
             @if($isSoftDeleted)
                 <a href="{{ route('voyager.'.$dataType->slug.'.restore', $dataTypeContent->getKey()) }}" title="{{ __('voyager::generic.restore') }}" class="btn btn-default restore" data-id="{{ $dataTypeContent->getKey() }}" id="restore-{{ $dataTypeContent->getKey() }}">
-                    <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">{{ __('voyager::generic.restore') }}</span>
+                    <i class="voyager-trash"></i><span class="hidden-xs hidden-sm">&nbsp;{{ __('voyager::generic.restore') }}</span>
                 </a>
             @else
                 <a href="javascript:;" title="{{ __('voyager::generic.delete') }}" class="btn btn-danger delete" data-id="{{ $dataTypeContent->getKey() }}" id="delete-{{ $dataTypeContent->getKey() }}">
-                    <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">{{ __('voyager::generic.delete') }}</span>
+                    <i class="voyager-trash"></i><span class="hidden-xs hidden-sm">&nbsp;{{ __('voyager::generic.delete') }}</span>
                 </a>
             @endif
         @endcan
 
         <a href="{{ route('voyager.'.$dataType->slug.'.index') }}" class="btn btn-warning">
-            <span class="glyphicon glyphicon-list"></span>&nbsp;
-            {{ __('voyager::generic.return_to_list') }}
+          <i class="voyager-list"></i>
+          <span class="hidden-xs hidden-sm">&nbsp;{{ __('voyager::generic.return_to_list') }}</span>
         </a>
     </h1>
     @include('voyager::multilingual.language-selector')
@@ -53,16 +53,18 @@
                             @if (isset($row->details->view))
                                 @include($row->details->view, ['row' => $row, 'dataType' => $dataType, 'dataTypeContent' => $dataTypeContent, 'content' => $dataTypeContent->{$row->field}, 'action' => 'read'])
                             @elseif($row->type == "image")
-                                <img class="img-responsive"
-                                     src="{{ filter_var($dataTypeContent->{$row->field}, FILTER_VALIDATE_URL) ? $dataTypeContent->{$row->field} : Voyager::image($dataTypeContent->{$row->field}) }}">
+                                <img class="img-thumbnail"
+                                     style="height: 100px;" src="{{ filter_var($dataTypeContent->{$row->field}, FILTER_VALIDATE_URL) ? $dataTypeContent->{$row->field} : Voyager::image($dataTypeContent->{$row->field}) }}">
                             @elseif($row->type == 'multiple_images')
                                 @if(json_decode($dataTypeContent->{$row->field}))
                                     @foreach(json_decode($dataTypeContent->{$row->field}) as $file)
-                                        <img class="img-responsive"
+                                        <img class="img-thumbnail"
+                                             style="height: 100px;"
                                              src="{{ filter_var($file, FILTER_VALIDATE_URL) ? $file : Voyager::image($file) }}">
                                     @endforeach
                                 @else
-                                    <img class="img-responsive"
+                                    <img class="img-thumbnail"
+                                         style="height: 100px;"
                                          src="{{ filter_var($dataTypeContent->{$row->field}, FILTER_VALIDATE_URL) ? $dataTypeContent->{$row->field} : Voyager::image($dataTypeContent->{$row->field}) }}">
                                 @endif
                             @elseif($row->type == 'relationship')
@@ -116,10 +118,10 @@
                                         </a>
                                         <br/>
                                     @endforeach
-                                @else
-                                    <a href="{{ Storage::disk(config('voyager.storage.disk'))->url($row->field) ?: '' }}">
-                                        {{ __('voyager::generic.download') }}
-                                    </a>
+                                {{--@else--}}
+                                    {{--<a href="{{ Storage::disk(config('voyager.storage.disk'))->url($row->field) ?: '' }}">--}}
+                                        {{--{{ __('voyager::generic.download') }}--}}
+                                    {{--</a>--}}
                                 @endif
                             @else
                                 @include('voyager::multilingual.input-hidden-bread-read')

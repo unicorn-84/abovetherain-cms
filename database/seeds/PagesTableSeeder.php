@@ -121,6 +121,11 @@ class PagesTableSeeder extends Seeder
         'add' => 1,
         'delete' => 1,
         'order' => 6,
+        'details' => [
+          'validation' => [
+            'rule' => 'image'
+          ]
+        ]
       ])->save();
     }
 
@@ -136,6 +141,11 @@ class PagesTableSeeder extends Seeder
         'add' => 1,
         'delete' => 1,
         'order' => 7,
+        'details' => [
+          'validation' => [
+            'rule' => 'image'
+          ]
+        ]
       ])->save();
     }
 
@@ -228,7 +238,6 @@ class PagesTableSeeder extends Seeder
         'order' => 12,
       ])->save();
     }
-
 
     $dataRow = $this->dataRow($pageDataType, 'created_at');
     if (!$dataRow->exists) {

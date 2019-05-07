@@ -8,6 +8,7 @@ return [
     'category' => 'Категория',
     'content' => 'Контент',
     'created_at' => 'Дата создания',
+    'description' => 'Описание',
     'display_name' => 'Отображаемое имя',
     'email' => 'Email',
     'excerpt' => 'Отрывок',
@@ -15,6 +16,7 @@ return [
     'fon' => 'Фоновое изображение',
     'head_code' => 'Код для head (beforeend)',
     'id' => 'ID',
+    'images' => 'Изображения',
     'has_footer' => 'Отображение footer',
     'has_header' => 'Отображение header',
     'has_pagetitle' => 'Отображение page-title',
@@ -29,6 +31,7 @@ return [
     'parent' => 'Родитель',
     'password' => 'Пароль',
     'post_image' => 'Изображение Сообщения',
+    'poster' => 'Обложка',
     'remember_token' => 'Токен восстановления',
     'role' => 'Роль',
     'seo_description'=> 'SEO Описание',
@@ -37,11 +40,12 @@ return [
     'status' => 'Статус',
     'title' => 'Название',
     'updated_at' => 'Дата обновления',
+    'video' => 'Видео'
   ],
   'data_types' => [
-    'category' => [
-      'singular' => 'Категория',
-      'plural' => 'Категории',
+    'albums' => [
+      'singular' => 'Альбом',
+      'plural' => 'Альбомы',
     ],
     'menu' => [
       'singular' => 'Меню',
@@ -65,6 +69,7 @@ return [
     ],
   ],
   'menu_items' => [
+    'albums' => 'Альбомы',
     'bread' => 'BREAD',
     'categories' => 'Категории',
     'compass' => 'Compass',
