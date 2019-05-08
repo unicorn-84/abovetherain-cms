@@ -261,7 +261,9 @@ class AlbumsTableSeeder extends Seeder
     if (!$album->exists) {
       $album->fill([
         'seo_title' => 'Тренировка',
-        'poster' => 'demo/albums/trenirovka.jpg'
+        'poster' => 'demo/albums/trenirovka.jpg',
+        'images' => '["demo/albums/photo.jpg"]'
+
       ])->save();
     }
   }
