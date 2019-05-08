@@ -9,18 +9,10 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <!--TITLE-->
-  @if(isset($page->seo_title))
-    <title>{{ $page->seo_title }}</title>
-  @elseif(Voyager::setting("site.seo_title"))
-    <title>{{ Voyager::setting("site.seo_title") }}</title>
-  @endif
+  @yield('title')
 
   <!--DESCRIPTION-->
-  @if(isset($page->seo_description))
-    <meta name="description" content="{{ $page->seo_description }}">
-  @elseif(Voyager::setting("site.seo_description"))
-    <meta name="description" content="{{ Voyager::setting("site.seo_description") }}">
-  @endif
+  @yield('description')
 
   <!--FONTS-->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">

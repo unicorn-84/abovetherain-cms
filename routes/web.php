@@ -55,9 +55,14 @@ Route::get('/coach/{id}', [
   'uses' => 'PageController@show'
 ]);
 
+Route::get('/gallery/{slug}', [
+  'as' => 'album',
+  'uses' => 'AlbumController@show'
+]);
+
 Route::get('/gallery', [
   'as' => 'gallery',
-  'uses' => 'PageController@show'
+  'uses' => 'AlbumController@index'
 ]);
 
 Route::get('/contacts', [

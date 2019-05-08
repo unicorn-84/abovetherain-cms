@@ -39,41 +39,36 @@
 
 @section('content')
   <main class="py-5 flex-fill">
-    @isset($page->content)
-      {!! $page->content !!}
-    @endisset
-    <div class="caption">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <h1 class="text-white">
-              <span><span>Школа&nbsp;танцев</span></span>
-              <span><span>«Над&nbsp;дождём»</span></span>
-            </h1>
+    <div class="container">
+      <div class="row">
+        @foreach($albums as $album)
+          <div class="col-md-6 col-lg-4">
+            <div class="card mb-4 w-100">
+              @isset($album->poster)
+                <a href="{{ url('/gallery/' . $album->slug) }}">
+                  <img class="card-image-top img-thumbnail border-0" src="{{ Voyager::image($album->poster) }}" alt="{{ $album->title }}">
+                </a>
+              @endisset
+              <div class="card-body">
+                <a href="{{ url('/gallery/' . $album->slug) }}" class="text-reset">
+                  <h2 class="card-title text-center m-0">
+                    {{ $album->title }}
+                  </h2>
+                </a>
+                @isset($album->description)
+                  <p class="card-text mt-2 mb-0">{{ $album->description }}</p>
+                @endisset
+              </div>
+            </div>
           </div>
-        </div>
+        @endforeach
       </div>
     </div>
   </main>
-  @if(Voyager::setting("content.phone"))
-    <footer id="abovetherain-cms__footer" class="text-white px-3">
-      <div class="py-5">
-        <div class="container">
-          <div class="row">
-            <div class="col d-flex justify-content-end d-lg-none">
-              <a href="tel:{{ Voyager::setting("content.phone") }}" class="text-decoration-none text-reset" title="{{ Voyager::setting("content.phone") }}">
-                <i class="fas fa-phone-square fa-3x"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-  @endif
 @endsection
 
 @section('footer')
-  @if($page->has_footer))
+  @if($page->has_footer)
     @component('inc.footer')
     @endcomponent
   @endif

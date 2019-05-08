@@ -49,6 +49,12 @@ Breadcrumbs::for('gallery', function ($trail) {
   $trail->push('Галерея', route('gallery'));
 });
 
+Breadcrumbs::for('album', function ($trail, $album) {
+  $trail->parent('gallery');
+  $trail->push($album->title, route('album', $album));
+});
+
+
 Breadcrumbs::for('contacts', function ($trail) {
   $trail->parent('index');
   $trail->push('Контакты', route('contacts'));

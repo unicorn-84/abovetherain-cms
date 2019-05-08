@@ -6,16 +6,32 @@
   @endisset
 @endsection
 
+@section('title')
+  @if(isset($page->seo_title))
+    <title>{{ $page->seo_title }}</title>
+  @elseif(Voyager::setting("site.seo_title"))
+    <title>{{ Voyager::setting("site.seo_title") }}</title>
+  @endif
+@endsection
+
+@section('description')
+  @if(isset($page->seo_description))
+    <meta name="description" content="{{ $page->seo_description }}">
+  @elseif(Voyager::setting("site.seo_description"))
+    <meta name="description" content="{{ Voyager::setting("site.seo_description") }}">
+  @endif
+@endsection
+
 @section('header')
   @if($page->has_header)
-    @component('inc.header', ['page' => $page])
+    @component('inc.header')
     @endcomponent
   @endif
 @endsection
 
 @section('page-title')
   @if($page->has_pagetitle)
-    @component('inc.page-title', ['page' => $page])
+    @component('inc.page-title', ['title' => $page->title])
       {{ Breadcrumbs::render('page', $page) }}
     @endcomponent
   @endif

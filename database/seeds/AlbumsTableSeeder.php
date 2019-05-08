@@ -76,7 +76,7 @@ class AlbumsTableSeeder extends Seeder
         'type' => 'text',
         'display_name' => __('voyager::seeders.data_rows.slug'),
         'required' => 0,
-        'browse' => 0,
+        'browse' => 1,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
@@ -112,7 +112,7 @@ class AlbumsTableSeeder extends Seeder
         'type' => 'text',
         'display_name' => __('voyager::seeders.data_rows.description'),
         'required' => 0,
-        'browse' => 0,
+        'browse' => 1,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
@@ -152,9 +152,10 @@ class AlbumsTableSeeder extends Seeder
           'validation' => [
             'rule' => 'image'
           ],
+          'upsize' => true,
           'resize' => [
-            'width' => '320',
-            'height' => 'null',
+            'width' => '800',
+            'height' => '533',
           ],
         ],
       ])->save();
@@ -173,18 +174,12 @@ class AlbumsTableSeeder extends Seeder
         'delete' => 1,
         'order' => 8,
         'details' => [
-          'resize' => [
-            'width' => '1200',
-            'height' => 'null',
-          ],
-          'quality' => '100%',
           'thumbnails' => [
             [
-              'name' => 'fit',
-              'fit' => [
-                'width' => '300',
-                'height' => '250',
-                'position' => 'center'
+              'name' => 'cropped',
+              'crop' => [
+                'width' => '800',
+                'height' => '533',
               ],
             ],
           ],
@@ -204,11 +199,7 @@ class AlbumsTableSeeder extends Seeder
         'add' => 1,
         'delete' => 1,
         'order' => 9,
-        'details' => [
-          'validation' => [
-            'rule' => 'mimetypes:video/avi,video/mpeg,video/quicktime'
-          ]
-        ],
+        'details' => '',
       ])->save();
     }
 
@@ -262,6 +253,17 @@ class AlbumsTableSeeder extends Seeder
 
     //Permissions
     Permission::generateFor('albums');
+
+    $album = Album::firstOrNew([
+      'title' => 'Тренировка',
+      'slug' => 'trenirovka',
+    ]);
+    if (!$album->exists) {
+      $album->fill([
+        'seo_title' => 'Тренировка',
+        'poster' => 'demo/albums/trenirovka.jpg'
+      ])->save();
+    }
   }
 
   /**

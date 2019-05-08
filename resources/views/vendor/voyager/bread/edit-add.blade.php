@@ -23,7 +23,6 @@
     <div class="page-content edit-add container-fluid">
         <div class="row">
             <div class="col-md-12">
-
                 <div class="panel panel-bordered" style="padding: 1rem 0.5rem;">
                     <!-- form start -->
                     <form role="form"
@@ -96,6 +95,7 @@
                     </form>
 
                     <iframe id="form_target" name="form_target" style="display:none"></iframe>
+
                     <form id="my_form" action="{{ route('voyager.upload') }}" target="form_target" method="post"
                             enctype="multipart/form-data" style="width:0;height:0;overflow:hidden">
                         <input name="image" id="upload_file" type="file"
