@@ -32,12 +32,12 @@ Route::get('/schedule', [
 
 Route::get('/events', [
   'as' => 'events',
-  'uses' => 'PageController@show'
+  'uses' => 'EventController@index'
 ]);
 
-Route::get('/events/{id}', [
+Route::get('/events/{slug}', [
   'as' => 'event',
-  'uses' => 'PageController@show'
+  'uses' => 'EventController@show'
 ]);
 
 Route::get('/team', [
@@ -55,14 +55,14 @@ Route::get('/coach/{id}', [
   'uses' => 'PageController@show'
 ]);
 
-Route::get('/gallery/{slug}', [
-  'as' => 'album',
-  'uses' => 'AlbumController@show'
-]);
-
 Route::get('/gallery', [
   'as' => 'gallery',
   'uses' => 'AlbumController@index'
+]);
+
+Route::get('/gallery/{slug}', [
+  'as' => 'album',
+  'uses' => 'AlbumController@show'
 ]);
 
 Route::get('/contacts', [

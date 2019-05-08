@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
 
       $this->call(AlbumsTableSeeder::class);
 
+      $this->call(EventsTableSeeder::class);
+
       $this->call(PermissionRoleTableSeeder::class);
 
     }

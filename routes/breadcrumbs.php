@@ -21,12 +21,12 @@ Breadcrumbs::for('schedule', function ($trail) {
 
 Breadcrumbs::for('events', function ($trail) {
   $trail->parent('index');
-  $trail->push('Афиша', route('events'));
+  $trail->push('События', route('events'));
 });
 
 Breadcrumbs::for('event', function ($trail, $event) {
-  $trail->parent('index');
-  $trail->push($event->title, route('event', $event->id));
+  $trail->parent('events');
+  $trail->push($event->title, route('event', $event->slug));
 });
 
 Breadcrumbs::for('coaches', function ($trail) {
@@ -51,7 +51,7 @@ Breadcrumbs::for('gallery', function ($trail) {
 
 Breadcrumbs::for('album', function ($trail, $album) {
   $trail->parent('gallery');
-  $trail->push($album->title, route('album', $album));
+  $trail->push($album->title, route('album', $album->slug));
 });
 
 

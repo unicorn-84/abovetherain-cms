@@ -47,6 +47,10 @@ return [
       'singular' => 'Альбом',
       'plural' => 'Альбомы',
     ],
+    'events' => [
+      'singular' => 'Событие',
+      'plural' => 'События',
+    ],
     'menu' => [
       'singular' => 'Меню',
       'plural' => 'Меню',
@@ -75,6 +79,7 @@ return [
     'compass' => 'Compass',
     'dashboard' => 'Панель управления',
     'database' => 'База данных',
+    'events' => 'События',
     'media' => 'Медиа',
     'menu_builder' => 'Конструктор Меню',
     'pages' => 'Страницы',
