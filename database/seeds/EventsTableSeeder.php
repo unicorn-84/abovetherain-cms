@@ -91,6 +91,21 @@ class EventsTableSeeder extends Seeder
       ])->save();
     }
 
+    $dataRow = $this->dataRow($eventDataType, 'order');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'number',
+        'display_name' => __('voyager::seeders.data_rows.order'),
+        'required' => 0,
+        'browse' => 1,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 4,
+      ])->save();
+    }
+
     $dataRow = $this->dataRow($eventDataType, 'seo_title');
     if (!$dataRow->exists) {
       $dataRow->fill([
@@ -160,7 +175,6 @@ class EventsTableSeeder extends Seeder
         ],
       ])->save();
     }
-
 
     $dataRow = $this->dataRow($eventDataType, 'content');
     if (!$dataRow->exists) {
