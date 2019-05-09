@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
 
       $this->call(EventsTableSeeder::class);
 
+      $this->call(ServicesTableSeeder::class);
+
       $this->call(PermissionRoleTableSeeder::class);
 
     }

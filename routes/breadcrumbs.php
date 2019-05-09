@@ -11,7 +11,7 @@ Breadcrumbs::for('services', function ($trail) {
 
 Breadcrumbs::for('service', function ($trail, $service) {
   $trail->parent('services');
-  $trail->push($service->title, route('service', $service->id));
+  $trail->push($service->title, route('service', $service->slug));
 });
 
 Breadcrumbs::for('schedule', function ($trail) {

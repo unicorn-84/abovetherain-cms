@@ -17,12 +17,12 @@ Route::get('/', [
 
 Route::get('/services', [
   'as' => 'services',
-  'uses' => 'PageController@show'
+  'uses' => 'ServiceController@index'
 ]);
 
-Route::get('services/{id}', [
+Route::get('services/{slug}', [
   'as' => 'service',
-  'uses' => 'PageController@show'
+  'uses' => 'ServiceController@show'
 ]);
 
 Route::get('/schedule', [

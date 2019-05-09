@@ -3,22 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Service;
-use App\Page;
 
 class ServiceController extends Controller
 {
   public function index()
   {
-    $page = Page::where('name', 'services')->firstOrFail();
-    $services = Service::all();
-    return view('pages.services', compact('page', 'services'));
+    $services = \App\Service::orderBy('order', 'asc')->get();
+
+    $page = \App\Page::where('name', 'services')->firstOrFail();
+
+    return view('pages.services', ['page' => $page, 'services' => $services]);
   }
 
   public function show($slug)
   {
-    $page = Page::where('name', 'services')->firstOrFail();
-    $service = Service::where('slug', $slug)->firstOrFail();
-    return view('pages.service', compact('page', 'service'));
+    $page = \App\Page::where('name', 'services')->firstOrFail();
+
+    $service= \App\Service::where('slug', $slug)->firstOrFail();
+
+    return view('pages.service', ['page' => $page, 'service' => $service]);
   }
 }

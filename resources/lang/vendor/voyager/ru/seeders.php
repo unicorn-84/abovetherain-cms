@@ -43,11 +43,11 @@ return [
     'video' => 'Видео'
   ],
   'data_types' => [
-    'albums' => [
+    'album' => [
       'singular' => 'Альбом',
       'plural' => 'Альбомы',
     ],
-    'events' => [
+    'event' => [
       'singular' => 'Событие',
       'plural' => 'События',
     ],
@@ -67,6 +67,10 @@ return [
       'singular' => 'Роль',
       'plural' => 'Роли',
     ],
+    'service' => [
+      'singular' => 'Услуга',
+      'plural' => 'Услуги',
+    ],
     'user' => [
       'singular' => 'Пользователь',
       'plural' => 'Пользователи',
@@ -85,16 +89,16 @@ return [
     'pages' => 'Страницы',
     'posts' => 'Статьи',
     'roles' => 'Роли',
+    'services' => 'Услуги',
     'settings' => 'Настройки',
     'tools' => 'Инструменты',
     'users' => 'Пользователи',
   ],
   'roles' => [
-    'super' => 'Super',
     'admin' => 'Администратор',
+    'moderator' => 'Модератор',
     'user' => 'Обычный Пользователь',
   ],
-//  todo: Изменить превод настроек
   'settings' => [
     'admin' => [
       'description' => 'Описание админки',
