@@ -269,18 +269,8 @@ class AlbumsTableSeeder extends Seeder
     //Permissions
     Permission::generateFor('albums');
 
-    $album = Album::firstOrNew([
-      'title' => 'Тренировка',
-      'slug' => 'trenirovka',
-    ]);
-    if (!$album->exists) {
-      $album->fill([
-        'seo_title' => 'Тренировка',
-        'poster' => 'demo/albums/trenirovka.jpg',
-        'images' => '["demo/albums/photo.jpg"]'
-
-      ])->save();
-    }
+    //Фабрика
+    factory(\App\Album::class, 5)->create();
   }
 
   /**

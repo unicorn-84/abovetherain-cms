@@ -37,15 +37,17 @@
   @endif
 @endsection
 
+@php
+  $images = json_decode($album->images);
+  $videos = json_decode($album->videos);
+  //dd($images);
+@endphp
+
 @section('content')
   <main class="py-5 flex-fill">
-    <div class="container">
-      <div class="row">
-        @php
-          $images = json_decode($album->images);
-          $videos = json_decode($album->videos);
-        @endphp
-        @if($videos)
+    @if($videos)
+      <div class="container">
+        <div class="row">
           @foreach($videos as $video)
             <div class="сol-md-6 col-lg-4{{ count($images) > 0 ? ' mb-5' : '' }}">
               <div class="embed-responsive embed-responsive-16by9">
@@ -53,22 +55,28 @@
               </div>
             </div>
           @endforeach
-        @endif
+        </div>
       </div>
-      <div class="row">
-        @if($images)
+    @endif
+    @if($images)
+      <div class="container">
+        <div class="row">
           @foreach($images as $image)
             <div class="col-sm-6 col-md-4 col-lg-3">
-              <div class="card mb-2">
-                <a href={{ Voyager::image($image) }}>
-                  <img src="{{ Voyager::image($album->getThumbnail($image, 'cropped')) }}" alt="{{ $album->title }}" class="img-thumbnail border-0">
+              <div class="card mb-4">
+                {{--<a href={{ Voyager::image($image) }}>--}}
+                  {{--<img src="{{ Voyager::image($album->getThumbnail($image, 'cropped')) }}" alt="{{ $album->title }}" class="img-thumbnail border-0">--}}
+                {{--</a>--}}
+                {{--todo: для Faker; удалить--}}
+                <a href="{{ $image }}">
+                  <img src="{{ $image }}" alt="{{ $album->title }}" class="img-thumbnail border-0">
                 </a>
               </div>
             </div>
           @endforeach
-        @endif
+        </div>
       </div>
-    </div>
+    @endif
   </main>
 @endsection
 

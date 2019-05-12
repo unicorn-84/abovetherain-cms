@@ -1,12 +1,11 @@
 <?php
 
 namespace App;
-use TCG\Voyager\Traits\Resizable;
 
 use Illuminate\Database\Eloquent\Model;
+use TCG\Voyager\Traits\Resizable;
 
 class Album extends Model
 {
-  protected $guarded = [];
   use Resizable;
 }
