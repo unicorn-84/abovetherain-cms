@@ -300,8 +300,8 @@ class PagesTableSeeder extends Seeder
         'title' => 'Главная',
         'has_pagetitle' => false,
         'has_footer' => false,
-        'fon' => 'demo\pages\index\fon.jpg',
-        'mobile_fon' => 'demo\pages\index\mobile_fon.jpg'
+        'fon' => 'https://picsum.photos/1920/1080?blur=10&random=1',
+        'mobile_fon' => 'https://picsum.photos/1200/1600?blur=10&random=2'
       ])->save();
     }
 
@@ -342,45 +342,7 @@ class PagesTableSeeder extends Seeder
     if (!$page->exists) {
       $page->fill([
         'title' => 'Мы',
-        'content' => '
-          <p><img class="w-100" src="http://localhost:10000/storage/demo/pages/team/team.jpg" alt="Над Дождём" /></p>
-          <h1 style="text-align: center;">Мы</h1>
-          <p>Мы приглашаем в творческий замок "Над дождём" который обладает особой аурой и собирает под своей крышей особенных людей.</p>
-          <p>Наша цель, создание благоприятных условий для обучения мастерству воздушного искусства наряду с особой атмосферой раскрытия внешней красоты и силы, а также безграничности эмоционального и чувственного внутреннего мира.</p>
-          <p>Пластика каждого отдельного человека уникальна, это результат жизненных решений и взглядов, мы стремимся развить ее природные данные и дать уверенность в себе. Мы делаем танец выражением личности, отражением неповторимой человеческой индивидуальности и инструментом самопознания.</p>
-          <p>Приходите к нам не только за знаниями, но и за яркими эмоциями.</p>
-          <p>Все наши педагоги это талантливые тренера со спортивным и хореографическим образованием.</p>
-          <p>По мимо тренировочной деятельности активно учувствуют в соревнованиях и показательных выступлениях. Только такой тренер способен вдохновить, показать, как надо и передать знания.</p>
-          <p>В конце года мы устраиваем не просто отчетные концерты, а настоящее шоу для наших учеников и их гостей, в уютной дружеской атмосфере они всегда яркие и впечатляющие. Приходите к нам не только за знаниями, но и за яркими эмоциями. Двери нашей студии открыты для учеников всех возрастов начиная от 8 лет.</p>
-          <h2 style="text-align: center;">Наш подход к занятиям по хореографии и спорту</h2>
-          <p>Все танцевальные направления нашей студии на сегодняшний день являются лучшим и элегантным фитнесс решением для успешных и творческих людей.</p>
-          <p>Занятия по хореографии проходят по специально разработанным программам от малого к большему, поэтапному развитию навыка. На уроках вы будете плавно погружаться в процесс физического развития и знакомиться с возможностями своего тела. Опытный тренер проанализирует уровень вашей физической подготовки и составит тренировочный план, который возможно осуществлять на общих и индивидуальных тренировках. В небольших группах по выбранному направлению вы сможете добиться поставленных результатов или просто заниматься для удовольствия.</p>
-          <h2 style="text-align: center;">Программа тренировки Pole Dance</h2>
-          <p>Ученик каждое занятие проходит поэтапную нагрузку, которая включает:</p>
-          <ul>
-            <li>Разминка + кардио нагрузка</li>
-            <li>Силовая часть для укрепления всех групп мышц</li>
-            <li>Разучивание элементов</li>
-            <li>Связка из разученных элементов</li>
-            <li>Растяжка</li>
-            <li>Подготовка к импровизации</li>
-          </ul>
-          <p>Чтобы познакомить вас с атмосферой нашей студии мы подготовили для просмотра материал занятий и выступлений:</p>
-          <ul>
-            <li>
-              <a href="/gallery">Фото и видео материал</a>
-            </li>
-          </ul>
-          <h2 style="text-align: center;">Раскройте свою силу и красоту с помощью танцев</h2>
-          <p>Наслаждайтесь движением своего тела.</p>
-          <h2 style="text-align: center;">Погрузитесь в дружескую атмосферу и получайте удовольствие от спортивных занятий в просторном, оборудованном зале</h2>
-          <p>Профессиональное световое и звуковое оборудование, теплый пол, быстровозводимая сцена, акустический потолок.</p>
-          <p>Приглашаем вас на пробное занятие.</p>
-          <p>Запишитесь на него:</p>
-          <p><a href="tel:+7 952 3999930" title="+7 952 3999930"><b>+7 952 3999930</b></a></p>
-          <p>Опытные тренеры помогут раскрыть ваш талант.</p>
-          <p>Мы стремимся сделать танец выражением личности и инструментом самопознания.</p>
-        '
+        'content' => '<img class="w-100 mb-4" src="http://lorempixel.com/grey/800/533/"/><h1 class="text-center mb-3">Lorem ipsum</h1><p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati quaerat, velit. Aut beatae eius harum iure libero natus quis suscipit vero! Accusamus architecto autem nulla voluptates. Accusantium consectetur fugit, minima natus nesciunt possimus sit tempora temporibus ullam vero! A ad aliquam aliquid beatae cumque dignissimos ducimus ea, eius enim est eum excepturi expedita fuga harum hic incidunt ipsa labore mollitia, nostrum nulla numquam obcaecati odio officiis omnis placeat quaerat qui quo quos recusandae ullam ut veniam voluptas voluptate? Alias amet dolores eius eligendi eos error, eum exercitationem harum impedit in ipsam iste labore laudantium magni obcaecati, placeat quae quia rem repudiandae similique sit temporibus totam, voluptatum. Asperiores aut blanditiis dicta, dolor doloremque, eum excepturi fugiat harum id iusto magni maxime natus nemo nesciunt odio omnis perferendis quas quasi quos reiciendis rerum sint, tenetur? Aliquid amet aut commodi dolor facere laboriosam, unde? Accusantium assumenda consequuntur, corporis cumque, debitis deleniti, dolor dolorum eum expedita explicabo facere fugit illo laborum laudantium maxime natus necessitatibus perferendis possimus praesentium repellat repudiandae totam ullam vel velit veritatis vitae voluptatem! Blanditiis ducimus explicabo ipsa iusto magnam nesciunt officia pariatur, perspiciatis quisquam voluptatem? Accusantium autem beatae dolorem et harum incidunt labore minima, natus praesentium repellat rerum ullam vitae?</p>',
       ])->save();
     }
 
@@ -421,13 +383,7 @@ class PagesTableSeeder extends Seeder
     if (!$page->exists) {
       $page->fill([
         'title' => 'Реквизиты',
-        'content' => '
-          <h1 style="text-align: center;">Реквизиты для перечисления платежей</h1>
-          <p>ООО «Технологии управления»</p>
-          <p>ИНН 7816450800<br>КПП 781301001</p>
-          <p>БАНК: СЕВЕРО-ЗАПАДНЫЙ БАНК ПАО СБЕРБАНК Г. САНКТ-ПЕТЕРБУРГ<br>БИК 044030653<br>К/С 30101810500000000653<br>Р/С 40702.810.5.55000034772</p>
-          <p><b>В назначении платежа указать:<br>«Оплата за участие в мероприятии ___(указать дату мероприятия)___. НДС не облагается»</b></p>
-        '
+        'content' => '<img class="w-100 mb-4" src="http://lorempixel.com/grey/800/533/"/><h1 class="text-center mb-3">Lorem ipsum</h1><p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati quaerat, velit. Aut beatae eius harum iure libero natus quis suscipit vero! Accusamus architecto autem nulla voluptates. Accusantium consectetur fugit, minima natus nesciunt possimus sit tempora temporibus ullam vero! A ad aliquam aliquid beatae cumque dignissimos ducimus ea, eius enim est eum excepturi expedita fuga harum hic incidunt ipsa labore mollitia, nostrum nulla numquam obcaecati odio officiis omnis placeat quaerat qui quo quos recusandae ullam ut veniam voluptas voluptate? Alias amet dolores eius eligendi eos error, eum exercitationem harum impedit in ipsam iste labore laudantium magni obcaecati, placeat quae quia rem repudiandae similique sit temporibus totam, voluptatum. Asperiores aut blanditiis dicta, dolor doloremque, eum excepturi fugiat harum id iusto magni maxime natus nemo nesciunt odio omnis perferendis quas quasi quos reiciendis rerum sint, tenetur? Aliquid amet aut commodi dolor facere laboriosam, unde? Accusantium assumenda consequuntur, corporis cumque, debitis deleniti, dolor dolorum eum expedita explicabo facere fugit illo laborum laudantium maxime natus necessitatibus perferendis possimus praesentium repellat repudiandae totam ullam vel velit veritatis vitae voluptatem! Blanditiis ducimus explicabo ipsa iusto magnam nesciunt officia pariatur, perspiciatis quisquam voluptatem? Accusantium autem beatae dolorem et harum incidunt labore minima, natus praesentium repellat rerum ullam vitae?</p>',
       ])->save();
     }
   }

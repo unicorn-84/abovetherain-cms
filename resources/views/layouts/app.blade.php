@@ -32,14 +32,17 @@
 
   <!--MOBILE FON-->
   @if(isset($page->mobile_fon))
-    <style>html::before {background-image: url({{ Voyager::image($page->mobile_fon) }});}</style>
+    {{--<style>html::before {background-image: url({{ Voyager::image($page->mobile_fon) }});}</style>--}}
+    {{--todo: remove Faker--}}
+    <style>html::before {background-image: url({{ $page->mobile_fon }});}</style>
   @elseif(Voyager::setting("site.mobile_fon"))
     <style>html::before {background-image: url({{ Voyager::image(Voyager::setting("site.mobile_fon")) }});}</style>
   @endif
 
   <!--FON-->
   @if(isset($page->fon))
-    <style>@media (min-width: 992px) {html::before {background-image: url({{ Voyager::image($page->fon) }});}}</style>
+    {{--<style>@media (min-width: 992px) {html::before {background-image: url({{ Voyager::image($page->fon) }});}}</style>--}}
+    <style>@media (min-width: 992px) {html::before {background-image: url({{ $page->fon }});}}</style>
   @elseif(Voyager::setting("site.fon"))
     <style>@media (min-width: 992px) {html::before {background-image: url({{ Voyager::image(Voyager::setting("site.fon")) }});}}</style>
   @endif
