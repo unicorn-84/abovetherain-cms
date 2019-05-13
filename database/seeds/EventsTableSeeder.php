@@ -243,19 +243,8 @@ class EventsTableSeeder extends Seeder
     //Permissions
     Permission::generateFor('events');
 
-    $event = Event::firstOrNew([
-      'title' => 'Мастер-класс',
-      'slug' => 'master-class',
-    ]);
-    if (!$event->exists) {
-      $event->fill([
-        'seo_title' => 'Мастер-класс',
-        'poster' => 'demo/events/poster.jpg',
-        'content' => '
-          <h1 class="text-center">Мастер-класс</h1>
-        '
-      ])->save();
-    }
+    //Фабрика
+    factory(Event::class, 6)->create();
   }
 
   /**

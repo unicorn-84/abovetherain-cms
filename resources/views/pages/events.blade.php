@@ -42,11 +42,13 @@
     <div class="container">
       <div class="row">
         @foreach($events as $event)
-          <div class="col-md-6">
+          <div class="col-md-6 d-flex">
             <div class="card mb-4 w-100">
               @isset($event->poster)
                 <a href="{{ url('/events/' . $event->slug) }}">
-                  <img class="card-image-top img-thumbnail border-0" src="{{ Voyager::image($event->poster) }}" alt="{{ $event->title }}">
+                  {{--<img class="card-image-top img-thumbnail border-0" src="{{ Voyager::image($event->poster) }}" alt="{{ $event->title }}">--}}
+                  {{--todo: для Faker; удалить--}}
+                  <img class="card-image-top img-thumbnail border-0" src="{{ $event->poster }}" alt="{{ $event->title }}">
                 </a>
               @endisset
               <div class="card-body">
