@@ -38,7 +38,6 @@
 @endsection
 
 @section('content')
-
   <main class="py-5 flex-fill">
     @isset($event->content)
       <div class="container">

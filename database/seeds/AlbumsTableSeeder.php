@@ -22,8 +22,8 @@ class AlbumsTableSeeder extends Seeder
     if (!$dataType->exists) {
       $dataType->fill([
         'name' => 'albums',
-        'display_name_singular' => __('voyager::seeders.data_types.albums.singular'),
-        'display_name_plural' => __('voyager::seeders.data_types.albums.plural'),
+        'display_name_singular' => __('voyager::seeders.data_types.album.singular'),
+        'display_name_plural' => __('voyager::seeders.data_types.album.plural'),
         'icon' => 'voyager-photo',
         'model_name' => 'App\\Album',
         'controller' => '',

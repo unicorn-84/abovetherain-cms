@@ -230,12 +230,12 @@ class ServicesTableSeeder extends Seeder
       'menu_id' => $menu->id,
       'title' => __('voyager::seeders.menu_items.services'),
       'url' => '',
-      'route' => 'voyager-window-list',
+      'route' => 'voyager.services.index',
     ]);
     if (!$menuItem->exists) {
       $menuItem->fill([
         'target' => '_self',
-        'icon_class' => 'voyager-list-add',
+        'icon_class' => 'voyager-window-list',
         'color' => null,
         'parent_id' => null,
         'order' => 7,

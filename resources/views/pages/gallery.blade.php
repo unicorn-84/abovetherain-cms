@@ -46,9 +46,7 @@
             <div class="card mb-4 w-100">
               @isset($album->poster)
                 <a href="{{ url('/gallery/' . $album->slug) }}">
-                  {{--<img class="card-image-top img-thumbnail border-0" src="{{ Voyager::image($album->poster) }}" alt="{{ $album->title }}">--}}
-                  {{--todo: для Faker; удалить--}}
-                  <img class="card-image-top img-thumbnail border-0" src="{{ $album->poster }}" alt="{{ $album->title }}">
+                  <img class="card-image-top img-thumbnail border-0" src="{{ Voyager::image($album->poster) }}" alt="{{ $album->title }}">
                 </a>
               @endisset
               <div class="card-body">

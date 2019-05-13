@@ -12,7 +12,7 @@
             @if(Voyager::setting('site.logo'))
               <img src="{{ Voyager::image(Voyager::setting('site.logo')) }}" alt="Логотип">
             @else
-              <img src="{{ mix('images/empty.png') }}">
+              <img src="{{ asset('images/icons/empty.png') }}">
             @endif
           </a>
         </div>

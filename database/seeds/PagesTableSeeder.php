@@ -291,6 +291,8 @@ class PagesTableSeeder extends Seeder
     Permission::generateFor('pages');
 
     //Content
+    $faker = Faker\Factory::create();
+
     //Index
     $page = Page::firstOrNew([
       'name' => 'index',
@@ -300,8 +302,6 @@ class PagesTableSeeder extends Seeder
         'title' => 'Главная',
         'has_pagetitle' => false,
         'has_footer' => false,
-        'fon' => 'https://picsum.photos/1920/1080?blur=10&random=1',
-        'mobile_fon' => 'https://picsum.photos/1200/1600?blur=10&random=2'
       ])->save();
     }
 
@@ -342,7 +342,7 @@ class PagesTableSeeder extends Seeder
     if (!$page->exists) {
       $page->fill([
         'title' => 'Мы',
-        'content' => '<img class="w-100 mb-4" src="http://lorempixel.com/grey/800/533/"/><h1 class="text-center mb-3">Lorem ipsum</h1><p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati quaerat, velit. Aut beatae eius harum iure libero natus quis suscipit vero! Accusamus architecto autem nulla voluptates. Accusantium consectetur fugit, minima natus nesciunt possimus sit tempora temporibus ullam vero! A ad aliquam aliquid beatae cumque dignissimos ducimus ea, eius enim est eum excepturi expedita fuga harum hic incidunt ipsa labore mollitia, nostrum nulla numquam obcaecati odio officiis omnis placeat quaerat qui quo quos recusandae ullam ut veniam voluptas voluptate? Alias amet dolores eius eligendi eos error, eum exercitationem harum impedit in ipsam iste labore laudantium magni obcaecati, placeat quae quia rem repudiandae similique sit temporibus totam, voluptatum. Asperiores aut blanditiis dicta, dolor doloremque, eum excepturi fugiat harum id iusto magni maxime natus nemo nesciunt odio omnis perferendis quas quasi quos reiciendis rerum sint, tenetur? Aliquid amet aut commodi dolor facere laboriosam, unde? Accusantium assumenda consequuntur, corporis cumque, debitis deleniti, dolor dolorum eum expedita explicabo facere fugit illo laborum laudantium maxime natus necessitatibus perferendis possimus praesentium repellat repudiandae totam ullam vel velit veritatis vitae voluptatem! Blanditiis ducimus explicabo ipsa iusto magnam nesciunt officia pariatur, perspiciatis quisquam voluptatem? Accusantium autem beatae dolorem et harum incidunt labore minima, natus praesentium repellat rerum ullam vitae?</p>',
+        'content' => '<img class="w-100 mb-4" src="' . $faker->unique()->imageUrl(800, 533, false, true) . '"/><h1 class="text-center mb-3">' . substr($faker->sentence(2), 0, -1) . '</h1><p class="mb-0">' . $faker->text($maxNbChars = 1000) . '</p>',
       ])->save();
     }
 
@@ -383,7 +383,7 @@ class PagesTableSeeder extends Seeder
     if (!$page->exists) {
       $page->fill([
         'title' => 'Реквизиты',
-        'content' => '<img class="w-100 mb-4" src="http://lorempixel.com/grey/800/533/"/><h1 class="text-center mb-3">Lorem ipsum</h1><p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati quaerat, velit. Aut beatae eius harum iure libero natus quis suscipit vero! Accusamus architecto autem nulla voluptates. Accusantium consectetur fugit, minima natus nesciunt possimus sit tempora temporibus ullam vero! A ad aliquam aliquid beatae cumque dignissimos ducimus ea, eius enim est eum excepturi expedita fuga harum hic incidunt ipsa labore mollitia, nostrum nulla numquam obcaecati odio officiis omnis placeat quaerat qui quo quos recusandae ullam ut veniam voluptas voluptate? Alias amet dolores eius eligendi eos error, eum exercitationem harum impedit in ipsam iste labore laudantium magni obcaecati, placeat quae quia rem repudiandae similique sit temporibus totam, voluptatum. Asperiores aut blanditiis dicta, dolor doloremque, eum excepturi fugiat harum id iusto magni maxime natus nemo nesciunt odio omnis perferendis quas quasi quos reiciendis rerum sint, tenetur? Aliquid amet aut commodi dolor facere laboriosam, unde? Accusantium assumenda consequuntur, corporis cumque, debitis deleniti, dolor dolorum eum expedita explicabo facere fugit illo laborum laudantium maxime natus necessitatibus perferendis possimus praesentium repellat repudiandae totam ullam vel velit veritatis vitae voluptatem! Blanditiis ducimus explicabo ipsa iusto magnam nesciunt officia pariatur, perspiciatis quisquam voluptatem? Accusantium autem beatae dolorem et harum incidunt labore minima, natus praesentium repellat rerum ullam vitae?</p>',
+        'content' => '<h1 class="text-center mb-3">' . substr($faker->sentence(2), 0, -1) . '</h1><p class="mb-0">' . $faker->text($maxNbChars = 1000) . '</p>',
       ])->save();
     }
   }

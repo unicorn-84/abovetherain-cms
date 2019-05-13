@@ -10,12 +10,15 @@ class SettingsTableSeeder extends Seeder
    */
   public function run()
   {
+    //Faker
+    $faker = Faker\Factory::create();
+
     //Site
     $setting = $this->findSetting('site.title');
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.title'),
-        'value' => 'Над Дождём',
+        'value' => substr($faker->sentence(2), 0, -1),
         'details' => '',
         'type' => 'text',
         'order' => 1,
@@ -27,7 +30,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.seo_title'),
-        'value' => 'Над Дождём',
+        'value' => $faker->sentence(10),
         'details' => '',
         'type' => 'text',
         'order' => 2,
@@ -39,7 +42,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.seo_description'),
-        'value' => 'Школа танцев в Санкт-Петербурге',
+        'value' => $faker->text($maxNbChars = 20),
         'details' => '',
         'type' => 'text',
         'order' => 3,
@@ -51,7 +54,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.icon'),
-        'value' => 'demo/settings/icon.png',
+        'value' => 'demo/logo.png',
         'details' => '',
         'type' => 'image',
         'order' => 4,
@@ -63,7 +66,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.logo'),
-        'value' => 'demo/settings/logo.png',
+        'value' => 'demo/logo.png',
         'details' => '',
         'type' => 'image',
         'order' => 5,
@@ -71,23 +74,11 @@ class SettingsTableSeeder extends Seeder
       ])->save();
     }
 
-//    $setting = $this->findSetting('site.google_analytics_tracking_id');
-//    if (!$setting->exists) {
-//      $setting->fill([
-//        'display_name' => __('voyager::seeders.settings.site.google_analytics_tracking_id'),
-//        'value' => '',
-//        'details' => '',
-//        'type' => 'text',
-//        'order' => 4,
-//        'group' => 'Site',
-//      ])->save();
-//    }
-
     $setting = $this->findSetting('site.fon');
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.fon'),
-        'value' => 'demo/settings/fon.jpg',
+        'value' => '/demo/fon.jpg',
         'details' => '',
         'type' => 'image',
         'order' => 6,
@@ -99,7 +90,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.mobile_fon'),
-        'value' => 'demo/settings/mobile_fon.jpg',
+        'value' => '/demo/fon.jpg',
         'details' => '',
         'type' => 'image',
         'order' => 7,
@@ -112,7 +103,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => 'Email',
-        'value' => 'olle@abovetherain.ru',
+        'value' => $faker->email,
         'details' => '',
         'type' => 'text',
         'order' => 1,
@@ -124,7 +115,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.content.phone'),
-        'value' => '+7 952 3999930',
+        'value' => $faker->e164PhoneNumber,
         'details' => '',
         'type' => 'text',
         'order' => 2,
@@ -136,7 +127,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.content.address'),
-        'value' => '197110, г. Санкт-Петербург, Пионерская ул., д. 50, пом. 62-Н',
+        'value' => $faker->address,
         'details' => '',
         'type' => 'text_area',
         'order' => 3,
@@ -148,7 +139,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => 'VK',
-        'value' => 'https://vk.com/naddozhdem',
+        'value' => '#',
         'details' => '',
         'type' => 'text',
         'order' => 4,
@@ -160,7 +151,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => 'Instagram',
-        'value' => 'https://www.instagram.com/naddozhdem',
+        'value' => '#',
         'details' => '',
         'type' => 'text',
         'order' => 5,
@@ -172,7 +163,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => 'Facebook',
-        'value' => 'https://www.facebook.com/groups/naddozhdem',
+        'value' => '#',
         'details' => '',
         'type' => 'text',
         'order' => 6,
@@ -185,7 +176,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.admin.title'),
-        'value' => 'Над Дождём',
+        'value' => substr($faker->sentence(2), 0, -1),
         'details' => '',
         'type' => 'text',
         'order' => 1,
@@ -197,7 +188,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.admin.description'),
-        'value' => 'Школа танцев в Санкт-Петербурге',
+        'value' => $faker->text($maxNbChars = 10),
         'details' => '',
         'type' => 'text',
         'order' => 2,
@@ -209,7 +200,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.admin.fon'),
-        'value' => 'demo/settings/admin_fon.jpg',
+        'value' => '/demo/fon.jpg',
         'details' => '',
         'type' => 'image',
         'order' => 3,
@@ -221,7 +212,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.admin.loader'),
-        'value' => 'demo/settings/icon.png',
+        'value' => 'demo/logo.png',
         'details' => '',
         'type' => 'image',
         'order' => 4,
@@ -233,25 +224,13 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.admin.logo'),
-        'value' => 'demo/settings/logo.png',
+        'value' => 'demo/logo.png',
         'details' => '',
         'type' => 'image',
         'order' => 5,
         'group' => 'Admin',
       ])->save();
     }
-
-//    $setting = $this->findSetting('admin.google_analytics_client_id');
-//    if (!$setting->exists) {
-//      $setting->fill([
-//        'display_name' => __('voyager::seeders.settings.admin.google_analytics_client_id'),
-//        'value' => '',
-//        'details' => '',
-//        'type' => 'text',
-//        'order' => 1,
-//        'group' => 'Admin',
-//      ])->save();
-//    }
   }
 
   /**

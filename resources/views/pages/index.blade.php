@@ -39,16 +39,13 @@
 
 @section('content')
   <main class="py-5 flex-fill">
-    @isset($page->content)
-      {!! $page->content !!}
-    @endisset
     <div class="caption">
       <div class="container">
         <div class="row">
           <div class="col">
             <h1 class="text-white">
               <span><span>Школа&nbsp;танцев</span></span>
-              <span><span>«Над&nbsp;дождём»</span></span>
+              <span><span>«Lorem ipsum»</span></span>
             </h1>
           </div>
         </div>

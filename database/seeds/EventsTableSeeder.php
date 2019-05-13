@@ -22,8 +22,8 @@ class EventsTableSeeder extends Seeder
     if (!$dataType->exists) {
       $dataType->fill([
         'name' => 'events',
-        'display_name_singular' => __('voyager::seeders.data_types.events.singular'),
-        'display_name_plural' => __('voyager::seeders.data_types.events.plural'),
+        'display_name_singular' => __('voyager::seeders.data_types.event.singular'),
+        'display_name_plural' => __('voyager::seeders.data_types.event.plural'),
         'icon' => 'voyager-news',
         'model_name' => 'App\\Event',
         'controller' => '',

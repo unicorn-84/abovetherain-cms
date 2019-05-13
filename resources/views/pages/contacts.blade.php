@@ -39,9 +39,6 @@
 
 @section('content')
   <main class="py-5 flex-fill">
-    @isset($page->content)
-      {!! $page->content !!}
-    @endisset
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -131,7 +128,7 @@
 
 @section('footer')
   @if($page->has_footer))
-  @component('inc.footer')
-  @endcomponent
+    @component('inc.footer')
+    @endcomponent
   @endif
 @endsection

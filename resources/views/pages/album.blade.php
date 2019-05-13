@@ -64,12 +64,8 @@
           @foreach($images as $image)
             <div class="col-sm-6 col-md-4 col-lg-3">
               <div class="card mb-4">
-                {{--<a href={{ Voyager::image($image) }}>--}}
-                  {{--<img src="{{ Voyager::image($album->getThumbnail($image, 'cropped')) }}" alt="{{ $album->title }}" class="img-thumbnail border-0">--}}
-                {{--</a>--}}
-                {{--todo: для Faker; удалить--}}
-                <a href="{{ $image }}">
-                  <img src="{{ $image }}" alt="{{ $album->title }}" class="img-thumbnail border-0">
+                <a href={{ Voyager::image($image) }}>
+                  <img src="{{ Voyager::image($album->getThumbnail($image, 'cropped')) }}" alt="{{ $album->title }}" class="img-thumbnail border-0">
                 </a>
               </div>
             </div>
