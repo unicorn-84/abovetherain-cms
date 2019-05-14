@@ -35,8 +35,8 @@ Breadcrumbs::for('coaches', function ($trail) {
 });
 
 Breadcrumbs::for('coach', function ($trail, $coach) {
-  $trail->parent('index');
-  $trail->push($coach->title, route('coach', $coach->id));
+  $trail->parent('coaches');
+  $trail->push($coach->title, route('coach', $coach->slug));
 });
 
 Breadcrumbs::for('team', function ($trail) {

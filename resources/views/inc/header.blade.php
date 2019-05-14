@@ -1,5 +1,5 @@
 <header id="abovetherain-cms__header">
-  <nav class="navbar navbar-expand-lg bg-beige navbar-light shadow-sm">
+  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm">
     <div class="container">
       <div class="d-flex align-items-center justify-content-between w-100">
         <div class="d-flex align-items-center w-100 d-lg-none">

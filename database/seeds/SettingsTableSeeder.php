@@ -78,7 +78,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.fon'),
-        'value' => '/demo/fon.jpg',
+        'value' => '/demo/14.jpg',
         'details' => '',
         'type' => 'image',
         'order' => 6,
@@ -90,7 +90,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.mobile_fon'),
-        'value' => '/demo/fon.jpg',
+        'value' => 'demo/14-cropped.jpg',
         'details' => '',
         'type' => 'image',
         'order' => 7,
@@ -200,7 +200,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.admin.fon'),
-        'value' => '/demo/fon.jpg',
+        'value' => 'demo/14.jpg',
         'details' => '',
         'type' => 'image',
         'order' => 3,

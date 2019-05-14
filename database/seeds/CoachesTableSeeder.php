@@ -5,10 +5,10 @@ use TCG\Voyager\Models\DataRow;
 use TCG\Voyager\Models\DataType;
 use TCG\Voyager\Models\Menu;
 use TCG\Voyager\Models\MenuItem;
-use App\Album;
+use App\Coach;
 use TCG\Voyager\Models\Permission;
 
-class AlbumsTableSeeder extends Seeder
+class CoachesTableSeeder extends Seeder
 {
   /**
    * Run the database seeds.
@@ -18,14 +18,15 @@ class AlbumsTableSeeder extends Seeder
   public function run()
   {
     //Data Type
-    $dataType = $this->dataType('slug', 'albums');
+    $dataType = $this->dataType('slug', 'coaches');
     if (!$dataType->exists) {
       $dataType->fill([
-        'name' => 'albums',
-        'display_name_singular' => __('voyager::seeders.data_types.album.singular'),
-        'display_name_plural' => __('voyager::seeders.data_types.album.plural'),
-        'icon' => 'voyager-photo',
-        'model_name' => 'App\\Album',
+        'name' => 'coaches',
+        'display_name_singular' => __('voyager::seeders.data_types.coach.singular'),
+        'display_name_plural' => __('voyager::seeders.data_types.coach.plural'),
+//        todo: icon
+        'icon' => 'voyager-news',
+        'model_name' => 'App\\Event',
         'controller' => '',
         'generate_permissions' => 1,
         'description' => '',
@@ -33,9 +34,9 @@ class AlbumsTableSeeder extends Seeder
     }
 
     //Data Rows
-    $albumDataType = DataType::where('slug', 'albums')->firstOrFail();
+    $coachDataType = DataType::where('slug', 'coaches')->firstOrFail();
 
-    $dataRow = $this->dataRow($albumDataType, 'id');
+    $dataRow = $this->dataRow($coachDataType, 'id');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'number',
@@ -50,7 +51,7 @@ class AlbumsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($albumDataType, 'title');
+    $dataRow = $this->dataRow($coachDataType, 'title');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'text',
@@ -70,7 +71,7 @@ class AlbumsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($albumDataType, 'slug');
+    $dataRow = $this->dataRow($coachDataType, 'slug');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'text',
@@ -91,7 +92,7 @@ class AlbumsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($albumDataType, 'order');
+    $dataRow = $this->dataRow($coachDataType, 'order');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'number',
@@ -102,11 +103,11 @@ class AlbumsTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 1,
+        'order' => 4,
       ])->save();
     }
 
-    $dataRow = $this->dataRow($albumDataType, 'seo_title');
+    $dataRow = $this->dataRow($coachDataType, 'seo_title');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'text',
@@ -121,7 +122,7 @@ class AlbumsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($albumDataType, 'description');
+    $dataRow = $this->dataRow($coachDataType, 'description');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'text',
@@ -136,7 +137,7 @@ class AlbumsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($albumDataType, 'seo_description');
+    $dataRow = $this->dataRow($coachDataType, 'seo_description');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'text',
@@ -151,7 +152,7 @@ class AlbumsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($albumDataType, 'poster');
+    $dataRow = $this->dataRow($coachDataType, 'poster');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'image',
@@ -170,43 +171,17 @@ class AlbumsTableSeeder extends Seeder
           'upsize' => true,
           'resize' => [
             'width' => '800',
-            'height' => '533',
+            'height' => '1000',
           ],
         ],
       ])->save();
     }
 
-    $dataRow = $this->dataRow($albumDataType, 'images');
+    $dataRow = $this->dataRow($coachDataType, 'content');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'multiple_images',
-        'display_name' => __('voyager::seeders.data_rows.images'),
-        'required' => 0,
-        'browse' => 0,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
-        'order' => 8,
-        'details' => [
-          'thumbnails' => [
-            [
-              'name' => 'cropped',
-              'crop' => [
-                'width' => '800',
-                'height' => '533',
-              ],
-            ],
-          ],
-        ],
-      ])->save();
-    }
-
-    $dataRow = $this->dataRow($albumDataType, 'videos');
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'file',
-        'display_name' => __('voyager::seeders.data_rows.video'),
+        'type' => 'rich_text_box',
+        'display_name' => __('voyager::seeders.data_rows.content'),
         'required' => 0,
         'browse' => 0,
         'read' => 1,
@@ -218,7 +193,7 @@ class AlbumsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($albumDataType, 'created_at');
+    $dataRow = $this->dataRow($coachDataType, 'created_at');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'timestamp',
@@ -233,7 +208,7 @@ class AlbumsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($albumDataType, 'updated_at');
+    $dataRow = $this->dataRow($coachDataType, 'updated_at');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'timestamp',
@@ -252,25 +227,26 @@ class AlbumsTableSeeder extends Seeder
     $menu = Menu::where('name', 'Admin')->firstOrFail();
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu->id,
-      'title' => __('voyager::seeders.menu_items.albums'),
+      'title' => __('voyager::seeders.menu_items.coaches'),
       'url' => '',
-      'route' => 'voyager.albums.index',
+      'route' => 'voyager.coaches.index',
     ]);
     if (!$menuItem->exists) {
       $menuItem->fill([
         'target' => '_self',
-        'icon_class' => 'voyager-photos',
+//        todo: Icon
+        'icon_class' => 'voyager-news',
         'color' => null,
         'parent_id' => null,
-        'order' => 6,
+        'order' => 8,
       ])->save();
     }
 
     //Permissions
-    Permission::generateFor('albums');
+    Permission::generateFor('coaches');
 
     //Фабрика
-    factory(Album::class, 5)->create();
+    factory(App\Coach::class, 4)->create();
   }
 
   /**
@@ -301,5 +277,4 @@ class AlbumsTableSeeder extends Seeder
   {
     return DataType::firstOrNew([$field => $for]);
   }
-
 }

@@ -32,7 +32,7 @@
 @section('page-title')
   @if($page->has_pagetitle)
     @component('inc.page-title', ['title' => $page->title])
-      {{ Breadcrumbs::render('page', $page) }}
+      {{ Breadcrumbs::render('coaches', $page) }}
     @endcomponent
   @endif
 @endsection
@@ -41,23 +41,23 @@
   <main class="py-5 flex-fill">
     <div class="container">
       <div class="row">
-        @foreach($events as $event)
-          <div class="col-md-6 d-flex">
-            <div class="card mb-4 w-100">
-              @isset($event->poster)
-                <a href="{{ url('/events/' . $event->slug) }}">
-                  <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($event->poster) }}" alt="{{ $event->title }}">
-                </a>
+        @foreach($coaches as $coach)
+          <div class="col-sm-6 col-lg-4">
+            <div class="card mb-4">
+              @isset($coach->poster)
+                <div>
+                  <img class="card-img-top" src="{{ Voyager::image($coach->poster) }}" alt="{{ $coach->title }}">
+                </div>
               @endisset
-              <div class="card-body">
-                <a href="{{ url('/events/' . $event->slug) }}" class="text-reset">
-                  <h2 class="card-title text-center m-0">
-                    {{ $event->title }}
-                  </h2>
+              <div class="card-img-overlay h-100 d-flex flex-column justify-content-end text-white">
+                <a href="{{ url('/coaches/' . $coach->slug) }}" class="text-reset">
+                  <h3 class="card-title">
+                    {{ $coach->title }}
+                  </h3>
                 </a>
-                @isset($event->description)
-                  <p class="card-text mt-2 mb-0">{{ $event->description }}</p>
-                @endisset
+                <ul class="list-unstyled m-2">
+
+                </ul>
               </div>
             </div>
           </div>

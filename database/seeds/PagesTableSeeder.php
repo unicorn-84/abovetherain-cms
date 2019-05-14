@@ -342,7 +342,7 @@ class PagesTableSeeder extends Seeder
     if (!$page->exists) {
       $page->fill([
         'title' => 'Мы',
-        'content' => '<img class="w-100 mb-4" src="' . $faker->unique()->imageUrl(800, 533, false, true) . '"/><h1 class="text-center mb-3">' . substr($faker->sentence(2), 0, -1) . '</h1><p class="mb-0">' . $faker->text($maxNbChars = 1000) . '</p>',
+        'content' => $faker->text($maxNbChars = 1000),
       ])->save();
     }
 
@@ -383,7 +383,7 @@ class PagesTableSeeder extends Seeder
     if (!$page->exists) {
       $page->fill([
         'title' => 'Реквизиты',
-        'content' => '<h1 class="text-center mb-3">' . substr($faker->sentence(2), 0, -1) . '</h1><p class="mb-0">' . $faker->text($maxNbChars = 1000) . '</p>',
+        'content' => $faker->text($maxNbChars = 1000),
       ])->save();
     }
   }

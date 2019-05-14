@@ -37,5 +37,5 @@
     </div>
   </div>
   <div class="text-center pb-3"><span>{{ now()->year }}&nbsp;<i
-        class="far fa-copyright fa-fw"></i>&nbsp;{{Voyager::setting("site.name", 'Над Дождём')}}</span></div>
+        class="far fa-copyright fa-fw"></i>&nbsp;{{ Voyager::setting("site.title") }}</span></div>
 </footer>

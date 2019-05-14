@@ -51,6 +51,10 @@ return [
       'singular' => 'Событие',
       'plural' => 'События',
     ],
+    'coach' => [
+      'singular' => 'Тренер',
+      'plural' => 'Тренеры',
+    ],
     'menu' => [
       'singular' => 'Меню',
       'plural' => 'Меню',
@@ -80,6 +84,7 @@ return [
     'albums' => 'Альбомы',
     'bread' => 'BREAD',
     'categories' => 'Категории',
+    'coaches' => 'Тренеры',
     'compass' => 'Compass',
     'dashboard' => 'Панель управления',
     'database' => 'База данных',

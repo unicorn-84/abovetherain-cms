@@ -47,12 +47,12 @@ Route::get('/team', [
 
 Route::get('/coaches', [
   'as' => 'coaches',
-  'uses' => 'PageController@show'
+  'uses' => 'CoachController@index'
 ]);
 
-Route::get('/coach/{id}', [
+Route::get('/coaches/{slug}', [
   'as' => 'coach',
-  'uses' => 'PageController@show'
+  'uses' => 'CoachController@show'
 ]);
 
 Route::get('/gallery', [

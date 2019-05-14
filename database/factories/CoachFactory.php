@@ -2,21 +2,18 @@
 
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
-use App\Album;
+use App\Coach;
 use Faker\Generator as Faker;
 
-$factory->define(Album::class, function (Faker $faker) {
-  $images = [];
-  for ($i = 1; $i <= 17; $i += 1) {
-    array_push($images, '/demo/' . $i . '.jpg');
-  }
+$factory->define(Coach::class, function (Faker $faker) {
   return [
     'title' => substr($faker->sentence(2), 0, -1),
     'slug' => $faker->slug,
     'order' => $faker->randomDigitNotNull,
     'seo_title' => $faker->sentence(10),
+    'description' => $faker->text($maxNbChars = 200),
     'seo_description' => $faker->text($maxNbChars = 20),
-    'poster' => '/demo/' . mt_rand(1, 17) . '-cropped.jpg',
-    'images' => json_encode($images),
+    'poster' => '/demo/c_' . mt_rand(1, 4) . '.jpg',
+    'content' => $faker->realText($maxNbChars = 1000, $indexSize = 2),
   ];
 });

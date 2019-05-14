@@ -46,7 +46,7 @@
             <div class="card mb-4 w-100">
               @isset($service->poster)
                 <a href="{{ url('/services/' . $service->slug) }}">
-                  <img class="card-image-top img-thumbnail border-0" src="{{ Voyager::image($service->poster) }}" alt="{{ $service->title }}">
+                  <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($service->poster) }}" alt="{{ $service->title }}">
                 </a>
               @endisset
               <div class="card-body">

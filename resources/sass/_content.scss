@@ -126,15 +126,15 @@
       position: relative;
       overflow: hidden;
 
-      &::after {
-        content: '';
-        position: absolute;
-        top: -5px;
-        right: -5px;
-        bottom: -5px;
-        left: -5px;
-        background: linear-gradient(to bottom, transparent 30%, rgba(0, 0, 0, 0.8) 100%);
-      }
+      //&::after {
+      //  content: '';
+      //  position: absolute;
+      //  top: -5px;
+      //  right: -5px;
+      //  bottom: -5px;
+      //  left: -5px;
+      //  background: linear-gradient(to bottom, transparent 30%, rgba(0, 0, 0, 0.8) 100%);
+      //}
     }
   }
 }
