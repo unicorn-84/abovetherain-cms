@@ -47,6 +47,19 @@
               <div class="card-body">
                 {!! $service->content !!}
               </div>
+              @if(isset($service->coaches) && count($service->coaches) > 0)
+                <div class="card-footer p-4 d-lg-flex justify-content-lg-between">
+                  <ul class="list-unstyled m-0">
+                    @foreach($service->coaches as $coach)
+                      <li{!! $loop->last ? '' : ' class="mb-2"' !!}>
+                        <a href="{{ url('/coaches/' . $coach->slug) }}" class="text-reset text-decoration-none font-weight-bold h5">
+                          <i class="far fa-user fs-sm"></i>&nbsp{{ $coach->title }}
+                        </a>
+                      </li>
+                    @endforeach
+                  </ul>
+                </div>
+              @endif
             </div>
           </div>
         </div>

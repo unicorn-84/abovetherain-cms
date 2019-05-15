@@ -78,7 +78,7 @@ class ServicesTableSeeder extends Seeder
         'type' => 'text',
         'display_name' => __('voyager::seeders.data_rows.slug'),
         'required' => 0,
-        'browse' => 1,
+        'browse' => 0,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
@@ -88,7 +88,7 @@ class ServicesTableSeeder extends Seeder
           'slugify' => [
             'origin' => 'title',
             'forceUpdate' => true
-          ]
+          ],
         ]
       ])->save();
     }
@@ -105,6 +105,11 @@ class ServicesTableSeeder extends Seeder
         'add' => 1,
         'delete' => 1,
         'order' => 4,
+        'details' => [
+          'validation' => [
+            'rule' => 'required|numeric'
+          ],
+        ],
       ])->save();
     }
 
@@ -169,12 +174,33 @@ class ServicesTableSeeder extends Seeder
           'validation' => [
             'rule' => 'image'
           ],
-          'upsize' => true,
-          'resize' => [
-            'width' => '800',
-            'height' => '533',
-          ],
         ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($serviceDataType, 'service_belongstomany_coach_relationship');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'relationship',
+        'display_name' => __('voyager::seeders.data_rows.coaches'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 0,
+        'details' => [
+          'model' => 'App\\Coach',
+          'table' => 'coaches',
+          'type' => 'belongsToMany',
+          'column' => 'id',
+          'key' => 'id',
+          'label' => 'title',
+          'pivot_table' => 'coach_service',
+          'pivot' => 1,
+          'taggable' => '0',
+        ],
+        'order' => 8,
       ])->save();
     }
 
@@ -200,7 +226,7 @@ class ServicesTableSeeder extends Seeder
         'type' => 'timestamp',
         'display_name' => __('voyager::seeders.data_rows.created_at'),
         'required' => 1,
-        'browse' => 1,
+        'browse' => 0,
         'read' => 1,
         'edit' => 0,
         'add' => 0,
@@ -238,7 +264,7 @@ class ServicesTableSeeder extends Seeder
         'icon_class' => 'voyager-window-list',
         'color' => null,
         'parent_id' => null,
-        'order' => 7,
+        'order' => 2,
       ])->save();
     }
 

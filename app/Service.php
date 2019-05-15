@@ -12,4 +12,14 @@ class Service extends Model
     $truncated = Str::limit($value, 100, '...');
     $this->attributes['description'] = $truncated;
   }
+
+//  public function coachId()
+//  {
+//    return $this->belongsTo('App\Coach');
+//  }
+
+  public function coaches()
+  {
+    return $this->belongsToMany('App\Coach');
+  }
 }

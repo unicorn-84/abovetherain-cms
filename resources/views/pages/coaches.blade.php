@@ -55,9 +55,15 @@
                     {{ $coach->title }}
                   </h3>
                 </a>
-                <ul class="list-unstyled m-2">
-
-                </ul>
+                @if(count($coach->services) > 0)
+                  <ul class="list-unstyled m-2">
+                    @foreach($coach->services as $service)
+                      <li>
+                        <a href="{{ url('/services/' . $service->slug) }}" class="text-reset">{{ $service->title }}</a>
+                      </li>
+                    @endforeach
+                  </ul>
+                @endif
               </div>
             </div>
           </div>

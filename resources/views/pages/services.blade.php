@@ -42,7 +42,7 @@
     <div class="container">
       <div class="row">
         @foreach($services as $service)
-          <div class="col-md-6 col-lg-4 d-flex">
+          <div class="col-md-6 col-lg-4{{ $service->poster ? ' d-flex' : '' }}">
             <div class="card mb-4 w-100">
               @isset($service->poster)
                 <a href="{{ url('/services/' . $service->slug) }}">

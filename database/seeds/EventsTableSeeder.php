@@ -76,7 +76,7 @@ class EventsTableSeeder extends Seeder
         'type' => 'text',
         'display_name' => __('voyager::seeders.data_rows.slug'),
         'required' => 0,
-        'browse' => 1,
+        'browse' => 0,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
@@ -167,11 +167,6 @@ class EventsTableSeeder extends Seeder
           'validation' => [
             'rule' => 'image'
           ],
-          'upsize' => true,
-          'resize' => [
-            'width' => '800',
-            'height' => '533',
-          ],
         ],
       ])->save();
     }
@@ -198,7 +193,7 @@ class EventsTableSeeder extends Seeder
         'type' => 'timestamp',
         'display_name' => __('voyager::seeders.data_rows.created_at'),
         'required' => 1,
-        'browse' => 1,
+        'browse' => 0,
         'read' => 1,
         'edit' => 0,
         'add' => 0,
@@ -236,7 +231,7 @@ class EventsTableSeeder extends Seeder
         'icon_class' => 'voyager-news',
         'color' => null,
         'parent_id' => null,
-        'order' => 7,
+        'order' => 3,
       ])->save();
     }
 

@@ -245,7 +245,7 @@ class PagesTableSeeder extends Seeder
         'type' => 'timestamp',
         'display_name' => __('voyager::seeders.data_rows.created_at'),
         'required' => 1,
-        'browse' => 1,
+        'browse' => 0,
         'read' => 1,
         'edit' => 0,
         'add' => 0,
@@ -283,7 +283,7 @@ class PagesTableSeeder extends Seeder
         'icon_class' => 'voyager-file-text',
         'color' => null,
         'parent_id' => null,
-        'order' => 2,
+        'order' => 1,
       ])->save();
     }
 

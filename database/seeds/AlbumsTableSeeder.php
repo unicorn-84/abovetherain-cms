@@ -76,7 +76,7 @@ class AlbumsTableSeeder extends Seeder
         'type' => 'text',
         'display_name' => __('voyager::seeders.data_rows.slug'),
         'required' => 0,
-        'browse' => 1,
+        'browse' => 0,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
@@ -167,11 +167,6 @@ class AlbumsTableSeeder extends Seeder
           'validation' => [
             'rule' => 'image'
           ],
-          'upsize' => true,
-          'resize' => [
-            'width' => '800',
-            'height' => '533',
-          ],
         ],
       ])->save();
     }
@@ -224,7 +219,7 @@ class AlbumsTableSeeder extends Seeder
         'type' => 'timestamp',
         'display_name' => __('voyager::seeders.data_rows.created_at'),
         'required' => 1,
-        'browse' => 1,
+        'browse' => 0,
         'read' => 1,
         'edit' => 0,
         'add' => 0,
@@ -262,7 +257,7 @@ class AlbumsTableSeeder extends Seeder
         'icon_class' => 'voyager-photos',
         'color' => null,
         'parent_id' => null,
-        'order' => 6,
+        'order' => 5,
       ])->save();
     }
 

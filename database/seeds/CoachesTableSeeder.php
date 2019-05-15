@@ -24,9 +24,8 @@ class CoachesTableSeeder extends Seeder
         'name' => 'coaches',
         'display_name_singular' => __('voyager::seeders.data_types.coach.singular'),
         'display_name_plural' => __('voyager::seeders.data_types.coach.plural'),
-//        todo: icon
-        'icon' => 'voyager-news',
-        'model_name' => 'App\\Event',
+        'icon' => 'voyager-people',
+        'model_name' => 'App\\Coach',
         'controller' => '',
         'generate_permissions' => 1,
         'description' => '',
@@ -77,7 +76,7 @@ class CoachesTableSeeder extends Seeder
         'type' => 'text',
         'display_name' => __('voyager::seeders.data_rows.slug'),
         'required' => 0,
-        'browse' => 1,
+        'browse' => 0,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
@@ -168,12 +167,33 @@ class CoachesTableSeeder extends Seeder
           'validation' => [
             'rule' => 'image'
           ],
-          'upsize' => true,
-          'resize' => [
-            'width' => '800',
-            'height' => '1000',
-          ],
         ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($coachDataType, 'coach_belongstomany_service_relationship');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'relationship',
+        'display_name' => __('voyager::seeders.data_rows.services'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 0,
+        'details' => [
+          'model' => 'App\\Service',
+          'table' => 'services',
+          'type' => 'belongsToMany',
+          'column' => 'id',
+          'key' => 'id',
+          'label' => 'title',
+          'pivot_table' => 'coach_service',
+          'pivot' => 1,
+          'taggable' => '0',
+        ],
+        'order' => 8,
       ])->save();
     }
 
@@ -199,7 +219,7 @@ class CoachesTableSeeder extends Seeder
         'type' => 'timestamp',
         'display_name' => __('voyager::seeders.data_rows.created_at'),
         'required' => 1,
-        'browse' => 1,
+        'browse' => 0,
         'read' => 1,
         'edit' => 0,
         'add' => 0,
@@ -234,11 +254,10 @@ class CoachesTableSeeder extends Seeder
     if (!$menuItem->exists) {
       $menuItem->fill([
         'target' => '_self',
-//        todo: Icon
-        'icon_class' => 'voyager-news',
+        'icon_class' => 'voyager-people',
         'color' => null,
         'parent_id' => null,
-        'order' => 8,
+        'order' => 4,
       ])->save();
     }
 

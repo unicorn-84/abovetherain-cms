@@ -13,7 +13,7 @@ $factory->define(Coach::class, function (Faker $faker) {
     'seo_title' => $faker->sentence(10),
     'description' => $faker->text($maxNbChars = 200),
     'seo_description' => $faker->text($maxNbChars = 20),
-    'poster' => '/demo/c_' . mt_rand(1, 4) . '.jpg',
+    'poster' => '/demo/c_' . mt_rand(1, 6) . '.jpg',
     'content' => $faker->realText($maxNbChars = 1000, $indexSize = 2),
   ];
 });
