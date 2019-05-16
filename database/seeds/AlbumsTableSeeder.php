@@ -65,7 +65,10 @@ class AlbumsTableSeeder extends Seeder
         'details' => [
           'validation' => [
             'rule' => 'required'
-          ]
+          ],
+          'display' => [
+            'width' => '6'
+          ],
         ],
       ])->save();
     }
@@ -86,8 +89,71 @@ class AlbumsTableSeeder extends Seeder
           'slugify' => [
             'origin' => 'title',
             'forceUpdate' => true
-          ]
+          ],
+          'display' => [
+            'width' => '6'
+          ],
         ]
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($albumDataType, 'description');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'text_area',
+        'display_name' => __('voyager::seeders.data_rows.description'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 4,
+        'details' => [
+          'display' => [
+            'width' => '6'
+          ],
+        ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($albumDataType, 'seo_title');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'text_area',
+        'display_name' => __('voyager::seeders.data_rows.seo_title'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 5,
+        'details' => [
+          'display' => [
+            'width' => '6'
+          ],
+        ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($albumDataType, 'seo_description');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'text_area',
+        'display_name' => __('voyager::seeders.data_rows.seo_description'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 6,
+        'details' => [
+          'display' => [
+            'width' => '6'
+          ],
+        ],
       ])->save();
     }
 
@@ -102,52 +168,12 @@ class AlbumsTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 1,
-      ])->save();
-    }
-
-    $dataRow = $this->dataRow($albumDataType, 'seo_title');
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'text',
-        'display_name' => __('voyager::seeders.data_rows.seo_title'),
-        'required' => 0,
-        'browse' => 0,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
-        'order' => 4,
-      ])->save();
-    }
-
-    $dataRow = $this->dataRow($albumDataType, 'description');
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'text',
-        'display_name' => __('voyager::seeders.data_rows.description'),
-        'required' => 0,
-        'browse' => 0,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
-        'order' => 5,
-      ])->save();
-    }
-
-    $dataRow = $this->dataRow($albumDataType, 'seo_description');
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'text',
-        'display_name' => __('voyager::seeders.data_rows.seo_description'),
-        'required' => 0,
-        'browse' => 0,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
         'order' => 6,
+        'details' => [
+          'display' => [
+            'width' => '6'
+          ],
+        ],
       ])->save();
     }
 
@@ -209,7 +235,7 @@ class AlbumsTableSeeder extends Seeder
         'add' => 1,
         'delete' => 1,
         'order' => 9,
-        'details' => '',
+        'details' => [],
       ])->save();
     }
 
@@ -224,7 +250,7 @@ class AlbumsTableSeeder extends Seeder
         'edit' => 0,
         'add' => 0,
         'delete' => 0,
-        'order' => 9,
+        'order' => 19,
       ])->save();
     }
 
@@ -239,7 +265,7 @@ class AlbumsTableSeeder extends Seeder
         'edit' => 0,
         'add' => 0,
         'delete' => 0,
-        'order' => 10,
+        'order' => 20,
       ])->save();
     }
 

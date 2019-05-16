@@ -67,7 +67,10 @@ class ServicesTableSeeder extends Seeder
         'details' => [
           'validation' => [
             'rule' => 'required'
-          ]
+          ],
+          'display' => [
+            'width' => '6'
+          ],
         ],
       ])->save();
     }
@@ -78,7 +81,7 @@ class ServicesTableSeeder extends Seeder
         'type' => 'text',
         'display_name' => __('voyager::seeders.data_rows.slug'),
         'required' => 0,
-        'browse' => 0,
+        'browse' => 1,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
@@ -89,25 +92,28 @@ class ServicesTableSeeder extends Seeder
             'origin' => 'title',
             'forceUpdate' => true
           ],
+          'display' => [
+            'width' => '6'
+          ],
         ]
       ])->save();
     }
 
-    $dataRow = $this->dataRow($serviceDataType, 'order');
+    $dataRow = $this->dataRow($serviceDataType, 'description');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'number',
-        'display_name' => __('voyager::seeders.data_rows.order'),
+        'type' => 'text_area',
+        'display_name' => __('voyager::seeders.data_rows.description'),
         'required' => 0,
-        'browse' => 1,
+        'browse' => 0,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
         'order' => 4,
         'details' => [
-          'validation' => [
-            'rule' => 'required|numeric'
+          'display' => [
+            'width' => '6'
           ],
         ],
       ])->save();
@@ -116,7 +122,7 @@ class ServicesTableSeeder extends Seeder
     $dataRow = $this->dataRow($serviceDataType, 'seo_title');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'text',
+        'type' => 'text_area',
         'display_name' => __('voyager::seeders.data_rows.seo_title'),
         'required' => 0,
         'browse' => 0,
@@ -124,29 +130,19 @@ class ServicesTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 4,
-      ])->save();
-    }
-
-    $dataRow = $this->dataRow($serviceDataType, 'description');
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'text',
-        'display_name' => __('voyager::seeders.data_rows.description'),
-        'required' => 0,
-        'browse' => 0,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
         'order' => 5,
+        'details' => [
+          'display' => [
+            'width' => '6'
+          ],
+        ],
       ])->save();
     }
 
     $dataRow = $this->dataRow($serviceDataType, 'seo_description');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'text',
+        'type' => 'text_area',
         'display_name' => __('voyager::seeders.data_rows.seo_description'),
         'required' => 0,
         'browse' => 0,
@@ -155,6 +151,11 @@ class ServicesTableSeeder extends Seeder
         'add' => 1,
         'delete' => 1,
         'order' => 6,
+        'details' => [
+          'display' => [
+            'width' => '6'
+          ],
+        ],
       ])->save();
     }
 
@@ -199,8 +200,34 @@ class ServicesTableSeeder extends Seeder
           'pivot_table' => 'coach_service',
           'pivot' => 1,
           'taggable' => '0',
+          'display' => [
+            'width' => '6'
+          ],
         ],
         'order' => 8,
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($serviceDataType, 'order');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'number',
+        'display_name' => __('voyager::seeders.data_rows.order'),
+        'required' => 0,
+        'browse' => 1,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 9,
+        'details' => [
+          'validation' => [
+            'rule' => 'required|numeric'
+          ],
+          'display' => [
+            'width' => '6'
+          ],
+        ],
       ])->save();
     }
 
@@ -215,7 +242,7 @@ class ServicesTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 9,
+        'order' => 18,
         'details' => '',
       ])->save();
     }
@@ -231,7 +258,7 @@ class ServicesTableSeeder extends Seeder
         'edit' => 0,
         'add' => 0,
         'delete' => 0,
-        'order' => 9,
+        'order' => 19,
       ])->save();
     }
 
@@ -246,7 +273,7 @@ class ServicesTableSeeder extends Seeder
         'edit' => 0,
         'add' => 0,
         'delete' => 0,
-        'order' => 10,
+        'order' => 20,
       ])->save();
     }
 

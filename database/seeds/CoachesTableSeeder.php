@@ -100,7 +100,7 @@ class CoachesTableSeeder extends Seeder
     $dataRow = $this->dataRow($coachDataType, 'seo_title');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'text',
+        'type' => 'text_area',
         'display_name' => __('voyager::seeders.data_rows.seo_title'),
         'required' => 0,
         'browse' => 0,
@@ -120,7 +120,7 @@ class CoachesTableSeeder extends Seeder
     $dataRow = $this->dataRow($coachDataType, 'seo_description');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'text',
+        'type' => 'text_area',
         'display_name' => __('voyager::seeders.data_rows.seo_description'),
         'required' => 0,
         'browse' => 0,
