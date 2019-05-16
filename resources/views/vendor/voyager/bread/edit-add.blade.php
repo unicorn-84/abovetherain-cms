@@ -25,7 +25,7 @@
   <div class="page-content edit-add container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <div class="atr-table-container">
+        <div class="atr-bread-container">
 
           <!-- form start -->
           <form role="form"

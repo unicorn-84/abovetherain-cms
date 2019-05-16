@@ -38,7 +38,7 @@
   }
 }
 
-.atr-table-container {
+.atr-bread-container {
   table {
     margin-bottom: 0 !important;
     font-size: 16px;
@@ -55,14 +55,12 @@
         font-size: 18px;
         padding: 0.5rem 1rem;
         vertical-align: middle;
-        border: 1px solid #eaeaea !important;
       }
     }
 
     tbody {
       td {
         vertical-align: middle;
-        border: 1px solid #eaeaea !important;
         padding: 0.5rem 1rem;
       }
     }
@@ -87,6 +85,34 @@
     input {
       //padding: 1rem 0.5rem;
       //font-size: 16px;
+    }
+  }
+
+  .atr-read-container {
+    background-color: #f8fafc !important;
+    border: 1px solid #eaeaea !important;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+
+    .atr-read-heading {
+      font-size: 16px;
+      font-weight: 500;
+      padding: 0;
+    }
+
+    .atr-read-body {
+      font-size: 18px;
+      padding: 0;
+      color: #555;
+      margin: 1rem 0 0 0;
+
+      * {
+        margin: 0;
+      }
+    }
+
+    hr {
+      margin: 1rem 0 !important;
     }
   }
 }

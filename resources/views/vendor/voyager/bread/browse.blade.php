@@ -44,7 +44,7 @@
     @include('voyager::alerts')
     <div class="row">
       <div class="col-md-12">
-        <div class="atr-table-container">
+        <div class="atr-bread-container">
           @if ($isServerSide)
             <form method="get" class="form-search">
               <div id="search-input">
