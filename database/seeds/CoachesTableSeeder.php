@@ -65,7 +65,10 @@ class CoachesTableSeeder extends Seeder
         'details' => [
           'validation' => [
             'rule' => 'required'
-          ]
+          ],
+          'display' => [
+            'width' => '6',
+          ],
         ],
       ])->save();
     }
@@ -76,7 +79,7 @@ class CoachesTableSeeder extends Seeder
         'type' => 'text',
         'display_name' => __('voyager::seeders.data_rows.slug'),
         'required' => 0,
-        'browse' => 0,
+        'browse' => 1,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
@@ -86,23 +89,11 @@ class CoachesTableSeeder extends Seeder
           'slugify' => [
             'origin' => 'title',
             'forceUpdate' => true
-          ]
-        ]
-      ])->save();
-    }
-
-    $dataRow = $this->dataRow($coachDataType, 'order');
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'number',
-        'display_name' => __('voyager::seeders.data_rows.order'),
-        'required' => 0,
-        'browse' => 1,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
-        'order' => 4,
+          ],
+          'display' => [
+            'width' => '6',
+          ],
+        ],
       ])->save();
     }
 
@@ -118,21 +109,11 @@ class CoachesTableSeeder extends Seeder
         'add' => 1,
         'delete' => 1,
         'order' => 4,
-      ])->save();
-    }
-
-    $dataRow = $this->dataRow($coachDataType, 'description');
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'text',
-        'display_name' => __('voyager::seeders.data_rows.description'),
-        'required' => 0,
-        'browse' => 0,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
-        'order' => 5,
+        'details' => [
+          'display' => [
+            'width' => '6',
+          ],
+        ],
       ])->save();
     }
 
@@ -147,7 +128,12 @@ class CoachesTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 6,
+        'order' => 5,
+        'details' => [
+          'display' => [
+            'width' => '6',
+          ],
+        ],
       ])->save();
     }
 
@@ -162,7 +148,7 @@ class CoachesTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 7,
+        'order' => 6,
         'details' => [
           'validation' => [
             'rule' => 'image'
@@ -177,7 +163,7 @@ class CoachesTableSeeder extends Seeder
         'type' => 'relationship',
         'display_name' => __('voyager::seeders.data_rows.services'),
         'required' => 0,
-        'browse' => 1,
+        'browse' => 0,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
@@ -192,10 +178,34 @@ class CoachesTableSeeder extends Seeder
           'pivot_table' => 'coach_service',
           'pivot' => 1,
           'taggable' => '0',
+          'display' => [
+            'width' => '6'
+          ],
         ],
-        'order' => 8,
+        'order' => 18,
       ])->save();
     }
+
+    $dataRow = $this->dataRow($coachDataType, 'order');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'number',
+        'display_name' => __('voyager::seeders.data_rows.order'),
+        'required' => 0,
+        'browse' => 1,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 19,
+        'details' => [
+          'display' => [
+            'width' => '6',
+          ],
+        ],
+      ])->save();
+    }
+
 
     $dataRow = $this->dataRow($coachDataType, 'content');
     if (!$dataRow->exists) {
@@ -208,7 +218,7 @@ class CoachesTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 9,
+        'order' => 20,
         'details' => '',
       ])->save();
     }
