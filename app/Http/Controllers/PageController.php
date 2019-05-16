@@ -12,10 +12,8 @@ class PageController extends Controller
   public function show()
   {
     $name = \Request::route()->getName();
-    $page = DB::table('pages')->where('name', $name)->first();
-    if (!$page) {
-      abort('404');
-    }
+    $page = Page::where('slug', $name)->firstOrFail();
+
     if (view()->exists('pages.' . $name)) {
       $view = 'pages.' . $name;
     } else {
@@ -26,7 +24,7 @@ class PageController extends Controller
 
   public function gallery()
   {
-    $page = Page::where('name', 'gallery')->firstOrFail();
+    $page = Page::where('slug', 'gallery')->firstOrFail();
     $albums = Album::all();
     return view('pages.gallery')->with(['albums' => $albums, 'page' => $page]);
   }

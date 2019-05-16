@@ -9,7 +9,7 @@ class ScheduleController extends Controller
 {
   public function index()
   {
-    $page = \App\Page::where('name', 'schedule')->firstOrFail();
+    $page = \App\Page::where('slug', 'schedule')->firstOrFail();
     $trainings = \App\Training::all();
 
     $columns = [
