@@ -93,9 +93,9 @@ class TrainingsTableSeeder extends Seeder
     $dataRow = $this->dataRow($trainingDataType, 'day');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'select_dropdown',
+        'type' => 'text',
         'display_name' => __('voyager::seeders.data_rows.day'),
-        'required' => 0,
+        'required' => 1,
         'browse' => 1,
         'read' => 1,
         'edit' => 1,
@@ -103,8 +103,6 @@ class TrainingsTableSeeder extends Seeder
         'delete' => 1,
         'order' => 4,
         'details' => [
-          'default' => '',
-          'null' => '',
           'options' => [
             __('days.Monday'),
             __('days.Tuesday'),
@@ -116,9 +114,6 @@ class TrainingsTableSeeder extends Seeder
           ],
           'validation' => [
             'rule' => 'required'
-          ],
-          'display' => [
-            'width' => "6",
           ],
         ],
       ])->save();

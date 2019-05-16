@@ -1,1 +1,81 @@
-body,html{font-family:Fira Sans,sans-serif}.navbar .navbar-nav>li>a{text-transform:none}.app-container .side-body .container-fluid{padding-right:15px}.page-content .settings{padding-right:0}.tab-content>div{padding:10px 15px}.voyager .settings .nav-tabs a{left:-1px}.mce-branding{display:none!important}
+body,
+html {
+  font-family: "Fira Sans", sans-serif;
+}
+
+.navbar .navbar-nav > li > a {
+  text-transform: none;
+}
+
+.app-container .side-body .container-fluid {
+  padding-right: 15px;
+}
+
+.page-content .settings {
+  padding-right: 0;
+}
+
+.tab-content > div {
+  padding: 10px 15px;
+}
+
+.voyager .settings .nav-tabs a {
+  left: -1px;
+}
+
+.mce-branding {
+  display: none !important;
+}
+
+.atr-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.atr-header .atr-caption {
+  display: flex;
+  align-items: end;
+  margin-right: 2rem;
+  margin-left: 1rem;
+}
+.atr-header .atr-caption h2 {
+  margin: 0;
+  line-height: 1.35;
+}
+.atr-header .atr-caption i {
+  font-size: 3rem;
+  line-height: 1;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+}
+.atr-header .atr-buttons {
+  margin: 1rem 0;
+}
+.atr-header .atr-buttons a {
+  margin: 0 !important;
+}
+
+.atr-table-container table {
+  margin-bottom: 0 !important;
+  font-size: 16px;
+  background-color: #f8fafc !important;
+  border: 1px solid #ddd;
+}
+.atr-table-container table thead {
+  padding: 2rem 1rem;
+}
+.atr-table-container table thead th {
+  font-weight: 500;
+  font-size: 18px;
+  padding: 1rem;
+  vertical-align: middle;
+  border: 1px solid #eaeaea !important;
+}
+.atr-table-container table tbody td {
+  vertical-align: middle;
+  border: 1px solid #eaeaea !important;
+  padding: 1rem;
+}

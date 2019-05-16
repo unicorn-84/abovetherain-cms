@@ -11,7 +11,7 @@
 @endphp
 <div class="text-left p-2"{!! isset($style) ? ' ' . $style : '' !!}>
   <div class="h5 text-truncate mb-1">
-    <a href="{{ url('/services/' . $training->service->slug) }}">{{ $training->service->title }}</a>
+    <a href="{{ url('/services/' . $training->service->slug) }}" class="text-reset">{{ $training->service->title }}</a>
   </div>
   <div class="mb-1">{{ $training->start_time }}-{{ $training->end_time }}</div>
   @isset($training->coach)
