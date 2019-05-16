@@ -11,7 +11,7 @@ class AlbumController extends Controller
   public function index()
   {
     $page = Page::where('name', 'gallery')->firstOrFail();
-    $albums = Album::all();
+    $albums = Album::orderBy('order', 'asc')->get();
     return view('pages.gallery', compact('page', 'albums'));
   }
 

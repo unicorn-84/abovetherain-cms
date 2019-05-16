@@ -20,7 +20,6 @@ class CreateCoachesTable extends Migration
       $table->integer('order')->default(1);
       $table->string('seo_title')->nullable();
       $table->string('poster')->nullable();
-      $table->string('description')->nullable();
       $table->string('seo_description')->nullable();
       $table->text('content')->nullable();
       $table->timestamps();
