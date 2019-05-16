@@ -1,49 +1,3 @@
-.table-bordered thead td {
-  border-bottom-width: 1px;
-}
-
-.schedule-table {
-  table-layout: fixed;
-  //border-collapse: separate;
-  //border-spacing: 0;
-
-  thead {
-    tr {
-      td {
-        @include media-breakpoint-up(lg) {
-          &:first-child {
-            width: 7%;
-          }
-        }
-      }
-    }
-  }
-
-  tbody {
-    tr {
-      td {
-        //border-width: 0;
-      }
-    }
-
-    tr {
-      //display: none;
-
-      @include media-breakpoint-up(lg) {
-        //display: table-row;
-      }
-    }
-  }
-
-  .schedule-event {
-    //border: 0;
-
-    > div {
-      //display: none;
-    }
-  }
-}
-
 //Для 'all' селектора
 .schedule-table[data-selected='all'] .schedule-event {
   border: 1px solid theme-color('rhino');
@@ -125,6 +79,16 @@
     > div:first-child {
       position: relative;
       overflow: hidden;
+    }
+  }
+}
+
+#abovetherain-cms__schedule {
+  table {
+    table-layout: fixed;
+
+    thead th:first-child {
+      width: 10%;
     }
   }
 }

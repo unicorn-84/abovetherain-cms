@@ -10,4 +10,9 @@ class Coach extends Model
   {
     return $this->belongsToMany('App\Service');
   }
+
+  public function trainings()
+  {
+    return $this->hasMany('App\Training');
+  }
 }

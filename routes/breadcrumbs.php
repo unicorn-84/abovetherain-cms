@@ -54,7 +54,6 @@ Breadcrumbs::for('album', function ($trail, $album) {
   $trail->push($album->title, route('album', $album->slug));
 });
 
-
 Breadcrumbs::for('contacts', function ($trail) {
   $trail->parent('index');
   $trail->push('Контакты', route('contacts'));

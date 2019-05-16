@@ -5,10 +5,10 @@ use TCG\Voyager\Models\DataRow;
 use TCG\Voyager\Models\DataType;
 use TCG\Voyager\Models\Menu;
 use TCG\Voyager\Models\MenuItem;
-use App\Coach;
+use App\Training;
 use TCG\Voyager\Models\Permission;
 
-class CoachesTableSeeder extends Seeder
+class TrainingsTableSeeder extends Seeder
 {
   /**
    * Run the database seeds.
@@ -18,14 +18,14 @@ class CoachesTableSeeder extends Seeder
   public function run()
   {
     //Data Type
-    $dataType = $this->dataType('slug', 'coaches');
+    $dataType = $this->dataType('slug', 'trainings');
     if (!$dataType->exists) {
       $dataType->fill([
-        'name' => 'coaches',
-        'display_name_singular' => __('voyager::seeders.data_types.coach.singular'),
-        'display_name_plural' => __('voyager::seeders.data_types.coach.plural'),
-        'icon' => 'voyager-people',
-        'model_name' => 'App\\Coach',
+        'name' => 'trainings',
+        'display_name_singular' => __('voyager::seeders.data_types.training.singular'),
+        'display_name_plural' => __('voyager::seeders.data_types.training.plural'),
+        'icon' => 'voyager-barbell',
+        'model_name' => 'App\\Training',
         'controller' => '',
         'generate_permissions' => 1,
         'description' => '',
@@ -33,9 +33,9 @@ class CoachesTableSeeder extends Seeder
     }
 
     //Data Rows
-    $coachDataType = DataType::where('slug', 'coaches')->firstOrFail();
+    $trainingDataType = DataType::where('slug', 'trainings')->firstOrFail();
 
-    $dataRow = $this->dataRow($coachDataType, 'id');
+    $dataRow = $this->dataRow($trainingDataType, 'id');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'number',
@@ -50,11 +50,11 @@ class CoachesTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($coachDataType, 'title');
+    $dataRow = $this->dataRow($trainingDataType, 'service_id');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'text',
-        'display_name' => __('voyager::seeders.data_rows.title'),
+        'display_name' => __('voyager::seeders.data_rows.service'),
         'required' => 1,
         'browse' => 1,
         'read' => 1,
@@ -63,141 +63,154 @@ class CoachesTableSeeder extends Seeder
         'delete' => 1,
         'order' => 2,
         'details' => [
-          'validation' => [
-            'rule' => 'required'
-          ]
+          'display' => [
+            'width' => '6'
+          ],
         ],
       ])->save();
     }
 
-    $dataRow = $this->dataRow($coachDataType, 'slug');
+    $dataRow = $this->dataRow($trainingDataType, 'coach_id');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'text',
-        'display_name' => __('voyager::seeders.data_rows.slug'),
+        'display_name' => __('voyager::seeders.data_rows.coach'),
+        'required' => 1,
+        'browse' => 1,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 4,
+        'details' => [
+          'display' => [
+            'width' => '6'
+          ],
+        ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($trainingDataType, 'day');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'select_dropdown',
+        'display_name' => __('voyager::seeders.data_rows.day'),
         'required' => 0,
-        'browse' => 0,
+        'browse' => 1,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 4,
+        'details' => [
+          'default' => '',
+          'null' => '',
+          'options' => [
+            __('days.Monday'),
+            __('days.Tuesday'),
+            __('days.Wednesday'),
+            __('days.Thursday'),
+            __('days.Friday'),
+            __('days.Saturday'),
+            __('days.Sunday'),
+          ],
+          'validation' => [
+            'rule' => 'required'
+          ],
+          'display' => [
+            'width' => "6",
+          ],
+        ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($trainingDataType, 'start_time');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'text',
+        'display_name' => __('voyager::seeders.data_rows.start_time'),
+        'required' => 0,
+        'browse' => 1,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
         'order' => 3,
         'details' => [
-          'slugify' => [
-            'origin' => 'title',
-            'forceUpdate' => true
-          ]
-        ]
-      ])->save();
-    }
-
-    $dataRow = $this->dataRow($coachDataType, 'order');
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'number',
-        'display_name' => __('voyager::seeders.data_rows.order'),
-        'required' => 0,
-        'browse' => 1,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
-        'order' => 4,
-      ])->save();
-    }
-
-    $dataRow = $this->dataRow($coachDataType, 'seo_title');
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'text',
-        'display_name' => __('voyager::seeders.data_rows.seo_title'),
-        'required' => 0,
-        'browse' => 0,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
-        'order' => 4,
-      ])->save();
-    }
-
-    $dataRow = $this->dataRow($coachDataType, 'description');
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'text',
-        'display_name' => __('voyager::seeders.data_rows.description'),
-        'required' => 0,
-        'browse' => 0,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
-        'order' => 5,
-      ])->save();
-    }
-
-    $dataRow = $this->dataRow($coachDataType, 'seo_description');
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'text',
-        'display_name' => __('voyager::seeders.data_rows.seo_description'),
-        'required' => 0,
-        'browse' => 0,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
-        'order' => 6,
-      ])->save();
-    }
-
-    $dataRow = $this->dataRow($coachDataType, 'poster');
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'image',
-        'display_name' => __('voyager::seeders.data_rows.poster'),
-        'required' => 0,
-        'browse' => 0,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
-        'order' => 7,
-        'details' => [
           'validation' => [
-            'rule' => 'image'
+            'rule' => 'required|date_format:H:i'
+          ],
+          'display' => [
+            'width' => "6",
           ],
         ],
       ])->save();
     }
 
-    $dataRow = $this->dataRow($coachDataType, 'coach_belongstomany_service_relationship');
+    $dataRow = $this->dataRow($trainingDataType, 'end_time');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'relationship',
-        'display_name' => __('voyager::seeders.data_rows.services'),
+        'type' => 'text',
+        'display_name' => __('voyager::seeders.data_rows.end_time'),
         'required' => 0,
         'browse' => 1,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
-        'delete' => 0,
+        'delete' => 1,
+        'order' => 4,
         'details' => [
-          'model' => 'App\\Service',
-          'table' => 'services',
-          'type' => 'belongsToMany',
-          'column' => 'id',
-          'key' => 'id',
-          'label' => 'title',
-          'pivot_table' => 'coach_service',
-          'pivot' => 1,
-          'taggable' => '0',
+          'validation' => [
+            'rule' => 'required|date_format:H:i'
+          ],
+          'display' => [
+            'width' => "6",
+          ],
         ],
-        'order' => 8,
       ])->save();
     }
 
-    $dataRow = $this->dataRow($coachDataType, 'content');
+    $dataRow = $this->dataRow($trainingDataType, 'bg_color');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'color',
+        'display_name' => __('voyager::seeders.data_rows.bg_color'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 8,
+        'details' => [
+          'display' => [
+            'width' => "6",
+          ],
+        ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($trainingDataType, 'text_color');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'color',
+        'display_name' => __('voyager::seeders.data_rows.text_color'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 8,
+        'details' => [
+          'display' => [
+            'width' => "6",
+          ],
+        ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($trainingDataType, 'content');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'rich_text_box',
@@ -208,12 +221,12 @@ class CoachesTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 9,
+        'order' => 8,
         'details' => '',
       ])->save();
     }
 
-    $dataRow = $this->dataRow($coachDataType, 'created_at');
+    $dataRow = $this->dataRow($trainingDataType, 'created_at');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'timestamp',
@@ -228,7 +241,7 @@ class CoachesTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($coachDataType, 'updated_at');
+    $dataRow = $this->dataRow($trainingDataType, 'updated_at');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'timestamp',
@@ -247,25 +260,25 @@ class CoachesTableSeeder extends Seeder
     $menu = Menu::where('name', 'Admin')->firstOrFail();
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu->id,
-      'title' => __('voyager::seeders.menu_items.coaches'),
+      'title' => __('voyager::seeders.menu_items.trainings'),
       'url' => '',
-      'route' => 'voyager.coaches.index',
+      'route' => 'voyager.trainings.index',
     ]);
     if (!$menuItem->exists) {
       $menuItem->fill([
         'target' => '_self',
-        'icon_class' => 'voyager-people',
+        'icon_class' => 'voyager-barbell',
         'color' => null,
         'parent_id' => null,
-        'order' => 4,
+        'order' => 2,
       ])->save();
     }
 
     //Permissions
-    Permission::generateFor('coaches');
+    Permission::generateFor('trainings');
 
     //Фабрика
-    factory(App\Coach::class, 4)->create();
+    factory(\App\Training::class, 15)->create();
   }
 
   /**

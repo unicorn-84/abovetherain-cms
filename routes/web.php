@@ -27,7 +27,7 @@ Route::get('services/{slug}', [
 
 Route::get('/schedule', [
   'as' => 'schedule',
-  'uses' => 'PageController@show'
+  'uses' => 'ScheduleController@index'
 ]);
 
 Route::get('/events', [

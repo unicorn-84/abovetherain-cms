@@ -13,13 +13,13 @@ class Service extends Model
     $this->attributes['description'] = $truncated;
   }
 
-//  public function coachId()
-//  {
-//    return $this->belongsTo('App\Coach');
-//  }
-
   public function coaches()
   {
     return $this->belongsToMany('App\Coach');
+  }
+
+  public function trainings()
+  {
+    return $this->hasMany('App\Training');
   }
 }

@@ -22,13 +22,15 @@ class DatabaseSeeder extends Seeder
 
       $this->call(EventsTableSeeder::class);
 
-      $this->call(ServicesTableSeeder::class);
-
       $this->call(CoachesTableSeeder::class);
 
-      $this->call(PermissionRoleTableSeeder::class);
+      $this->call(ServicesTableSeeder::class);
 
       $this->call(CoachServiceTableSeeder::class);
+
+      $this->call(TrainingsTableSeeder::class);
+
+      $this->call(PermissionRoleTableSeeder::class);
 
     }
 }
