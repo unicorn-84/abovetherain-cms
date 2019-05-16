@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}" dir="{{ __('voyager::generic.is_rtl') == 'true' ? 'rtl' : 'ltr' }}">
 <head>
-  <title>@yield('page_title', setting('admin.title'))</title>
+  <title>@yield('page_title', Voyager::setting('admin.title'))</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}"/>
   <meta name="assets-path" content="{{ route('voyager.assets') }}"/>
-  <meta name="description" content="{{ Voyager::setting("admin.meta_description") }}">
   <meta name="robots" content="none"/>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=cyrillic" rel="stylesheet">
 
   <!-- Favicon -->
-  <link rel="shortcut icon"
-        href="{{ Voyager::image( Voyager::setting('admin.favicon'), '') }}"
-        type="image/x-icon">
+  @if(Voyager::setting('site.icon'))
+    <link rel="shortcut icon" href="{{ Voyager::image( Voyager::setting('site.icon')) }}" type="image/x-icon">
+  @endif
 
   <!-- App CSS -->
   <link rel="stylesheet" href="{{ voyager_asset('css/app.css') }}">
@@ -48,16 +47,14 @@
   @foreach(config('voyager.additional_css') as $css)
     <link rel="stylesheet" type="text/css" href="{{ asset($css) }}">@endforeach
   @endif
-
   @yield('head')
 </head>
 
 <body class="voyager @if(isset($dataType) && isset($dataType->slug)){{ $dataType->slug }}@endif">
 
 <div id="voyager-loader">
-  <?php $admin_loader_img = Voyager::setting('admin.loader', ''); ?>
-  @if($admin_loader_img)
-      <img src="{{ Voyager::image($admin_loader_img) }}" alt="{{ Voyager::setting('admin.name', '') }}" style="width: 50px; height: auto;">
+  @if(Voyager::setting('admin.loader'))
+      <img src="{{ Voyager::image(Voyager::setting('admin.loader', '')) }}" alt="{{ Voyager::setting('admin.name') }}" style="width: 50px; height: auto;">
   @endif
 </div>
 

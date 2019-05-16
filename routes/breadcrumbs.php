@@ -11,7 +11,7 @@ Breadcrumbs::for('services', function ($trail) {
 
 Breadcrumbs::for('service', function ($trail, $service) {
   $trail->parent('services');
-  $trail->push($service->title, route('service', $service->id));
+  $trail->push($service->title, route('service', $service->slug));
 });
 
 Breadcrumbs::for('schedule', function ($trail) {
@@ -21,12 +21,12 @@ Breadcrumbs::for('schedule', function ($trail) {
 
 Breadcrumbs::for('events', function ($trail) {
   $trail->parent('index');
-  $trail->push('Афиша', route('events'));
+  $trail->push('События', route('events'));
 });
 
 Breadcrumbs::for('event', function ($trail, $event) {
-  $trail->parent('index');
-  $trail->push($event->title, route('event', $event->id));
+  $trail->parent('events');
+  $trail->push($event->title, route('event', $event->slug));
 });
 
 Breadcrumbs::for('coaches', function ($trail) {
@@ -35,8 +35,8 @@ Breadcrumbs::for('coaches', function ($trail) {
 });
 
 Breadcrumbs::for('coach', function ($trail, $coach) {
-  $trail->parent('index');
-  $trail->push($coach->title, route('coach', $coach->id));
+  $trail->parent('coaches');
+  $trail->push($coach->title, route('coach', $coach->slug));
 });
 
 Breadcrumbs::for('team', function ($trail) {
@@ -49,6 +49,11 @@ Breadcrumbs::for('gallery', function ($trail) {
   $trail->push('Галерея', route('gallery'));
 });
 
+Breadcrumbs::for('album', function ($trail, $album) {
+  $trail->parent('gallery');
+  $trail->push($album->title, route('album', $album->slug));
+});
+
 Breadcrumbs::for('contacts', function ($trail) {
   $trail->parent('index');
   $trail->push('Контакты', route('contacts'));
@@ -57,4 +62,9 @@ Breadcrumbs::for('contacts', function ($trail) {
 Breadcrumbs::for('requisites', function ($trail) {
   $trail->parent('index');
   $trail->push('Реквизиты для оплаты', route('requisites'));
+});
+
+Breadcrumbs::for('page', function ($trail, $page) {
+  $trail->parent('index');
+  $trail->push($page->title, route($page->name));
 });

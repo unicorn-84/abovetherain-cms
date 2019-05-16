@@ -1,11 +1,6 @@
 import each from 'lodash/each';
 import WebFont from 'webfontloader';
-import indexMobileFon from '../images/fon/mobile-index-fon.jpg';
-import indexFon from '../images/fon/index-fon.jpg';
-import commonMobileFon from '../images/fon/mobile-common-fon.jpg';
-import commonFon from '../images/fon/common-fon.jpg';
 
-const mobile = matchMedia('(max-width: 991px)');
 const indexPage = document.getElementById('abovetherain-cms__index');
 
 function doAnimation() {
@@ -15,38 +10,14 @@ function doAnimation() {
   });
 }
 
-function imageLoad(image, cb) {
-  const img = new Image();
-  img.src = image;
-  img.onload = cb;
-  img.onerror = cb;
-}
-
 if (indexPage) {
   WebFont.load({
     custom: {
       families: ['hercules_modern'],
     },
   });
+  doAnimation();
 }
-
-(function fonLoad() {
-  if (mobile.matches) {
-    imageLoad((indexPage ? indexMobileFon : commonMobileFon), () => {
-      setTimeout(() => {
-        document.documentElement.classList.add('fon-loaded');
-      }, 0);
-    });
-  } else {
-    imageLoad((indexPage ? indexFon : commonFon), () => {
-      setTimeout(() => {
-        document.documentElement.classList.add('fon-loaded');
-        doAnimation();
-      }, 0);
-    });
-  }
-  mobile.addListener(fonLoad);
-}());
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

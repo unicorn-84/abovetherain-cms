@@ -12,22 +12,18 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/main.js', 'public/js')
-  .sass('resources/sass/main.scss', 'public/css')
-  .disableNotifications();
+  .sass('resources/sass/main.scss', 'public/css');
 
 mix.options({
   processCssUrls: false,
 });
 
-mix.copyDirectory('resources/fonts', 'public/fonts')
-  .copy('resources/images/empty.png', 'public/images/empty.png')
-  .copy('resources/images/logo/logo.png', 'public/images/logo/logo.png')
-  .copy('resources/images/fon/mobile-index-fon.jpg', 'public/images/fon/mobile-index-fon.jpg')
-  .copy('resources/images/fon/mobile-common-fon.jpg', 'public/images/fon/mobile-common-fon.jpg')
-  .copy('resources/images/fon/index-fon.jpg', 'public/images/fon/index-fon.jpg')
-  .copy('resources/images/fon/common-fon.jpg', 'public/images/fon/common-fon.jpg');
+mix.copyDirectory('resources/fonts', 'public/fonts');
+mix.copyDirectory('resources/js/tinymce', 'public/js/tinymce');
+mix.copyDirectory('resources/images/icons', 'public/images/icons');
 
-mix.sass('resources/sass/admin/admin.scss', 'public/css');
+mix.sass('resources/sass/admin/admin.scss', 'public/css')
+  .js('resources/js/admin.js', 'public/js');
 
 if (mix.inProduction()) {
   mix.version();

@@ -7,13 +7,13 @@
         <div class="analytics-container">
             <?php $google_analytics_client_id = Voyager::setting("admin.google_analytics_client_id"); ?>
             @if (isset($google_analytics_client_id) && !empty($google_analytics_client_id))
-                {{-- Google Analytics Embed --}}
+                 Google Analytics Embed
                 <div id="embed-api-auth-container"></div>
             @else
-                <!-- <p style="border-radius:4px; padding:20px; background:#fff; margin:0; color:#999; text-align:center;">
+                 <p style="border-radius:4px; padding:20px; background:#fff; margin:0; color:#999; text-align:center;">
                     {!! __('voyager::analytics.no_client_id') !!}
                     <a href="https://console.developers.google.com" target="_blank">https://console.developers.google.com</a>
-                </p> -->
+                </p>
             @endif
 
             <div class="Dashboard Dashboard--full" id="analytics-dashboard">
@@ -80,8 +80,7 @@
 @stop
 
 @section('javascript')
-
-    @if(isset($google_analytics_client_id) && !empty($google_analytics_client_id))
+  @if(isset($google_analytics_client_id) && !empty($google_analytics_client_id))
         <script>
             (function (w, d, s, g, js, fs) {
                 g = w.gapi || (w.gapi = {});
@@ -99,7 +98,6 @@
                 };
             }(window, document, 'script'));
         </script>
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.1.1/Chart.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
         <script>
@@ -110,7 +108,6 @@
             // Active Users JS
             !function(t){function i(s){if(e[s])return e[s].exports;var n=e[s]={exports:{},id:s,loaded:!1};return t[s].call(n.exports,n,n.exports,i),n.loaded=!0,n.exports}var e={};return i.m=t,i.c=e,i.p="",i(0)}([function(t,i){"use strict";gapi.analytics.ready(function(){gapi.analytics.createComponent("ActiveUsers",{initialize:function(){this.activeUsers=0,gapi.analytics.auth.once("signOut",this.handleSignOut_.bind(this))},execute:function(){this.polling_&&this.stop(),this.render_(),gapi.analytics.auth.isAuthorized()?this.pollActiveUsers_():gapi.analytics.auth.once("signIn",this.pollActiveUsers_.bind(this))},stop:function(){clearTimeout(this.timeout_),this.polling_=!1,this.emit("stop",{activeUsers:this.activeUsers})},render_:function(){var t=this.get();this.container="string"==typeof t.container?document.getElementById(t.container):t.container,this.container.innerHTML=t.template||this.template,this.container.querySelector("b").innerHTML=this.activeUsers},pollActiveUsers_:function(){var t=this.get(),i=1e3*(t.pollingInterval||5);if(isNaN(i)||5e3>i)throw new Error("Frequency must be 5 seconds or more.");this.polling_=!0,gapi.client.analytics.data.realtime.get({ids:t.ids,metrics:"rt:activeUsers"}).then(function(t){var e=t.result,s=e.totalResults?+e.rows[0][0]:0,n=this.activeUsers;this.emit("success",{activeUsers:this.activeUsers}),s!=n&&(this.activeUsers=s,this.onChange_(s-n)),1==this.polling_&&(this.timeout_=setTimeout(this.pollActiveUsers_.bind(this),i))}.bind(this))},onChange_:function(t){var i=this.container.querySelector("b");i&&(i.innerHTML=this.activeUsers),this.emit("change",{activeUsers:this.activeUsers,delta:t}),t>0?this.emit("increase",{activeUsers:this.activeUsers,delta:t}):this.emit("decrease",{activeUsers:this.activeUsers,delta:t})},handleSignOut_:function(){this.stop(),gapi.analytics.auth.once("signIn",this.handleSignIn_.bind(this))},handleSignIn_:function(){this.pollActiveUsers_(),gapi.analytics.auth.once("signOut",this.handleSignOut_.bind(this))},template:'<div class="ActiveUsers">Active Users: <b class="ActiveUsers-value"></b></div>'})})}]);
         </script>
-
         <script>
             // == NOTE ==
             // This code uses ES6 promises. If you want to use this code in a browser
@@ -468,7 +465,5 @@
             });
 
         </script>
-
-    @endif
-
+  @endif
 @stop
