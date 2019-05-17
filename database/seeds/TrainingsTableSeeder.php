@@ -81,7 +81,7 @@ class TrainingsTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 4,
+        'order' => 3,
         'details' => [
           'display' => [
             'width' => '6'
@@ -115,6 +115,9 @@ class TrainingsTableSeeder extends Seeder
           'validation' => [
             'rule' => 'required'
           ],
+          'display' => [
+            'width' => '6'
+          ],
         ],
       ])->save();
     }
@@ -130,7 +133,7 @@ class TrainingsTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 3,
+        'order' => 5,
         'details' => [
           'validation' => [
             'rule' => 'required|date_format:H:i'
@@ -153,7 +156,7 @@ class TrainingsTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 4,
+        'order' => 6,
         'details' => [
           'validation' => [
             'rule' => 'required|date_format:H:i'
@@ -176,7 +179,7 @@ class TrainingsTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 8,
+        'order' => 7,
         'details' => [
           'display' => [
             'width' => "6",
@@ -216,7 +219,7 @@ class TrainingsTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 8,
+        'order' => 18,
         'details' => '',
       ])->save();
     }
@@ -232,7 +235,7 @@ class TrainingsTableSeeder extends Seeder
         'edit' => 0,
         'add' => 0,
         'delete' => 0,
-        'order' => 9,
+        'order' => 19,
       ])->save();
     }
 
@@ -247,7 +250,7 @@ class TrainingsTableSeeder extends Seeder
         'edit' => 0,
         'add' => 0,
         'delete' => 0,
-        'order' => 10,
+        'order' => 20,
       ])->save();
     }
 

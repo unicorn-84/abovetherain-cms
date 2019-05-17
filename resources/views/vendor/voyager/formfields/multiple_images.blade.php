@@ -4,8 +4,8 @@
     @if($images != null)
         @foreach($images as $image)
             <div class="img_settings_container" data-field-name="{{ $row->field }}" style="position: relative; float: left; margin-right: 1rem; margin-bottom: 0.5rem">
-                <a href="#" class="voyager-x remove-multi-image" style="font-size: 1.2rem; position: absolute; top: 0.2rem; right: 0.2rem;"></a>
-                <img src="{{ Voyager::image( $image ) }}" data-file-name="{{ $image }}" data-id="{{ $dataTypeContent->id }}" class="img-thumbnail" style="height: 100px;">
+                <img src="{{ Voyager::image( $image ) }}" data-file-name="{{ $image }}" data-id="{{ $dataTypeContent->id }}" class="img-thumbnail" style="width: 320px;">
+              <a href="#" class="voyager-x remove-multi-image" style="font-size: 2rem;"></a>
             </div>
         @endforeach
     @endif

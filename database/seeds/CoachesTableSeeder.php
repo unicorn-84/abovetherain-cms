@@ -197,7 +197,7 @@ class CoachesTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 19,
+        'order' => 17,
         'details' => [
           'display' => [
             'width' => '6',
@@ -218,7 +218,7 @@ class CoachesTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 20,
+        'order' => 18,
         'details' => '',
       ])->save();
     }
@@ -234,7 +234,7 @@ class CoachesTableSeeder extends Seeder
         'edit' => 0,
         'add' => 0,
         'delete' => 0,
-        'order' => 9,
+        'order' => 19,
       ])->save();
     }
 
@@ -249,7 +249,7 @@ class CoachesTableSeeder extends Seeder
         'edit' => 0,
         'add' => 0,
         'delete' => 0,
-        'order' => 10,
+        'order' => 20,
       ])->save();
     }
 

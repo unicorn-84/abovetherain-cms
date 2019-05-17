@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.8.14 on 2019-05-01 17:35:17.
+ * Generated for Laravel 5.8.14 on 2019-05-17 14:05:55.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -14519,6 +14519,18 @@ namespace Illuminate\Support {
  
 }
 
+namespace Jenssegers\Date { 
+
+    /**
+     * 
+     *
+     */ 
+    class Date {
+         
+    }
+ 
+}
+
 namespace Arrilot\Widgets { 
 
     /**
@@ -15200,6 +15212,8 @@ namespace  {
     class Cookie extends \Illuminate\Support\Facades\Cookie {}
 
     class Crypt extends \Illuminate\Support\Facades\Crypt {}
+
+    class Date extends \Jenssegers\Date\Date {}
 
     class DB extends \Illuminate\Support\Facades\DB {}
 

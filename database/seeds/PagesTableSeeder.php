@@ -49,21 +49,6 @@ class PagesTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($pageDataType, 'name');
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'text',
-        'display_name' => __('voyager::seeders.data_rows.name'),
-        'required' => 1,
-        'browse' => 1,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
-        'order' => 2,
-      ])->save();
-    }
-
     $dataRow = $this->dataRow($pageDataType, 'title');
     if (!$dataRow->exists) {
       $dataRow->fill([
@@ -75,14 +60,43 @@ class PagesTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
+        'order' => 2,
+        'details' => [
+          'display' => [
+            'width' => '6'
+          ],
+        ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($pageDataType, 'slug');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'text',
+        'display_name' => __('voyager::seeders.data_rows.slug'),
+        'required' => 1,
+        'browse' => 1,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
         'order' => 3,
+        'details' => [
+          'display' => [
+            'width' => '6'
+          ],
+          'slugify' => [
+            'origin' => 'title',
+            'forceUpdate' => true
+          ],
+        ],
       ])->save();
     }
 
     $dataRow = $this->dataRow($pageDataType, 'seo_title');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'text',
+        'type' => 'text_area',
         'display_name' => __('voyager::seeders.data_rows.seo_title'),
         'required' => 0,
         'browse' => 0,
@@ -91,13 +105,18 @@ class PagesTableSeeder extends Seeder
         'add' => 1,
         'delete' => 1,
         'order' => 4,
+        'details' => [
+          'display' => [
+            'width' => '6'
+          ],
+        ],
       ])->save();
     }
 
     $dataRow = $this->dataRow($pageDataType, 'seo_description');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'text',
+        'type' => 'text_area',
         'display_name' => __('voyager::seeders.data_rows.seo_description'),
         'required' => 0,
         'browse' => 0,
@@ -106,6 +125,11 @@ class PagesTableSeeder extends Seeder
         'add' => 1,
         'delete' => 1,
         'order' => 5,
+        'details' => [
+          'display' => [
+            'width' => '6'
+          ],
+        ],
       ])->save();
     }
 
@@ -164,7 +188,10 @@ class PagesTableSeeder extends Seeder
         'details' => [
           'on' => __('voyager::seeders.data_rows.on'),
           'off' => __('voyager::seeders.data_rows.off'),
-          'checked' => true
+          'checked' => true,
+          'display' => [
+            'width' => '4',
+          ],
         ]
       ])->save();
     }
@@ -184,7 +211,10 @@ class PagesTableSeeder extends Seeder
         'details' => [
           'on' => __('voyager::seeders.data_rows.on'),
           'off' => __('voyager::seeders.data_rows.off'),
-          'checked' => true
+          'checked' => true,
+          'display' => [
+            'width' => '4',
+          ],
         ]
       ])->save();
     }
@@ -204,23 +234,11 @@ class PagesTableSeeder extends Seeder
         'details' => [
           'on' => __('voyager::seeders.data_rows.on'),
           'off' => __('voyager::seeders.data_rows.off'),
-          'checked' => true
+          'checked' => true,
+          'display' => [
+            'width' => '4',
+          ],
         ]
-      ])->save();
-    }
-
-    $dataRow = $this->dataRow($pageDataType, 'content');
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'rich_text_box',
-        'display_name' => __('voyager::seeders.data_rows.content'),
-        'required' => 0,
-        'browse' => 0,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
-        'order' => 11,
       ])->save();
     }
 
@@ -235,7 +253,22 @@ class PagesTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 12,
+        'order' => 11,
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($pageDataType, 'content');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'rich_text_box',
+        'display_name' => __('voyager::seeders.data_rows.content'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 18,
       ])->save();
     }
 
@@ -250,7 +283,7 @@ class PagesTableSeeder extends Seeder
         'edit' => 0,
         'add' => 0,
         'delete' => 0,
-        'order' => 13,
+        'order' => 19,
       ])->save();
     }
 
@@ -265,7 +298,7 @@ class PagesTableSeeder extends Seeder
         'edit' => 0,
         'add' => 0,
         'delete' => 0,
-        'order' => 14,
+        'order' => 20,
       ])->save();
     }
 
@@ -295,7 +328,7 @@ class PagesTableSeeder extends Seeder
 
     //Index
     $page = Page::firstOrNew([
-      'name' => 'index',
+      'slug' => 'index',
     ]);
     if (!$page->exists) {
       $page->fill([
@@ -307,7 +340,7 @@ class PagesTableSeeder extends Seeder
 
     //Services
     $page = Page::firstOrNew([
-      'name' => 'services',
+      'slug' => 'services',
     ]);
     if (!$page->exists) {
       $page->fill([
@@ -317,7 +350,7 @@ class PagesTableSeeder extends Seeder
 
     //Schedule
     $page = Page::firstOrNew([
-      'name' => 'schedule',
+      'slug' => 'schedule',
     ]);
     if (!$page->exists) {
       $page->fill([
@@ -327,7 +360,7 @@ class PagesTableSeeder extends Seeder
 
     //События
     $page = Page::firstOrNew([
-      'name' => 'events',
+      'slug' => 'events',
     ]);
     if (!$page->exists) {
       $page->fill([
@@ -337,7 +370,7 @@ class PagesTableSeeder extends Seeder
 
     //Мы
     $page = Page::firstOrNew([
-      'name' => 'team',
+      'slug' => 'team',
     ]);
     if (!$page->exists) {
       $page->fill([
@@ -348,7 +381,7 @@ class PagesTableSeeder extends Seeder
 
     //Тренеры
     $page = Page::firstOrNew([
-      'name' => 'coaches',
+      'slug' => 'coaches',
     ]);
     if (!$page->exists) {
       $page->fill([
@@ -358,7 +391,7 @@ class PagesTableSeeder extends Seeder
 
     //Галерея
     $page = Page::firstOrNew([
-      'name' => 'gallery',
+      'slug' => 'gallery',
     ]);
     if (!$page->exists) {
       $page->fill([
@@ -368,7 +401,7 @@ class PagesTableSeeder extends Seeder
 
     //Контакты
     $page = Page::firstOrNew([
-      'name' => 'contacts',
+      'slug' => 'contacts',
     ]);
     if (!$page->exists) {
       $page->fill([
@@ -378,7 +411,7 @@ class PagesTableSeeder extends Seeder
 
     //Реквизиты
     $page = Page::firstOrNew([
-      'name' => 'requisites',
+      'slug' => 'requisites',
     ]);
     if (!$page->exists) {
       $page->fill([
