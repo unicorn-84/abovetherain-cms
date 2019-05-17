@@ -9,7 +9,7 @@
     $style = 'style="color: ' . $training->text_color . ';"';
   }
 @endphp
-<div class="text-left p-2"{!! isset($style) ? ' ' . $style : '' !!}>
+<div class="text-left p-4 p-lg-2"{!! isset($style) ? ' ' . $style : '' !!}>
   <div class="h5 text-truncate mb-1">
     <a href="{{ url('/services/' . $training->service->slug) }}" class="text-reset">{{ $training->service->title }}</a>
   </div>

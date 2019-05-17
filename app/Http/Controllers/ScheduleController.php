@@ -10,6 +10,7 @@ class ScheduleController extends Controller
   public function index()
   {
     $page = \App\Page::where('slug', 'schedule')->firstOrFail();
+
     $trainings = \App\Training::all();
 
     $columns = [
@@ -23,6 +24,14 @@ class ScheduleController extends Controller
     ];
 
     $times = \App\Training::orderBy('start_time', 'asc')->distinct('start_time')->pluck('start_time');
+
+    $trainingsOfTheDay = array_map(function ($item) {
+      return \App\Training::orderBy('start_time', 'asc')->where('day', '=', $item)->get();
+    }, $columns);
+
+    $trainingsOfTheDay = array_combine($columns, $trainingsOfTheDay);
+
+//    dd($trainingsOfTheDay);
 
     $virtTable = array_fill(0, count($times), null);
 
@@ -41,6 +50,7 @@ class ScheduleController extends Controller
       'columns' => $columns,
       'times' => $times,
       'virtTable' => $virtTable,
+      'trainingsOfTheDay' => $trainingsOfTheDay,
     ]);
   }
 }
