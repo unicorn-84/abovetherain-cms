@@ -13,7 +13,7 @@ class ScheduleController extends Controller
 
     $trainings = \App\Training::all();
 
-    $columns = [
+    $days = [
       __('days.Monday'),
       __('days.Tuesday'),
       __('days.Wednesday'),
@@ -27,27 +27,27 @@ class ScheduleController extends Controller
 
     $trainingsOfTheDay = array_map(function ($item) {
       return \App\Training::orderBy('start_time', 'asc')->where('day', '=', $item)->get();
-    }, $columns);
+    }, $days);
 
-    $trainingsOfTheDay = array_combine($columns, $trainingsOfTheDay);
+    $trainingsOfTheDay = array_combine($days, $trainingsOfTheDay);
 
-//    dd($trainingsOfTheDay);
+
 
     $virtTable = array_fill(0, count($times), null);
 
     for ($i = 0; $i < count($virtTable); $i += 1) {
-      $virtTable[$i] = array_fill(0, count($columns), null);
+      $virtTable[$i] = array_fill(0, count($days), null);
     }
 
     foreach ($trainings as $training) {
       $rowIndex = array_search($training->start_time, Arr::flatten($times));
-      $columnsIndex = array_search($training->day, Arr::flatten($columns));
+      $columnsIndex = array_search($training->day, Arr::flatten($days));
       $virtTable[$rowIndex][$columnsIndex] = $training;
     }
 
     return view('pages.schedule', [
       'page' => $page,
-      'columns' => $columns,
+      'days' => $days,
       'times' => $times,
       'virtTable' => $virtTable,
       'trainingsOfTheDay' => $trainingsOfTheDay,

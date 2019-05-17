@@ -31,6 +31,13 @@ html {
   margin: 0;
 }
 
+.app-container {
+  min-height: initial;
+  margin: 0;
+  background-color: initial;
+  padding: 0;
+}
+
 .atr-header {
   display: flex;
   align-items: center;

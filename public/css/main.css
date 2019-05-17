@@ -10358,7 +10358,7 @@ p:last-child {
   table-layout: fixed;
 }
 #abovetherain-cms__schedule table thead th:first-child {
-  width: 10%;
+  width: 7%;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
