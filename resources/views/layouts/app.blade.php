@@ -1,6 +1,6 @@
 <!--MARKUP-->
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @isset($page->name) id="{{ config('app.name') . '__' . $page->name }}" @endisset>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @isset($page->slug) id="{{ config('app.name') . '__' . $page->slug }}" @endisset>
 
 <!--HEAD-->
 <head>
