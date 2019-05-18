@@ -1,0 +1,1 @@
+Laravel 5.8 + Voyager 1.2
