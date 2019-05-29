@@ -103,7 +103,7 @@ class EventsTableSeeder extends Seeder
         'type' => 'text_area',
         'display_name' => __('voyager::seeders.data_rows.description'),
         'required' => 0,
-        'browse' => 1,
+        'browse' => 0,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
