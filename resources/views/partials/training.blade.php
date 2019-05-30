@@ -1,15 +1,15 @@
-@php
-  if (isset($training->bg_color) && isset($training->text_color)) {
-    $bg = 'background-color: ' . $training->bg_color . ';';
-    $color = 'color: ' . $training->text_color . ';';
-    $style = 'style="background-color: ' . $training->bg_color . '; color: ' . $training->text_color . ';"';
-  } else if (isset($training->bg_color)) {
-    $style = 'style="background-color: ' . $training->bg_color . ';"';
-  } else if (isset($training->text_color)) {
-    $style = 'style="color: ' . $training->text_color . ';"';
-  }
-@endphp
-<td class="align-middle border-0 text-left p-4 p-lg-2"{!! isset($style) ? ' ' . $style : '' !!}>
+{{--@php--}}
+  {{--if (isset($training->bg_color) && isset($training->text_color)) {--}}
+    {{--$bg = 'background-color: ' . $training->bg_color . ';';--}}
+    {{--$color = 'color: ' . $training->text_color . ';';--}}
+    {{--$style = 'style="border-width: 0 !important; background-color: ' . $training->bg_color . ' !important; color: ' . $training->text_color . ';"';--}}
+  {{--} else if (isset($training->bg_color)) {--}}
+    {{--$style = 'style="border-width: 0 !important; background-color: ' . $training->bg_color . ';"';--}}
+  {{--} else if (isset($training->text_color)) {--}}
+    {{--$style = 'style="color: ' . $training->text_color . ';"';--}}
+  {{--}--}}
+{{--@endphp--}}
+<td class="align-middle border text-left p-4 p-lg-2 bg-light"{!! isset($style) ? ' ' . $style : '' !!}>
   <div class="h5 text-truncate mb-1">
     <a href="{{ url('/services/' . $training->service->slug) }}" class="text-reset">{{ $training->service->title }}</a>
   </div>

@@ -123,7 +123,7 @@ window.tinymce_setup_callback = function (editor) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\unicorn\websites\abovetherain-cms\resources\js\admin.js */"./resources/js/admin.js");
+module.exports = __webpack_require__(/*! C:\Users\unicorn\projects\abovetherain-cms\resources\js\admin.js */"./resources/js/admin.js");
 
 
 /***/ })
