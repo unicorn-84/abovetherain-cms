@@ -128,7 +128,7 @@ class EventsTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 5,
+        'order' => 8,
         'details' => [
           'display' => [
             'width' => '6'

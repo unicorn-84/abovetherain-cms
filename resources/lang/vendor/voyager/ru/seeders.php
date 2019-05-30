@@ -135,6 +135,7 @@ return [
     'site' => [
       'description' => 'Описание сайта',
       'fon' => 'Фоновое изображение для сайта',
+      'fon_color' => 'Цвет фона сайта',
       'google_analytics_tracking_id' => 'Google Analytics Tracking ID',
       'header_menu' => 'Меню для header',
       'icon' => 'Иконка сайта',

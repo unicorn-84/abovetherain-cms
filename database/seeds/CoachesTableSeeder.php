@@ -206,7 +206,6 @@ class CoachesTableSeeder extends Seeder
       ])->save();
     }
 
-
     $dataRow = $this->dataRow($coachDataType, 'content');
     if (!$dataRow->exists) {
       $dataRow->fill([
@@ -218,7 +217,7 @@ class CoachesTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 18,
+        'order' => 19,
         'details' => '',
       ])->save();
     }
@@ -234,7 +233,7 @@ class CoachesTableSeeder extends Seeder
         'edit' => 0,
         'add' => 0,
         'delete' => 0,
-        'order' => 19,
+        'order' => 20,
       ])->save();
     }
 

@@ -70,6 +70,35 @@ class TrainingsTableSeeder extends Seeder
       ])->save();
     }
 
+    $dataRow = $this->dataRow($trainingDataType, 'training_belongsto_service_relationship');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'relationship',
+        'display_name' => __('voyager::seeders.data_rows.service'),
+        'required' => 1,
+        'browse' => 1,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 0,
+        'details' => [
+          'model' => 'App\\Service',
+          'table' => 'services',
+          'type' => 'belongsTo',
+          'column' => 'service_id',
+          'key' => 'id',
+          'label' => 'title',
+//          'pivot_table' => 'coach_service',
+          'pivot' => 0,
+          'taggable' => '0',
+          'display' => [
+            'width' => '6'
+          ],
+        ],
+        'order' => 2,
+      ])->save();
+    }
+
     $dataRow = $this->dataRow($trainingDataType, 'coach_id');
     if (!$dataRow->exists) {
       $dataRow->fill([
@@ -87,6 +116,35 @@ class TrainingsTableSeeder extends Seeder
             'width' => '6'
           ],
         ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($trainingDataType, 'training_belongsto_coach_relationship');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'relationship',
+        'display_name' => __('voyager::seeders.data_rows.coach'),
+        'required' => 1,
+        'browse' => 1,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 0,
+        'details' => [
+          'model' => 'App\\Coach',
+          'table' => 'coaches',
+          'type' => 'belongsTo',
+          'column' => 'coach_id',
+          'key' => 'id',
+          'label' => 'title',
+//          'pivot_table' => 'coach_service',
+          'pivot' => 0,
+          'taggable' => '0',
+          'display' => [
+            'width' => '6'
+          ],
+        ],
+        'order' => 3,
       ])->save();
     }
 
@@ -165,62 +223,6 @@ class TrainingsTableSeeder extends Seeder
             'width' => "6",
           ],
         ],
-      ])->save();
-    }
-
-    $dataRow = $this->dataRow($trainingDataType, 'bg_color');
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'color',
-        'display_name' => __('voyager::seeders.data_rows.bg_color'),
-        'required' => 0,
-        'browse' => 0,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
-        'order' => 7,
-        'details' => [
-          'display' => [
-            'width' => "6",
-          ],
-        ],
-      ])->save();
-    }
-
-    $dataRow = $this->dataRow($trainingDataType, 'text_color');
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'color',
-        'display_name' => __('voyager::seeders.data_rows.text_color'),
-        'required' => 0,
-        'browse' => 0,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
-        'order' => 8,
-        'details' => [
-          'display' => [
-            'width' => "6",
-          ],
-        ],
-      ])->save();
-    }
-
-    $dataRow = $this->dataRow($trainingDataType, 'content');
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'rich_text_box',
-        'display_name' => __('voyager::seeders.data_rows.content'),
-        'required' => 0,
-        'browse' => 0,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
-        'order' => 18,
-        'details' => '',
       ])->save();
     }
 

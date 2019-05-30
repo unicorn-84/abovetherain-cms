@@ -44,10 +44,15 @@
     <style>@media (min-width: 992px) {html::before {background-image: url({{ Voyager::image(Voyager::setting("site.fon")) }});}}</style>
   @endif
 
+  <!--FON COLOR-->
+  @if(Voyager::setting("site.fon_color"))
+    <style>body {background-color: {{ Voyager::setting("site.fon_color") }} !important;}</style>
+  @endif
+
   @yield('head_code')
 </head>
 <!--Body-->
-<body class="d-flex flex-column bg-dark">
+<body class="d-flex flex-column">
   @yield('header')
   @yield('page-title')
   @yield('content')

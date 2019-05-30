@@ -98,6 +98,18 @@ class SettingsTableSeeder extends Seeder
       ])->save();
     }
 
+    $setting = $this->findSetting('site.fon_color');
+    if (!$setting->exists) {
+      $setting->fill([
+        'display_name' => __('voyager::seeders.settings.site.fon_color'),
+        'value' => '#fff',
+        'details' => '',
+        'type' => 'text',
+        'order' => 7,
+        'group' => 'Site',
+      ])->save();
+    }
+
     //Content
     $setting = $this->findSetting('content.email');
     if (!$setting->exists) {
