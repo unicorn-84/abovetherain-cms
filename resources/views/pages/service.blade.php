@@ -53,7 +53,7 @@
                     @foreach($service->coaches as $coach)
                       <li{!! $loop->last ? '' : ' class="mb-2"' !!}>
                         <a href="{{ url('/coaches/' . $coach->slug) }}" class="text-reset text-decoration-none font-weight-bold h5">
-                          <i class="far fa-user fs-sm"></i>&nbsp{{ $coach->title }}
+                          <i class="far fa-user"></i>&nbsp{{ $coach->title }}
                         </a>
                       </li>
                     @endforeach

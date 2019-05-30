@@ -43,7 +43,7 @@
       <div class="row">
         @foreach($coaches as $coach)
           <div class="col-sm-6 col-lg-4">
-            <div class="card mb-4">
+            <div class="card{{ $loop->last ? '' : ' mb-4' }}">
               @isset($coach->poster)
                 <div>
                   <img class="card-img-top" src="{{ Voyager::image($coach->poster) }}" alt="{{ $coach->title }}">
@@ -63,6 +63,11 @@
                       </li>
                     @endforeach
                   </ul>
+                @endif
+                @if(count($coach->trainings) > 0)
+                  <a href="{{ route('schedule', 'coach=' . $coach->slug) }}" class="text-decoration-none text-reset">
+                    <i class="far fa-calendar-alt fa-2x mt-3"></i>
+                  </a>
                 @endif
               </div>
             </div>
