@@ -47,7 +47,7 @@
               <div class="card-body">
                 {!! $service->content !!}
               </div>
-              @if(isset($service->coaches) && count($service->coaches) > 0)
+              @if(isset($service->coaches) && count($service->coaches) > 0 || isset($service->trainings) && count($service->trainings) > 0)
                 <div class="card-footer p-4 d-lg-flex justify-content-lg-between">
                   <ul class="list-unstyled m-0">
                     @foreach($service->coaches as $coach)
@@ -58,6 +58,11 @@
                       </li>
                     @endforeach
                   </ul>
+                  @if(count($service->trainings) > 0)
+                    <a href="{{ route('schedule', 'training=' . $service->slug) }}" class="d-inline-block h5 text-reset text-decoration-none font-weight-bold mb-0 my-lg-0{{ count($service->coaches) > 0 ? ' mt-4' : '' }}">
+                      <i class="far fa-calendar-alt fa-lg"></i>&nbsp;Расписание занятий
+                    </a>
+                  @endif
                 </div>
               @endif
             </div>
