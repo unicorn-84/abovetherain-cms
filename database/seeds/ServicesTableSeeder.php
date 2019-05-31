@@ -159,6 +159,26 @@ class ServicesTableSeeder extends Seeder
       ])->save();
     }
 
+    $dataRow = $this->dataRow($serviceDataType, 'subtitle'); // 4
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'rich_text_box',
+        'display_name' => __('voyager::seeders.data_rows.subtitle'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 4,
+        'details' => [
+          'display' => [
+            'id' => 'atr-service-subtitle-field',
+          ],
+        ],
+      ])->save();
+    }
+
     $dataRow = $this->dataRow($serviceDataType, 'poster');
     if (!$dataRow->exists) {
       $dataRow->fill([

@@ -46,6 +46,7 @@ return [
     'services' => 'Услуги',
     'slug' => 'Slug (ЧПУ)',
     'status' => 'Статус',
+    'subtitle' => 'Подзаголовок',
     'start_time' => 'Время начала (hh:mm)',
     'text_color' => 'Цвет текста',
     'title' => 'Название',

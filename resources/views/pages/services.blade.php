@@ -63,6 +63,11 @@
                     {{ $service->title }}
                   </h3>
                 @endif
+                @if(isset($service->subtitle))
+                  <div class="card-subtitle text-muted mt-2 pl-2">
+                    {!! $service->subtitle !!}
+                  </div>
+                @endif
                 @isset($service->description)
                   <p class="card-text mt-2 mb-0">{{ $service->description }}</p>
                 @endisset

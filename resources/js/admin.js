@@ -2,6 +2,7 @@ window.tinymce_setup_callback = (editor) => {
   const tinymce = editor;
   tinymce.settings.language_url = '/js/tinymce/ru.js';
   tinymce.settings.language = 'ru';
+  tinymce.settings.min_height = 500;
   tinymce.settings.invalid_elements = 'span';
   tinymce.settings.extended_valid_elements = 'span[!class]';
   tinymce.settings.toolbar_drawer = 'sliding';
