@@ -47,8 +47,6 @@ html {
   margin-left: 40px !important;
   padding-left: 1rem !important;
   flex: 1 1 auto;
-  font-weight: 700;
-  font-size: 1.2rem !important;
 }
 .atr-radio-btn-field li:focus label.no-hover, .atr-radio-btn-field li:hover label.no-hover {
   color: inherit !important;

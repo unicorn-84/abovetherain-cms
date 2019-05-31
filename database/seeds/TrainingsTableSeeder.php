@@ -226,26 +226,6 @@ class TrainingsTableSeeder extends Seeder
             'rule' => 'required'
           ],
           'display' => [
-            'width' => '12'
-          ],
-        ],
-      ])->save();
-    }
-
-    $dataRow = $this->dataRow($trainingDataType, 'bg_color');
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'text',
-        'display_name' => __('voyager::seeders.data_rows.bg_color'),
-        'required' => 0,
-        'browse' => 0,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
-        'order' => 9,
-        'details' => [
-          'display' => [
             'width' => '6'
           ],
         ],
@@ -255,7 +235,7 @@ class TrainingsTableSeeder extends Seeder
     $dataRow = $this->dataRow($trainingDataType, 'text_color');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'text',
+        'type' => 'color',
         'display_name' => __('voyager::seeders.data_rows.text_color'),
         'required' => 0,
         'browse' => 0,
@@ -272,11 +252,11 @@ class TrainingsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($trainingDataType, 'badge');
+    $dataRow = $this->dataRow($trainingDataType, 'badge_color');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'radio_btn',
-        'display_name' => __('voyager::seeders.data_rows.badge'),
+        'type' => 'color',
+        'display_name' => __('voyager::seeders.data_rows.badge_color'),
         'required' => 0,
         'browse' => 0,
         'read' => 1,
@@ -287,20 +267,6 @@ class TrainingsTableSeeder extends Seeder
         'details' => [
           'display' => [
             'width' => '6'
-          ],
-          'default' => 'badge-primary',
-          'options' => [
-            'badge-primary' => 'Primary',
-            'badge-secondary' => 'Secondary',
-            'badge-success' => 'Success',
-            'badge-danger' => 'Danger',
-            'badge-warning' => 'Warning',
-            'badge-info' => 'Info',
-            'badge-light' => 'Light',
-            'badge-dark' => 'Dark',
-            'badge-beige' => 'Beige',
-            'badge-caribbean_green' => 'Caribbean Green',
-            'badge-rhino' => 'Rhino',
           ],
         ],
       ])->save();

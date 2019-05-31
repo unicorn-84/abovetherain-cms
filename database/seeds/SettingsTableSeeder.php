@@ -187,7 +187,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.content.schedule_fon_color'),
-        'value' => 'rgba(0,0,0,0.9)',
+        'value' => 'rgba(0,0,0,0.95)',
         'details' => '',
         'type' => 'text',
         'order' => 6,

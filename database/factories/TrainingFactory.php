@@ -21,6 +21,7 @@ $factory->define(Training::class, function (Faker $faker) {
     'start_time' => $faker->time($format = 'H:i', $max = 'now'),
     'end_time' => $faker->time($format = 'H:i', $max = 'now'),
     'service_id' => mt_rand(1, 10),
-    'coach_id' => mt_rand(1, 4)
+    'coach_id' => mt_rand(1, 4),
+    'badge_text' => 'Открытая группа'
   ];
 });

@@ -6,7 +6,7 @@ return [
     'avatar' => 'Аватар',
     'badge' => 'Значок',
     'badge_text' => 'Текст значка',
-    'badge_bg_color' => 'Цвет значка (css legal color values)',
+    'badge_color' => 'Цвет значка',
     'bg_color' => 'Цвет фона (css legal color values)',
     'body' => 'Содержимое',
     'category' => 'Категория',
