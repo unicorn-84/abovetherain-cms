@@ -4,7 +4,10 @@ return [
   'data_rows' => [
     'author' => 'Автор',
     'avatar' => 'Аватар',
-    'bg_color' => 'Цвет фона',
+    'badge' => 'Значок',
+    'badge_text' => 'Текст значка',
+    'badge_bg_color' => 'Цвет значка (css legal color values)',
+    'bg_color' => 'Цвет фона (css legal color values)',
     'body' => 'Содержимое',
     'category' => 'Категория',
     'coach' => 'Тренер',
@@ -48,7 +51,7 @@ return [
     'status' => 'Статус',
     'subtitle' => 'Подзаголовок',
     'start_time' => 'Время начала (hh:mm)',
-    'text_color' => 'Цвет текста',
+    'text_color' => 'Цвет текста (css legal color values)',
     'title' => 'Название',
     'training' => 'Тренировка',
     'trainings' => 'Тренировки',
@@ -137,7 +140,7 @@ return [
     'site' => [
       'description' => 'Описание сайта',
       'fon' => 'Фоновое изображение для сайта',
-      'fon_color' => 'Цвет фона сайта (CSS Legal Color Values)',
+      'fon_color' => 'Цвет фона сайта (css legal color values)',
       'google_analytics_tracking_id' => 'Google Analytics Tracking ID',
       'header_menu' => 'Меню для header',
       'icon' => 'Иконка сайта',
@@ -151,8 +154,8 @@ return [
     'content' => [
       'address' => 'Адрес',
       'phone' => 'Номер телефона',
-      'schedule_fon_color' => 'Цвет фона расписания (CSS Legal Color Values)',
-      'schedule_text_color' => 'Цвет текста расписания (CSS Legal Color Values)'
+      'schedule_fon_color' => 'Цвет фона расписания (css legal color values)',
+      'schedule_text_color' => 'Цвет текста расписания (css legal color values)'
     ]
   ]
 ];

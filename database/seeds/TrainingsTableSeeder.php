@@ -154,38 +154,6 @@ class TrainingsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($trainingDataType, 'day');
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'text',
-        'display_name' => __('voyager::seeders.data_rows.day'),
-        'required' => 1,
-        'browse' => 1,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
-        'order' => 4,
-        'details' => [
-          'options' => [
-            __('days.Monday'),
-            __('days.Tuesday'),
-            __('days.Wednesday'),
-            __('days.Thursday'),
-            __('days.Friday'),
-            __('days.Saturday'),
-            __('days.Sunday'),
-          ],
-          'validation' => [
-            'rule' => 'required'
-          ],
-          'display' => [
-            'width' => '6'
-          ],
-        ],
-      ])->save();
-    }
-
     $dataRow = $this->dataRow($trainingDataType, 'start_time');
     if (!$dataRow->exists) {
       $dataRow->fill([
@@ -227,6 +195,132 @@ class TrainingsTableSeeder extends Seeder
           ],
           'display' => [
             'width' => "6",
+          ],
+        ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($trainingDataType, 'day');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'text',
+        'display_name' => __('voyager::seeders.data_rows.day'),
+        'required' => 1,
+        'browse' => 1,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 7,
+        'details' => [
+          'options' => [
+            __('days.Monday'),
+            __('days.Tuesday'),
+            __('days.Wednesday'),
+            __('days.Thursday'),
+            __('days.Friday'),
+            __('days.Saturday'),
+            __('days.Sunday'),
+          ],
+          'validation' => [
+            'rule' => 'required'
+          ],
+          'display' => [
+            'width' => '12'
+          ],
+        ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($trainingDataType, 'bg_color');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'text',
+        'display_name' => __('voyager::seeders.data_rows.bg_color'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 9,
+        'details' => [
+          'display' => [
+            'width' => '6'
+          ],
+        ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($trainingDataType, 'text_color');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'text',
+        'display_name' => __('voyager::seeders.data_rows.text_color'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 10,
+        'details' => [
+          'display' => [
+            'width' => '6'
+          ],
+        ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($trainingDataType, 'badge');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'radio_btn',
+        'display_name' => __('voyager::seeders.data_rows.badge'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 11,
+        'details' => [
+          'display' => [
+            'width' => '6'
+          ],
+          'default' => 'badge-primary',
+          'options' => [
+            'badge-primary' => 'Primary',
+            'badge-secondary' => 'Secondary',
+            'badge-success' => 'Success',
+            'badge-danger' => 'Danger',
+            'badge-warning' => 'Warning',
+            'badge-info' => 'Info',
+            'badge-light' => 'Light',
+            'badge-dark' => 'Dark',
+            'badge-beige' => 'Beige',
+            'badge-caribbean_green' => 'Caribbean Green',
+            'badge-rhino' => 'Rhino',
+          ],
+        ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($trainingDataType, 'badge_text');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'text',
+        'display_name' => __('voyager::seeders.data_rows.badge_text'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 12,
+        'details' => [
+          'display' => [
+            'width' => '6'
           ],
         ],
       ])->save();

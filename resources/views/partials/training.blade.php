@@ -17,7 +17,9 @@
   <div class="h6 text-truncate mb-1">
     <a href="{{ url('/coaches/' . $training->coach_slug) }}" class="text-reset">{{ $training->coach_title }}</a>
   </div>
-  @isset($training->content)
-    {!! $training->content !!}
-  @endisset
+  @if(isset($training->badge_text))
+    <div>
+      <span class="badge badge-pill {{ $training->badge }}">{{ $training->badge_text }}</span>
+    </div>
+  @endif
 </td>

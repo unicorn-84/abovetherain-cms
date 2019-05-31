@@ -27,6 +27,69 @@ html {
   display: none !important;
 }
 
+.atr-radio-btn-field {
+  display: flex !important;
+  flex-flow: row wrap;
+  border: 1px solid #e4eaec;
+  border-radius: 3px;
+  background-color: #fff;
+}
+.atr-radio-btn-field li {
+  display: flex !important;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 1rem;
+  width: 200px !important;
+  background-color: transparent;
+  color: #fff !important;
+}
+.atr-radio-btn-field li label {
+  margin-left: 40px !important;
+  padding-left: 1rem !important;
+  flex: 1 1 auto;
+  font-weight: 700;
+  font-size: 1.2rem !important;
+}
+.atr-radio-btn-field li:focus label.no-hover, .atr-radio-btn-field li:hover label.no-hover {
+  color: inherit !important;
+}
+
+input[type=radio]:checked ~ label {
+  color: inherit !important;
+}
+
+.badge-primary {
+  color: #fff !important;
+}
+
+.badge-secondary {
+  color: #fff !important;
+  background-color: #6c757d;
+}
+
+.badge-light {
+  background-color: #f8f9fa;
+}
+
+li.badge-light,
+li.badge-beige {
+  color: #333 !important;
+}
+
+.badge-beige {
+  background-color: #e9e9d3;
+}
+
+.badge-caribbean_green {
+  color: #fff !important;
+  background-color: #00be9f;
+}
+
+.badge-rhino {
+  color: #fff;
+  background-color: #454d55;
+}
+
 .voyager table.dataTable thead th.sorting::after {
   margin: 0;
 }
