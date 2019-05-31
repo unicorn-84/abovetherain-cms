@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
-@section('custom-styles') @endsection
+@section('custom')
+  <meta name="google-site-verification" content="Gc5zQB4yQ5s8ZvDI5WoD2yXp5Hrza3OmX-qsy8A2hig">
+  <meta name="yandex-verification" content="f196debf2583cee4">
+@endsection
 
 @section('title')
   @if(isset($page->seo_title))

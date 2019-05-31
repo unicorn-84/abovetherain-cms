@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('custom-styles') @endsection
+@section('custom') @endsection
 
 @section('title')
   @if(isset($page->seo_title))

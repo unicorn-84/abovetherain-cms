@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('custom-styles')
+@section('custom')
   @if(Voyager::setting("content.schedule_fon_color") || Voyager::setting("content.schedule_text_color"))
     <style>
       @if(Voyager::setting("content.schedule_fon_color"))

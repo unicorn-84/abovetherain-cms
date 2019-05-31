@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('custom-styles')
+@section('custom')
 @endsection
 
 @section('title')
