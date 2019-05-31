@@ -122,7 +122,7 @@ class EventsTableSeeder extends Seeder
       $dataRow->fill([
         'type' => 'number',
         'display_name' => __('voyager::seeders.data_rows.order'),
-        'required' => 0,
+        'required' => 1,
         'browse' => 1,
         'read' => 1,
         'edit' => 1,
@@ -130,6 +130,9 @@ class EventsTableSeeder extends Seeder
         'delete' => 1,
         'order' => 8,
         'details' => [
+          'validation' => [
+            'rule' => 'required|numeric'
+          ],
           'display' => [
             'width' => '6'
           ],

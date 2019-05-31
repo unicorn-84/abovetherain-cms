@@ -38,19 +38,29 @@
     <div class="container">
       <div class="row">
         @foreach($events as $event)
-          <div class="col-md-6 d-flex">
+          <div class="col-md-6{{ $event->poster ? ' d-flex' : '' }}">
             <div class="card mb-4 w-100">
               @isset($event->poster)
-                <a href="{{ url('/events/' . $event->slug) }}">
+                @if(isset($event->content))
+                  <a href="{{ url('/events/' . $event->slug) }}">
+                    <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($event->poster) }}" alt="{{ $event->title }}">
+                  </a>
+                @else
                   <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($event->poster) }}" alt="{{ $event->title }}">
-                </a>
+                @endif
               @endisset
               <div class="card-body">
-                <a href="{{ url('/events/' . $event->slug) }}" class="text-reset">
+                @if(isset($event->content))
+                  <a href="{{ url('/events/' . $event->slug) }}" class="text-reset">
+                    <h2 class="card-title text-center m-0">
+                      {{ $event->title }}
+                    </h2>
+                  </a>
+                @else
                   <h2 class="card-title text-center m-0">
                     {{ $event->title }}
                   </h2>
-                </a>
+                @endif
                 @isset($event->description)
                   <p class="card-text mt-2 mb-0">{{ $event->description }}</p>
                 @endisset

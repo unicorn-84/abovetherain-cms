@@ -213,7 +213,7 @@ class ServicesTableSeeder extends Seeder
       $dataRow->fill([
         'type' => 'number',
         'display_name' => __('voyager::seeders.data_rows.order'),
-        'required' => 0,
+        'required' => 1,
         'browse' => 1,
         'read' => 1,
         'edit' => 1,

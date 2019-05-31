@@ -64,7 +64,8 @@ class CoachesTableSeeder extends Seeder
         'order' => 2,
         'details' => [
           'validation' => [
-            'rule' => 'required'
+//            todo: Добавить max для всех text полей
+            'rule' => 'required|max:255'
           ],
           'display' => [
             'width' => '6',
@@ -79,16 +80,20 @@ class CoachesTableSeeder extends Seeder
         'type' => 'text',
         'display_name' => __('voyager::seeders.data_rows.slug'),
         'required' => 0,
-        'browse' => 1,
+        'browse' => 0,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
         'order' => 3,
         'details' => [
+//          todo: Добавить unique для всех slug
           'slugify' => [
             'origin' => 'title',
             'forceUpdate' => true
+          ],
+          'validation' => [
+            'rule' => 'required|unique:coaches|max:255'
           ],
           'display' => [
             'width' => '6',
@@ -143,7 +148,7 @@ class CoachesTableSeeder extends Seeder
         'type' => 'image',
         'display_name' => __('voyager::seeders.data_rows.poster'),
         'required' => 0,
-        'browse' => 0,
+        'browse' => 1,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
@@ -151,7 +156,7 @@ class CoachesTableSeeder extends Seeder
         'order' => 6,
         'details' => [
           'validation' => [
-            'rule' => 'image'
+            'rule' => 'mimes:jpeg,jpg,png|max:10240'
           ],
         ],
       ])->save();
@@ -163,7 +168,7 @@ class CoachesTableSeeder extends Seeder
         'type' => 'relationship',
         'display_name' => __('voyager::seeders.data_rows.services'),
         'required' => 0,
-        'browse' => 0,
+        'browse' => 1,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
@@ -192,13 +197,17 @@ class CoachesTableSeeder extends Seeder
         'type' => 'number',
         'display_name' => __('voyager::seeders.data_rows.order'),
         'required' => 0,
-        'browse' => 1,
+        'browse' => 0,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
         'order' => 17,
         'details' => [
+          'validation' => [
+//            todo: Добавить nullable для всех nullable полей
+            'rule' => 'numeric|nullable'
+          ],
           'display' => [
             'width' => '6',
           ],

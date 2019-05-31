@@ -41,25 +41,40 @@
           <div class="col-md-6 col-lg-4{{ $service->poster ? ' d-flex' : '' }}">
             <div class="card mb-4 w-100">
               @isset($service->poster)
-                <a href="{{ url('/services/' . $service->slug) }}">
-                  <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($service->poster) }}" alt="{{ $service->title }}">
-                </a>
+                @if(isset($service->content))
+                  <a href="{{ url('/services/' . $service->slug) }}">
+                    <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($service->poster) }}"
+                         alt="{{ $service->title }}">
+                  </a>
+                @else
+                  <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($service->poster) }}"
+                       alt="{{ $service->title }}">
+                @endif
               @endisset
               <div class="card-body">
-                <a href="{{ url('/services/' . $service->slug) }}" class="text-reset">
+                @if(isset($service->content))
+                  <a href="{{ url('/services/' . $service->slug) }}" class="text-reset">
+                    <h3 class="card-title">
+                      {{ $service->title }}
+                    </h3>
+                  </a>
+                @else
                   <h3 class="card-title">
                     {{ $service->title }}
                   </h3>
-                </a>
+                @endif
                 @isset($service->description)
                   <p class="card-text mt-2 mb-0">{{ $service->description }}</p>
                 @endisset
               </div>
-              <div class="card-footer">
-                <div class="text-right">
-                  <a href="{{ url('/services/' . $service->slug) }}" class="text-reset font-weight-bold">Подробнее...</a>
+              @if(isset($service->content))
+                <div class="card-footer">
+                  <div class="text-right">
+                    <a href="{{ url('/services/' . $service->slug) }}"
+                       class="text-reset font-weight-bold">Подробнее...</a>
+                  </div>
                 </div>
-              </div>
+              @endif
             </div>
           </div>
         @endforeach
