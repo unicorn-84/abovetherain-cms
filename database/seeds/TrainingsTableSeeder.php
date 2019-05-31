@@ -66,6 +66,9 @@ class TrainingsTableSeeder extends Seeder
           'display' => [
             'width' => '6'
           ],
+          'validation' => [
+            'rule' => 'required'
+          ],
         ],
       ])->save();
     }
@@ -114,6 +117,9 @@ class TrainingsTableSeeder extends Seeder
         'details' => [
           'display' => [
             'width' => '6'
+          ],
+          'validation' => [
+            'rule' => 'required'
           ],
         ],
       ])->save();
