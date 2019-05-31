@@ -51,7 +51,7 @@ return [
     'status' => 'Статус',
     'subtitle' => 'Подзаголовок',
     'start_time' => 'Время начала (hh:mm)',
-    'text_color' => 'Цвет текста (css legal color values)',
+    'text_color' => 'Цвет ссылок',
     'title' => 'Название',
     'training' => 'Тренировка',
     'trainings' => 'Тренировки',

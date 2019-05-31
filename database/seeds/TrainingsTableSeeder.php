@@ -203,7 +203,7 @@ class TrainingsTableSeeder extends Seeder
     $dataRow = $this->dataRow($trainingDataType, 'day');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'text',
+        'type' => 'radio_btn',
         'display_name' => __('voyager::seeders.data_rows.day'),
         'required' => 1,
         'browse' => 1,
@@ -213,20 +213,21 @@ class TrainingsTableSeeder extends Seeder
         'delete' => 1,
         'order' => 7,
         'details' => [
+          'default' => __('days.Monday'),
           'options' => [
-            __('days.Monday'),
-            __('days.Tuesday'),
-            __('days.Wednesday'),
-            __('days.Thursday'),
-            __('days.Friday'),
-            __('days.Saturday'),
-            __('days.Sunday'),
+            __('days.Monday') =>__('days.Monday'),
+            __('days.Tuesday') => __('days.Tuesday'),
+            __('days.Wednesday') => __('days.Wednesday'),
+            __('days.Thursday')=> __('days.Thursday'),
+            __('days.Friday')=> __('days.Friday'),
+            __('days.Saturday')=> __('days.Saturday'),
+            __('days.Sunday')=> __('days.Sunday'),
           ],
           'validation' => [
             'rule' => 'required'
           ],
           'display' => [
-            'width' => '6'
+            'width' => '12'
           ],
         ],
       ])->save();
