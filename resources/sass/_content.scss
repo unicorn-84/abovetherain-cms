@@ -32,11 +32,8 @@
 
         > * {
           display: inline-block;
-
-          @include media-breakpoint-up(lg) {
-            animation-fill-mode: forwards;
-            transform: translateY(100%);
-          }
+          animation-fill-mode: forwards;
+          transform: translateY(100%);
         }
 
         &:last-child > * {

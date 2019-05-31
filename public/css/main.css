@@ -10649,14 +10649,10 @@ p:last-child {
 }
 #abovetherain-cms__index .caption .atr-slogan > div > * {
   display: inline-block;
-}
-@media (min-width: 992px) {
-  #abovetherain-cms__index .caption .atr-slogan > div > * {
-    -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
-    -webkit-transform: translateY(100%);
-            transform: translateY(100%);
-  }
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
 }
 #abovetherain-cms__index .caption .atr-slogan > div:last-child > * {
   -webkit-animation-delay: 0.2s;

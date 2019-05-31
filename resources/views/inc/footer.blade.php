@@ -29,7 +29,7 @@
         </div>
         <div class="col-sm-6 col-lg-4 d-flex justify-content-center order-lg-first">
           <ul class="list-unstyled text-left p-0 m-0">
-            <li class="mb-2"><a href="{{ url('requisites') }}" class="text-reset" title="Реквизиты для оплаты ">Реквизиты</a>
+            <li class="mb-2"><a href="{{ route('requisites') }}" class="text-reset" title="Реквизиты для оплаты ">Реквизиты</a>
             </li>
           </ul>
         </div>

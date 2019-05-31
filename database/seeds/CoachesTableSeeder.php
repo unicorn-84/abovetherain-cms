@@ -64,8 +64,7 @@ class CoachesTableSeeder extends Seeder
         'order' => 2,
         'details' => [
           'validation' => [
-//            todo: Добавить max для всех text полей
-            'rule' => 'required|max:255'
+            'rule' => 'required'
           ],
           'display' => [
             'width' => '6',
@@ -87,7 +86,6 @@ class CoachesTableSeeder extends Seeder
         'delete' => 1,
         'order' => 3,
         'details' => [
-//          todo: Добавить unique для всех slug
           'slugify' => [
             'origin' => 'title',
             'forceUpdate' => true
@@ -205,7 +203,6 @@ class CoachesTableSeeder extends Seeder
         'order' => 17,
         'details' => [
           'validation' => [
-//            todo: Добавить nullable для всех nullable полей
             'rule' => 'numeric|nullable'
           ],
           'display' => [

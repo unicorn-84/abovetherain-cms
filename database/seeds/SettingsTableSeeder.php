@@ -207,6 +207,18 @@ class SettingsTableSeeder extends Seeder
       ])->save();
     }
 
+    $setting = $this->findSetting('content.vk_sign_up');
+    if (!$setting->exists) {
+      $setting->fill([
+        'display_name' => 'Записаться в VK',
+        'value' => 'https://vk.com/naddozhdem?w=app5708398_-168182015',
+        'details' => '',
+        'type' => 'text',
+        'order' => 7,
+        'group' => 'Content',
+      ])->save();
+    }
+
     //Admin
     $setting = $this->findSetting('admin.title');
     if (!$setting->exists) {

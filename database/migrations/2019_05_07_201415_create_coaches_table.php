@@ -17,7 +17,6 @@ class CreateCoachesTable extends Migration
       $table->bigIncrements('id');
       $table->string('title');
       $table->string('slug')->unique();
-//      todo: Добавить nullable для order во всех таблицах
       $table->integer('order')->nullable();
       $table->string('seo_title')->nullable();
       $table->string('poster')->nullable();

@@ -48,7 +48,7 @@
                   <ul class="list-unstyled m-0">
                     @foreach($coach->services as $service)
                       <li{!! $loop->last ? '' : ' class="mb-2"' !!}>
-                        <a href="{{ url('/services/' . $service->slug) }}" class="text-reset text-decoration-none font-weight-bold h5">
+                        <a href="{{ route('services', $service->slug) }}" class="text-reset text-decoration-none font-weight-bold h5">
                           <i class="far fa-list-alt"></i>&nbsp;{{ $service->title }}
                         </a>
                       </li>

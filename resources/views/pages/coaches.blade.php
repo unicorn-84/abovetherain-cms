@@ -47,7 +47,7 @@
               @endisset
               <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
                 @if(isset($coach->content))
-                  <a href="{{ url('/coaches/' . $coach->slug) }}" class="text-reset">
+                  <a href="{{ route('coach', $coach->slug) }}" class="text-reset">
                     <h3 class="card-title">
                       {{ $coach->title }}
                     </h3>
@@ -61,7 +61,7 @@
                   <ul class="list-unstyled m-2">
                     @foreach($coach->services as $service)
                       <li>
-                        <a href="{{ url('/services/' . $service->slug) }}" class="text-reset">{{ $service->title }}</a>
+                        <a href="{{ route('service', $service->slug) }}" class="text-reset">{{ $service->title }}</a>
                       </li>
                     @endforeach
                   </ul>

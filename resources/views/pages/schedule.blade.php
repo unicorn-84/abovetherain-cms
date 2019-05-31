@@ -48,18 +48,18 @@
 
   <main class="py-5 flex-fill" id="app">
     <div class="container">
-      <div class="row">
-        <div class="col-md-4 col-lg-3">
-          {{--todo: Сделать настройкой--}}
-          <a href="https://vk.com/naddozhdem?w=app5708398_-168182015" class="btn btn-primary btn-block mb-4"
-             role="button"
-             aria-disabled="true">
-            Записаться на занятие&nbsp;
-            <i class="fab fa-vk fa-sm"></i>
-          </a>
+      @if(Voyager::setting("content.vk_sign_up"))
+        <div class="row">
+          <div class="col-md-4 col-lg-3">
+            <a href="{{ Voyager::setting("content.vk_sign_up") }}" class="btn btn-primary btn-block mb-4"
+               role="button"
+               aria-disabled="true">
+              Записаться на занятие&nbsp;
+              <i class="fab fa-vk fa-sm"></i>
+            </a>
+          </div>
         </div>
-      </div>
-
+      @endif
       <div class="row mb-3">
 
         <div class="col-md-4 col-lg-3">

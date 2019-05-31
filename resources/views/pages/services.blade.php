@@ -42,7 +42,7 @@
             <div class="card mb-4 w-100">
               @isset($service->poster)
                 @if(isset($service->content))
-                  <a href="{{ url('/services/' . $service->slug) }}">
+                  <a href="{{ route('service', $service->slug) }}">
                     <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($service->poster) }}"
                          alt="{{ $service->title }}">
                   </a>
@@ -53,7 +53,7 @@
               @endisset
               <div class="card-body">
                 @if(isset($service->content))
-                  <a href="{{ url('/services/' . $service->slug) }}" class="text-reset">
+                  <a href="{{ route('service', $service->slug) }}" class="text-reset">
                     <h3 class="card-title">
                       {{ $service->title }}
                     </h3>
@@ -75,7 +75,7 @@
               @if(isset($service->content))
                 <div class="card-footer">
                   <div class="text-right">
-                    <a href="{{ url('/services/' . $service->slug) }}"
+                    <a href="{{ route('service', $service->slug) }}"
                        class="text-reset font-weight-bold">Подробнее...</a>
                   </div>
                 </div>

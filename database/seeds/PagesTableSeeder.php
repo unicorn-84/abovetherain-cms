@@ -320,7 +320,7 @@ class PagesTableSeeder extends Seeder
       $page->fill([
         'title' => 'Главная',
         'slug' => 'index',
-        'content' => '<p>Школа танцев</p><p>&laquo;Над Дождём&raquo;</p>',
+        'content' => '<p>Школа&nbsp;танцев</p><p>&laquo;Над&nbsp;Дождём&raquo;</p>',
         'has_pagetitle' => false,
         'has_footer' => false,
       ])->save();

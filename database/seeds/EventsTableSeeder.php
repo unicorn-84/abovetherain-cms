@@ -90,6 +90,9 @@ class EventsTableSeeder extends Seeder
             'origin' => 'title',
             'forceUpdate' => true
           ],
+          'validation' => [
+            'rule' => 'required|unique:coaches|max:255'
+          ],
           'display' => [
             'width' => '6'
           ],
