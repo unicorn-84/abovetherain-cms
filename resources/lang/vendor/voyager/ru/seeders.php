@@ -11,6 +11,7 @@ return [
     'coaches' => 'Тренеры',
     'content' => 'Контент',
     'created_at' => 'Дата создания',
+    'date' => 'Дата',
     'day' => 'День',
     'description' => 'Описание',
     'display_name' => 'Отображаемое имя',

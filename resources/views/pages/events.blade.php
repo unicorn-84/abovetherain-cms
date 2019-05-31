@@ -52,19 +52,34 @@
               <div class="card-body">
                 @if(isset($event->content))
                   <a href="{{ url('/events/' . $event->slug) }}" class="text-reset">
-                    <h2 class="card-title text-center m-0">
+                    {{--todo: Добавить mt--}}
+                    <h2 class="card-title m-0">
                       {{ $event->title }}
                     </h2>
                   </a>
                 @else
-                  <h2 class="card-title text-center m-0">
+                  <h2 class="card-title m-0">
                     {{ $event->title }}
                   </h2>
                 @endif
+                @if($event->local_date)
+                  {{--todo: Изменить на mt-3--}}
+                  {{--todo: Изменить badge--}}
+                  <h4 class="card-subtitle mt-0"><span class="badge bg-transparent border border-info text-info badge-info mt-3">{{ $event->local_date }}</span></h4>
+                @endif
                 @isset($event->description)
-                  <p class="card-text mt-2 mb-0">{{ $event->description }}</p>
+                  <p class="card-text mt-3 mb-0">{{ $event->description }}</p>
                 @endisset
               </div>
+              @if(isset($event->content))
+                <div class="card-footer">
+                  <div class="text-right">
+                    {{--todo: Изменить на named routes--}}
+                    <a href="{{ route('event', $event->slug) }}"
+                       class="text-reset font-weight-bold">Подробнее...</a>
+                  </div>
+                </div>
+              @endif
             </div>
           </div>
         @endforeach
