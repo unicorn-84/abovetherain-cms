@@ -1,20 +1,3 @@
-//Для 'all' селектора
-.schedule-table[data-selected='all'] .schedule-event {
-  border: 1px solid theme-color('rhino');
-
-  > div {
-    display: block;
-  }
-}
-
-.schedule-table.mobile[data-selected='all'] tr {
-  display: table-row;
-}
-
-.abovetherain-cms__schedule-select {
-  cursor: pointer;
-}
-
 #abovetherain-cms__index {
   .caption {
     position: absolute;

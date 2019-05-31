@@ -9,7 +9,7 @@
     {{--$style = 'style="color: ' . $training->text_color . ';"';--}}
   {{--}--}}
 {{--@endphp--}}
-<td class="align-middle border text-left p-4 p-lg-2 bg-light"{!! isset($style) ? ' ' . $style : '' !!}>
+<td class="align-middle border text-left p-4 p-lg-2"{!! isset($style) ? ' ' . $style : '' !!}>
   <div class="h5 text-truncate mb-1">
     <a href="{{ url('/services/' . $training->service_slug) }}" class="text-reset">{{ $training->service_title }}</a>
   </div>

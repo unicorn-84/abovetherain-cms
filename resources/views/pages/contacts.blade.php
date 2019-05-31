@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
-@section('head_code')
-  @isset($page->head_code)
-    {!! $page->head_code !!}
-  @endisset
-@endsection
+@section('custom-styles') @endsection
 
 @section('title')
   @if(isset($page->seo_title))
@@ -127,7 +123,7 @@
 @endsection
 
 @section('footer')
-  @if($page->has_footer))
+  @if($page->has_footer)
     @component('inc.footer')
     @endcomponent
   @endif

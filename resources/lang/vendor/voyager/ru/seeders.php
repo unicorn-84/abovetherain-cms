@@ -135,7 +135,7 @@ return [
     'site' => [
       'description' => 'Описание сайта',
       'fon' => 'Фоновое изображение для сайта',
-      'fon_color' => 'Цвет фона сайта',
+      'fon_color' => 'Цвет фона сайта (CSS Legal Color Values)',
       'google_analytics_tracking_id' => 'Google Analytics Tracking ID',
       'header_menu' => 'Меню для header',
       'icon' => 'Иконка сайта',
@@ -147,8 +147,10 @@ return [
       'seo_title' => 'SEO Название сайта',
     ],
     'content' => [
+      'address' => 'Адрес',
       'phone' => 'Номер телефона',
-      'address' => 'Адрес'
+      'schedule_fon_color' => 'Цвет фона расписания (CSS Legal Color Values)',
+      'schedule_text_color' => 'Цвет текста расписания (CSS Legal Color Values)'
     ]
   ]
 ];

@@ -32,14 +32,14 @@
 
   <!--MOBILE FON-->
   @if(isset($page->mobile_fon))
-    <style>html::before {background-image: url({{ Voyager::image($page->mobile_fon) }});}</style>
+    <style>@media (max-width: 991px){html::before {background-image: url({{ Voyager::image($page->mobile_fon) }});}}</style>
   @elseif(Voyager::setting("site.mobile_fon"))
-    <style>html::before {background-image: url({{ Voyager::image(Voyager::setting("site.mobile_fon")) }});}</style>
+    <style>@media (max-width: 991px){html::before {background-image: url({{ Voyager::image(Voyager::setting("site.mobile_fon")) }});}}</style>
   @endif
 
   <!--FON-->
   @if(isset($page->fon))
-    <style>@media (min-width: 992px) {html::before {background-image: url({{ Voyager::image($page->fon) }});}}</style>
+    <style>@media (min-width: 992px){html::before {background-image: url({{ Voyager::image($page->fon) }});}}</style>
   @elseif(Voyager::setting("site.fon"))
     <style>@media (min-width: 992px) {html::before {background-image: url({{ Voyager::image(Voyager::setting("site.fon")) }});}}</style>
   @endif
@@ -49,7 +49,8 @@
     <style>body {background-color: {{ Voyager::setting("site.fon_color") }} !important;}</style>
   @endif
 
-  @yield('head_code')
+  <!--CUSTOM STYLES-->
+  @yield('custom-styles')
 </head>
 <!--Body-->
 <body class="d-flex flex-column">

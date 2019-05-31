@@ -1,9 +1,16 @@
 @extends('layouts.app')
 
-@section('head_code')
-  @isset($page->head_code)
-    {!! $page->head_code !!}
-  @endisset
+@section('custom-styles')
+  @if(Voyager::setting("content.schedule_fon_color") || Voyager::setting("content.schedule_text_color"))
+    <style>
+      @if(Voyager::setting("content.schedule_fon_color"))
+        table{background-color:{{ Voyager::setting("content.schedule_fon_color") }}!important;}
+      @endif
+      @if(Voyager::setting("content.schedule_text_color"))
+        table{color:{{ Voyager::setting("content.schedule_text_color") }}!important;}
+      @endif
+    </style>
+  @endif
 @endsection
 
 @section('title')
@@ -97,7 +104,7 @@
 
           {{--Desktop--}}
           <div class="d-none d-lg-block">
-            <table class="table border-0 bg-light text-center mb-0" style="border-radius: 0.25rem; overflow: hidden;">
+            <table class="table border-0 text-center mb-0" style="border-radius: 0.25rem; overflow: hidden;">
               <thead>
               <tr>
                 <th class="border-top-0 border-bottom border-right"></th>
@@ -143,7 +150,7 @@
 
             @foreach($days as $slug => $day)
 
-              <table class="table table-light border-0 text-center{{ $loop->last ? ' mb-0' : ' mb-3' }}"
+              <table class="table border-0 text-center{{ $loop->last ? ' mb-0' : ' mb-3' }}"
                      style="border-radius: 0.25rem; overflow: hidden;">
                 <thead>
                 <tr>

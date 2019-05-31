@@ -102,7 +102,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.fon_color'),
-        'value' => '#fff',
+        'value' => '#ddd',
         'details' => '',
         'type' => 'text',
         'order' => 7,
@@ -179,6 +179,30 @@ class SettingsTableSeeder extends Seeder
         'details' => '',
         'type' => 'text',
         'order' => 6,
+        'group' => 'Content',
+      ])->save();
+    }
+
+    $setting = $this->findSetting('content.schedule_fon_color');
+    if (!$setting->exists) {
+      $setting->fill([
+        'display_name' => __('voyager::seeders.settings.content.schedule_fon_color'),
+        'value' => 'rgba(0,0,0,0.9)',
+        'details' => '',
+        'type' => 'text',
+        'order' => 6,
+        'group' => 'Content',
+      ])->save();
+    }
+
+    $setting = $this->findSetting('content.schedule_text_color');
+    if (!$setting->exists) {
+      $setting->fill([
+        'display_name' => __('voyager::seeders.settings.content.schedule_text_color'),
+        'value' => '#e1e1e1',
+        'details' => '',
+        'type' => 'text',
+        'order' => 7,
         'group' => 'Content',
       ])->save();
     }
