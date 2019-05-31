@@ -10635,7 +10635,7 @@ p:last-child {
     width: 1140px;
   }
 }
-#abovetherain-cms__index .caption h1 {
+#abovetherain-cms__index .caption .atr-slogan {
   font-family: "hercules_modern", serif;
   text-transform: uppercase;
   text-align: center;
@@ -10643,32 +10643,32 @@ p:last-child {
   margin: 0;
   line-height: 1;
 }
-#abovetherain-cms__index .caption h1 > span {
+#abovetherain-cms__index .caption .atr-slogan > div {
   display: block;
   overflow: hidden;
 }
-#abovetherain-cms__index .caption h1 > span > span {
+#abovetherain-cms__index .caption .atr-slogan > div > * {
   display: inline-block;
 }
 @media (min-width: 992px) {
-  #abovetherain-cms__index .caption h1 > span > span {
+  #abovetherain-cms__index .caption .atr-slogan > div > * {
     -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
     -webkit-transform: translateY(100%);
             transform: translateY(100%);
   }
 }
-#abovetherain-cms__index .caption h1 > span:last-child > span {
+#abovetherain-cms__index .caption .atr-slogan > div:last-child > * {
   -webkit-animation-delay: 0.2s;
           animation-delay: 0.2s;
 }
 @media screen and (min-width: 2000px) {
-  #abovetherain-cms__index .caption h1 {
+  #abovetherain-cms__index .caption .atr-slogan {
     font-size: 70px;
   }
 }
 @media (min-width: 992px) {
-  #abovetherain-cms__index .caption h1 {
+  #abovetherain-cms__index .caption .atr-slogan {
     text-align: left;
   }
 }

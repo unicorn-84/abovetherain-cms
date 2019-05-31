@@ -3462,9 +3462,12 @@ __webpack_require__.r(__webpack_exports__);
 var indexPage = document.getElementById('abovetherain-cms__index');
 
 function doAnimation() {
-  var spans = document.querySelectorAll('.caption h1 span span');
-  lodash_each__WEBPACK_IMPORTED_MODULE_0___default()(spans, function (span) {
-    span.classList.add('in-up-animation');
+  var target = document.querySelector('.atr-slogan');
+  lodash_each__WEBPACK_IMPORTED_MODULE_0___default()(target.children, function (item) {
+    var wrapper = document.createElement('div');
+    item.parentNode.insertBefore(wrapper, item);
+    wrapper.appendChild(item);
+    item.classList.add('in-up-animation');
   });
 }
 

@@ -24,7 +24,6 @@ class CreatePagesTable extends Migration
       $table->boolean('has_header')->default(true);
       $table->boolean('has_pagetitle')->default(true);
       $table->boolean('has_footer')->default(true);
-      $table->text('head_code')->nullable();
       $table->text('content')->nullable();
       $table->timestamps();
     });

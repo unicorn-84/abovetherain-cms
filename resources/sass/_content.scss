@@ -18,7 +18,7 @@
       width: 1140px;
     }
 
-    h1 {
+    .atr-slogan {
       font-family: 'hercules_modern', serif;
       text-transform: uppercase;
       text-align: center;
@@ -26,11 +26,11 @@
       margin: 0;
       line-height: 1;
 
-      > span {
+      > div {
         display: block;
         overflow: hidden;
 
-        > span {
+        > * {
           display: inline-block;
 
           @include media-breakpoint-up(lg) {
@@ -39,7 +39,7 @@
           }
         }
 
-        &:last-child > span {
+        &:last-child > * {
           animation-delay: 0.2s;
         }
       }

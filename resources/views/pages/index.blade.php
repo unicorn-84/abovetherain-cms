@@ -39,10 +39,9 @@
       <div class="container">
         <div class="row">
           <div class="col">
-            <h1 class="text-white">
-              <span><span>Школа&nbsp;танцев</span></span>
-              <span><span>«Lorem ipsum»</span></span>
-            </h1>
+            <div class="atr-slogan text-white">
+              {!! $page->content !!}
+            </div>
           </div>
         </div>
       </div>
