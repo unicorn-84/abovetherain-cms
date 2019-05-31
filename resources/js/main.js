@@ -1,26 +1,32 @@
 import each from 'lodash/each';
 import WebFont from 'webfontloader';
 
-const indexPage = document.getElementById('abovetherain-cms__index');
-
 function doAnimation() {
-  const target = document.querySelector('.atr-slogan');
-  each(target.children, (item) => {
-    const wrapper = document.createElement('div');
-    item.parentNode.insertBefore(wrapper, item);
-    wrapper.appendChild(item);
+  const items = document.querySelectorAll('.atr-slogan div > *');
+  each(items, (item) => {
     item.classList.add('in-up-animation');
   });
 }
 
-if (indexPage) {
-  WebFont.load({
-    custom: {
-      families: ['hercules_modern'],
-    },
-  });
-  doAnimation();
-}
+document.addEventListener('DOMContentLoaded', () => {
+  const indexPage = document.getElementById('abovetherain-cms__index');
+
+  if (indexPage) {
+    WebFont.load({
+      custom: {
+        families: ['hercules_modern'],
+      },
+    });
+    const target = document.querySelector('.atr-slogan');
+    each(target.children, (item) => {
+      const wrapper = document.createElement('div');
+      item.parentNode.insertBefore(wrapper, item);
+      wrapper.appendChild(item);
+    });
+    window.addEventListener('load', doAnimation);
+  }
+});
+
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

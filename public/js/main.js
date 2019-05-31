@@ -3459,32 +3459,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var webfontloader__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(webfontloader__WEBPACK_IMPORTED_MODULE_1__);
 
 
-var indexPage = document.getElementById('abovetherain-cms__index');
 
 function doAnimation() {
-  var target = document.querySelector('.atr-slogan');
-  lodash_each__WEBPACK_IMPORTED_MODULE_0___default()(target.children, function (item) {
-    var wrapper = document.createElement('div');
-    item.parentNode.insertBefore(wrapper, item);
-    wrapper.appendChild(item);
+  var items = document.querySelectorAll('.atr-slogan div > *');
+  lodash_each__WEBPACK_IMPORTED_MODULE_0___default()(items, function (item) {
     item.classList.add('in-up-animation');
   });
 }
 
-if (indexPage) {
-  webfontloader__WEBPACK_IMPORTED_MODULE_1___default.a.load({
-    custom: {
-      families: ['hercules_modern']
-    }
-  });
-  doAnimation();
-}
+document.addEventListener('DOMContentLoaded', function () {
+  var indexPage = document.getElementById('abovetherain-cms__index');
+
+  if (indexPage) {
+    webfontloader__WEBPACK_IMPORTED_MODULE_1___default.a.load({
+      custom: {
+        families: ['hercules_modern']
+      }
+    });
+    var target = document.querySelector('.atr-slogan');
+    lodash_each__WEBPACK_IMPORTED_MODULE_0___default()(target.children, function (item) {
+      var wrapper = document.createElement('div');
+      item.parentNode.insertBefore(wrapper, item);
+      wrapper.appendChild(item);
+    });
+    window.addEventListener('load', doAnimation);
+  }
+});
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
-
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
