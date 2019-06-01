@@ -79,7 +79,7 @@ class EventsTableSeeder extends Seeder
         'type' => 'text',
         'display_name' => __('voyager::seeders.data_rows.slug'),
         'required' => 0,
-        'browse' => 1,
+        'browse' => 0,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
@@ -89,6 +89,9 @@ class EventsTableSeeder extends Seeder
           'slugify' => [
             'origin' => 'title',
             'forceUpdate' => true
+          ],
+          'validation' => [
+            'rule' => 'required|unique:coaches|max:255'
           ],
           'display' => [
             'width' => '6'
@@ -103,7 +106,7 @@ class EventsTableSeeder extends Seeder
         'type' => 'text_area',
         'display_name' => __('voyager::seeders.data_rows.description'),
         'required' => 0,
-        'browse' => 1,
+        'browse' => 0,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
@@ -117,13 +120,13 @@ class EventsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($eventDataType, 'order'); // 5
+    $dataRow = $this->dataRow($eventDataType, 'seo_title'); // 5
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'number',
-        'display_name' => __('voyager::seeders.data_rows.order'),
+        'type' => 'text_area',
+        'display_name' => __('voyager::seeders.data_rows.seo_title'),
         'required' => 0,
-        'browse' => 1,
+        'browse' => 0,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
@@ -137,11 +140,11 @@ class EventsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($eventDataType, 'seo_title'); // 6
+    $dataRow = $this->dataRow($eventDataType, 'seo_description'); // 6
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'text_area',
-        'display_name' => __('voyager::seeders.data_rows.seo_title'),
+        'display_name' => __('voyager::seeders.data_rows.seo_description'),
         'required' => 0,
         'browse' => 0,
         'read' => 1,
@@ -157,13 +160,13 @@ class EventsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($eventDataType, 'seo_description'); // 7
+    $dataRow = $this->dataRow($eventDataType, 'date'); // 7
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'text_area',
-        'display_name' => __('voyager::seeders.data_rows.seo_description'),
+        'type' => 'date',
+        'display_name' => __('voyager::seeders.data_rows.date'),
         'required' => 0,
-        'browse' => 0,
+        'browse' => 1,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
@@ -183,7 +186,7 @@ class EventsTableSeeder extends Seeder
         'type' => 'image',
         'display_name' => __('voyager::seeders.data_rows.poster'),
         'required' => 0,
-        'browse' => 0,
+        'browse' => 1,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
@@ -265,7 +268,7 @@ class EventsTableSeeder extends Seeder
     Permission::generateFor('events');
 
     //Фабрика
-    factory(Event::class, 6)->create();
+//    factory(Event::class, 6)->create();
   }
 
   /**

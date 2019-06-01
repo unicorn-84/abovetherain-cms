@@ -54,6 +54,7 @@ class MenuItemsTableSeeder extends Seeder
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu_admin->id,
       'title' => __('voyager::seeders.menu_items.users'),
+      'icon_class' => 'voyager-group',
       'url' => '',
       'route' => 'voyager.users.index',
     ]);

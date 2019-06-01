@@ -66,7 +66,39 @@ class TrainingsTableSeeder extends Seeder
           'display' => [
             'width' => '6'
           ],
+          'validation' => [
+            'rule' => 'required'
+          ],
         ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($trainingDataType, 'training_belongsto_service_relationship');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'relationship',
+        'display_name' => __('voyager::seeders.data_rows.service'),
+        'required' => 1,
+        'browse' => 1,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 0,
+        'details' => [
+          'model' => 'App\\Service',
+          'table' => 'services',
+          'type' => 'belongsTo',
+          'column' => 'service_id',
+          'key' => 'id',
+          'label' => 'title',
+//          'pivot_table' => 'coach_service',
+          'pivot' => 0,
+          'taggable' => '0',
+          'display' => [
+            'width' => '6'
+          ],
+        ],
+        'order' => 2,
       ])->save();
     }
 
@@ -86,39 +118,39 @@ class TrainingsTableSeeder extends Seeder
           'display' => [
             'width' => '6'
           ],
+          'validation' => [
+            'rule' => 'required'
+          ],
         ],
       ])->save();
     }
 
-    $dataRow = $this->dataRow($trainingDataType, 'day');
+    $dataRow = $this->dataRow($trainingDataType, 'training_belongsto_coach_relationship');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'text',
-        'display_name' => __('voyager::seeders.data_rows.day'),
+        'type' => 'relationship',
+        'display_name' => __('voyager::seeders.data_rows.coach'),
         'required' => 1,
         'browse' => 1,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
-        'delete' => 1,
-        'order' => 4,
+        'delete' => 0,
         'details' => [
-          'options' => [
-            __('days.Monday'),
-            __('days.Tuesday'),
-            __('days.Wednesday'),
-            __('days.Thursday'),
-            __('days.Friday'),
-            __('days.Saturday'),
-            __('days.Sunday'),
-          ],
-          'validation' => [
-            'rule' => 'required'
-          ],
+          'model' => 'App\\Coach',
+          'table' => 'coaches',
+          'type' => 'belongsTo',
+          'column' => 'coach_id',
+          'key' => 'id',
+          'label' => 'title',
+//          'pivot_table' => 'coach_service',
+          'pivot' => 0,
+          'taggable' => '0',
           'display' => [
             'width' => '6'
           ],
         ],
+        'order' => 3,
       ])->save();
     }
 
@@ -168,21 +200,34 @@ class TrainingsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($trainingDataType, 'bg_color');
+    $dataRow = $this->dataRow($trainingDataType, 'day');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'color',
-        'display_name' => __('voyager::seeders.data_rows.bg_color'),
-        'required' => 0,
-        'browse' => 0,
+        'type' => 'radio_btn',
+        'display_name' => __('voyager::seeders.data_rows.day'),
+        'required' => 1,
+        'browse' => 1,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
         'order' => 7,
         'details' => [
+          'default' => __('days.Monday'),
+          'options' => [
+            __('days.Monday') =>__('days.Monday'),
+            __('days.Tuesday') => __('days.Tuesday'),
+            __('days.Wednesday') => __('days.Wednesday'),
+            __('days.Thursday')=> __('days.Thursday'),
+            __('days.Friday')=> __('days.Friday'),
+            __('days.Saturday')=> __('days.Saturday'),
+            __('days.Sunday')=> __('days.Sunday'),
+          ],
+          'validation' => [
+            'rule' => 'required'
+          ],
           'display' => [
-            'width' => "6",
+            'width' => '12'
           ],
         ],
       ])->save();
@@ -199,28 +244,52 @@ class TrainingsTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 8,
+        'order' => 10,
         'details' => [
           'display' => [
-            'width' => "6",
+            'width' => '6'
           ],
         ],
       ])->save();
     }
 
-    $dataRow = $this->dataRow($trainingDataType, 'content');
+    $dataRow = $this->dataRow($trainingDataType, 'badge_color');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'rich_text_box',
-        'display_name' => __('voyager::seeders.data_rows.content'),
+        'type' => 'color',
+        'display_name' => __('voyager::seeders.data_rows.badge_color'),
         'required' => 0,
         'browse' => 0,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 18,
-        'details' => '',
+        'order' => 11,
+        'details' => [
+          'display' => [
+            'width' => '6'
+          ],
+        ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($trainingDataType, 'badge_text');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'text',
+        'display_name' => __('voyager::seeders.data_rows.badge_text'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 12,
+        'details' => [
+          'display' => [
+            'width' => '6'
+          ],
+        ],
       ])->save();
     }
 
@@ -276,7 +345,7 @@ class TrainingsTableSeeder extends Seeder
     Permission::generateFor('trainings');
 
     //Фабрика
-    factory(\App\Training::class, 15)->create();
+//    factory(\App\Training::class, 15)->create();
   }
 
   /**

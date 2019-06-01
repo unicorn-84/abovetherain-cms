@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
-@section('head_code')
-  @isset($page->head_code)
-    {!! $page->head_code !!}
-  @endisset
-@endsection
+@section('custom') @endsection
 
 @section('title')
   @if(isset($page->seo_title))
@@ -42,23 +38,44 @@
     <div class="container">
       <div class="row">
         @foreach($events as $event)
-          <div class="col-md-6 d-flex">
+          <div class="col-md-6{{ $event->poster ? ' d-flex' : '' }}">
             <div class="card mb-4 w-100">
               @isset($event->poster)
-                <a href="{{ url('/events/' . $event->slug) }}">
+                @if(isset($event->content))
+                  <a href="{{ route('event', $event->slug) }}">
+                    <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($event->poster) }}" alt="{{ $event->title }}">
+                  </a>
+                @else
                   <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($event->poster) }}" alt="{{ $event->title }}">
-                </a>
+                @endif
               @endisset
               <div class="card-body">
-                <a href="{{ url('/events/' . $event->slug) }}" class="text-reset">
-                  <h2 class="card-title text-center m-0">
+                @if(isset($event->content))
+                  <a href="{{ route('event', $event->slug) }}" class="text-reset">
+                    <h2 class="card-title m-0">
+                      {{ $event->title }}
+                    </h2>
+                  </a>
+                @else
+                  <h2 class="card-title m-0">
                     {{ $event->title }}
                   </h2>
-                </a>
+                @endif
+                @if($event->local_date)
+                  <h4 class="card-subtitle mt-3"><span class="badge bg-transparent border border-info text-info badge-info">{{ $event->local_date }}</span></h4>
+                @endif
                 @isset($event->description)
-                  <p class="card-text mt-2 mb-0">{{ $event->description }}</p>
+                  <p class="card-text mt-3 mb-0">{{ $event->description }}</p>
                 @endisset
               </div>
+              @if(isset($event->content))
+                <div class="card-footer">
+                  <div class="text-right">
+                    <a href="{{ route('event', $event->slug) }}"
+                       class="text-reset font-weight-bold">Подробнее...</a>
+                  </div>
+                </div>
+              @endif
             </div>
           </div>
         @endforeach

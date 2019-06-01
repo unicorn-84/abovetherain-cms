@@ -1,9 +1,16 @@
 @extends('layouts.app')
 
-@section('head_code')
-  @isset($page->head_code)
-    {!! $page->head_code !!}
-  @endisset
+@section('custom')
+  @if(Voyager::setting("content.schedule_fon_color") || Voyager::setting("content.schedule_text_color"))
+    <style>
+      @if(Voyager::setting("content.schedule_fon_color"))
+        table{background-color:{{ Voyager::setting("content.schedule_fon_color") }}!important;}
+      @endif
+      @if(Voyager::setting("content.schedule_text_color"))
+        table{color:{{ Voyager::setting("content.schedule_text_color") }}!important;}
+      @endif
+    </style>
+  @endif
 @endsection
 
 @section('title')
@@ -38,119 +45,137 @@
 @endsection
 
 @section('content')
-  <main class="py-5 flex-fill">
-    <div class="container">
-      {{--<div class="row">--}}
-      {{--<div class="col-sm-6 col-lg-4 col-xl-3">--}}
-      {{--<a href="https://vk.com/naddozhdem?w=app5708398_-168182015" class="btn btn-primary btn-block mb-4"--}}
-      {{--role="button"--}}
-      {{--aria-disabled="true">--}}
-      {{--Записаться на занятие&nbsp;--}}
-      {{--<i class="fab fa-vk fa-sm"></i>--}}
-      {{--</a>--}}
-      {{--</div>--}}
-      {{--</div>--}}
 
+  <main class="py-5 flex-fill" id="app">
+    <div class="container">
+      @if(Voyager::setting("content.vk_sign_up"))
+        <div class="row">
+          <div class="col-md-4 col-lg-3">
+            <a href="{{ Voyager::setting("content.vk_sign_up") }}" class="btn btn-primary btn-block mb-4"
+               role="button"
+               aria-disabled="true">
+              Записаться на занятие&nbsp;
+              <i class="fab fa-vk fa-sm"></i>
+            </a>
+          </div>
+        </div>
+      @endif
+      <div class="row mb-3">
+
+        <div class="col-md-4 col-lg-3">
+          <select class="custom-select mb-2" onchange="top.location.href = this.options[this.selectedIndex].value">
+            <option value="{{ route('schedule') }}"{{ Request()->query('training') === null ? ' selected' : '' }}>Все
+              тренировки
+            </option>
+            @foreach($services as $slug => $service)
+              <option
+                value="{{ route('schedule', 'training=' . $slug) }}"{{ Request()->query('training') === $slug ? ' selected' : '' }}>{{ $service }}</option>
+            @endforeach
+          </select>
+        </div>
+
+        <div class="col-md-4 col-lg-3">
+          <select class="custom-select mb-2" onchange="top.location.href = this.options[this.selectedIndex].value">
+            <option value="{{ route('schedule') }}"{{ Request()->query('coach') === null ? ' selected' : '' }}>Все
+              тренеры
+            </option>
+            @foreach($coaches as $slug => $coach)
+              <option
+                value="{{ route('schedule', 'coach=' . $slug) }}"{{ Request()->query('coach') === $slug ? ' selected' : '' }}>{{ $coach }}</option>
+            @endforeach
+          </select>
+        </div>
+
+        <div class="col-md-4 col-lg-3">
+          <select class="custom-select mb-2" onchange="top.location.href = this.options[this.selectedIndex].value">
+            <option value="{{ route('schedule') }}"{{ Request()->query('day') === null ? ' selected' : '' }}>Все дни
+            </option>
+            @foreach($days as $slug => $day)
+              <option
+                value="{{ route('schedule', 'day=' . $slug) }}"{{ Request()->query('day') === $slug ? ' selected' : '' }}>{{ $day }}</option>
+            @endforeach
+          </select>
+        </div>
+
+      </div>
 
       <div class="row">
         <div class="col">
 
-
           {{--Desktop--}}
           <div class="d-none d-lg-block">
-            <table class="table table-dark border-secondary table-bordered text-center">
+            <table class="table border-0 text-center mb-0" style="border-radius: 0.25rem; overflow: hidden;">
               <thead>
               <tr>
-                <th></th>
-                @foreach($days as $day)
-                  <th class="d-none d-xl-table-cell p-3">{{ $day }}</th>
-                  <th class="d-xl-none p-3">{{ getDayAbbr($day) }}</th>
+                <th class="border-top-0 border-bottom border-right"></th>
+                @foreach($days as $slug => $day)
+                  <th
+                    class="d-none d-xl-table-cell p-3 border-top-0 border-bottom{{ $loop->last ? '' : ' border-right' }}">{{ $day }}</th>
+                  <th
+                    class="d-xl-none p-3 border-top-0 border-bottom{{ $loop->last ? '' : ' border-right' }}">{{ getDayAbbr($day) }}</th>
                 @endforeach
               </tr>
               </thead>
               <tbody>
-              @foreach($times as $time)
+              @if(count($trainings) > 0)
+                @foreach($trainings as $training)
+                  <tr>
+                    <th
+                      class="align-middle border-top-0 border-right{{ $loop->last ? ' border-bottom-0' : ' border-bottom' }}">{{ $training->start_time }}</th>
+
+                    @foreach($days as $slug => $day)
+                      @if($training->day === $day)
+                        @component('partials.training', ['training' => $training])
+                        @endcomponent
+                      @else
+                        <td class="border-0"></td>
+                      @endif
+                    @endforeach
+
+                  </tr>
+                @endforeach
+              @else
                 <tr>
-                  <th class="align-middle">{{ $time }}</th>
-                  @for($i = 0; $i < count($days); $i += 1)
-                    @if($virtTable[($loop->iteration) - 1][$i])
-                      @component('partials.training', ['training' => $virtTable[($loop->iteration) - 1][$i]])
-                      @endcomponent
-                    @else
-                      <td class="border-0"></td>
-                    @endif
-                  @endfor
+                  <td class="align-middle border-0 p-3" colspan="{{ count($days) + 1 }}">Тренировки отсутствуют</td>
                 </tr>
-              @endforeach
+              @endif
+
               </tbody>
             </table>
           </div>
 
 
           {{--Mobile--}}
-          <ul class="nav nav-pills mb-3 d-flex justify-content-between justify-content-sm-start d-lg-none"
-              role="tablist">
+          <div class="d-lg-none">
 
-            @foreach($trainingsOfTheDay as $day => $trainings)
+            @foreach($days as $slug => $day)
 
-              <li class="nav-item">
-                <a
-                  class="nav-link text-white px-2 px-sm-3{{ Date::now()->format('l') === mb_strtolower($day) ? ' active' : '' }}"
-                  data-toggle="pill" href="{{ '#pills-' . Str::slug($day) }}" role="tab"
-                  aria-selected="true">{{ getDayAbbr($day) }}</a>
-              </li>
+              <table class="table border-0 text-center{{ $loop->last ? ' mb-0' : ' mb-3' }}"
+                     style="border-radius: 0.25rem; overflow: hidden;">
+                <thead>
+                <tr>
+                  <th class="border-0">{{ $day }}</th>
+                </tr>
+                </thead>
+                <tbody>
 
-            @endforeach
+                @foreach($trainings as $training)
 
-          </ul>
+                  @if($training->day === $day)
 
-          <div class="tab-content d-lg-none">
+                  <tr>
 
-            @foreach($trainingsOfTheDay as $day => $trainings)
+                    @component('partials.training', ['training' => $training])
+                    @endcomponent
 
-              <div
-                class="tab-pane fade show{{ Date::now()->format('l') === mb_strtolower($day) ? ' active' : '' }}"
-                id="{{ 'pills-' . Str::slug($day) }}" role="tabpanel">
+                  </tr>
 
-                @if(count($trainings) > 0)
+                  @endif
 
-                  <table class="table text-center mb-0 border-0" style="border-radius: 0.25rem; overflow: hidden;">
-                    <thead>
-                    <tr>
-                      <th class="border-0 bg-light">{{ $day }}</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+                @endforeach
 
-                    @foreach($trainings as $training)
-
-                      <tr>
-
-                        @component('partials.training', ['training' => $training])
-                        @endcomponent
-
-                      </tr>
-
-                    @endforeach
-
-                    </tbody>
-                  </table>
-
-                @else
-
-                  <table class="table text-center mb-0 border-0" style="border-radius: 0.25rem; overflow: hidden;">
-                    <thead>
-                    <tr>
-                      <th class="border-0 bg-light">Нет тренировок</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                  </table>
-
-                @endif
-
-              </div>
+                </tbody>
+              </table>
 
             @endforeach
 

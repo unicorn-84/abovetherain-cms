@@ -18,7 +18,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.title'),
-        'value' => substr($faker->sentence(2), 0, -1),
+//        'value' => substr($faker->sentence(2), 0, -1),
         'details' => '',
         'type' => 'text',
         'order' => 1,
@@ -30,7 +30,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.seo_title'),
-        'value' => $faker->sentence(10),
+//        'value' => $faker->sentence(10),
         'details' => '',
         'type' => 'text',
         'order' => 2,
@@ -42,7 +42,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.seo_description'),
-        'value' => $faker->text($maxNbChars = 20),
+//        'value' => $faker->text($maxNbChars = 20),
         'details' => '',
         'type' => 'text',
         'order' => 3,
@@ -54,7 +54,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.icon'),
-        'value' => 'demo/logo.png',
+//        'value' => 'demo/logo.png',
         'details' => '',
         'type' => 'image',
         'order' => 4,
@@ -66,7 +66,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.logo'),
-        'value' => 'demo/logo.png',
+//        'value' => 'demo/logo.png',
         'details' => '',
         'type' => 'image',
         'order' => 5,
@@ -78,7 +78,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.fon'),
-        'value' => '/demo/14.jpg',
+//        'value' => '/demo/14.jpg',
         'details' => '',
         'type' => 'image',
         'order' => 6,
@@ -90,9 +90,21 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.mobile_fon'),
-        'value' => 'demo/14-cropped.jpg',
+//        'value' => 'demo/14-cropped.jpg',
         'details' => '',
         'type' => 'image',
+        'order' => 7,
+        'group' => 'Site',
+      ])->save();
+    }
+
+    $setting = $this->findSetting('site.fon_color');
+    if (!$setting->exists) {
+      $setting->fill([
+        'display_name' => __('voyager::seeders.settings.site.fon_color'),
+        'value' => '#ddd',
+        'details' => '',
+        'type' => 'text',
         'order' => 7,
         'group' => 'Site',
       ])->save();
@@ -103,7 +115,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => 'Email',
-        'value' => $faker->email,
+//        'value' => $faker->email,
         'details' => '',
         'type' => 'text',
         'order' => 1,
@@ -115,7 +127,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.content.phone'),
-        'value' => $faker->e164PhoneNumber,
+//        'value' => $faker->e164PhoneNumber,
         'details' => '',
         'type' => 'text',
         'order' => 2,
@@ -127,7 +139,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.content.address'),
-        'value' => $faker->address,
+//        'value' => $faker->address,
         'details' => '',
         'type' => 'text_area',
         'order' => 3,
@@ -139,7 +151,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => 'VK',
-        'value' => '#',
+//        'value' => '#',
         'details' => '',
         'type' => 'text',
         'order' => 4,
@@ -151,7 +163,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => 'Instagram',
-        'value' => '#',
+//        'value' => '#',
         'details' => '',
         'type' => 'text',
         'order' => 5,
@@ -163,10 +175,46 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => 'Facebook',
-        'value' => '#',
+//        'value' => '#',
         'details' => '',
         'type' => 'text',
         'order' => 6,
+        'group' => 'Content',
+      ])->save();
+    }
+
+    $setting = $this->findSetting('content.schedule_fon_color');
+    if (!$setting->exists) {
+      $setting->fill([
+        'display_name' => __('voyager::seeders.settings.content.schedule_fon_color'),
+        'value' => 'rgba(0,0,0,0.95)',
+        'details' => '',
+        'type' => 'text',
+        'order' => 6,
+        'group' => 'Content',
+      ])->save();
+    }
+
+    $setting = $this->findSetting('content.schedule_text_color');
+    if (!$setting->exists) {
+      $setting->fill([
+        'display_name' => __('voyager::seeders.settings.content.schedule_text_color'),
+        'value' => '#e1e1e1',
+        'details' => '',
+        'type' => 'text',
+        'order' => 7,
+        'group' => 'Content',
+      ])->save();
+    }
+
+    $setting = $this->findSetting('content.vk_sign_up');
+    if (!$setting->exists) {
+      $setting->fill([
+        'display_name' => 'Записаться в VK',
+//        'value' => 'https://vk.com/naddozhdem?w=app5708398_-168182015',
+        'details' => '',
+        'type' => 'text',
+        'order' => 7,
         'group' => 'Content',
       ])->save();
     }
@@ -176,7 +224,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.admin.title'),
-        'value' => substr($faker->sentence(2), 0, -1),
+//        'value' => substr($faker->sentence(2), 0, -1),
         'details' => '',
         'type' => 'text',
         'order' => 1,
@@ -188,7 +236,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.admin.description'),
-        'value' => $faker->text($maxNbChars = 10),
+//        'value' => $faker->text($maxNbChars = 10),
         'details' => '',
         'type' => 'text',
         'order' => 2,
@@ -200,7 +248,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.admin.fon'),
-        'value' => 'demo/14.jpg',
+//        'value' => 'demo/14.jpg',
         'details' => '',
         'type' => 'image',
         'order' => 3,
@@ -212,7 +260,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.admin.loader'),
-        'value' => 'demo/logo.png',
+//        'value' => 'demo/logo.png',
         'details' => '',
         'type' => 'image',
         'order' => 4,
@@ -224,7 +272,7 @@ class SettingsTableSeeder extends Seeder
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.admin.logo'),
-        'value' => 'demo/logo.png',
+//        'value' => 'demo/logo.png',
         'details' => '',
         'type' => 'image',
         'order' => 5,

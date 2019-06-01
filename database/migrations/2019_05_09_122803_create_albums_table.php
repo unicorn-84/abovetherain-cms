@@ -17,7 +17,7 @@ class CreateAlbumsTable extends Migration
       $table->bigIncrements('id');
       $table->string('title');
       $table->string('slug')->unique();
-      $table->integer('order')->default(1);
+      $table->integer('order')->nullable();
       $table->string('seo_title')->nullable();
       $table->string('poster')->nullable();
       $table->string('description')->nullable();

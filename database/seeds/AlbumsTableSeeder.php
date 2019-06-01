@@ -90,6 +90,9 @@ class AlbumsTableSeeder extends Seeder
             'origin' => 'title',
             'forceUpdate' => true
           ],
+          'validation' => [
+            'rule' => 'required|unique:coaches|max:255'
+          ],
           'display' => [
             'width' => '6'
           ],
@@ -168,8 +171,11 @@ class AlbumsTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 6,
+        'order' => 7,
         'details' => [
+          'validation' => [
+            'rule' => 'numeric|nullable'
+          ],
           'display' => [
             'width' => '6'
           ],
@@ -183,12 +189,12 @@ class AlbumsTableSeeder extends Seeder
         'type' => 'image',
         'display_name' => __('voyager::seeders.data_rows.poster'),
         'required' => 0,
-        'browse' => 0,
+        'browse' => 1,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 7,
+        'order' => 6,
         'details' => [
           'validation' => [
             'rule' => 'image'
@@ -291,7 +297,7 @@ class AlbumsTableSeeder extends Seeder
     Permission::generateFor('albums');
 
     //Фабрика
-    factory(Album::class, 5)->create();
+//    factory(Album::class, 5)->create();
   }
 
   /**

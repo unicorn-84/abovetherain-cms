@@ -85,10 +85,6 @@ class PagesTableSeeder extends Seeder
           'display' => [
             'width' => '6'
           ],
-          'slugify' => [
-            'origin' => 'title',
-            'forceUpdate' => true
-          ],
         ],
       ])->save();
     }
@@ -242,21 +238,6 @@ class PagesTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($pageDataType, 'head_code');
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'code_editor',
-        'display_name' => __('voyager::seeders.data_rows.head_code'),
-        'required' => 0,
-        'browse' => 0,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
-        'order' => 11,
-      ])->save();
-    }
-
     $dataRow = $this->dataRow($pageDataType, 'content');
     if (!$dataRow->exists) {
       $dataRow->fill([
@@ -269,6 +250,11 @@ class PagesTableSeeder extends Seeder
         'add' => 1,
         'delete' => 1,
         'order' => 18,
+        'details' => [
+          'display' => [
+            'id' => 'atr-page-content-field',
+          ],
+        ],
       ])->save();
     }
 
@@ -333,6 +319,8 @@ class PagesTableSeeder extends Seeder
     if (!$page->exists) {
       $page->fill([
         'title' => 'Главная',
+        'slug' => 'index',
+        'content' => '<p>Школа&nbsp;танцев</p><p>&laquo;Над&nbsp;Дождём&raquo;</p>',
         'has_pagetitle' => false,
         'has_footer' => false,
       ])->save();
@@ -345,6 +333,7 @@ class PagesTableSeeder extends Seeder
     if (!$page->exists) {
       $page->fill([
         'title' => 'Услуги',
+        'slug' => 'services',
       ])->save();
     }
 
@@ -355,6 +344,7 @@ class PagesTableSeeder extends Seeder
     if (!$page->exists) {
       $page->fill([
         'title' => 'Расписание',
+        'slug' => 'schedule',
       ])->save();
     }
 
@@ -365,6 +355,7 @@ class PagesTableSeeder extends Seeder
     if (!$page->exists) {
       $page->fill([
         'title' => 'События',
+        'slug' => 'events',
       ])->save();
     }
 
@@ -375,7 +366,8 @@ class PagesTableSeeder extends Seeder
     if (!$page->exists) {
       $page->fill([
         'title' => 'Мы',
-        'content' => $faker->text($maxNbChars = 1000),
+        'slug' => 'team',
+//        'content' => $faker->text($maxNbChars = 1000),
       ])->save();
     }
 
@@ -386,6 +378,7 @@ class PagesTableSeeder extends Seeder
     if (!$page->exists) {
       $page->fill([
         'title' => 'Тренеры',
+        'slug' => 'coaches',
       ])->save();
     }
 
@@ -396,6 +389,7 @@ class PagesTableSeeder extends Seeder
     if (!$page->exists) {
       $page->fill([
         'title' => 'Галерея',
+        'slug' => 'gallery',
       ])->save();
     }
 
@@ -406,6 +400,7 @@ class PagesTableSeeder extends Seeder
     if (!$page->exists) {
       $page->fill([
         'title' => 'Контакты',
+        'slug' => 'contacts',
       ])->save();
     }
 
@@ -416,7 +411,8 @@ class PagesTableSeeder extends Seeder
     if (!$page->exists) {
       $page->fill([
         'title' => 'Реквизиты',
-        'content' => $faker->text($maxNbChars = 1000),
+        'slug' => 'requisites',
+//        'content' => $faker->text($maxNbChars = 1000),
       ])->save();
     }
   }

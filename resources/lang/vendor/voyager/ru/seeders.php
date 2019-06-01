@@ -4,13 +4,17 @@ return [
   'data_rows' => [
     'author' => 'Автор',
     'avatar' => 'Аватар',
-    'bg_color' => 'Цвет фона',
+    'badge' => 'Значок',
+    'badge_text' => 'Текст значка',
+    'badge_color' => 'Цвет значка',
+    'bg_color' => 'Цвет фона (css legal color values)',
     'body' => 'Содержимое',
     'category' => 'Категория',
     'coach' => 'Тренер',
     'coaches' => 'Тренеры',
     'content' => 'Контент',
     'created_at' => 'Дата создания',
+    'date' => 'Дата',
     'day' => 'День',
     'description' => 'Описание',
     'display_name' => 'Отображаемое имя',
@@ -45,8 +49,9 @@ return [
     'services' => 'Услуги',
     'slug' => 'Slug (ЧПУ)',
     'status' => 'Статус',
+    'subtitle' => 'Подзаголовок',
     'start_time' => 'Время начала (hh:mm)',
-    'text_color' => 'Цвет текста',
+    'text_color' => 'Цвет ссылок',
     'title' => 'Название',
     'training' => 'Тренировка',
     'trainings' => 'Тренировки',
@@ -135,6 +140,7 @@ return [
     'site' => [
       'description' => 'Описание сайта',
       'fon' => 'Фоновое изображение для сайта',
+      'fon_color' => 'Цвет фона сайта (css legal color values)',
       'google_analytics_tracking_id' => 'Google Analytics Tracking ID',
       'header_menu' => 'Меню для header',
       'icon' => 'Иконка сайта',
@@ -146,8 +152,10 @@ return [
       'seo_title' => 'SEO Название сайта',
     ],
     'content' => [
+      'address' => 'Адрес',
       'phone' => 'Номер телефона',
-      'address' => 'Адрес'
+      'schedule_fon_color' => 'Цвет фона расписания (css legal color values)',
+      'schedule_text_color' => 'Цвет текста расписания (css legal color values)'
     ]
   ]
 ];

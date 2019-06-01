@@ -1,0 +1,25 @@
+<?php
+
+return [
+  'page'           => 'страница|страницы|страниц',
+  'page_link_text' => 'Все страницы',
+  'page_text'      => 'В базе данных :count :string',
+  'service'           => 'услуга|услуги|услуг',
+  'service_link_text' => 'Все услуги',
+  'service_text'      => 'В базе данных :count :string',
+  'training'           => 'тренировка|тренировки|тренировок',
+  'training_link_text' => 'Все тренировки',
+  'training_text'      => 'В базе данных :count :string',
+  'event'           => 'событие|события|событий',
+  'event_link_text' => 'Все события',
+  'event_text'      => 'В базе данных :count :string',
+  'coach'           => 'тренер|тренера|тренеров',
+  'coach_link_text' => 'Все тренеры',
+  'coach_text'      => 'В базе данных :count :string',
+  'album'           => 'альбом|альбома|альбомов',
+  'album_link_text' => 'Все альбомы',
+  'album_text'      => 'В базе данных :count :string',
+  'user'           => 'пользователь|пользователя|пользователей',
+  'user_link_text' => 'Все пользователи',
+  'user_text'      => 'В базе данных :count :string',
+];

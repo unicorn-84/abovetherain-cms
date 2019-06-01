@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
-@section('head_code')
-  @isset($page->head_code)
-    {!! $page->head_code !!}
-  @endisset
-@endsection
+@section('custom') @endsection
 
 @section('title')
   @if(isset($event->seo_title))

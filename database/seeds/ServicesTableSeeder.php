@@ -81,7 +81,7 @@ class ServicesTableSeeder extends Seeder
         'type' => 'text',
         'display_name' => __('voyager::seeders.data_rows.slug'),
         'required' => 0,
-        'browse' => 1,
+        'browse' => 0,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
@@ -91,6 +91,9 @@ class ServicesTableSeeder extends Seeder
           'slugify' => [
             'origin' => 'title',
             'forceUpdate' => true
+          ],
+          'validation' => [
+            'rule' => 'required|unique:coaches|max:255'
           ],
           'display' => [
             'width' => '6'
@@ -159,13 +162,33 @@ class ServicesTableSeeder extends Seeder
       ])->save();
     }
 
+    $dataRow = $this->dataRow($serviceDataType, 'subtitle'); // 4
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'rich_text_box',
+        'display_name' => __('voyager::seeders.data_rows.subtitle'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 4,
+        'details' => [
+          'display' => [
+            'id' => 'atr-service-subtitle-field',
+          ],
+        ],
+      ])->save();
+    }
+
     $dataRow = $this->dataRow($serviceDataType, 'poster');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'image',
         'display_name' => __('voyager::seeders.data_rows.poster'),
         'required' => 0,
-        'browse' => 0,
+        'browse' => 1,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
@@ -213,7 +236,7 @@ class ServicesTableSeeder extends Seeder
       $dataRow->fill([
         'type' => 'number',
         'display_name' => __('voyager::seeders.data_rows.order'),
-        'required' => 0,
+        'required' => 1,
         'browse' => 1,
         'read' => 1,
         'edit' => 1,
@@ -299,7 +322,7 @@ class ServicesTableSeeder extends Seeder
     Permission::generateFor('services');
 
     //Фабрика
-    factory(\App\Service::class, 10)->create();
+//    factory(\App\Service::class, 10)->create();
   }
 
   /**

@@ -1,9 +1,6 @@
 @extends('layouts.app')
 
-@section('head_code')
-  @isset($page->head_code)
-    {!! $page->head_code !!}
-  @endisset
+@section('custom')
 @endsection
 
 @section('title')

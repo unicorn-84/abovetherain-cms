@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
-@section('head_code')
-  @isset($page->head_code)
-    {!! $page->head_code !!}
-  @endisset
-@endsection
+@section('custom') @endsection
 
 @section('title')
   @if(isset($service->seo_title))
@@ -47,17 +43,22 @@
               <div class="card-body">
                 {!! $coach->content !!}
               </div>
-              @if(isset($coach->services) && count($coach->services) > 0)
+              @if(isset($coach->services) && count($coach->services) > 0 || isset($coach->trainings) && count($coach->trainings) > 0)
                 <div class="card-footer p-4 d-lg-flex justify-content-lg-between">
                   <ul class="list-unstyled m-0">
                     @foreach($coach->services as $service)
                       <li{!! $loop->last ? '' : ' class="mb-2"' !!}>
-                        <a href="{{ url('/services/' . $service->slug) }}" class="text-reset text-decoration-none font-weight-bold h5">
-                          <i class="far fa-list-alt fs-sm"></i>&nbsp;{{ $service->title }}
+                        <a href="{{ route('services', $service->slug) }}" class="text-reset text-decoration-none font-weight-bold h5">
+                          <i class="far fa-list-alt"></i>&nbsp;{{ $service->title }}
                         </a>
                       </li>
                     @endforeach
                   </ul>
+                  @if(count($coach->trainings) > 0)
+                    <a href="{{ route('schedule', 'coach=' . $coach->slug) }}" class="d-inline-block h5 text-reset text-decoration-none font-weight-bold mb-0 my-lg-0{{ count($coach->services) > 0 ? ' mt-4' : '' }}">
+                      <i class="far fa-calendar-alt fa-lg"></i>&nbsp;Расписание занятий
+                    </a>
+                  @endif
                 </div>
               @endif
             </div>

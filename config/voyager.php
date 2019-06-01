@@ -43,7 +43,7 @@ return [
     // However make sure the appointed class must ready to use before installing voyager.
     // Otherwise `php artisan voyager:install` will fail with class not found error.
     'namespace' => null,
-    'default_avatar' => 'users/default.png',
+    'default_avatar' => 'images/icons/default.png',
     'redirect' => '/atr-admin',
   ],
 
@@ -174,7 +174,13 @@ return [
     ],
 
     'widgets' => [
-
+      'App\\Widgets\\PageDimmer',
+      'App\\Widgets\\ServiceDimmer',
+      'App\\Widgets\\TrainingDimmer',
+      'App\\Widgets\\EventDimmer',
+      'App\\Widgets\\CoachDimmer',
+      'App\\Widgets\\AlbumDimmer',
+      'App\\Widgets\\UserDimmer',
     ],
 
   ],
@@ -213,7 +219,7 @@ return [
 
   'primary_color' => '#22A7F0',
 
-  'show_dev_tips' => true, // Show development tip "How To Use:" in Menu and Settings
+  'show_dev_tips' => false, // Show development tip "How To Use:" in Menu and Settings
 
   // Here you can specify additional assets you would like to be included in the master.blade
   'additional_css' => [

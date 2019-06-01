@@ -27,4 +27,22 @@ html {
   display: none !important;
 }
 
+.atr-radio-btn-field {
+  display: flex !important;
+  flex-flow: row wrap;
+  border: 1px solid #e4eaec;
+  border-radius: 3px;
+  background-color: #fff;
+  width: fit-content !important;
+
+  li {
+    width: fit-content !important;
+    margin-right: 1rem;
+    background-color: transparent;
+
+    label {
+    }
+  }
+}
+
 @import 'browse';

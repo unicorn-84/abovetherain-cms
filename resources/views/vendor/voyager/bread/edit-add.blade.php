@@ -7,6 +7,12 @@
 
 @section('css')
   <meta name="csrf-token" content="{{ csrf_token() }}">
+  <style>
+    #atr-service-subtitle-field iframe,
+    #atr-page-content-field iframe {
+      height: 200px !important;
+    }
+  </style>
 @stop
 
 @section('page_title', __('voyager::generic.'.($edit ? 'edit' : 'add')).' '.$dataType->display_name_singular)

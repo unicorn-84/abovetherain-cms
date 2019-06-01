@@ -12,13 +12,13 @@ class CoachController extends Controller
   {
     $page = Page::where('slug', 'coaches')->firstOrFail();
     $coaches = Coach::orderBy('order', 'asc')->get();
-    return view('pages.coaches', compact('page', 'coaches'));
+    return view('pages.coaches', ['page' => $page, 'coaches' => $coaches]);
   }
 
   public function show($slug)
   {
     $page = Page::where('slug', 'coaches')->firstOrFail();
     $coach = Coach::where('slug', $slug)->firstOrFail();
-    return view('pages.coach', compact('page', 'coach'));
+    return view('pages.coach', ['page' => $page, 'coach' => $coach]);
   }
 }

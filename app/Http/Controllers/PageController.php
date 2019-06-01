@@ -21,11 +21,4 @@ class PageController extends Controller
     }
     return view($view, ['page' => $page]);
   }
-
-  public function gallery()
-  {
-    $page = Page::where('slug', 'gallery')->firstOrFail();
-    $albums = Album::all();
-    return view('pages.gallery')->with(['albums' => $albums, 'page' => $page]);
-  }
 }

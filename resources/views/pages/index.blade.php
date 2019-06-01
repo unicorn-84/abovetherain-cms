@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('head_code')
-  @isset($page->head_code)
-    {!! $page->head_code !!}
-  @endisset
+@section('custom')
+  <meta name="google-site-verification" content="Gc5zQB4yQ5s8ZvDI5WoD2yXp5Hrza3OmX-qsy8A2hig">
+  <meta name="yandex-verification" content="f196debf2583cee4">
+  <style>.atr-slogan{opacity: 0}</style>
 @endsection
 
 @section('title')
@@ -43,10 +43,9 @@
       <div class="container">
         <div class="row">
           <div class="col">
-            <h1 class="text-white">
-              <span><span>Школа&nbsp;танцев</span></span>
-              <span><span>«Lorem ipsum»</span></span>
-            </h1>
+            <div class="atr-slogan text-white">
+              {!! $page->content !!}
+            </div>
           </div>
         </div>
       </div>

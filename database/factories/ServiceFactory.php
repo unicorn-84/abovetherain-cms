@@ -8,8 +8,8 @@ use Faker\Generator as Faker;
 $factory->define(Service::class, function (Faker $faker) {
   return [
     'title' => substr($faker->sentence(2), 0, -1),
+    'subtitle' => '<p>Одно занятие - 750 руб<br />Пробное занятие - 500 руб</p>',
     'slug' => $faker->slug,
-    'order' => $faker->randomDigitNotNull,
     'seo_title' => $faker->sentence(10),
     'description' => $faker->text($maxNbChars = 200),
     'seo_description' => $faker->text($maxNbChars = 20),

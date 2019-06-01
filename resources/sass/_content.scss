@@ -1,20 +1,3 @@
-//Для 'all' селектора
-.schedule-table[data-selected='all'] .schedule-event {
-  border: 1px solid theme-color('rhino');
-
-  > div {
-    display: block;
-  }
-}
-
-.schedule-table.mobile[data-selected='all'] tr {
-  display: table-row;
-}
-
-.abovetherain-cms__schedule-select {
-  cursor: pointer;
-}
-
 #abovetherain-cms__index {
   .caption {
     position: absolute;
@@ -35,7 +18,7 @@
       width: 1140px;
     }
 
-    h1 {
+    .atr-slogan {
       font-family: 'hercules_modern', serif;
       text-transform: uppercase;
       text-align: center;
@@ -43,20 +26,17 @@
       margin: 0;
       line-height: 1;
 
-      > span {
+      > div {
         display: block;
         overflow: hidden;
 
-        > span {
+        > * {
           display: inline-block;
-
-          @include media-breakpoint-up(lg) {
-            animation-fill-mode: forwards;
-            transform: translateY(100%);
-          }
+          animation-fill-mode: forwards;
+          transform: translateY(100%);
         }
 
-        &:last-child > span {
+        &:last-child > * {
           animation-delay: 0.2s;
         }
       }
