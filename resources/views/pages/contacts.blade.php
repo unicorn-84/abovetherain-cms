@@ -37,25 +37,27 @@
   <main class="py-5 flex-fill">
     <div class="container">
       <div class="row">
-        <div class="col-12">
-          <ul class="list-unstyled font-weight-bold text-white mb-4">
-            @if(Voyager::setting('content.address'))
-              <li class="mb-3 h4">
-                <i class="fas fa-map-marker-alt fa-fw"></i>&nbsp;{{ Voyager::setting('content.address') }}
-              </li>
-            @endif
-            @if(Voyager::setting('content.phone'))
-              <li class="mb-3 h4">
-                <a href="tel:{{ Voyager::setting('content.phone') }}" class="text-reset text-decoration-none" title="{{ Voyager::setting('content.phone') }}"><i class="fas fa-phone fa-rotate-90 fa-fw"></i>&nbsp;{{ Voyager::setting('content.phone') }}</a>
-              </li>
-            @endif
-            @if(Voyager::setting('content.email'))
-              <li class="mb-3 h4">
-                <i class="fas fa-envelope fa-fw"></i>&nbsp;{{ Voyager::setting('content.email') }}
-              </li>
-            @endif
-          </ul>
-        </div>
+        @if(Voyager::setting('content.address') || Voyager::setting('content.phone') || Voyager::setting('content.email'))
+          <div class="col-12">
+            <ul class="list-unstyled font-weight-bold text-white mb-4">
+              @if(Voyager::setting('content.address'))
+                <li class="mb-3 h4">
+                  <i class="fas fa-map-marker-alt fa-fw"></i>&nbsp;{{ Voyager::setting('content.address') }}
+                </li>
+              @endif
+              @if(Voyager::setting('content.phone'))
+                <li class="mb-3 h4">
+                  <a href="tel:{{ Voyager::setting('content.phone') }}" class="text-reset text-decoration-none" title="{{ Voyager::setting('content.phone') }}"><i class="fas fa-phone fa-rotate-90 fa-fw"></i>&nbsp;{{ Voyager::setting('content.phone') }}</a>
+                </li>
+              @endif
+              @if(Voyager::setting('content.email'))
+                <li class="mb-3 h4">
+                  <i class="fas fa-envelope fa-fw"></i>&nbsp;{{ Voyager::setting('content.email') }}
+                </li>
+              @endif
+            </ul>
+          </div>
+        @endif
         <div class="col-12" id="yandex-map" style="height: 40rem;"></div>
       </div>
     </div>
@@ -71,7 +73,7 @@
       const mark = new window.ymaps.Placemark([59.964280, 30.273500], {},
         {
           iconLayout: 'default#image',
-          iconImageHref: "{{ asset('images/icons/icon.png') }}",
+          iconImageHref: "{{ Voyager::setting('site.logo') }}",
           iconImageSize: [80, 80],
           iconImageOffset: [-60, -40],
           cursor: 'auto',

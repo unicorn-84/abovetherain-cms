@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
       item.parentNode.insertBefore(wrapper, item);
       wrapper.appendChild(item);
     });
+    target.style.opacity = 1;
     window.addEventListener('load', doAnimation);
   }
 });

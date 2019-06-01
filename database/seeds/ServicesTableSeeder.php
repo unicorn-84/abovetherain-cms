@@ -322,7 +322,7 @@ class ServicesTableSeeder extends Seeder
     Permission::generateFor('services');
 
     //Фабрика
-    factory(\App\Service::class, 10)->create();
+//    factory(\App\Service::class, 10)->create();
   }
 
   /**

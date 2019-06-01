@@ -367,7 +367,7 @@ class PagesTableSeeder extends Seeder
       $page->fill([
         'title' => 'Мы',
         'slug' => 'team',
-        'content' => $faker->text($maxNbChars = 1000),
+//        'content' => $faker->text($maxNbChars = 1000),
       ])->save();
     }
 
@@ -412,7 +412,7 @@ class PagesTableSeeder extends Seeder
       $page->fill([
         'title' => 'Реквизиты',
         'slug' => 'requisites',
-        'content' => $faker->text($maxNbChars = 1000),
+//        'content' => $faker->text($maxNbChars = 1000),
       ])->save();
     }
   }
