@@ -174,7 +174,13 @@ return [
     ],
 
     'widgets' => [
-
+      'App\\Widgets\\PageDimmer',
+      'App\\Widgets\\ServiceDimmer',
+      'App\\Widgets\\TrainingDimmer',
+      'App\\Widgets\\EventDimmer',
+      'App\\Widgets\\CoachDimmer',
+      'App\\Widgets\\AlbumDimmer',
+      'App\\Widgets\\UserDimmer',
     ],
 
   ],
