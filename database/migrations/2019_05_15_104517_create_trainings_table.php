@@ -22,9 +22,9 @@ class CreateTrainingsTable extends Migration
       $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
       $table->unsignedBigInteger('coach_id');
       $table->foreign('coach_id')->references('id')->on('coaches')->onDelete('cascade');
-      $table->string('badge_color')->nullable()->default('#28a745');
+      $table->string('badge_color')->nullable();
       $table->string('badge_text')->nullable();
-      $table->string('text_color')->nullable()->default('#00be9f');
+      $table->string('text_color')->nullable();
       $table->timestamps();
     });
   }
