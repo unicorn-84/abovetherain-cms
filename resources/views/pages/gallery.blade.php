@@ -64,13 +64,13 @@
                   </h2>
                 @endif
                 @if($album->count_images > 0)
-                  <span class="badge bg-transparent border border-info text-info badge-info mt-2">{{ $album->count_images }} фото</span>
+                  <span class="badge bg-transparent border border-info text-info badge-info mt-3">{{ $album->count_images }} фото</span>
                 @endif
                 @if($album->count_videos > 0)
-                  <span class="badge bg-transparent border border-info text-info badge-info mt-2">{{ $album->count_videos }} видео</span>
+                  <span class="badge bg-transparent border border-primary text-primary badge-primary mt-3">{{ $album->count_videos }} видео</span>
                 @endif
                 @isset($album->description)
-                  <p class="card-text mt-2 mb-0">{{ $album->description }}</p>
+                  <p class="card-text mt-3 mb-0">{{ $album->description }}</p>
                 @endisset
               </div>
             </div>

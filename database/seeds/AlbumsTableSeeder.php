@@ -241,7 +241,7 @@ class AlbumsTableSeeder extends Seeder
         'add' => 1,
         'delete' => 1,
         'order' => 9,
-        'details' => [],
+//        'details' => [],
       ])->save();
     }
 

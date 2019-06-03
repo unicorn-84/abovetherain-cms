@@ -12,7 +12,7 @@ class Event extends Model
   {
     Date::setLocale('ru');
     if ($this->date) {
-      return Date::parse($this->date)->format('j F');
+      return Date::parse($this->date)->format('j F Y');
     }
     return null;
   }

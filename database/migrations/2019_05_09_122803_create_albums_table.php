@@ -18,9 +18,9 @@ class CreateAlbumsTable extends Migration
       $table->string('title');
       $table->string('slug')->unique();
       $table->integer('order')->nullable();
-      $table->string('seo_title')->nullable();
+      $table->text('seo_title')->nullable();
       $table->string('poster')->nullable();
-      $table->string('description')->nullable();
+      $table->text('description')->nullable();
       $table->string('seo_description')->nullable();
       $table->text('images')->nullable();
       $table->text('videos')->nullable();

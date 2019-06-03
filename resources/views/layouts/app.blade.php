@@ -73,44 +73,45 @@
 </head>
 <!--Body-->
 <body class="d-flex flex-column">
+@if(Voyager::setting('site.ya_id'))
 <!--Yandex.Metrika counter-->
-{{--<script>--}}
-  {{--(function (d, w, c) {--}}
-    {{--(w[c] = w[c] || []).push(function () {--}}
-      {{--try {--}}
-        {{--w.yaCounter51313063 = new Ya.Metrika2({--}}
-          {{--id: 51313063,--}}
-          {{--clickmap: true,--}}
-          {{--trackLinks: true,--}}
-          {{--accurateTrackBounce: true,--}}
-          {{--webvisor: true--}}
-        {{--});--}}
-      {{--} catch (e) {--}}
-      {{--}--}}
-    {{--});--}}
+<script>
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function () {
+      try {
+        w.yaCounter{{ Voyager::setting('site.ya_id') }} = new Ya.Metrika2({
+          id: {{ Voyager::setting('site.ya_id') }},
+          clickmap: true,
+          trackLinks: true,
+          accurateTrackBounce: true,
+          webvisor: true
+        });
+      } catch (e) {
+      }
+    });
 
-    {{--var n = d.getElementsByTagName('script')[0],--}}
-      {{--s = d.createElement('script'),--}}
-      {{--f = function () {--}}
-        {{--n.parentNode.insertBefore(s, n);--}}
-      {{--};--}}
-    {{--s.type = 'text/javascript';--}}
-    {{--s.async = true;--}}
-    {{--s.src = 'https://mc.yandex.ru/metrika/tag.js';--}}
+    var n = d.getElementsByTagName('script')[0],
+      s = d.createElement('script'),
+      f = function () {
+        n.parentNode.insertBefore(s, n);
+      };
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = 'https://mc.yandex.ru/metrika/tag.js';
 
-    {{--if (w.opera == '[object Opera]') {--}}
-      {{--d.addEventListener('DOMContentLoaded', f, false);--}}
-    {{--} else {--}}
-      {{--f();--}}
-    {{--}--}}
-  {{--})(document, window, 'yandex_metrika_callbacks2');--}}
-{{--</script>--}}
-{{--<noscript>--}}
-  {{--<div>--}}
-    {{--<img src="https://mc.yandex.ru/watch/51313063" style="position:absolute; left:-9999px;" alt="">--}}
-  {{--</div>--}}
-{{--</noscript>--}}
-
+    if (w.opera == '[object Opera]') {
+      d.addEventListener('DOMContentLoaded', f, false);
+    } else {
+      f();
+    }
+  })(document, window, 'yandex_metrika_callbacks2');
+</script>
+<noscript>
+  <div>
+    <img src="https://mc.yandex.ru/watch/{{ Voyager::setting('site.ya_id') }}" style="position:absolute; left:-9999px;" alt="">
+  </div>
+</noscript>
+@endif
 @yield('header')
 @yield('page-title')
 @yield('content')

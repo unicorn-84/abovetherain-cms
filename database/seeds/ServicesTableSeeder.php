@@ -236,7 +236,7 @@ class ServicesTableSeeder extends Seeder
       $dataRow->fill([
         'type' => 'number',
         'display_name' => __('voyager::seeders.data_rows.order'),
-        'required' => 1,
+        'required' => 0,
         'browse' => 1,
         'read' => 1,
         'edit' => 1,
@@ -245,7 +245,7 @@ class ServicesTableSeeder extends Seeder
         'order' => 9,
         'details' => [
           'validation' => [
-            'rule' => 'required|numeric'
+            'rule' => 'numeric|nullable'
           ],
           'display' => [
             'width' => '6'

@@ -56,7 +56,7 @@ return [
     'training' => 'Тренировка',
     'trainings' => 'Тренировки',
     'updated_at' => 'Дата обновления',
-    'video' => 'Видео'
+    'video' => 'Видео',
   ],
   'data_types' => [
     'album' => [
@@ -150,6 +150,7 @@ return [
       'title' => 'Название сайта',
       'seo_description' => 'SEO Описание сайта',
       'seo_title' => 'SEO Название сайта',
+      'ya_id' => 'ID Яндекс.Метрика',
     ],
     'content' => [
       'address' => 'Адрес',

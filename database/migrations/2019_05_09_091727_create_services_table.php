@@ -19,7 +19,7 @@ class CreateServicesTable extends Migration
       $table->string('subtitle')->nullable();
       $table->string('slug')->unique();
       $table->integer('order')->nullable();
-      $table->string('seo_title')->nullable();
+      $table->text('seo_title')->nullable();
       $table->text('description')->nullable();
       $table->text('seo_description')->nullable();
       $table->string('poster')->nullable();
