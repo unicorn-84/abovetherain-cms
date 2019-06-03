@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use TCG\Voyager\Facades\Voyager;
-use App\FormFields\MultipleVideosHandler;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
