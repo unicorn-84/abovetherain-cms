@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Voyager;
 
-use App\Http\Controllers\Voyager\ContentTypes\File;
+use App\Http\Controllers\Voyager\ContentTypes\MultipleVideo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
@@ -10,6 +10,7 @@ use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Events\BreadDataUpdated;
 use TCG\Voyager\Http\Controllers\ContentTypes\Checkbox;
 use TCG\Voyager\Http\Controllers\ContentTypes\Coordinates;
+use TCG\Voyager\Http\Controllers\ContentTypes\File;
 use TCG\Voyager\Http\Controllers\ContentTypes\Image as ContentImage;
 use TCG\Voyager\Http\Controllers\ContentTypes\MultipleCheckbox;
 use TCG\Voyager\Http\Controllers\ContentTypes\MultipleImage;
@@ -62,6 +63,18 @@ class VoyagerBaseController extends BaseVoyagerBaseController
         }
       }
 
+      /*
+       * merge ex_videos and upload videos
+       */
+      if ($row->type == 'multiple_videos' && !is_null($content)) {
+        if (isset($data->{$row->field})) {
+          $ex_files = json_decode($data->{$row->field}, true);
+          if (!is_null($ex_files)) {
+            $content = json_encode(array_merge($ex_files, json_decode($content)));
+          }
+        }
+      }
+
       if (is_null($content)) {
 
         // If the image upload is null and it has a current image keep the current image
@@ -74,9 +87,15 @@ class VoyagerBaseController extends BaseVoyagerBaseController
           $content = $data->{$row->field};
         }
 
+        // If the multiple_videos upload is null and it has a current video keep the current image
+        if ($row->type == 'multiple_videos' && is_null($request->input($row->field)) && isset($data->{$row->field})) {
+          $content = $data->{$row->field};
+        }
+
         // If the file upload is null and it has a current file keep the current file
         if ($row->type == 'file') {
-          $content = $data->{$row->field};          if (!$content) {
+          $content = $data->{$row->field};
+          if (!$content) {
             $content = json_encode([]);
           }
         }
@@ -152,6 +171,11 @@ class VoyagerBaseController extends BaseVoyagerBaseController
       /********** MULTIPLE IMAGES TYPE **********/
       case 'multiple_images':
         return (new MultipleImage($request, $slug, $row, $options))->handle();
+
+      /********** MULTIPLE VIDEOS TYPE **********/
+      case 'multiple_videos':
+        return (new MultipleVideo($request, $slug, $row, $options))->handle();
+
       /********** SELECT MULTIPLE TYPE **********/
       case 'select_multiple':
         return (new SelectMultiple($request, $slug, $row, $options))->handle();

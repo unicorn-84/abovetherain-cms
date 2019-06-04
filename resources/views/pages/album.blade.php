@@ -46,9 +46,9 @@
       <div class="container">
         <div class="row">
           @foreach($videos as $video)
-            <div class="сol-md-6 col-lg-4{{ count($images) > 0 ? ' mb-5' : '' }}">
+            <div class="сol-md-6 col-lg-4{{ isset($images) && count($images) > 0 ? ' mb-5' : '' }}">
               <div class="embed-responsive embed-responsive-16by9">
-                <video src="{{ Voyager::image($video->download_link) }}" class="embed-responsive-item" controls></video>
+                <video src="{{ Voyager::image($video) }}" class="embed-responsive-item" controls></video>
               </div>
             </div>
           @endforeach

@@ -232,7 +232,7 @@ class AlbumsTableSeeder extends Seeder
     $dataRow = $this->dataRow($albumDataType, 'videos');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'file',
+        'type' => 'multiple_videos',
         'display_name' => __('voyager::seeders.data_rows.video'),
         'required' => 0,
         'browse' => 0,
@@ -241,7 +241,11 @@ class AlbumsTableSeeder extends Seeder
         'add' => 1,
         'delete' => 1,
         'order' => 9,
-//        'details' => [],
+        'details' => [
+          'validation' => [
+            'rule' => 'image'
+          ],
+        ],
       ])->save();
     }
 
