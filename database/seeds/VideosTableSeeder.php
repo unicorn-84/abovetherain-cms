@@ -73,12 +73,12 @@ class VideosTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($videoDataType, 'poster'); // Poster
+    $dataRow = $this->dataRow($videoDataType, 'aspect_ratio'); // RATIO
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'image',
-        'display_name' => __('voyager::seeders.data_rows.poster'),
-        'required' => 0,
+        'type' => 'select_dropdown',
+        'display_name' => __('voyager::seeders.data_rows.aspect_ratio'),
+        'required' => 1,
         'browse' => 1,
         'read' => 1,
         'edit' => 1,
@@ -87,9 +87,19 @@ class VideosTableSeeder extends Seeder
         'order' => 3,
         'details' => [
           'validation' => [
-            'rule' => 'image'
+            'rule' => 'required|max:255'
           ],
-        ],
+          'display' => [
+            'width' => '6'
+          ],
+          'default' => '16:9',
+          'options' => [
+            '16by9' => '16:9',
+            '4by3' => '4:3',
+            '1by1' => '1:1',
+            '21by9' => '21:9',
+          ],
+        ]
       ])->save();
     }
 
@@ -116,12 +126,12 @@ class VideosTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($videoDataType, 'aspect_ratio');
+    $dataRow = $this->dataRow($videoDataType, 'poster'); // Poster
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'select_dropdown',
-        'display_name' => __('voyager::seeders.data_rows.aspect_ratio'),
-        'required' => 1,
+        'type' => 'image',
+        'display_name' => __('voyager::seeders.data_rows.poster'),
+        'required' => 0,
         'browse' => 1,
         'read' => 1,
         'edit' => 1,
@@ -130,19 +140,12 @@ class VideosTableSeeder extends Seeder
         'order' => 5,
         'details' => [
           'validation' => [
-            'rule' => 'required|max:255'
+            'rule' => 'image'
           ],
           'display' => [
             'width' => '6'
           ],
-          'default' => '16:9',
-          'options' => [
-            '16by9' => '16:9',
-            '4by3' => '4:3',
-            '1by1' => '1:1',
-            '21by9' => '21:9',
-          ],
-        ]
+        ],
       ])->save();
     }
 
