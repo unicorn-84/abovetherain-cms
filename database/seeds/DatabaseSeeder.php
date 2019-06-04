@@ -30,6 +30,8 @@ class DatabaseSeeder extends Seeder
 
       $this->call(TrainingsTableSeeder::class);
 
+      $this->call(VideosTableSeeder::class);
+
       $this->call(PermissionRoleTableSeeder::class);
 
     }

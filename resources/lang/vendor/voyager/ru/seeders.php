@@ -41,6 +41,7 @@ return [
     'password' => 'Пароль',
     'post_image' => 'Изображение Сообщения',
     'poster' => 'Обложка',
+    'aspect_ratio' => 'Соотношение сторон',
     'remember_token' => 'Токен восстановления',
     'role' => 'Роль',
     'seo_description'=> 'SEO Описание',
@@ -56,6 +57,7 @@ return [
     'training' => 'Тренировка',
     'trainings' => 'Тренировки',
     'updated_at' => 'Дата обновления',
+    'uri' => 'Ссылка',
     'video' => 'Видео',
   ],
   'data_types' => [
@@ -99,6 +101,10 @@ return [
       'singular' => 'Пользователь',
       'plural' => 'Пользователи',
     ],
+    'video' => [
+      'singular' => 'Видео',
+      'plural' => 'Видео',
+    ],
   ],
   'menu_items' => [
     'albums' => 'Альбомы',
@@ -119,6 +125,7 @@ return [
     'tools' => 'Инструменты',
     'trainings' => 'Тренировки',
     'users' => 'Пользователи',
+    'videos' => 'Видео',
   ],
   'roles' => [
     'admin' => 'Администратор',
