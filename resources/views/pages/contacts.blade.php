@@ -73,7 +73,7 @@
       const mark = new window.ymaps.Placemark([59.964280, 30.273500], {},
         {
           iconLayout: 'default#image',
-          iconImageHref: "{{ Voyager::setting('site.logo') }}",
+          iconImageHref: "{{ Voyager::image(Voyager::setting("site.logo")) }}",
           iconImageSize: [80, 80],
           iconImageOffset: [-60, -40],
           cursor: 'auto',

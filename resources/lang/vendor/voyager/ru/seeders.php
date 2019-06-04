@@ -2,6 +2,7 @@
 
 return [
   'data_rows' => [
+    'albums' => 'Альбомы',
     'author' => 'Автор',
     'avatar' => 'Аватар',
     'badge' => 'Значок',

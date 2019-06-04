@@ -149,6 +149,35 @@ class VideosTableSeeder extends Seeder
       ])->save();
     }
 
+    $dataRow = $this->dataRow($videoDataType, 'video_belongstomany_album_relationship');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'relationship',
+        'display_name' => __('voyager::seeders.data_rows.albums'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 0,
+        'details' => [
+          'model' => 'App\\Album',
+          'table' => 'albumss',
+          'type' => 'belongsToMany',
+          'column' => 'id',
+          'key' => 'id',
+          'label' => 'title',
+          'pivot_table' => 'album_video',
+          'pivot' => 1,
+          'taggable' => '0',
+          'display' => [
+            'width' => '6'
+          ],
+        ],
+        'order' => 18,
+      ])->save();
+    }
+
     //Menu Item
     $menu = Menu::where('name', 'Admin')->firstOrFail();
     $menuItem = MenuItem::firstOrNew([

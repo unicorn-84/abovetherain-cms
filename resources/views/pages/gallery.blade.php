@@ -64,7 +64,7 @@
                   </h2>
                 @endif
                 @if($album->count_images > 0)
-                  <span class="badge bg-transparent border border-info text-info badge-info mt-3">{{ $album->count_images }} фото</span>
+                  <span class="badge bg-transparent border border-info text-info badge-info mt-3">{{ $album->count_images }} фото</span>&nbsp;
                 @endif
                 @if($album->videos->count() > 0)
                   <span class="badge bg-transparent border border-primary text-primary badge-primary mt-3">{{ $album->videos->count() }} видео</span>

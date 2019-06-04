@@ -46,7 +46,7 @@
         <div class="row">
           @foreach($album->videos as $video)
             <div class="сol-md-6 col-lg-4{{ isset($images) && count($images) > 0 ? ' mb-5' : '' }}">
-              <div class="embed-responsive embed-responsive-{{ isset($video->aspect_ratio) ? $video->aspect_ratio : '16by9' }}">
+              <div class="shadow-lg embed-responsive embed-responsive-{{ isset($video->aspect_ratio) ? $video->aspect_ratio : '16by9' }}">
                 <video src="{{ Storage::disk(config('voyager.storage.disk'))->url($video->video_uri) }}" class="embed-responsive-item" controls{!! isset($video->poster) ? ' poster="' . Storage::disk(config('voyager.storage.disk'))->url($video->poster) . '"' : '' !!}></video>
               </div>
             </div>
