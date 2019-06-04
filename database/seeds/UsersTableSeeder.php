@@ -15,15 +15,15 @@ class UsersTableSeeder extends Seeder
   public function run()
   {
     if (User::count() == 0) {
-      $role = Role::where('name', 'admin')->firstOrFail();
+      $role = Role::where('name', 'user')->firstOrFail();
 
       User::create([
-        'name' => 'Admin',
-        'email' => 'admin@admin.com',
-        'password' => bcrypt('admin'),
+        'name' => 'User',
+        'email' => 'user@user.com',
+        'password' => bcrypt('user'),
         'remember_token' => Str::random(60),
         'role_id' => $role->id,
-        'avatar' => 'users/admin.png'
+//        'avatar' => 'users/admin.png'
       ]);
     }
   }
