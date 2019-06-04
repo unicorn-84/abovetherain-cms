@@ -59,6 +59,7 @@ return [
     'updated_at' => 'Дата обновления',
     'uri' => 'Ссылка',
     'video' => 'Видео',
+    'videos' => 'Видео',
   ],
   'data_types' => [
     'album' => [

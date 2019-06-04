@@ -36,19 +36,18 @@
 
 @php
   $images = json_decode($album->images);
-  $videos = json_decode($album->videos);
   //dd($images);
 @endphp
 
 @section('content')
   <main class="py-5 flex-fill">
-    @if($videos)
+    @if($album->videos->count() > 0)
       <div class="container">
         <div class="row">
-          @foreach($videos as $video)
+          @foreach($album->videos as $video)
             <div class="сol-md-6 col-lg-4{{ isset($images) && count($images) > 0 ? ' mb-5' : '' }}">
-              <div class="embed-responsive embed-responsive-16by9">
-                <video src="{{ Voyager::image($video) }}" class="embed-responsive-item" controls></video>
+              <div class="embed-responsive embed-responsive-{{ isset($video->aspect_ratio) ? $video->aspect_ratio : '16by9' }}">
+                <video src="{{ Storage::disk(config('voyager.storage.disk'))->url($video->video_uri) }}" class="embed-responsive-item" controls{!! isset($video->poster) ? ' poster="' . Storage::disk(config('voyager.storage.disk'))->url($video->poster) . '"' : '' !!}></video>
               </div>
             </div>
           @endforeach

@@ -41,7 +41,7 @@
           <div class="col-md-6 col-lg-4{{ $album->poster ? ' d-flex' : '' }}">
             <div class="card mb-4 w-100">
               @isset($album->poster)
-                @if($album->count_images > 0 || $album->count_videos > 0)
+                @if($album->count_images > 0 || $album->videos->count() > 0)
                   <a href="{{ route('album', $album->slug) }}">
                     <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($album->poster) }}"
                          alt="{{ $album->title }}">
@@ -52,7 +52,7 @@
                 @endif
               @endisset
               <div class="card-body">
-                @if($album->count_images > 0 || $album->count_videos > 0)
+                @if($album->count_images > 0 || $album->videos->count() > 0)
                   <a href="{{ route('album', $album->slug) }}" class="text-reset">
                     <h2 class="card-title m-0">
                       {{ $album->title }}
@@ -66,8 +66,8 @@
                 @if($album->count_images > 0)
                   <span class="badge bg-transparent border border-info text-info badge-info mt-3">{{ $album->count_images }} фото</span>
                 @endif
-                @if($album->count_videos > 0)
-                  <span class="badge bg-transparent border border-primary text-primary badge-primary mt-3">{{ $album->count_videos }} видео</span>
+                @if($album->videos->count() > 0)
+                  <span class="badge bg-transparent border border-primary text-primary badge-primary mt-3">{{ $album->videos->count() }} видео</span>
                 @endif
                 @isset($album->description)
                   <p class="card-text mt-3 mb-0">{{ $album->description }}</p>
