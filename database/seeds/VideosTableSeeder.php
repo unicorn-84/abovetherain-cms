@@ -73,30 +73,7 @@ class VideosTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($videoDataType, 'uri'); // URI
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'text',
-        'display_name' => __('voyager::seeders.data_rows.uri'),
-        'required' => 1,
-        'browse' => 0,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
-        'order' => 3,
-        'details' => [
-          'validation' => [
-            'rule' => 'required|unique:videos|max:255'
-          ],
-          'display' => [
-            'width' => '6'
-          ],
-        ]
-      ])->save();
-    }
-
-    $dataRow = $this->dataRow($videoDataType, 'poster');
+    $dataRow = $this->dataRow($videoDataType, 'poster'); // Poster
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'image',
@@ -107,12 +84,35 @@ class VideosTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 6,
+        'order' => 3,
         'details' => [
           'validation' => [
             'rule' => 'image'
           ],
         ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($videoDataType, 'video_uri'); // VIDEO URI
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'video',
+        'display_name' => __('voyager::seeders.data_rows.video'),
+        'required' => 1,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 4,
+        'details' => [
+          'validation' => [
+            'rule' => 'unique:videos|max:200000'
+          ],
+          'display' => [
+            'width' => '6'
+          ],
+        ]
       ])->save();
     }
 
@@ -127,7 +127,7 @@ class VideosTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 3,
+        'order' => 5,
         'details' => [
           'validation' => [
             'rule' => 'required|max:255'
@@ -137,10 +137,10 @@ class VideosTableSeeder extends Seeder
           ],
           'default' => '16:9',
           'options' => [
-            '16:9' => '16:9',
-            '4:3' => '4:3',
-            '1:1' => '1:1',
-            '21:9' => '21:9',
+            '16by9' => '16:9',
+            '4by3' => '4:3',
+            '1by1' => '1:1',
+            '21by9' => '21:9',
           ],
         ]
       ])->save();

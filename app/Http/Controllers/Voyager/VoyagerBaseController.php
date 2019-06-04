@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Voyager;
 
 use App\Http\Controllers\Voyager\ContentTypes\MultipleVideo;
+use App\Http\Controllers\Voyager\ContentTypes\Video;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
@@ -87,8 +88,13 @@ class VoyagerBaseController extends BaseVoyagerBaseController
           $content = $data->{$row->field};
         }
 
-        // If the multiple_videos upload is null and it has a current video keep the current image
+        // If the multiple_videos upload is null and it has a current video keep the current video
         if ($row->type == 'multiple_videos' && is_null($request->input($row->field)) && isset($data->{$row->field})) {
+          $content = $data->{$row->field};
+        }
+
+        // If the video upload is null and it has a current video keep the current video
+        if ($row->type == 'video' && is_null($request->input($row->field)) && isset($data->{$row->field})) {
           $content = $data->{$row->field};
         }
 
@@ -175,6 +181,10 @@ class VoyagerBaseController extends BaseVoyagerBaseController
       /********** MULTIPLE VIDEOS TYPE **********/
       case 'multiple_videos':
         return (new MultipleVideo($request, $slug, $row, $options))->handle();
+
+      /********** VIDEO TYPE **********/
+      case 'video':
+        return (new Video($request, $slug, $row, $options))->handle();
 
       /********** SELECT MULTIPLE TYPE **********/
       case 'select_multiple':

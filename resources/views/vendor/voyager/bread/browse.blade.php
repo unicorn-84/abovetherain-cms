@@ -6,7 +6,7 @@
   <div class="container-fluid atr-header">
     <div class="atr-caption">
       <i class="{{ $dataType->icon }}"></i>
-      <h2>{{ $dataType->display_name_plural }} Video</h2>
+      <h2>{{ $dataType->display_name_plural }}</h2>
     </div>
     <div class="atr-buttons">
       @can('add', app($dataType->model_name))
