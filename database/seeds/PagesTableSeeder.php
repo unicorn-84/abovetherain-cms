@@ -293,15 +293,12 @@ class PagesTableSeeder extends Seeder
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu->id,
       'title' => __('voyager::seeders.menu_items.pages'),
-      'url' => '',
+      'url' => null,
       'route' => 'voyager.pages.index',
     ]);
     if (!$menuItem->exists) {
       $menuItem->fill([
-        'target' => '_self',
         'icon_class' => 'voyager-file-text',
-        'color' => null,
-        'parent_id' => null,
         'order' => 1,
       ])->save();
     }

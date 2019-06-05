@@ -1,69 +1,68 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}" dir="{{ __('voyager::generic.is_rtl') == 'true' ? 'rtl' : 'ltr' }}">
 <head>
-  <title>@yield('page_title', Voyager::setting('admin.title'))</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="csrf-token" content="{{ csrf_token() }}"/>
-  <meta name="assets-path" content="{{ route('voyager.assets') }}"/>
-  <meta name="robots" content="none"/>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=cyrillic" rel="stylesheet">
+    <title>@yield('page_title', setting('admin.title') . " - " . setting('admin.description'))</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
+    <meta name="assets-path" content="{{ route('voyager.assets') }}"/>
 
-  <!-- Favicon -->
-  @if(Voyager::setting('site.icon'))
-    <link rel="shortcut icon" href="{{ Voyager::image( Voyager::setting('site.icon')) }}" type="image/x-icon">
-  @endif
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 
-  <!-- App CSS -->
-  <link rel="stylesheet" href="{{ voyager_asset('css/app.css') }}">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ voyager_asset('images/logo-icon.png') }}" type="image/x-icon">
 
-  @yield('css')
 
-  @if(config('voyager.multilingual.rtl'))
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.4.0/css/bootstrap-rtl.css">
-    <link rel="stylesheet" href="{{ voyager_asset('css/rtl.css') }}">
-  @endif
 
-<!-- Few Dynamic Styles -->
-  <style type="text/css">
-    .voyager .side-menu .navbar-header {
-      background: {{ config('voyager.primary_color','#22A7F0') }};
-      border-color: {{ config('voyager.primary_color','#22A7F0') }};
-    }
+    <!-- App CSS -->
+    <link rel="stylesheet" href="{{ voyager_asset('css/app.css') }}">
 
-    .widget .btn-primary {
-      border-color: {{ config('voyager.primary_color','#22A7F0') }};
-    }
+    @yield('css')
+    @if(config('voyager.multilingual.rtl'))
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.4.0/css/bootstrap-rtl.css">
+        <link rel="stylesheet" href="{{ voyager_asset('css/rtl.css') }}">
+    @endif
 
-    .widget .btn-primary:focus, .widget .btn-primary:hover, .widget .btn-primary:active, .widget .btn-primary.active, .widget .btn-primary:active:focus {
-      background: {{ config('voyager.primary_color','#22A7F0') }};
-    }
+    <!-- Few Dynamic Styles -->
+    <style type="text/css">
+        .voyager .side-menu .navbar-header {
+            background:{{ config('voyager.primary_color','#22A7F0') }};
+            border-color:{{ config('voyager.primary_color','#22A7F0') }};
+        }
+        .widget .btn-primary{
+            border-color:{{ config('voyager.primary_color','#22A7F0') }};
+        }
+        .widget .btn-primary:focus, .widget .btn-primary:hover, .widget .btn-primary:active, .widget .btn-primary.active, .widget .btn-primary:active:focus{
+            background:{{ config('voyager.primary_color','#22A7F0') }};
+        }
+        .voyager .breadcrumb a{
+            color:{{ config('voyager.primary_color','#22A7F0') }};
+        }
+    </style>
 
-    .voyager .breadcrumb a {
-      color: {{ config('voyager.primary_color','#22A7F0') }};
-    }
-  </style>
+    @if(!empty(config('voyager.additional_css')))<!-- Additional CSS -->
+        @foreach(config('voyager.additional_css') as $css)<link rel="stylesheet" type="text/css" href="{{ asset($css) }}">@endforeach
+    @endif
 
-  @if(!empty(config('voyager.additional_css')))<!-- Additional CSS -->
-  @foreach(config('voyager.additional_css') as $css)
-    <link rel="stylesheet" type="text/css" href="{{ asset($css) }}">@endforeach
-  @endif
-  @yield('head')
+    @yield('head')
 </head>
 
 <body class="voyager @if(isset($dataType) && isset($dataType->slug)){{ $dataType->slug }}@endif">
 
 <div id="voyager-loader">
-  @if(Voyager::setting('admin.loader'))
-      <img src="{{ Voyager::image(Voyager::setting('admin.loader', '')) }}" alt="{{ Voyager::setting('admin.name') }}" style="width: 50px; height: auto;">
-  @endif
+    <?php $admin_loader_img = Voyager::setting('admin.loader', ''); ?>
+    @if($admin_loader_img == '')
+        <img src="{{ voyager_asset('images/logo-icon.png') }}" alt="Voyager Loader">
+    @else
+        <img src="{{ Voyager::image($admin_loader_img) }}" alt="Voyager Loader">
+    @endif
 </div>
 
 <?php
 if (starts_with(app('VoyagerAuth')->user()->avatar, 'http://') || starts_with(app('VoyagerAuth')->user()->avatar, 'https://')) {
-  $user_avatar = app('VoyagerAuth')->user()->avatar;
+    $user_avatar = app('VoyagerAuth')->user()->avatar;
 } else {
-  $user_avatar = Voyager::image(app('VoyagerAuth')->user()->avatar);
+    $user_avatar = Voyager::image(app('VoyagerAuth')->user()->avatar);
 }
 ?>
 
@@ -108,7 +107,7 @@ if (starts_with(app('VoyagerAuth')->user()->avatar, 'http://') || starts_with(ap
         </div>
     </div>
 </div>
-{{--@include('voyager::partials.app-footer')--}}
+@include('voyager::partials.app-footer')
 
 <!-- Javascript Libs -->
 

@@ -293,15 +293,12 @@ class AlbumsTableSeeder extends Seeder
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu->id,
       'title' => __('voyager::seeders.menu_items.albums'),
-      'url' => '',
+      'url' => null,
       'route' => 'voyager.albums.index',
     ]);
     if (!$menuItem->exists) {
       $menuItem->fill([
-        'target' => '_self',
         'icon_class' => 'voyager-photos',
-        'color' => null,
-        'parent_id' => null,
         'order' => 5,
       ])->save();
     }

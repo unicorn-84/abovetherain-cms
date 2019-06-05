@@ -328,15 +328,12 @@ class TrainingsTableSeeder extends Seeder
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu->id,
       'title' => __('voyager::seeders.menu_items.trainings'),
-      'url' => '',
+      'url' => null,
       'route' => 'voyager.trainings.index',
     ]);
     if (!$menuItem->exists) {
       $menuItem->fill([
-        'target' => '_self',
         'icon_class' => 'voyager-barbell',
-        'color' => null,
-        'parent_id' => null,
         'order' => 2,
       ])->save();
     }

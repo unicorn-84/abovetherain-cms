@@ -263,15 +263,12 @@ class CoachesTableSeeder extends Seeder
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu->id,
       'title' => __('voyager::seeders.menu_items.coaches'),
-      'url' => '',
+      'url' => null,
       'route' => 'voyager.coaches.index',
     ]);
     if (!$menuItem->exists) {
       $menuItem->fill([
-        'target' => '_self',
         'icon_class' => 'voyager-people',
-        'color' => null,
-        'parent_id' => null,
         'order' => 4,
       ])->save();
     }

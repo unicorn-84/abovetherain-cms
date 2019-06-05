@@ -251,15 +251,12 @@ class EventsTableSeeder extends Seeder
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu->id,
       'title' => __('voyager::seeders.menu_items.events'),
-      'url' => '',
+      'url' => null,
       'route' => 'voyager.events.index',
     ]);
     if (!$menuItem->exists) {
       $menuItem->fill([
-        'target' => '_self',
         'icon_class' => 'voyager-news',
-        'color' => null,
-        'parent_id' => null,
         'order' => 3,
       ])->save();
     }

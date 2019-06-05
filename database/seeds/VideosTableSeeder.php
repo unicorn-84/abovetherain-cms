@@ -183,15 +183,12 @@ class VideosTableSeeder extends Seeder
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu->id,
       'title' => __('voyager::seeders.menu_items.videos'),
-      'url' => '',
+      'url' => null,
       'route' => 'voyager.videos.index',
     ]);
     if (!$menuItem->exists) {
       $menuItem->fill([
-        'target' => '_self',
         'icon_class' => 'voyager-video',
-        'color' => null,
-        'parent_id' => null,
         'order' => 8,
       ])->save();
     }

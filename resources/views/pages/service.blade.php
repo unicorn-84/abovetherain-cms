@@ -39,6 +39,7 @@
       <div class="container">
         <div class="row">
           <div class="col">
+            {{--todo: добавлять фото, title и subtitle--}}
             <div class="card">
               <div class="card-body">
                 {{--todo: добавить subtitles--}}

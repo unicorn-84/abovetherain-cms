@@ -54,12 +54,12 @@
               <div class="card-body">
                 @if(isset($service->content))
                   <a href="{{ route('service', $service->slug) }}" class="text-reset">
-                    <h3 class="card-title">
+                    <h3 class="card-title mb-0">
                       {{ $service->title }}
                     </h3>
                   </a>
                 @else
-                  <h3 class="card-title">
+                  <h3 class="card-title mb-0">
                     {{ $service->title }}
                   </h3>
                 @endif
