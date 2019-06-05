@@ -39,11 +39,6 @@ Breadcrumbs::for('coach', function ($trail, $coach) {
   $trail->push($coach->title, route('coach', $coach->slug));
 });
 
-Breadcrumbs::for('team', function ($trail) {
-  $trail->parent('index');
-  $trail->push('Мы', route('team'));
-});
-
 Breadcrumbs::for('gallery', function ($trail) {
   $trail->parent('index');
   $trail->push('Галерея', route('gallery'));
@@ -54,17 +49,7 @@ Breadcrumbs::for('album', function ($trail, $album) {
   $trail->push($album->title, route('album', $album->slug));
 });
 
-Breadcrumbs::for('contacts', function ($trail) {
-  $trail->parent('index');
-  $trail->push('Контакты', route('contacts'));
-});
-
-Breadcrumbs::for('requisites', function ($trail) {
-  $trail->parent('index');
-  $trail->push('Реквизиты для оплаты', route('requisites'));
-});
-
 Breadcrumbs::for('page', function ($trail, $page) {
   $trail->parent('index');
-  $trail->push($page->title, route($page->slug));
+  $trail->push($page->title, url($page->slug));
 });
