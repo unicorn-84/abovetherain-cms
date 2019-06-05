@@ -10590,7 +10590,7 @@ p:last-child {
     color: #fff;
     position: relative;
   }
-  #abovetherain-cms__header nav .nav-link:hover::after, #abovetherain-cms__header nav .nav-link:focus::after {
+  #abovetherain-cms__header nav .nav-link:not(.dropdown-toggle):hover::after, #abovetherain-cms__header nav .nav-link:not(.dropdown-toggle):focus::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -10610,6 +10610,29 @@ p:last-child {
     bottom: 2px;
     border-bottom: 2px solid #fff;
   }
+}
+#abovetherain-cms__header nav .dropdown-item {
+  letter-spacing: 1px;
+  color: rgba(0, 0, 0, 0.5);
+}
+@media (min-width: 992px) {
+  #abovetherain-cms__header nav .dropdown-item {
+    position: relative;
+    color: #212529;
+  }
+  #abovetherain-cms__header nav .dropdown-item:hover::after, #abovetherain-cms__header nav .dropdown-item:focus::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0;
+    left: 0;
+    bottom: 2px;
+    border-bottom: 2px solid;
+  }
+}
+#abovetherain-cms__header nav .dropdown-item.active, #abovetherain-cms__header nav .dropdown-item:active {
+  color: inherit;
+  background-color: transparent;
 }
 
 #abovetherain-cms__index .caption {

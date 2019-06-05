@@ -50,7 +50,7 @@
     <div class="container">
       @if(Voyager::setting("content.vk_sign_up"))
         <div class="row">
-          <div class="col-md-4 col-lg-3">
+          <div class="col-md-5 col-lg-4 col-xl-3">
             <a href="{{ Voyager::setting("content.vk_sign_up") }}" class="btn btn-primary btn-block mb-4"
                role="button"
                aria-disabled="true">
@@ -62,7 +62,7 @@
       @endif
       <div class="row mb-3">
 
-        <div class="col-md-4 col-lg-3">
+        <div class="col-md-4 col-xl-3">
           <select class="custom-select mb-2" onchange="top.location.href = this.options[this.selectedIndex].value">
             <option value="{{ route('schedule') }}"{{ Request()->query('training') === null ? ' selected' : '' }}>Все
               тренировки
@@ -74,7 +74,7 @@
           </select>
         </div>
 
-        <div class="col-md-4 col-lg-3">
+        <div class="col-md-4 col-xl-3">
           <select class="custom-select mb-2" onchange="top.location.href = this.options[this.selectedIndex].value">
             <option value="{{ route('schedule') }}"{{ Request()->query('coach') === null ? ' selected' : '' }}>Все
               тренеры
@@ -86,7 +86,7 @@
           </select>
         </div>
 
-        <div class="col-md-4 col-lg-3">
+        <div class="col-md-4 col-xl-3">
           <select class="custom-select mb-2" onchange="top.location.href = this.options[this.selectedIndex].value">
             <option value="{{ route('schedule') }}"{{ Request()->query('day') === null ? ' selected' : '' }}>Все дни
             </option>

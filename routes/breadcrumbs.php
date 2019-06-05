@@ -4,10 +4,10 @@ Breadcrumbs::for('index', function ($trail) {
   $trail->push('Главная', route('index'));
 });
 
-Breadcrumbs::for('services', function ($trail) {
-  $trail->parent('index');
-  $trail->push('Услуги', route('services'));
-});
+//Breadcrumbs::for('services', function ($trail) {
+//  $trail->parent('index');
+//  $trail->push('Услуги', route('services'));
+//});
 
 Breadcrumbs::for('service', function ($trail, $service) {
   $trail->parent('services');
@@ -50,6 +50,6 @@ Breadcrumbs::for('album', function ($trail, $album) {
 });
 
 Breadcrumbs::for('page', function ($trail, $page) {
-  $trail->parent('index');
+  $trail->push('Главная', url('/'));
   $trail->push($page->title, url($page->slug));
 });

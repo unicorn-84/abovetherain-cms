@@ -34,7 +34,6 @@
         @endif
         <div class="d-flex justify-content-center w-100 order-lg-first">
           <a href="{{ url('requisites') }}" class="text-reset" title="Реквизиты для оплаты">Реквизиты</a>
-          <a href="{{ url('presentacii') }}" class="text-reset" title="Презентации">Презентации</a>
         </div>
       </div>
     </div>

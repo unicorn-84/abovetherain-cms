@@ -28,7 +28,7 @@
 @section('page-title')
   @if($page->has_pagetitle)
     @component('inc.page-title', ['title' => $page->title])
-      {{ Breadcrumbs::render('services', $page) }}
+      {{ Breadcrumbs::render('page', $page) }}
     @endcomponent
   @endif
 @endsection
