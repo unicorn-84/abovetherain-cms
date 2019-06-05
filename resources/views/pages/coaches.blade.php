@@ -59,6 +59,7 @@
                 @endif
                 @if(count($coach->services) > 0)
                   <ul class="list-unstyled m-2">
+                    {{--todo:проверять контент--}}
                     @foreach($coach->services as $service)
                       <li>
                         <a href="{{ route('service', $service->slug) }}" class="text-reset">{{ $service->title }}</a>

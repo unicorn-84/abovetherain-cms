@@ -8,6 +8,7 @@
 @section('css')
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <style>
+     /* todo:сделать только для subtitles */
     #atr-service-subtitle-field iframe,
     #atr-page-content-field iframe {
       height: 200px !important;

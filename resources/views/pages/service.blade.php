@@ -41,6 +41,7 @@
           <div class="col">
             <div class="card">
               <div class="card-body">
+                {{--todo: добавить subtitles--}}
                 {!! $service->content !!}
               </div>
               @if(isset($service->coaches) && count($service->coaches) > 0 || isset($service->trainings) && count($service->trainings) > 0)

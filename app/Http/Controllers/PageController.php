@@ -13,7 +13,7 @@ class PageController extends Controller
   {
     $name = \Request::route()->getName();
     $page = Page::where('slug', $name)->firstOrFail();
-
+    dd($name);
     if (view()->exists('pages.' . $name)) {
       $view = 'pages.' . $name;
     } else {

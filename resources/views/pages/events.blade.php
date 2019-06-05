@@ -61,6 +61,7 @@
                     {{ $event->title }}
                   </h2>
                 @endif
+                {{--todo:добавить subtitles--}}
                 @if($event->local_date)
                   <h4 class="card-subtitle mt-3"><span class="badge bg-transparent border border-info text-info badge-info">{{ $event->local_date }}</span></h4>
                 @endif
