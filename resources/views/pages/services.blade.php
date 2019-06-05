@@ -69,7 +69,7 @@
                   </div>
                 @endif
                 @isset($service->description)
-                  <p class="card-text mt-2 mb-0">{{ $service->description }}</p>
+                  <p class="card-text mt-2 mb-0">{!! $service->description !!}</p>
                 @endisset
               </div>
               @if(isset($service->content))
