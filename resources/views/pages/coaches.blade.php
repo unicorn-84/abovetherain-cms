@@ -53,24 +53,30 @@
                     </h3>
                   </a>
                 @else
-                  <h3 class="card-title">
+                  <h2 class="card-title ml-2">
                     {{ $coach->title }}
-                  </h3>
+                  </h2>
                 @endif
                 @if(count($coach->services) > 0)
                   <ul class="list-unstyled m-2">
                     {{--todo:проверять контент--}}
                     @foreach($coach->services as $service)
                       <li>
-                        <a href="{{ route('service', $service->slug) }}" class="text-reset">{{ $service->title }}</a>
+                        @if($service->content)
+                          <a href="{{ route('service', $service->slug) }}" class="text-reset mb-0 h5">{{ $service->title }}</a>
+                        @else
+                          <span class="text-white-50 mb-0 h5">{{ $service->title }}</span>
+                        @endif
                       </li>
                     @endforeach
                   </ul>
                 @endif
                 @if(count($coach->trainings) > 0)
-                  <a href="{{ route('schedule', 'coach=' . $coach->slug) }}" class="text-decoration-none text-reset">
-                    <i class="far fa-calendar-alt fa-lg mt-3"></i>
-                  </a>
+                  <div>
+                    <a href="{{ route('schedule', 'coach=' . $coach->slug) }}" class="text-decoration-none text-reset">
+                      <i class="far fa-calendar-alt mt-2 ml-2 fa-2x"></i>
+                    </a>
+                  </div>
                 @endif
               </div>
             </div>

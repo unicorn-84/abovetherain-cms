@@ -26,7 +26,8 @@
   }
 
   &.atr-card-page {
-    .card-body {
+    .card-body,
+    .card-footer {
       @include media-breakpoint-up(lg) {
         padding: 2rem;
       }
@@ -100,12 +101,28 @@
   }
 }
 
+#abovetherain-cms__services {
+  .card-footer {
+    a {
+      @include media-breakpoint-down(lg) {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
 #abovetherain-cms__schedule {
   table {
     table-layout: fixed;
 
     thead th:first-child {
       width: 7%;
+    }
+
+    a {
+      @include media-breakpoint-down(lg) {
+        text-decoration: underline;
+      }
     }
   }
 }

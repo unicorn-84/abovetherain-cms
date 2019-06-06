@@ -46,7 +46,7 @@
               @endisset
               <div class="card-body">
                 {{--todo: по центру--}}
-                <h2 class="card-title mb-0 text-center">
+                <h2 class="card-title mb-0 text-md-center">
                   {{ $service->title }}
                 </h2>
                 @if(isset($service->subtitle))
@@ -59,20 +59,30 @@
                 </div>
               </div>
               @if(isset($service->coaches) && count($service->coaches) > 0 || isset($service->trainings) && count($service->trainings) > 0)
-                <div class="card-footer p-4 d-lg-flex justify-content-lg-between">
+                <div class="card-footer d-lg-flex justify-content-lg-between">
                   <ul class="list-unstyled m-0">
                     @foreach($service->coaches as $coach)
                       <li{!! $loop->last ? '' : ' class="mb-2"' !!}>
-                        <a href="{{ route('coach', $coach->slug) }}" class="text-reset text-decoration-none font-weight-bold h5">
-                          <i class="far fa-user"></i>&nbsp{{ $coach->title }}
-                        </a>
+                        {{--todo: убрать иконку из ссылки и добавить underline к ссылке--}}
+                        @if($coach->content)
+                          <i class="far fa-user h5 mb-0"></i>&nbsp;
+                          <a href="{{ route('coach', $coach->slug) }}" class="text-reset font-weight-bold h5">
+                            {{ $coach->title }}
+                          </a>
+                        @else
+                          {{--todo: добавить text-muted для неактивных ссылок--}}
+                          <i class="far fa-user h5 text-muted mb-0"></i>&nbsp;
+                          <span class="text-muted font-weight-bold h5 mb-0">{{ $coach->title }}</span>
+                        @endif
                       </li>
                     @endforeach
                   </ul>
                   @if(count($service->trainings) > 0)
-                    <a href="{{ route('schedule', 'training=' . $service->slug) }}" class="d-inline-block h5 text-reset text-decoration-none font-weight-bold mb-0 my-lg-0{{ count($service->coaches) > 0 ? ' mt-4' : '' }}">
-                      <i class="far fa-calendar-alt fa-lg"></i>&nbsp;Расписание занятий
-                    </a>
+                    <div>
+                      <i class="far fa-calendar-alt h5 mb-0"></i>&nbsp;
+                      <a href="{{ route('schedule', 'training=' . $service->slug) }}" class="d-inline-block h5 text-reset font-weight-bold mb-0 my-lg-0{{ count($service->coaches) > 0 ? ' mt-3' : '' }}">Расписание занятий
+                      </a>
+                    </div>
                   @endif
                 </div>
               @endif

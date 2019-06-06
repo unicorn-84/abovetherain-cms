@@ -18,7 +18,7 @@ class ScheduleController extends Controller
     $trainings = DB::table('trainings')
       ->join('services', 'trainings.service_id', '=', 'services.id')
       ->join('coaches', 'trainings.coach_id', '=', 'coaches.id')
-      ->select('day', 'start_time', 'end_time', 'services.title as service_title', 'services.slug as service_slug', 'coaches.title as coach_title', 'coaches.slug as coach_slug', 'badge_color', 'badge_text', 'text_color')
+      ->select('day', 'start_time', 'end_time', 'services.title as service_title', 'services.slug as service_slug', 'services.content as service_content', 'coaches.title as coach_title', 'coaches.slug as coach_slug', 'coaches.content as coach_content', 'badge_color', 'badge_text', 'text_color')
       ->orderBy('start_time', 'asc')
       ->get();
 

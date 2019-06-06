@@ -10654,7 +10654,8 @@ p:last-child {
   margin: 0 !important;
 }
 @media (min-width: 992px) {
-  .card.atr-card-page .card-body {
+  .card.atr-card-page .card-body,
+.card.atr-card-page .card-footer {
     padding: 2rem;
   }
 }
@@ -10725,11 +10726,22 @@ p:last-child {
   overflow: hidden;
 }
 
+@media (max-width: 1199.98px) {
+  #abovetherain-cms__services .card-footer a {
+    text-decoration: underline;
+  }
+}
+
 #abovetherain-cms__schedule table {
   table-layout: fixed;
 }
 #abovetherain-cms__schedule table thead th:first-child {
   width: 7%;
+}
+@media (max-width: 1199.98px) {
+  #abovetherain-cms__schedule table a {
+    text-decoration: underline;
+  }
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
