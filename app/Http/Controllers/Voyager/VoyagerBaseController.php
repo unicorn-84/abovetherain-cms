@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Voyager;
 
 use App\Http\Controllers\Voyager\ContentTypes\MultipleVideo;
 use App\Http\Controllers\Voyager\ContentTypes\Video;
+use App\Http\Controllers\Voyager\ContentTypes\Image as ContentImage;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
@@ -12,7 +13,6 @@ use TCG\Voyager\Events\BreadDataUpdated;
 use TCG\Voyager\Http\Controllers\ContentTypes\Checkbox;
 use TCG\Voyager\Http\Controllers\ContentTypes\Coordinates;
 use TCG\Voyager\Http\Controllers\ContentTypes\File;
-use TCG\Voyager\Http\Controllers\ContentTypes\Image as ContentImage;
 use TCG\Voyager\Http\Controllers\ContentTypes\MultipleCheckbox;
 use TCG\Voyager\Http\Controllers\ContentTypes\MultipleImage;
 use TCG\Voyager\Http\Controllers\ContentTypes\Password;
@@ -189,9 +189,11 @@ class VoyagerBaseController extends BaseVoyagerBaseController
       /********** SELECT MULTIPLE TYPE **********/
       case 'select_multiple':
         return (new SelectMultiple($request, $slug, $row, $options))->handle();
+
       /********** IMAGE TYPE **********/
       case 'image':
         return (new ContentImage($request, $slug, $row, $options))->handle();
+
       /********** TIMESTAMP TYPE **********/
       case 'timestamp':
         return (new Timestamp($request, $slug, $row, $options))->handle();

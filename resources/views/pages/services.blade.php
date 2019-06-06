@@ -43,11 +43,11 @@
               @isset($service->poster)
                 @if(isset($service->content))
                   <a href="{{ route('service', $service->slug) }}">
-                    <img class="card-img-top img-thumbnail border-0 pb-0" src="{{ Voyager::image($service->thumbnail('cropped-800', 'poster')) }}"
+                    <img class="card-img-top img-thumbnail border-0 pb-0" src="{{ Voyager::image($service->thumbnail('resize-800', 'poster')) }}"
                          alt="{{ $service->title }}">
                   </a>
                 @else
-                  <img class="card-img-top img-thumbnail border-0 pb-0" src="{{ Voyager::image($service->thumbnail('cropped-800', 'poster')) }}">
+                  <img class="card-img-top img-thumbnail border-0 pb-0" src="{{ Voyager::image($service->thumbnail('resize-800', 'poster')) }}">
                 @endif
               @endisset
               <div class="card-body">

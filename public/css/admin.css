@@ -121,6 +121,9 @@ html {
   font-size: 18px;
   padding-left: 0.5rem;
   font-weight: 500;
+  color: #222;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
 }
 .atr-bread-container .atr-read-container {
   background-color: #f8fafc !important;

@@ -203,13 +203,11 @@ class ServicesTableSeeder extends Seeder
             'width' => '1200',
             'height' => null
           ],
-          'quality' => '70%',
           'thumbnails' => [
             [
-              'name' => 'cropped-800',
-              'crop' => [
+              'name' => 'resize-800',
+              'resize' => [
                 'width' => '800',
-                'height' => '533',
               ],
             ],
           ],
@@ -272,7 +270,7 @@ class ServicesTableSeeder extends Seeder
     $dataRow = $this->dataRow($serviceDataType, 'content');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'rich_text_box',
+        'type' => 'tinymce_full',
         'display_name' => __('voyager::seeders.data_rows.content'),
         'required' => 0,
         'browse' => 0,

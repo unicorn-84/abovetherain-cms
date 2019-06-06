@@ -40,21 +40,21 @@
         <div class="row">
           <div class="col">
             <div class="card atr-card-page">
-              @isset($service->poster)
-                <img class="card-img-top img-thumbnail border-0 pb-0" src="{{ Voyager::image($service->poster) }}"
-                     alt="{{ $service->title }}">
-              @endisset
+              {{--@isset($service->poster)--}}
+                {{--<img class="card-img-top img-thumbnail border-0 pb-0" src="{{ Voyager::image($service->poster) }}"--}}
+                     {{--alt="{{ $service->title }}">--}}
+              {{--@endisset--}}
               <div class="card-body">
                 {{--todo: по центру--}}
-                <h2 class="card-title mb-0 text-md-center">
-                  {{ $service->title }}
-                </h2>
-                @if(isset($service->subtitle))
-                  <div class="card-subtitle text-muted mb-0 mt-3">
-                    {!! $service->subtitle !!}
-                  </div>
-                @endif
-                <div class="atr-card-content mt-3">
+                {{--<h2 class="card-title mb-0 text-md-center">--}}
+                  {{--{{ $service->title }}--}}
+                {{--</h2>--}}
+                {{--@if(isset($service->subtitle))--}}
+                  {{--<div class="card-subtitle text-muted mb-0 mt-3">--}}
+                    {{--{!! $service->subtitle !!}--}}
+                  {{--</div>--}}
+                {{--@endif--}}
+                <div class="atr-card-content">
                   {!! $service->content !!}
                 </div>
               </div>

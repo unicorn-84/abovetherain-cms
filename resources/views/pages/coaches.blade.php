@@ -42,7 +42,7 @@
             <div class="card{{ $loop->last ? '' : ' mb-4' }}"{!!  isset($coach->poster) ? 'style="color:#fff;"' : '' !!}>
               @isset($coach->poster)
                 <div>
-                  <img class="card-img-top" src="{{ Voyager::image($coach->poster) }}" alt="{{ $coach->title }}">
+                  <img class="card-img-top" src="{{ Voyager::image($coach->thumbnail('resize-800', 'poster')) }}" alt="{{ $coach->title }}">
                 </div>
               @endisset
               <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
@@ -74,7 +74,7 @@
                 @if(count($coach->trainings) > 0)
                   <div>
                     <a href="{{ route('schedule', 'coach=' . $coach->slug) }}" class="text-decoration-none text-reset">
-                      <i class="far fa-calendar-alt mt-2 ml-2 fa-2x"></i>
+                      <i class="far fa-calendar-alt mt-3 ml-2 fa-2x"></i>
                     </a>
                   </div>
                 @endif

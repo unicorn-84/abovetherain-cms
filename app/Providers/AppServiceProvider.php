@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\FormFields\MultipleVideosFormField;
 use App\FormFields\TinymceBaseFormField;
+use App\FormFields\TinymceFullFormField;
 use App\FormFields\VideoFormField;
 use Illuminate\Support\ServiceProvider;
 use TCG\Voyager\Facades\Voyager;
@@ -20,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
       Voyager::addFormField(MultipleVideosFormField::class);
       Voyager::addFormField(VideoFormField::class);
       Voyager::addFormField(TinymceBaseFormField::class);
+      Voyager::addFormField(TinymceFullFormField::class);
     }
 
     /**
