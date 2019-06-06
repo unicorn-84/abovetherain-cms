@@ -10513,6 +10513,7 @@ html::after {
 
 body {
   min-height: 100%;
+  line-height: 1.65;
 }
 
 @font-face {
@@ -10633,6 +10634,29 @@ p:last-child {
 #abovetherain-cms__header nav .dropdown-item.active, #abovetherain-cms__header nav .dropdown-item:active {
   color: inherit;
   background-color: transparent;
+}
+
+.card .card-body {
+  padding: 1rem;
+}
+@media (min-width: 992px) {
+  .card .card-body {
+    padding: 2rem 1.5rem;
+  }
+}
+.card .card-subtitle p {
+  margin: 0 !important;
+}
+.card .atr-card-description p {
+  margin: 0 !important;
+}
+.card .atr-card-content p:last-child {
+  margin: 0 !important;
+}
+@media (min-width: 992px) {
+  .card.atr-card-page .card-body {
+    padding: 2rem;
+  }
 }
 
 #abovetherain-cms__index .caption {

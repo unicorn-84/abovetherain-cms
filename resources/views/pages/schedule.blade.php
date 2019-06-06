@@ -101,7 +101,7 @@
 
       <div class="row">
         <div class="col">
-
+          {{--todo: border для table--}}
           {{--Desktop--}}
           <div class="d-none d-lg-block">
             <table class="table border-0 text-center mb-0" style="border-radius: 0.25rem; overflow: hidden;">

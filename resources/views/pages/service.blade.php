@@ -39,11 +39,24 @@
       <div class="container">
         <div class="row">
           <div class="col">
-            {{--todo: добавлять фото, title и subtitle--}}
-            <div class="card">
+            <div class="card atr-card-page">
+              @isset($service->poster)
+                <img class="card-img-top img-thumbnail border-0 pb-0" src="{{ Voyager::image($service->poster) }}"
+                     alt="{{ $service->title }}">
+              @endisset
               <div class="card-body">
-                {{--todo: добавить subtitles--}}
-                {!! $service->content !!}
+                {{--todo: по центру--}}
+                <h2 class="card-title mb-0 text-center">
+                  {{ $service->title }}
+                </h2>
+                @if(isset($service->subtitle))
+                  <div class="card-subtitle text-muted mb-0 mt-3">
+                    {!! $service->subtitle !!}
+                  </div>
+                @endif
+                <div class="atr-card-content mt-3">
+                  {!! $service->content !!}
+                </div>
               </div>
               @if(isset($service->coaches) && count($service->coaches) > 0 || isset($service->trainings) && count($service->trainings) > 0)
                 <div class="card-footer p-4 d-lg-flex justify-content-lg-between">

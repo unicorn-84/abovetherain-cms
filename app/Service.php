@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use TCG\Voyager\Traits\Resizable;
 
 class Service extends Model
 {
@@ -12,6 +13,8 @@ class Service extends Model
 //    $truncated = Str::limit($value, 100, '...');
 //    $this->attributes['description'] = $truncated;
 //  }
+
+  use Resizable;
 
   public function coaches()
   {

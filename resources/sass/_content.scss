@@ -1,3 +1,39 @@
+.card {
+  .card-body {
+    padding: 1rem;
+
+    @include media-breakpoint-up(lg) {
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  .card-subtitle {
+    p {
+      margin: 0 !important;
+    }
+  }
+
+  .atr-card-description {
+    p {
+      margin: 0 !important;
+    }
+  }
+
+  .atr-card-content {
+    p:last-child {
+      margin: 0 !important;
+    }
+  }
+
+  &.atr-card-page {
+    .card-body {
+      @include media-breakpoint-up(lg) {
+        padding: 2rem;
+      }
+    }
+  }
+}
+
 #abovetherain-cms__index {
   .caption {
     position: absolute;

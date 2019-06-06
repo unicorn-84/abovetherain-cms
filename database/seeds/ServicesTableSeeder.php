@@ -145,7 +145,7 @@ class ServicesTableSeeder extends Seeder
     $dataRow = $this->dataRow($serviceDataType, 'subtitle'); // 4
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'text_area',
+        'type' => 'tinymce_base',
         'display_name' => __('voyager::seeders.data_rows.subtitle'),
         'required' => 0,
         'browse' => 0,
@@ -165,7 +165,7 @@ class ServicesTableSeeder extends Seeder
     $dataRow = $this->dataRow($serviceDataType, 'description');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'text_area',
+        'type' => 'tinymce_base',
         'display_name' => __('voyager::seeders.data_rows.description'),
         'required' => 0,
         'browse' => 0,
@@ -197,7 +197,21 @@ class ServicesTableSeeder extends Seeder
         'order' => 9,
         'details' => [
           'validation' => [
-            'rule' => 'image'
+            'rule' => 'image',
+          ],
+          'resize' => [
+            'width' => '1200',
+            'height' => null
+          ],
+          'quality' => '70%',
+          'thumbnails' => [
+            [
+              'name' => 'cropped-800',
+              'crop' => [
+                'width' => '800',
+                'height' => '533',
+              ],
+            ],
           ],
         ],
       ])->save();
@@ -258,7 +272,7 @@ class ServicesTableSeeder extends Seeder
     $dataRow = $this->dataRow($serviceDataType, 'content');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'text_area',
+        'type' => 'rich_text_box',
         'display_name' => __('voyager::seeders.data_rows.content'),
         'required' => 0,
         'browse' => 0,

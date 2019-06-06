@@ -38,38 +38,38 @@
     <div class="container">
       <div class="row">
         @foreach($services as $service)
-          <div class="col-md-6 col-lg-4{{ $service->poster ? ' d-flex' : '' }}">
+          <div class="col-md-6 col-lg-4{{ $service->content ? ' d-flex' : '' }}">
             <div class="card mb-4 w-100">
               @isset($service->poster)
                 @if(isset($service->content))
                   <a href="{{ route('service', $service->slug) }}">
-                    <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($service->poster) }}"
+                    <img class="card-img-top img-thumbnail border-0 pb-0" src="{{ Voyager::image($service->thumbnail('cropped-800', 'poster')) }}"
                          alt="{{ $service->title }}">
                   </a>
                 @else
-                  <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($service->poster) }}"
-                       alt="{{ $service->title }}">
+                  <img class="card-img-top img-thumbnail border-0 pb-0" src="{{ Voyager::image($service->thumbnail('cropped-800', 'poster')) }}">
                 @endif
               @endisset
               <div class="card-body">
                 @if(isset($service->content))
-                  <a href="{{ route('service', $service->slug) }}" class="text-reset">
-                    <h3 class="card-title mb-0">
+                  {{--todo: ссылки в заголовок--}}
+                  <h3 class="card-title mb-0">
+                    <a href="{{ route('service', $service->slug) }}" class="text-reset">
                       {{ $service->title }}
-                    </h3>
-                  </a>
+                    </a>
+                  </h3>
                 @else
                   <h3 class="card-title mb-0">
                     {{ $service->title }}
                   </h3>
                 @endif
                 @if(isset($service->subtitle))
-                  <div class="card-subtitle text-muted mt-2 pl-2">
+                  <div class="card-subtitle text-muted mb-0 mt-3">
                     {!! $service->subtitle !!}
                   </div>
                 @endif
                 @isset($service->description)
-                  <p class="card-text mt-2 mb-0">{!! $service->description !!}</p>
+                  <div class="atr-card-description mt-3 mb-0">{!! $service->description !!}</div>
                 @endisset
               </div>
               @if(isset($service->content))
