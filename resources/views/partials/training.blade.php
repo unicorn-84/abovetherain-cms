@@ -1,4 +1,4 @@
-<td class="align-middle border p-4 p-lg-3 {{ $training->mobile_text_align ?? 'text-lg-center' }} {{ $training->laptop_text_align ?? 'text-lg-center' }}" style="background-color: {{ $training->fon_color ?? 'transparent' }}">
+<td class="align-middle border p-4 p-lg-2 {{ $training->mobile_text_align ?? 'text-lg-center' }} {{ $training->laptop_text_align ?? 'text-lg-center' }}" style="background-color: {{ $training->fon_color ?? 'transparent' }}">
   <div class="h5 my-2">
     @if($training->service_content)
       <a href="{{ route('service', $training->service_slug) }}" class="text-reset" style="color: {{ $training->direction_color ?? Voyager::setting('schedule.schedule_text_color') }}!important;">{{ $training->service_title }}</a>
