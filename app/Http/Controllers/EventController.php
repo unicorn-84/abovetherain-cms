@@ -11,7 +11,7 @@ class EventController extends Controller
   public function index()
   {
     $page = Page::where('slug', 'events')->firstOrFail();
-    $events = Event::orderByRaw('-date', 'asc')->get();
+    $events = Event::orderByRaw('ISNULL(position), position ASC')->orderByRaw('ISNULL(date), date ASC')->get();
     return view('pages.events', ['page' => $page, 'events' => $events]);
   }
 

@@ -61,7 +61,7 @@
             <div class="col-sm-6 col-md-4 col-lg-3">
               <div class="card mb-4">
                 <a href={{ Voyager::image($image) }}>
-                  <img src="{{ Voyager::image($album->getThumbnail($image, 'cropped')) }}" alt="{{ $album->title }}" class="img-thumbnail border-0">
+                  <img src="{{ Voyager::image($album->getThumbnail($image, 'resize-800')) }}" alt="{{ $album->title }}" class="img-thumbnail border-0">
                 </a>
               </div>
             </div>

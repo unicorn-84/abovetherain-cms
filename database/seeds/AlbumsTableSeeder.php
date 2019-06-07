@@ -100,26 +100,6 @@ class AlbumsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($albumDataType, 'description');
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'text_area',
-        'display_name' => __('voyager::seeders.data_rows.description'),
-        'required' => 0,
-        'browse' => 0,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
-        'order' => 4,
-        'details' => [
-          'display' => [
-            'width' => '6'
-          ],
-        ],
-      ])->save();
-    }
-
     $dataRow = $this->dataRow($albumDataType, 'seo_title');
     if (!$dataRow->exists) {
       $dataRow->fill([
@@ -131,7 +111,7 @@ class AlbumsTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 5,
+        'order' => 4,
         'details' => [
           'display' => [
             'width' => '6'
@@ -151,6 +131,26 @@ class AlbumsTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
+        'order' => 5,
+        'details' => [
+          'display' => [
+            'width' => '6'
+          ],
+        ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($albumDataType, 'description');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'tinymce_base',
+        'display_name' => __('voyager::seeders.data_rows.description'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
         'order' => 6,
         'details' => [
           'display' => [
@@ -160,11 +160,11 @@ class AlbumsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($albumDataType, 'order');
+    $dataRow = $this->dataRow($albumDataType, 'position');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'number',
-        'display_name' => __('voyager::seeders.data_rows.order'),
+        'display_name' => __('voyager::seeders.data_rows.position'),
         'required' => 0,
         'browse' => 1,
         'read' => 1,
@@ -194,10 +194,14 @@ class AlbumsTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 6,
+        'order' => 8,
         'details' => [
           'validation' => [
-            'rule' => 'image'
+            'rule' => 'image',
+          ],
+          'resize' => [
+            'width' => '800',
+            'height' => null
           ],
         ],
       ])->save();
@@ -214,14 +218,14 @@ class AlbumsTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 8,
+        'order' => 9,
         'details' => [
           'thumbnails' => [
             [
-              'name' => 'cropped',
-              'crop' => [
+              'name' => 'resize-800',
+              'resize' => [
                 'width' => '800',
-                'height' => '533',
+                'height' => null
               ],
             ],
           ],

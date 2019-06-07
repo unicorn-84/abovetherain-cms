@@ -90,27 +90,6 @@
   }
 }
 
-#abovetherain-cms__coaches {
-  .card {
-    padding: 0.25rem;
-
-    > div:first-child {
-      position: relative;
-      overflow: hidden;
-    }
-  }
-}
-
-#abovetherain-cms__services {
-  .card-footer {
-    a {
-      @include media-breakpoint-down(lg) {
-        text-decoration: underline;
-      }
-    }
-  }
-}
-
 #abovetherain-cms__schedule {
   table {
     table-layout: fixed;
@@ -119,13 +98,55 @@
       width: 7%;
     }
 
-    a {
-      @include media-breakpoint-down(lg) {
-        text-decoration: underline;
+    tbody {
+      tr {
+        td {
+          a {
+            @include media-breakpoint-down(lg) {
+              text-decoration: underline;
+            }
+          }
+        }
       }
     }
   }
 }
+
+#abovetherain-cms__services,
+#abovetherain-cms__gallery {
+  .card {
+    .card-footer {
+      a {
+        @include media-breakpoint-down(lg) {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+#abovetherain-cms__coaches {
+  .card {
+    padding: 0.25rem;
+
+    > div:first-child {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-img-overlay {
+      li {
+        a {
+          @include media-breakpoint-down(lg) {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+
 
 .breadcrumb-item + .breadcrumb-item::before {
   color: #fff;

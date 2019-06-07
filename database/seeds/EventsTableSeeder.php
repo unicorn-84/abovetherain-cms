@@ -180,6 +180,29 @@ class EventsTableSeeder extends Seeder
       ])->save();
     }
 
+    $dataRow = $this->dataRow($eventDataType, 'position');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'number',
+        'display_name' => __('voyager::seeders.data_rows.position'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 7,
+        'details' => [
+          'validation' => [
+            'rule' => 'numeric|nullable'
+          ],
+          'display' => [
+            'width' => '6',
+          ],
+        ],
+      ])->save();
+    }
+
     $dataRow = $this->dataRow($eventDataType, 'poster'); // 8
     if (!$dataRow->exists) {
       $dataRow->fill([

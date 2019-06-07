@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Voyager;
 
-use App\Http\Controllers\Voyager\ContentTypes\MultipleVideo;
+//use App\Http\Controllers\Voyager\ContentTypes\MultipleVideo;
 use App\Http\Controllers\Voyager\ContentTypes\Video;
 use App\Http\Controllers\Voyager\ContentTypes\Image as ContentImage;
+use App\Http\Controllers\Voyager\ContentTypes\MultipleImage;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
@@ -14,7 +15,6 @@ use TCG\Voyager\Http\Controllers\ContentTypes\Checkbox;
 use TCG\Voyager\Http\Controllers\ContentTypes\Coordinates;
 use TCG\Voyager\Http\Controllers\ContentTypes\File;
 use TCG\Voyager\Http\Controllers\ContentTypes\MultipleCheckbox;
-use TCG\Voyager\Http\Controllers\ContentTypes\MultipleImage;
 use TCG\Voyager\Http\Controllers\ContentTypes\Password;
 use TCG\Voyager\Http\Controllers\ContentTypes\Relationship;
 use TCG\Voyager\Http\Controllers\ContentTypes\SelectMultiple;
@@ -139,18 +139,18 @@ class VoyagerBaseController extends BaseVoyagerBaseController
     }
 
     // Rename folders for newly created data through media-picker
-    if ($request->session()->has($slug.'_path') || $request->session()->has($slug.'_uuid')) {
-      $old_path = $request->session()->get($slug.'_path');
-      $uuid = $request->session()->get($slug.'_uuid');
+    if ($request->session()->has($slug . '_path') || $request->session()->has($slug . '_uuid')) {
+      $old_path = $request->session()->get($slug . '_path');
+      $uuid = $request->session()->get($slug . '_uuid');
       $new_path = str_replace($uuid, $data->getKey(), $old_path);
-      $folder_path = substr($old_path, 0, strpos($old_path, $uuid)).$uuid;
+      $folder_path = substr($old_path, 0, strpos($old_path, $uuid)) . $uuid;
 
       $rows->where('type', 'media_picker')->each(function ($row) use ($data, $uuid) {
         $data->{$row->field} = str_replace($uuid, $data->getKey(), $data->{$row->field});
       });
       $data->save();
       if ($old_path != $new_path && !Storage::disk(config('voyager.storage.disk'))->exists($new_path)) {
-        $request->session()->forget([$slug.'_path', $slug.'_uuid']);
+        $request->session()->forget([$slug . '_path', $slug . '_uuid']);
         Storage::disk(config('voyager.storage.disk'))->move($old_path, $new_path);
         Storage::disk(config('voyager.storage.disk'))->deleteDirectory($folder_path);
       }
@@ -174,15 +174,16 @@ class VoyagerBaseController extends BaseVoyagerBaseController
       /********** FILE TYPE **********/
       case 'file':
         return (new File($request, $slug, $row, $options))->handle();
-      /********** MULTIPLE IMAGES TYPE **********/
+
+      /********** MULTIPLE IMAGES TYPE **********/ // Custom
       case 'multiple_images':
         return (new MultipleImage($request, $slug, $row, $options))->handle();
 
       /********** MULTIPLE VIDEOS TYPE **********/
-      case 'multiple_videos':
-        return (new MultipleVideo($request, $slug, $row, $options))->handle();
+//      case 'multiple_videos':
+//        return (new MultipleVideo($request, $slug, $row, $options))->handle();
 
-      /********** VIDEO TYPE **********/
+      /********** VIDEO TYPE **********/  // Custom
       case 'video':
         return (new Video($request, $slug, $row, $options))->handle();
 
@@ -190,7 +191,7 @@ class VoyagerBaseController extends BaseVoyagerBaseController
       case 'select_multiple':
         return (new SelectMultiple($request, $slug, $row, $options))->handle();
 
-      /********** IMAGE TYPE **********/
+      /********** IMAGE TYPE **********/ // Custom
       case 'image':
         return (new ContentImage($request, $slug, $row, $options))->handle();
 

@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Album;
 use App\Page;
+use Illuminate\Support\Facades\DB;
 
 class AlbumController extends Controller
 {
   public function index()
   {
     $page = Page::where('slug', 'gallery')->firstOrFail();
-    $albums = Album::orderBy('order', 'asc')->get();
+    $albums = Album::orderByRaw('ISNULL(position), position ASC')->get();
     return view('pages.gallery', ['page' => $page, 'albums' => $albums]);
   }
 

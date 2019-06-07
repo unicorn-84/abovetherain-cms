@@ -233,11 +233,11 @@ class TrainingsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($trainingDataType, 'text_color');
+    $dataRow = $this->dataRow($trainingDataType, 'info');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'color',
-        'display_name' => __('voyager::seeders.data_rows.text_color'),
+        'type' => 'tinymce_base',
+        'display_name' => __('voyager::seeders.data_rows.info'),
         'required' => 0,
         'browse' => 0,
         'read' => 1,
@@ -253,11 +253,11 @@ class TrainingsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($trainingDataType, 'badge_color');
+    $dataRow = $this->dataRow($trainingDataType, 'direction_color');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'color',
-        'display_name' => __('voyager::seeders.data_rows.badge_color'),
+        'display_name' => __('voyager::seeders.data_rows.text_color'),
         'required' => 0,
         'browse' => 0,
         'read' => 1,
@@ -267,17 +267,17 @@ class TrainingsTableSeeder extends Seeder
         'order' => 11,
         'details' => [
           'display' => [
-            'width' => '6'
+            'width' => '3'
           ],
         ],
       ])->save();
     }
 
-    $dataRow = $this->dataRow($trainingDataType, 'badge_text');
+    $dataRow = $this->dataRow($trainingDataType, 'time_color');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'text',
-        'display_name' => __('voyager::seeders.data_rows.badge_text'),
+        'type' => 'color',
+        'display_name' => __('voyager::seeders.data_rows.time_color'),
         'required' => 0,
         'browse' => 0,
         'read' => 1,
@@ -287,7 +287,47 @@ class TrainingsTableSeeder extends Seeder
         'order' => 12,
         'details' => [
           'display' => [
-            'width' => '6'
+            'width' => '3'
+          ],
+        ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($trainingDataType, 'coach_color');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'color',
+        'display_name' => __('voyager::seeders.data_rows.coach_color'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 12,
+        'details' => [
+          'display' => [
+            'width' => '3'
+          ],
+        ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($trainingDataType, 'fon_color');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'color',
+        'display_name' => __('voyager::seeders.data_rows.fon_color'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 12,
+        'details' => [
+          'display' => [
+            'width' => '3'
           ],
         ],
       ])->save();

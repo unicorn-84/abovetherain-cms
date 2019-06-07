@@ -45,7 +45,7 @@
                   <img class="card-img-top" src="{{ Voyager::image($coach->thumbnail('resize-800', 'poster')) }}" alt="{{ $coach->title }}">
                 </div>
               @endisset
-              <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
+              <div class="card-img-overlay h-100 d-flex flex-column justify-content-end p-4">
                 @if(isset($coach->content))
                   <a href="{{ route('coach', $coach->slug) }}" class="text-reset">
                     <h3 class="card-title">
@@ -53,28 +53,28 @@
                     </h3>
                   </a>
                 @else
-                  <h2 class="card-title ml-2">
+                  <h2 class="card-title mb-0">
                     {{ $coach->title }}
                   </h2>
                 @endif
                 @if(count($coach->services) > 0)
-                  <ul class="list-unstyled m-2">
+                  <ul class="list-unstyled m-0 mt-3">
                     {{--todo:проверять контент--}}
                     @foreach($coach->services as $service)
-                      <li>
+                      <li{!! $loop->last ? null : ' class="mb-2"' !!}>
                         @if($service->content)
                           <a href="{{ route('service', $service->slug) }}" class="text-reset mb-0 h5">{{ $service->title }}</a>
                         @else
-                          <span class="text-white-50 mb-0 h5">{{ $service->title }}</span>
+                          <span class="mb-0 h5{{ isset($coach->poster) ? ' text-white-50' : ' text-muted' }}">{{ $service->title }}</span>
                         @endif
                       </li>
                     @endforeach
                   </ul>
                 @endif
                 @if(count($coach->trainings) > 0)
-                  <div>
+                  <div class="mt-4">
                     <a href="{{ route('schedule', 'coach=' . $coach->slug) }}" class="text-decoration-none text-reset">
-                      <i class="far fa-calendar-alt mt-3 ml-2 fa-2x"></i>
+                      <i class="far fa-calendar-alt fa-2x"></i>
                     </a>
                   </div>
                 @endif

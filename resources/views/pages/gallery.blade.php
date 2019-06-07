@@ -38,7 +38,7 @@
     <div class="container">
       <div class="row">
         @foreach($albums as $album)
-          <div class="col-md-6 col-lg-4{{ $album->poster ? ' d-flex' : '' }}">
+          <div class="col-md-6 col-lg-4{{ $album->poster && $album->description ? ' d-flex' : '' }}">
             <div class="card mb-4 w-100">
               @isset($album->poster)
                 @if($album->count_images > 0 || $album->videos->count() > 0)
@@ -70,9 +70,17 @@
                   <span class="badge bg-transparent border border-primary text-primary badge-primary mt-3">{{ $album->videos->count() }} видео</span>
                 @endif
                 @isset($album->description)
-                  <p class="card-text mt-3 mb-0">{{ $album->description }}</p>
+                  <div class="atr-card-description mt-3 mb-0">{!! $album->description !!}</div>
                 @endisset
               </div>
+              @if($album->videos->count() > 0 || $album->count_images > 0)
+                <div class="card-footer">
+                  <div class="text-right">
+                    <a href="{{ route('album', $album->slug) }}"
+                       class="text-reset font-weight-bold">Просмотр альбома</a>
+                  </div>
+                </div>
+              @endif
             </div>
           </div>
         @endforeach

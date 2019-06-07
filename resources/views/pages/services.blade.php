@@ -38,7 +38,7 @@
     <div class="container">
       <div class="row">
         @foreach($services as $service)
-          <div class="col-md-6 col-lg-4{{ $service->content ? ' d-flex' : '' }}">
+          <div class="col-md-6 col-lg-4{{ $service->poster && $service->description ? ' d-flex' : '' }}">
             <div class="card mb-4 w-100">
               @isset($service->poster)
                 @if(isset($service->content))

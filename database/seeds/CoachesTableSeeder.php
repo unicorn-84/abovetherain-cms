@@ -201,11 +201,11 @@ class CoachesTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($coachDataType, 'order');
+    $dataRow = $this->dataRow($coachDataType, 'position');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'number',
-        'display_name' => __('voyager::seeders.data_rows.order'),
+        'display_name' => __('voyager::seeders.data_rows.position'),
         'required' => 0,
         'browse' => 0,
         'read' => 1,

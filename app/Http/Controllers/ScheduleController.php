@@ -12,13 +12,13 @@ class ScheduleController extends Controller
 {
   public function index(Request $request)
   {
-
+//    fixme: Не созраняется значение цветов, если null
     $page = \App\Page::where('slug', 'schedule')->firstOrFail();
 
     $trainings = DB::table('trainings')
       ->join('services', 'trainings.service_id', '=', 'services.id')
       ->join('coaches', 'trainings.coach_id', '=', 'coaches.id')
-      ->select('day', 'start_time', 'end_time', 'services.title as service_title', 'services.slug as service_slug', 'services.content as service_content', 'coaches.title as coach_title', 'coaches.slug as coach_slug', 'coaches.content as coach_content', 'badge_color', 'badge_text', 'text_color')
+      ->select('day', 'start_time', 'end_time', 'services.title as service_title', 'services.slug as service_slug', 'services.content as service_content', 'coaches.title as coach_title', 'coaches.slug as coach_slug', 'coaches.content as coach_content', 'info', 'direction_color', 'time_color', 'coach_color', 'fon_color')
       ->orderBy('start_time', 'asc')
       ->get();
 

@@ -208,6 +208,7 @@ class ServicesTableSeeder extends Seeder
               'name' => 'resize-800',
               'resize' => [
                 'width' => '800',
+                'height' => null
               ],
             ],
           ],
@@ -244,11 +245,11 @@ class ServicesTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($serviceDataType, 'order');
+    $dataRow = $this->dataRow($serviceDataType, 'position');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'number',
-        'display_name' => __('voyager::seeders.data_rows.order'),
+        'display_name' => __('voyager::seeders.data_rows.position'),
         'required' => 0,
         'browse' => 1,
         'read' => 1,
