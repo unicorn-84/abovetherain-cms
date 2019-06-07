@@ -292,7 +292,7 @@ class CoachesTableSeeder extends Seeder
     Permission::generateFor('coaches');
 
     //Фабрика
-    factory(App\Coach::class, 12)->create();
+//    factory(App\Coach::class, 12)->create();
   }
 
   /**

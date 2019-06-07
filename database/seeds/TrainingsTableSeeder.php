@@ -435,7 +435,7 @@ class TrainingsTableSeeder extends Seeder
     Permission::generateFor('trainings');
 
     //Фабрика
-    factory(\App\Training::class, 15)->create();
+//    factory(\App\Training::class, 15)->create();
   }
 
   /**

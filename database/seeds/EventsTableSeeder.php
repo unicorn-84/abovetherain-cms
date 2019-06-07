@@ -303,7 +303,7 @@ class EventsTableSeeder extends Seeder
     Permission::generateFor('events');
 
     //Фабрика
-    factory(Event::class, 6)->create();
+//    factory(Event::class, 6)->create();
   }
 
   /**
