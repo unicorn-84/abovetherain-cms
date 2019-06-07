@@ -157,8 +157,17 @@ class CoachesTableSeeder extends Seeder
             'rule' => 'image',
           ],
           'resize' => [
-            'width' => '800',
+            'width' => '1200',
             'height' => null
+          ],
+          'thumbnails' => [
+            [
+              'name' => 'resize-800',
+              'resize' => [
+                'width' => '800',
+                'height' => null
+              ],
+            ],
           ],
         ],
       ])->save();

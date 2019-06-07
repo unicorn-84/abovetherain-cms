@@ -65,7 +65,7 @@
           <div class="card mb-4 w-100"{!!  isset($coach->poster) ? 'style="color:#fff;"' : '' !!}>
             @isset($coach->poster)
               <div>
-                <img class="card-img-top" src="{{ Voyager::image($coach->poster) }}" alt="{{ $coach->title }}">
+                <img class="card-img-top" src="{{ Voyager::image($coach->thumbnail('resize-800', 'poster')) }}" alt="{{ $coach->title }}">
               </div>
             @endisset
             <div class="card-img-overlay h-100 d-flex flex-column justify-content-end p-4">

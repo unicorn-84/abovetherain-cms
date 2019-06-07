@@ -43,10 +43,10 @@
               @isset($event->poster)
                 @if(isset($event->content))
                   <a href="{{ route('event', $event->slug) }}">
-                    <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($event->poster) }}" alt="{{ $event->title }}">
+                    <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($event->thumbnail('resize-800', 'poster')) }}" alt="{{ $event->title }}">
                   </a>
                 @else
-                  <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($event->poster) }}" alt="{{ $event->title }}">
+                  <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($event->thumbnail('resize-800', 'poster')) }}" alt="{{ $event->title }}">
                 @endif
               @endisset
               <div class="card-body">
