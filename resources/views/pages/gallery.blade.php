@@ -38,7 +38,7 @@
     <div class="container">
       <div class="row">
         @foreach($albums as $album)
-          <div class="col-md-6 col-lg-4{{ $album->poster && $album->description ? ' d-flex' : '' }}">
+          <div class="col-md-6 col-lg-4">
             <div class="card mb-4 w-100">
               @isset($album->poster)
                 @if($album->count_images > 0 || $album->videos->count() > 0)

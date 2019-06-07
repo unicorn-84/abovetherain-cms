@@ -38,7 +38,7 @@
     <div class="container">
       <div class="row">
         @foreach($events as $event)
-          <div class="col-md-6{{ $event->poster ? ' d-flex' : '' }}">
+          <div class="col-md-6">
             <div class="card mb-4 w-100">
               @isset($event->poster)
                 @if(isset($event->content))
