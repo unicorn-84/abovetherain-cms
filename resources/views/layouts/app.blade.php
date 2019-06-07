@@ -20,8 +20,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,500,500i&amp;subset=cyrillic">
 
   <!--ICONS-->
-  @if(Voyager::setting("site.icon"))
-    <link rel="icon" type="image/png" href="{{ Voyager::image(Voyager::setting("site.icon")) }}">
+  @if(Voyager::setting('obshchie.icon'))
+    <link rel="icon" type="image/png" href="{{ Voyager::image(Voyager::setting('obshchie.icon')) }}">
   @endif
 
 <!--FONT AWESOME-->
@@ -38,10 +38,10 @@
           background-image: url({{ Voyager::image($page->mobile_fon) }});
         }
       }</style>
-  @elseif(Voyager::setting("site.mobile_fon"))
+  @elseif(Voyager::setting('obshchie.mobile_fon'))
     <style>@media (max-width: 991px) {
         html::before {
-          background-image: url({{ Voyager::image(Voyager::setting("site.mobile_fon")) }});
+          background-image: url({{ Voyager::image(Voyager::setting('obshchie.mobile_fon')) }});
         }
       }</style>
   @endif
@@ -53,18 +53,18 @@
           background-image: url({{ Voyager::image($page->fon) }});
         }
       }</style>
-  @elseif(Voyager::setting("site.fon"))
+  @elseif(Voyager::setting('obshchie.fon'))
     <style>@media (min-width: 992px) {
         html::before {
-          background-image: url({{ Voyager::image(Voyager::setting("site.fon")) }});
+          background-image: url({{ Voyager::image(Voyager::setting('obshchie.fon')) }});
         }
       }</style>
   @endif
 
 <!--FON COLOR-->
-  @if(Voyager::setting("site.fon_color"))
+  @if(Voyager::setting('obshchie.fon_color'))
     <style>body {
-        background-color: {{ Voyager::setting("site.fon_color") }}   !important;
+        background-color: {{ Voyager::setting('obshchie.fon_color') }}   !important;
       }</style>
   @endif
 
@@ -73,14 +73,14 @@
 </head>
 <!--Body-->
 <body class="d-flex flex-column">
-@if(Voyager::setting('site.ya_id'))
+@if(Voyager::setting('obshchie.ya_id'))
 <!--Yandex.Metrika counter-->
 <script>
   (function (d, w, c) {
     (w[c] = w[c] || []).push(function () {
       try {
-        w.yaCounter{{ Voyager::setting('site.ya_id') }} = new Ya.Metrika2({
-          id: {{ Voyager::setting('site.ya_id') }},
+        w.yaCounter{{ Voyager::setting('obshchie.ya_id') }} = new Ya.Metrika2({
+          id: {{ Voyager::setting('obshchie.ya_id') }},
           clickmap: true,
           trackLinks: true,
           accurateTrackBounce: true,
@@ -108,7 +108,7 @@
 </script>
 <noscript>
   <div>
-    <img src="https://mc.yandex.ru/watch/{{ Voyager::setting('site.ya_id') }}" style="position:absolute; left:-9999px;" alt="">
+    <img src="https://mc.yandex.ru/watch/{{ Voyager::setting('obshchie.ya_id') }}" style="position:absolute; left:-9999px;" alt="">
   </div>
 </noscript>
 @endif

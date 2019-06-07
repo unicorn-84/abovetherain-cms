@@ -5,16 +5,16 @@
 @section('title')
   @if(isset($page->seo_title))
     <title>{{ $page->seo_title }}</title>
-  @elseif(Voyager::setting("site.seo_title"))
-    <title>{{ Voyager::setting("site.seo_title") }}</title>
+  @elseif(Voyager::setting('obshchie.seo_title'))
+    <title>{{ Voyager::setting('obshchie.seo_title') }}</title>
   @endif
 @endsection
 
 @section('description')
   @if(isset($page->seo_description))
     <meta name="description" content="{{ $page->seo_description }}">
-  @elseif(Voyager::setting("site.seo_description"))
-    <meta name="description" content="{{ Voyager::setting("site.seo_description") }}">
+  @elseif(Voyager::setting('obshchie.seo_description'))
+    <meta name="description" content="{{ Voyager::setting('obshchie.seo_description') }}">
   @endif
 @endsection
 
@@ -37,22 +37,22 @@
   <main class="py-5 flex-fill">
     <div class="container">
       <div class="row">
-        @if(Voyager::setting('content.address') || Voyager::setting('content.phone') || Voyager::setting('content.email'))
+        @if(Voyager::setting('obshchie.address') || Voyager::setting('obshchie.phone') || Voyager::setting('obshchie.email'))
           <div class="col-12">
             <ul class="list-unstyled font-weight-bold text-white mb-4">
-              @if(Voyager::setting('content.address'))
+              @if(Voyager::setting('obshchie.address'))
                 <li class="mb-3 h4">
-                  <i class="fas fa-map-marker-alt fa-fw"></i>&nbsp;{{ Voyager::setting('content.address') }}
+                  <i class="fas fa-map-marker-alt fa-fw"></i>&nbsp;{{ Voyager::setting('obshchie.address') }}
                 </li>
               @endif
-              @if(Voyager::setting('content.phone'))
+              @if(Voyager::setting('obshchie.phone'))
                 <li class="mb-3 h4">
-                  <a href="tel:{{ Voyager::setting('content.phone') }}" class="text-reset text-decoration-none" title="{{ Voyager::setting('content.phone') }}"><i class="fas fa-phone fa-rotate-90 fa-fw"></i>&nbsp;{{ Voyager::setting('content.phone') }}</a>
+                  <a href="tel:{{ Voyager::setting('obshchie.phone') }}" class="text-reset text-decoration-none" title="{{ Voyager::setting('obshchie.phone') }}"><i class="fas fa-phone fa-rotate-90 fa-fw"></i>&nbsp;{{ Voyager::setting('obshchie.phone') }}</a>
                 </li>
               @endif
-              @if(Voyager::setting('content.email'))
+              @if(Voyager::setting('obshchie.email'))
                 <li class="mb-3 h4">
-                  <i class="fas fa-envelope fa-fw"></i>&nbsp;{{ Voyager::setting('content.email') }}
+                  <i class="fas fa-envelope fa-fw"></i>&nbsp;{{ Voyager::setting('obshchie.email') }}
                 </li>
               @endif
             </ul>
@@ -73,7 +73,7 @@
       const mark = new window.ymaps.Placemark([59.964280, 30.273500], {},
         {
           iconLayout: 'default#image',
-          iconImageHref: "{{ Voyager::image(Voyager::setting("site.logo")) }}",
+          iconImageHref: "{{ Voyager::image(Voyager::setting('obshchie.logo')) }}",
           iconImageSize: [80, 80],
           iconImageOffset: [-60, -40],
           cursor: 'auto',

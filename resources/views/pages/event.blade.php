@@ -5,16 +5,16 @@
 @section('title')
   @if(isset($event->seo_title))
     <title>{{ $event->seo_title }}</title>
-  @elseif(Voyager::setting("site.seo_title"))
-    <title>{{ Voyager::setting("site.seo_title") }}</title>
+  @elseif(Voyager::setting('obshchie.seo_title'))
+    <title>{{ Voyager::setting('obshchie.seo_title') }}</title>
   @endif
 @endsection
 
 @section('description')
   @if(isset($event->seo_description))
     <meta name="description" content="{{ $event->seo_description }}">
-  @elseif(Voyager::setting("site.seo_description"))
-    <meta name="description" content="{{ Voyager::setting("site.seo_description") }}">
+  @elseif(Voyager::setting('obshchie.seo_description'))
+    <meta name="description" content="{{ Voyager::setting('obshchie.seo_description') }}">
   @endif
 @endsection
 

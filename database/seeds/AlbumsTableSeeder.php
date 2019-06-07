@@ -311,7 +311,7 @@ class AlbumsTableSeeder extends Seeder
     Permission::generateFor('albums');
 
     //Фабрика
-//    factory(Album::class, 5)->create();
+    factory(Album::class, 12)->create();
   }
 
   /**

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Album;
 use App\Page;
 use Illuminate\Support\Facades\DB;
+use TCG\Voyager\Facades\Voyager;
 
 class AlbumController extends Controller
 {
@@ -13,7 +14,15 @@ class AlbumController extends Controller
   {
     $page = Page::where('slug', 'gallery')->firstOrFail();
     $albums = Album::orderByRaw('ISNULL(position), position ASC')->get();
-    return view('pages.gallery', ['page' => $page, 'albums' => $albums]);
+
+    $layoutType = Voyager::setting('galereya.layout', 'grid');
+    $layoutColumns = Voyager::setting('galereya.columns', '4');
+
+    if (view()->exists('pages.gallery.' . $layoutType))
+      return view('pages.gallery.' . $layoutType, ['page' => $page, 'albums' => $albums, 'layoutColumns' => $layoutColumns]);
+    else {
+      return view('pages.gallery.grid', ['page' => $page, 'albums' => $albums, 'layoutColumns' => $layoutColumns]);
+    }
   }
 
   public function show($slug)

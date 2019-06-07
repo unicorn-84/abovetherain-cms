@@ -13,8 +13,8 @@ class SettingsTableSeeder extends Seeder
     //Faker
     $faker = Faker\Factory::create();
 
-    //Site
-    $setting = $this->findSetting('site.title');
+    //Общие
+    $setting = $this->findSetting('obshchie.title');
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.title'),
@@ -22,176 +22,187 @@ class SettingsTableSeeder extends Seeder
         'details' => '',
         'type' => 'text',
         'order' => 1,
-        'group' => 'Site',
+        'group' => 'Общие',
       ])->save();
     }
 
-    $setting = $this->findSetting('site.seo_title');
+    $setting = $this->findSetting('obshchie.description');
+    if (!$setting->exists) {
+      $setting->fill([
+        'display_name' => 'Описание сайта',
+        'value' => '',
+        'details' => '',
+        'type' => 'text_area',
+        'order' => 2,
+        'group' => 'Общие',
+      ])->save();
+    }
+
+    $setting = $this->findSetting('obshchie.seo_title');
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.seo_title'),
         'value' => '',
         'details' => '',
         'type' => 'text',
-        'order' => 2,
-        'group' => 'Site',
+        'order' => 3,
+        'group' => 'Общие',
       ])->save();
     }
 
-    $setting = $this->findSetting('site.seo_description');
+    $setting = $this->findSetting('obshchie.seo_description');
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.seo_description'),
         'value' => '',
         'details' => '',
         'type' => 'text',
-        'order' => 3,
-        'group' => 'Site',
+        'order' => 4,
+        'group' => 'Общие',
       ])->save();
     }
 
-    $setting = $this->findSetting('site.icon');
+    $setting = $this->findSetting('obshchie.icon');
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.icon'),
         'value' => '',
         'details' => '',
         'type' => 'image',
-        'order' => 4,
-        'group' => 'Site',
+        'order' => 5,
+        'group' => 'Общие',
       ])->save();
     }
 
-    $setting = $this->findSetting('site.logo');
+    $setting = $this->findSetting('obshchie.logo');
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.logo'),
         'value' => '',
         'details' => '',
         'type' => 'image',
-        'order' => 5,
-        'group' => 'Site',
+        'order' => 6,
+        'group' => 'Общие',
       ])->save();
     }
 
-    $setting = $this->findSetting('site.fon');
+    $setting = $this->findSetting('obshchie.fon');
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.fon'),
         'value' => '',
         'details' => '',
         'type' => 'image',
-        'order' => 6,
-        'group' => 'Site',
+        'order' => 7,
+        'group' => 'Общие',
       ])->save();
     }
 
-    $setting = $this->findSetting('site.mobile_fon');
+    $setting = $this->findSetting('obshchie.mobile_fon');
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.mobile_fon'),
         'value' => '',
         'details' => '',
         'type' => 'image',
-        'order' => 7,
-        'group' => 'Site',
+        'order' => 8,
+        'group' => 'Общие',
       ])->save();
     }
 
-    $setting = $this->findSetting('site.fon_color');
+    $setting = $this->findSetting('obshchie.fon_color');
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.site.fon_color'),
         'value' => '#ddd',
         'details' => '',
         'type' => 'text',
-        'order' => 7,
-        'group' => 'Site',
+        'order' => 9,
+        'group' => 'Общие',
       ])->save();
 
-      $setting = $this->findSetting('site.ya_id');
+      $setting = $this->findSetting('obshchie.ya_id');
       if (!$setting->exists) {
         $setting->fill([
           'display_name' => __('voyager::seeders.settings.site.ya_id'),
           'value' => '',
           'details' => '',
           'type' => 'text',
-          'order' => 8,
-          'group' => 'Site',
+          'order' => 10,
+          'group' => 'Общие',
         ])->save();
       }
     }
 
-    //Content
-    $setting = $this->findSetting('content.email');
+    $setting = $this->findSetting('obshchie.email');
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => 'Email',
         'value' => '',
         'details' => '',
         'type' => 'text',
-        'order' => 1,
-        'group' => 'Content',
+        'order' => 11,
+        'group' => 'Общие',
       ])->save();
     }
 
-    $setting = $this->findSetting('content.phone');
+    $setting = $this->findSetting('obshchie.phone');
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.content.phone'),
         'value' => '',
         'details' => '',
         'type' => 'text',
-        'order' => 2,
-        'group' => 'Content',
+        'order' => 12,
+        'group' => 'Общие',
       ])->save();
     }
 
-    $setting = $this->findSetting('content.address');
+    $setting = $this->findSetting('obshchie.address');
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.content.address'),
         'value' => '',
         'details' => '',
         'type' => 'text_area',
-        'order' => 3,
-        'group' => 'Content',
+        'order' => 13,
+        'group' => 'Общие',
       ])->save();
     }
 
-    $setting = $this->findSetting('content.vk');
+    $setting = $this->findSetting('obshchie.vk');
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => 'VK',
         'value' => '',
         'details' => '',
         'type' => 'text',
-        'order' => 4,
-        'group' => 'Content',
+        'order' => 14,
+        'group' => 'Общие',
       ])->save();
     }
 
-    $setting = $this->findSetting('content.instagram');
+    $setting = $this->findSetting('obshchie.instagram');
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => 'Instagram',
         'value' => '',
         'details' => '',
         'type' => 'text',
-        'order' => 5,
-        'group' => 'Content',
+        'order' => 15,
+        'group' => 'Общие',
       ])->save();
     }
 
-    $setting = $this->findSetting('content.facebook');
+    $setting = $this->findSetting('obshchie.facebook');
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => 'Facebook',
         'value' => '',
         'details' => '',
         'type' => 'text',
-        'order' => 6,
-        'group' => 'Content',
+        'order' => 16,
+        'group' => 'Общие',
       ])->save();
     }
 
@@ -203,11 +214,11 @@ class SettingsTableSeeder extends Seeder
         'details' => '',
         'type' => 'text',
         'order' => 6,
-        'group' => 'Content',
+        'group' => 'Расписание',
       ])->save();
     }
 
-    $setting = $this->findSetting('content.schedule_text_color');
+    $setting = $this->findSetting('obshchie.schedule_text_color');
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => __('voyager::seeders.settings.content.schedule_text_color'),
@@ -215,11 +226,11 @@ class SettingsTableSeeder extends Seeder
         'details' => '',
         'type' => 'text',
         'order' => 7,
-        'group' => 'Content',
+        'group' => 'Расписание',
       ])->save();
     }
 
-    $setting = $this->findSetting('content.vk_sign_up');
+    $setting = $this->findSetting('obshchie.vk_sign_up');
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => 'Записаться в VK',
@@ -227,35 +238,36 @@ class SettingsTableSeeder extends Seeder
         'details' => '',
         'type' => 'text',
         'order' => 7,
-        'group' => 'Content',
+        'group' => 'Расписание',
+      ])->save();
+    }
+
+    // Gallery
+    $setting = $this->findSetting('galereya.layout');
+    if (!$setting->exists) {
+      $setting->fill([
+        'display_name' => 'Макет',
+        'value' => '',
+        'type' => 'radio_btn',
+        'order' => 1,
+        'group' => 'Галерея',
+        'details' => '{"default":"grid","options":{"grid": "Сетка","masonry":"Каменная кладка"}}',
+      ])->save();
+    }
+
+    $setting = $this->findSetting('galereya.columns');
+    if (!$setting->exists) {
+      $setting->fill([
+        'display_name' => 'Колонки',
+        'value' => '',
+        'type' => 'radio_btn',
+        'order' => 2,
+        'group' => 'Галерея',
+        'details' => '{"default":"4","options":{"1":"1","2":"2","3":"3","4":"4","6":"6","12":"12"}}',
       ])->save();
     }
 
     //Admin
-    $setting = $this->findSetting('admin.title');
-    if (!$setting->exists) {
-      $setting->fill([
-        'display_name' => __('voyager::seeders.settings.admin.title'),
-        'value' => '',
-        'details' => '',
-        'type' => 'text',
-        'order' => 1,
-        'group' => 'Admin',
-      ])->save();
-    }
-
-    $setting = $this->findSetting('admin.description');
-    if (!$setting->exists) {
-      $setting->fill([
-        'display_name' => __('voyager::seeders.settings.admin.description'),
-        'value' => '',
-        'details' => '',
-        'type' => 'text',
-        'order' => 2,
-        'group' => 'Admin',
-      ])->save();
-    }
-
     $setting = $this->findSetting('admin.fon');
     if (!$setting->exists) {
       $setting->fill([
