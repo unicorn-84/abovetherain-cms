@@ -10720,6 +10720,9 @@ p:last-child {
 
 #abovetherain-cms__schedule table {
   table-layout: fixed;
+  border: 1px solid #fff;
+  border-collapse: separate;
+  border-spacing: 0;
 }
 #abovetherain-cms__schedule table thead th:first-child {
   width: 7%;
@@ -10745,7 +10748,7 @@ p:last-child {
   overflow: hidden;
 }
 @media (max-width: 1199.98px) {
-  #abovetherain-cms__coaches .card .card-img-overlay li a {
+  #abovetherain-cms__coaches .card .card-img-overlay a {
     text-decoration: underline;
   }
 }

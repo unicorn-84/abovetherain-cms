@@ -93,6 +93,9 @@
 #abovetherain-cms__schedule {
   table {
     table-layout: fixed;
+    border: 1px solid #fff;
+    border-collapse: separate;
+    border-spacing: 0;
 
     thead th:first-child {
       width: 7%;
@@ -135,11 +138,9 @@
     }
 
     .card-img-overlay {
-      li {
-        a {
-          @include media-breakpoint-down(lg) {
-            text-decoration: underline;
-          }
+      a {
+        @include media-breakpoint-down(lg) {
+          text-decoration: underline;
         }
       }
     }

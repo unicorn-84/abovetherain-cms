@@ -219,6 +219,10 @@ class EventsTableSeeder extends Seeder
           'validation' => [
             'rule' => 'image'
           ],
+          'resize' => [
+            'width' => '800',
+            'height' => null
+          ],
         ],
       ])->save();
     }

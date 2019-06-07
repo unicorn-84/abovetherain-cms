@@ -51,22 +51,21 @@
               @endisset
               <div class="card-body">
                 @if(isset($event->content))
-                  <a href="{{ route('event', $event->slug) }}" class="text-reset">
-                    <h2 class="card-title m-0">
-                      {{ $event->title }}
-                    </h2>
-                  </a>
+                  <h2 class="card-title m-0">
+                    <a href="{{ route('event', $event->slug) }}" class="text-reset">
+                    {{ $event->title }}
+                    </a>
+                  </h2>
                 @else
                   <h2 class="card-title m-0">
                     {{ $event->title }}
                   </h2>
                 @endif
-                {{--todo:добавить subtitles--}}
                 @if($event->local_date)
                   <h4 class="card-subtitle mt-3"><span class="badge bg-transparent border border-info text-info badge-info">{{ $event->local_date }}</span></h4>
                 @endif
                 @isset($event->description)
-                  <p class="card-text mt-3 mb-0">{{ $event->description }}</p>
+                  <div class="atr-card-description mt-3 mb-0">{!! $event->description !!}</div>
                 @endisset
               </div>
               @if(isset($event->content))

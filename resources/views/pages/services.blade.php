@@ -52,7 +52,6 @@
               @endisset
               <div class="card-body">
                 @if(isset($service->content))
-                  {{--todo: ссылки в заголовок--}}
                   <h3 class="card-title mb-0">
                     <a href="{{ route('service', $service->slug) }}" class="text-reset">
                       {{ $service->title }}

@@ -101,10 +101,9 @@
 
       <div class="row">
         <div class="col">
-          {{--todo: border для table--}}
           {{--Desktop--}}
           <div class="d-none d-lg-block">
-            <table class="table border-0 text-center mb-0" style="border-radius: 0.25rem; overflow: hidden;">
+            <table class="table text-center mb-0" style="border-radius: 0.25rem; overflow: hidden;">
               <thead>
               <tr>
                 <th class="border-top-0 border-bottom border-right"></th>
@@ -150,11 +149,11 @@
 
             @foreach($days as $slug => $day)
 
-              <table class="table border-0 text-center{{ $loop->last ? ' mb-0' : ' mb-3' }}"
+              <table class="table text-center{{ $loop->last ? ' mb-0' : ' mb-3' }}"
                      style="border-radius: 0.25rem; overflow: hidden;">
                 <thead>
                 <tr>
-                  <th class="border-0">{{ $day }}</th>
+                  <th class="border-top-0 border-right-0 border-bottom border-left-0">{{ $day }}</th>
                 </tr>
                 </thead>
                 <tbody>

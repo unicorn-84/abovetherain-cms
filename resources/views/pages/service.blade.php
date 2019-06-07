@@ -45,7 +45,6 @@
                      {{--alt="{{ $service->title }}">--}}
               {{--@endisset--}}
               <div class="card-body">
-                {{--todo: по центру--}}
                 {{--<h2 class="card-title mb-0 text-md-center">--}}
                   {{--{{ $service->title }}--}}
                 {{--</h2>--}}
@@ -63,14 +62,12 @@
                   <ul class="list-unstyled m-0">
                     @foreach($service->coaches as $coach)
                       <li{!! $loop->last ? '' : ' class="mb-2"' !!}>
-                        {{--todo: убрать иконку из ссылки и добавить underline к ссылке--}}
                         @if($coach->content)
                           <i class="far fa-user h5 mb-0"></i>&nbsp;
                           <a href="{{ route('coach', $coach->slug) }}" class="text-reset font-weight-bold h5">
                             {{ $coach->title }}
                           </a>
                         @else
-                          {{--todo: добавить text-muted для неактивных ссылок--}}
                           <i class="far fa-user h5 text-muted mb-0"></i>&nbsp;
                           <span class="text-muted font-weight-bold h5 mb-0">{{ $coach->title }}</span>
                         @endif

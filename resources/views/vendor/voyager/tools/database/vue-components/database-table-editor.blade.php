@@ -179,7 +179,6 @@
                 }
             },
             getColumnsIndex(columns) {
-                // todo: detect if a column has a composite index
                 //  if so, maybe disable its Index input, and tell the user to go to special Index form (advanced view)?
                 if (!Array.isArray(columns)) {
                     columns = [columns];

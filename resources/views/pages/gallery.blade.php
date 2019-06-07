@@ -53,11 +53,11 @@
               @endisset
               <div class="card-body">
                 @if($album->count_images > 0 || $album->videos->count() > 0)
-                  <a href="{{ route('album', $album->slug) }}" class="text-reset">
-                    <h2 class="card-title m-0">
+                  <h2 class="card-title m-0">
+                    <a href="{{ route('album', $album->slug) }}" class="text-reset">
                       {{ $album->title }}
-                    </h2>
-                  </a>
+                    </a>
+                  </h2>
                 @else
                   <h2 class="card-title m-0">
                     {{ $album->title }}

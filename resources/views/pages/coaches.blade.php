@@ -42,16 +42,16 @@
             <div class="card{{ $loop->last ? '' : ' mb-4' }}"{!!  isset($coach->poster) ? 'style="color:#fff;"' : '' !!}>
               @isset($coach->poster)
                 <div>
-                  <img class="card-img-top" src="{{ Voyager::image($coach->thumbnail('resize-800', 'poster')) }}" alt="{{ $coach->title }}">
+                  <img class="card-img-top" src="{{ Voyager::image($coach->poster) }}" alt="{{ $coach->title }}">
                 </div>
               @endisset
               <div class="card-img-overlay h-100 d-flex flex-column justify-content-end p-4">
                 @if(isset($coach->content))
-                  <a href="{{ route('coach', $coach->slug) }}" class="text-reset">
-                    <h3 class="card-title">
+                  <h2 class="card-title mb-0">
+                    <a href="{{ route('coach', $coach->slug) }}" class="text-reset">
                       {{ $coach->title }}
-                    </h3>
-                  </a>
+                    </a>
+                  </h2>
                 @else
                   <h2 class="card-title mb-0">
                     {{ $coach->title }}
@@ -59,7 +59,6 @@
                 @endif
                 @if(count($coach->services) > 0)
                   <ul class="list-unstyled m-0 mt-3">
-                    {{--todo:проверять контент--}}
                     @foreach($coach->services as $service)
                       <li{!! $loop->last ? null : ' class="mb-2"' !!}>
                         @if($service->content)
