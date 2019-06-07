@@ -88,11 +88,12 @@ class Image extends BaseType
           } elseif (isset($this->options->thumbnails) && isset($thumbnails->resize->width)) {
             $resize_width = $thumbnails->resize->width;
             $resize_height = isset($thumbnails->resize->height) ?? null;
+            $thumbnails_quality = isset($thumbnails->quality) ? intval($thumbnails->quality) : 100;
             $image = InterventionImage::make($file)
               ->resize($resize_width, $resize_height, function ($constraint) {
                 $constraint->aspectRatio();
               })
-              ->encode($file->getClientOriginalExtension(), $resize_quality);
+              ->encode($file->getClientOriginalExtension(), $thumbnails_quality);
           }
 
           Storage::disk(config('voyager.storage.disk'))->put(

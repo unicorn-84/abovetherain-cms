@@ -199,6 +199,7 @@ class AlbumsTableSeeder extends Seeder
           'validation' => [
             'rule' => 'image',
           ],
+          'quality' => '75',
           'resize' => [
             'width' => '800',
             'height' => null
@@ -223,6 +224,7 @@ class AlbumsTableSeeder extends Seeder
           'thumbnails' => [
             [
               'name' => 'resize-800',
+              'quality' => '75',
               'resize' => [
                 'width' => '800',
                 'height' => null

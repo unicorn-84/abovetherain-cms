@@ -142,6 +142,7 @@ class VideosTableSeeder extends Seeder
           'validation' => [
             'rule' => 'image'
           ],
+          'quality' => '75',
           'resize' => [
             'width' => '800',
             'height' => null

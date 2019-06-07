@@ -60,9 +60,9 @@
   <main class="py-5 flex-fill">
     @if($album->videos->count() > 0)
       <div class="container">
-        <div class="row">
+        <div class="card-columns{{ isset($images) && count($images) > 0 ? ' mb-5' : '' }}">
           @foreach($album->videos as $video)
-            <div class="сol-md-6 col-lg-4{{ isset($images) && count($images) > 0 ? ' mb-5' : '' }}">
+            <div class="card">
               <div class="shadow-lg embed-responsive embed-responsive-{{ isset($video->aspect_ratio) ? $video->aspect_ratio : '16by9' }}">
                 <video src="{{ Storage::disk(config('voyager.storage.disk'))->url($video->video_uri) }}" class="embed-responsive-item" controls{!! isset($video->poster) ? ' poster="' . Storage::disk(config('voyager.storage.disk'))->url($video->poster) . '"' : '' !!}></video>
               </div>
@@ -73,16 +73,14 @@
     @endif
     @if($images)
       <div class="container">
-        <div class="row">
-          <div class="col card-columns">
-            @foreach($images as $image)
-              <div class="card mb-4">
-                <a href={{ Voyager::image($image) }}>
-                  <img src="{{ Voyager::image($album->getThumbnail($image, 'resize-800')) }}" alt="{{ $album->title }}" class="img-thumbnail border-0">
-                </a>
-              </div>
-            @endforeach
-          </div>
+        <div class="card-columns">
+          @foreach($images as $image)
+            <div class="card mb-4">
+              <a href={{ Voyager::image($image) }}>
+                <img src="{{ Voyager::image($album->getThumbnail($image, 'resize-800')) }}" alt="{{ $album->title }}" class="img-thumbnail border-0">
+              </a>
+            </div>
+          @endforeach
         </div>
       </div>
     @endif

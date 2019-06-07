@@ -199,6 +199,7 @@ class ServicesTableSeeder extends Seeder
           'validation' => [
             'rule' => 'image',
           ],
+          'quality' => '75',
           'resize' => [
             'width' => '1200',
             'height' => null
@@ -206,6 +207,7 @@ class ServicesTableSeeder extends Seeder
           'thumbnails' => [
             [
               'name' => 'resize-800',
+              'quality' => '75',
               'resize' => [
                 'width' => '800',
                 'height' => null

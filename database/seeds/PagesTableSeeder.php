@@ -145,7 +145,12 @@ class PagesTableSeeder extends Seeder
           'validation' => [
             'rule' => 'image'
           ],
-        ]
+          'quality' => '75',
+          'resize' => [
+            'width' => '1920',
+            'height' => null
+          ],
+        ],
       ])->save();
     }
 
@@ -165,11 +170,12 @@ class PagesTableSeeder extends Seeder
           'validation' => [
             'rule' => 'image'
           ],
+          'quality' => '75',
           'resize' => [
-            'width' => '1200',
+            'width' => '800',
             'height' => null
           ],
-        ]
+        ],
       ])->save();
     }
 

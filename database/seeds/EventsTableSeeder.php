@@ -219,6 +219,7 @@ class EventsTableSeeder extends Seeder
           'validation' => [
             'rule' => 'image'
           ],
+          'quality' => '75',
           'resize' => [
             'width' => '1200',
             'height' => null
@@ -226,6 +227,7 @@ class EventsTableSeeder extends Seeder
           'thumbnails' => [
             [
               'name' => 'resize-800',
+              'quality' => '75',
               'resize' => [
                 'width' => '800',
                 'height' => null
