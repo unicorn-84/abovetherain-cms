@@ -33,7 +33,7 @@
           </div>
         @endif
         <div class="d-flex justify-content-center w-100 order-lg-first">
-          <a href="{{ url('requisites') }}" class="text-reset" title="Реквизиты для оплаты">Реквизиты</a>
+          {{ menu('bottom', 'bottom_menu') }}
         </div>
       </div>
     </div>

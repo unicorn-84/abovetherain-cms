@@ -15,6 +15,7 @@ class MenuItemsTableSeeder extends Seeder
   {
     $menu_admin = Menu::where('name', 'admin')->firstOrFail();
     $menu_main = Menu::where('name', 'main')->firstOrFail();
+    $menu_bottom = Menu::where('name', 'bottom')->firstOrFail();
 
     //Панель
     $menuItem = MenuItem::firstOrNew([
@@ -242,6 +243,18 @@ class MenuItemsTableSeeder extends Seeder
     if (!$menuItem->exists) {
       $menuItem->fill([
         'order' => 7,
+      ])->save();
+    }
+
+    // Bottom
+    $menuItem = MenuItem::firstOrNew([
+      'menu_id' => $menu_bottom->id,
+      'title' => 'Реквизиты',
+      'url' => '/requisites',
+    ]);
+    if (!$menuItem->exists) {
+      $menuItem->fill([
+        'order' => 1,
       ])->save();
     }
   }

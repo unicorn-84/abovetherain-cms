@@ -18,5 +18,8 @@ class MenusTableSeeder extends Seeder
     Menu::firstOrCreate([
       'name' => 'main'
     ]);
+    Menu::firstOrCreate([
+      'name' => 'bottom'
+    ]);
   }
 }

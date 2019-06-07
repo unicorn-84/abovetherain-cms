@@ -19,7 +19,7 @@
         <div class="w-100 d-lg-none"></div>
       </div>
       <div id='navbarSupportedContent' class="collapse navbar-collapse">
-        {{ menu('main', 'menu') }}
+        {{ menu('main', 'main_menu') }}
       </div>
     </div>
   </nav>
