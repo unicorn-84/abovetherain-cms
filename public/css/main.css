@@ -10754,6 +10754,33 @@ p:last-child {
   color: #fff;
 }
 
+#abovetherain-cms__gallery .card-columns {
+  -webkit-column-count: 1;
+     -moz-column-count: 1;
+          column-count: 1;
+}
+@media (min-width: 576px) {
+  #abovetherain-cms__gallery .card-columns {
+    -webkit-column-count: 2;
+       -moz-column-count: 2;
+            column-count: 2;
+  }
+}
+@media (min-width: 768px) {
+  #abovetherain-cms__gallery .card-columns {
+    -webkit-column-count: 3;
+       -moz-column-count: 3;
+            column-count: 3;
+  }
+}
+@media (min-width: 992px) {
+  #abovetherain-cms__gallery .card-columns {
+    -webkit-column-count: 4;
+       -moz-column-count: 4;
+            column-count: 4;
+  }
+}
+
 #abovetherain-cms__footer {
   line-height: 1;
 }
