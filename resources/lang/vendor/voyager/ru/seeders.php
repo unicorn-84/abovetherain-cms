@@ -58,6 +58,8 @@ return [
     'subtitle' => 'Подзаголовок',
     'start_time' => 'Время начала (hh:mm)',
     'time_color' => 'Цвет времени',
+    'laptop_text_align' => 'Выравнивание для полной версии',
+    'mobile_text_align' => 'Выравнивание для мобильной версии',
     'text_color' => 'Цвет ссылок',
     'title' => 'Название',
     'training' => 'Тренировка',

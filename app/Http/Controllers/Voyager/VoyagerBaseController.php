@@ -27,7 +27,6 @@ class VoyagerBaseController extends BaseVoyagerBaseController
   public function insertUpdateData($request, $slug, $rows, $data)
   {
     $multi_select = [];
-
     /*
      * Prepare Translations and Transform data
      */
@@ -77,7 +76,6 @@ class VoyagerBaseController extends BaseVoyagerBaseController
       }
 
       if (is_null($content)) {
-
         // If the image upload is null and it has a current image keep the current image
         if ($row->type == 'image' && is_null($request->input($row->field)) && isset($data->{$row->field})) {
           $content = $data->{$row->field};

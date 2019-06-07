@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\FormFields\TrainingFonColorFormField;
+use App\FormFields\TrainingTextColorFormField;
 use App\FormFields\MultipleVideosFormField;
 use App\FormFields\TinymceBaseFormField;
 use App\FormFields\TinymceFullFormField;
@@ -22,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
       Voyager::addFormField(VideoFormField::class);
       Voyager::addFormField(TinymceBaseFormField::class);
       Voyager::addFormField(TinymceFullFormField::class);
+      Voyager::addFormField(TrainingTextColorFormField::class);
+      Voyager::addFormField(TrainingFonColorFormField::class);
     }
 
     /**

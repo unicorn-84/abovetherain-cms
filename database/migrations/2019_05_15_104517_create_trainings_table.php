@@ -27,6 +27,8 @@ class CreateTrainingsTable extends Migration
       $table->string('time_color')->nullable();
       $table->string('coach_color')->nullable();
       $table->string('fon_color')->nullable();
+      $table->text('laptop_text_align')->nullable();
+      $table->text('mobile_text_align')->nullable();
       $table->timestamps();
     });
   }

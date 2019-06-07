@@ -559,11 +559,13 @@ try {
       language: 'ru',
       content_css: '/css/main.css',
       plugins: 'link, code, textcolor, lists',
+      formats: bootstrap4Formats,
+      style_formats: styleFormats,
       skin: 'voyager',
       skin_url: "".concat(assetsPath, "?path=js/skins/voyager"),
       convert_urls: false,
       extended_valid_elements: 'input[id|name|value|type|class|style|required|placeholder|autocomplete|onclick]',
-      toolbar1: 'undo redo | bold italic underline | forecolor backcolor | alignleft aligncenter alignright | bullist numlist | link | removeformat | code ',
+      toolbar1: 'undo redo | styleselect | bold italic underline | forecolor backcolor | alignleft aligncenter alignright | bullist numlist | link | removeformat | code ',
       content_style: 'body {padding: 1rem; background-color: #fafafa;}'
     });
   }
@@ -591,7 +593,7 @@ try {
       extended_valid_elements: 'input[id|name|value|type|class|style|required|placeholder|autocomplete|onclick]',
       formats: bootstrap4Formats,
       style_formats: styleFormats,
-      toolbar1: 'styleselect | bold italic underline | forecolor backcolor | alignleft aligncenter alignright | bullist numlist outdent indent | link image table | removeformat | code ',
+      toolbar1: 'undo redo | styleselect | bold italic underline | forecolor backcolor | alignleft aligncenter alignright | bullist numlist outdent indent | link image table | removeformat | code ',
       toolbar2: 'fontselect |  fontsizeselect',
       content_style: 'body {padding: 1rem; background-color: #fafafa;}'
     });
