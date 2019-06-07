@@ -259,7 +259,7 @@
           <ul class="nav nav-tabs">
             @foreach($settings as $group => $setting)
               <li @if($group == $active) class="active" @endif>
-                <a data-toggle="tab" href="#{{ \Illuminate\Support\Str::slug($group) }}">{{ $group }}</a>
+                <a data-toggle="tab" href="#{{ \Illuminate\Support\Str::slug($group) }}">{{ __('settings.groups.' . $group) }}</a>
               </li>
             @endforeach
           </ul>
