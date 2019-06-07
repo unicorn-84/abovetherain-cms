@@ -157,16 +157,8 @@ class CoachesTableSeeder extends Seeder
             'rule' => 'image',
           ],
           'resize' => [
-            'width' => '1200',
+            'width' => '800',
             'height' => null
-          ],
-          'thumbnails' => [
-            [
-              'name' => 'resize-800',
-              'resize' => [
-                'width' => '800',
-              ],
-            ],
           ],
         ],
       ])->save();
@@ -227,7 +219,7 @@ class CoachesTableSeeder extends Seeder
     $dataRow = $this->dataRow($coachDataType, 'content');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'rich_text_box',
+        'type' => 'tinymce_full',
         'display_name' => __('voyager::seeders.data_rows.content'),
         'required' => 0,
         'browse' => 0,
