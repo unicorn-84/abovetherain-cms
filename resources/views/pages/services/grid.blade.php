@@ -5,16 +5,16 @@
 @section('title')
   @if(isset($page->seo_title))
     <title>{{ $page->seo_title }}</title>
-  @elseif(Voyager::setting('obshchie.seo_title'))
-    <title>{{ Voyager::setting('obshchie.seo_title') }}</title>
+  @elseif(Voyager::setting('common.seo_title'))
+    <title>{{ Voyager::setting('common.seo_title') }}</title>
   @endif
 @endsection
 
 @section('description')
   @if(isset($page->seo_description))
     <meta name="description" content="{{ $page->seo_description }}">
-  @elseif(Voyager::setting('obshchie.seo_description'))
-    <meta name="description" content="{{ Voyager::setting('obshchie.seo_description') }}">
+  @elseif(Voyager::setting('common.seo_description'))
+    <meta name="description" content="{{ Voyager::setting('common.seo_description') }}">
   @endif
 @endsection
 
@@ -38,7 +38,7 @@
     <div class="container">
       <div class="row">
         @foreach($services as $service)
-          <div class="col-md-6 col-lg-4">
+          <div class="col-md-{{ ceil(12 / ceil($layoutColumns / 3)) }} col-lg-{{ ceil(12 / ceil($layoutColumns / 1.5)) }} col-xl-{{ ceil(12 / $layoutColumns) }}">
             <div class="card mb-4 w-100">
               @isset($service->poster)
                 @if(isset($service->content))

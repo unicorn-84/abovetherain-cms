@@ -1,19 +1,18 @@
 @extends('layouts.app')
 
-@section('custom')
-@endsection
+@section('custom') @endsection
 
 @section('title')
-  @if(isset($page->seo_title))
-    <title>{{ $page->seo_title }}</title>
+  @if(isset($event->seo_title))
+    <title>{{ $event->seo_title }}</title>
   @elseif(Voyager::setting('common.seo_title'))
     <title>{{ Voyager::setting('common.seo_title') }}</title>
   @endif
 @endsection
 
 @section('description')
-  @if(isset($page->seo_description))
-    <meta name="description" content="{{ $page->seo_description }}">
+  @if(isset($event->seo_description))
+    <meta name="description" content="{{ $event->seo_description }}">
   @elseif(Voyager::setting('common.seo_description'))
     <meta name="description" content="{{ Voyager::setting('common.seo_description') }}">
   @endif
@@ -28,22 +27,23 @@
 
 @section('page-title')
   @if($page->has_pagetitle)
-    @component('inc.page-title', ['title' => $page->title])
-      {{ Breadcrumbs::render('page', $page) }}
+    @component('inc.page-title', ['title' => $event->title])
+      {{ Breadcrumbs::render('event', $event) }}
     @endcomponent
   @endif
 @endsection
 
 @section('content')
-
   <main class="py-5 flex-fill">
-    @isset($page->content)
+    @isset($event->content)
       <div class="container">
         <div class="row">
           <div class="col">
-            <div class="card">
+            <div class="card atr-card-page">
               <div class="card-body">
-                {!! $page->content !!}
+                <div class="atr-card-content">
+                  {!! $event->content !!}
+                </div>
               </div>
             </div>
           </div>

@@ -9,7 +9,7 @@
                             <!-- <img src="{{ Voyager::image($admin_logo_img) }}" alt="{{ Voyager::setting('admin.name', '') }}"> -->
                         @endif
                     <!-- </div>
-                    <div class="title">{{ Voyager::setting('obshchie.title', 'VOYAGER') }}</div>
+                    <div class="title">{{ Voyager::setting('common.title', 'VOYAGER') }}</div>
                 </a>
             </div> -->
             <!-- .navbar-header -->

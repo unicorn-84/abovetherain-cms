@@ -1,21 +1,38 @@
 @extends('layouts.app')
 
 @section('custom')
+  <style>
+    .card-columns {
+      column-count: 1;
+    }
+
+    @media (min-width: 768px) {
+      .card-columns {
+        column-count: 2;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .card-columns {
+        column-count: 4;
+      }
+    }
+  </style>
 @endsection
 
 @section('title')
   @if(isset($album->seo_title))
     <title>{{ $album->seo_title }}</title>
-  @elseif(Voyager::setting('obshchie.seo_title'))
-    <title>{{ Voyager::setting('obshchie.seo_title') }}</title>
+  @elseif(Voyager::setting('common.seo_title'))
+    <title>{{ Voyager::setting('common.seo_title') }}</title>
   @endif
 @endsection
 
 @section('description')
   @if(isset($album->seo_description))
     <meta name="description" content="{{ $album->seo_description }}">
-  @elseif(Voyager::setting('obshchie.seo_description'))
-    <meta name="description" content="{{ Voyager::setting('obshchie.seo_description') }}">
+  @elseif(Voyager::setting('common.seo_description'))
+    <meta name="description" content="{{ Voyager::setting('common.seo_description') }}">
   @endif
 @endsection
 

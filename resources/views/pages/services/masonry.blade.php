@@ -61,46 +61,44 @@
   <main class="py-5 flex-fill">
     <div class="container">
       <div class="card-columns">
-        @foreach($albums as $album)
+        @foreach($services as $service)
           <div class="card mb-4 w-100">
-            @isset($album->poster)
-              @if($album->count_images > 0 || $album->videos->count() > 0)
-                <a href="{{ route('album', $album->slug) }}">
-                  <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($album->poster) }}"
-                       alt="{{ $album->title }}">
+            @isset($service->poster)
+              @if(isset($service->content))
+                <a href="{{ route('service', $service->slug) }}">
+                  <img class="card-img-top img-thumbnail border-0 pb-0" src="{{ Voyager::image($service->thumbnail('resize-800', 'poster')) }}"
+                       alt="{{ $service->title }}">
                 </a>
               @else
-                <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($album->poster) }}"
-                     alt="{{ $album->title }}">
+                <img class="card-img-top img-thumbnail border-0 pb-0" src="{{ Voyager::image($service->thumbnail('resize-800', 'poster')) }}">
               @endif
             @endisset
             <div class="card-body">
-              @if($album->count_images > 0 || $album->videos->count() > 0)
-                <h2 class="card-title m-0">
-                  <a href="{{ route('album', $album->slug) }}" class="text-reset">
-                    {{ $album->title }}
+              @if(isset($service->content))
+                <h3 class="card-title mb-0">
+                  <a href="{{ route('service', $service->slug) }}" class="text-reset">
+                    {{ $service->title }}
                   </a>
-                </h2>
+                </h3>
               @else
-                <h2 class="card-title m-0">
-                  {{ $album->title }}
-                </h2>
+                <h3 class="card-title mb-0">
+                  {{ $service->title }}
+                </h3>
               @endif
-              @if($album->count_images > 0)
-                <span class="badge bg-transparent border border-info text-info badge-info mt-3">{{ $album->count_images }} фото</span>&nbsp;
+              @if(isset($service->subtitle))
+                <div class="card-subtitle text-muted mb-0 mt-3">
+                  {!! $service->subtitle !!}
+                </div>
               @endif
-              @if($album->videos->count() > 0)
-                <span class="badge bg-transparent border border-primary text-primary badge-primary mt-3">{{ $album->videos->count() }} видео</span>
-              @endif
-              @isset($album->description)
-                <div class="atr-card-description mt-3 mb-0">{!! $album->description !!}</div>
+              @isset($service->description)
+                <div class="atr-card-description mt-3 mb-0">{!! $service->description !!}</div>
               @endisset
             </div>
-            @if($album->videos->count() > 0 || $album->count_images > 0)
+            @if(isset($service->content))
               <div class="card-footer">
                 <div class="text-right">
-                  <a href="{{ route('album', $album->slug) }}"
-                     class="text-reset font-weight-bold">Просмотр альбома</a>
+                  <a href="{{ route('service', $service->slug) }}"
+                     class="text-reset font-weight-bold">Подробнее...</a>
                 </div>
               </div>
             @endif

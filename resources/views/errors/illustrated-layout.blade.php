@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
   <!--TITLE-->
-  <title>@if(Voyager::setting('obshchie.title')) {{ Voyager::setting('obshchie.title') . ' | ' }}@endif @yield('title')</title>
+  <title>@if(Voyager::setting('common.title')) {{ Voyager::setting('common.title') . ' | ' }}@endif @yield('title')</title>
 
   <!--FONTS-->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">

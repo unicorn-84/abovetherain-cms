@@ -5,16 +5,16 @@
 @section('title')
   @if(isset($page->seo_title))
     <title>{{ $page->seo_title }}</title>
-  @elseif(Voyager::setting('obshchie.seo_title'))
-    <title>{{ Voyager::setting('obshchie.seo_title') }}</title>
+  @elseif(Voyager::setting('common.seo_title'))
+    <title>{{ Voyager::setting('common.seo_title') }}</title>
   @endif
 @endsection
 
 @section('description')
   @if(isset($page->seo_description))
     <meta name="description" content="{{ $page->seo_description }}">
-  @elseif(Voyager::setting('obshchie.seo_description'))
-    <meta name="description" content="{{ Voyager::setting('obshchie.seo_description') }}">
+  @elseif(Voyager::setting('common.seo_description'))
+    <meta name="description" content="{{ Voyager::setting('common.seo_description') }}">
   @endif
 @endsection
 
@@ -38,8 +38,8 @@
     <div class="container">
       <div class="row">
         @foreach($coaches as $coach)
-          <div class="col-sm-6 col-lg-4">
-            <div class="card{{ $loop->last ? '' : ' mb-4' }}"{!!  isset($coach->poster) ? 'style="color:#fff;"' : '' !!}>
+          <div class="col-sm-{{ ceil(12 / ceil($layoutColumns / 3)) }} col-md-{{ ceil(12 / ceil($layoutColumns / 1.5)) }} col-lg-{{ ceil(12 / $layoutColumns) }}">
+            <div class="card mb-4 w-100"{!!  isset($coach->poster) ? 'style="color:#fff;"' : '' !!}>
               @isset($coach->poster)
                 <div>
                   <img class="card-img-top" src="{{ Voyager::image($coach->poster) }}" alt="{{ $coach->title }}">

@@ -5,16 +5,16 @@
 @section('title')
   @if(isset($service->seo_title))
     <title>{{ $service->seo_title }}</title>
-  @elseif(Voyager::setting('obshchie.seo_title'))
-    <title>{{ Voyager::setting('obshchie.seo_title') }}</title>
+  @elseif(Voyager::setting('common.seo_title'))
+    <title>{{ Voyager::setting('common.seo_title') }}</title>
   @endif
 @endsection
 
 @section('description')
   @if(isset($service->seo_description))
     <meta name="description" content="{{ $service->seo_description }}">
-  @elseif(Voyager::setting('obshchie.seo_description'))
-    <meta name="description" content="{{ Voyager::setting('obshchie.seo_description') }}">
+  @elseif(Voyager::setting('common.seo_description'))
+    <meta name="description" content="{{ Voyager::setting('common.seo_description') }}">
   @endif
 @endsection
 
@@ -40,19 +40,7 @@
         <div class="row">
           <div class="col">
             <div class="card atr-card-page">
-              {{--@isset($service->poster)--}}
-                {{--<img class="card-img-top img-thumbnail border-0 pb-0" src="{{ Voyager::image($service->poster) }}"--}}
-                     {{--alt="{{ $service->title }}">--}}
-              {{--@endisset--}}
               <div class="card-body">
-                {{--<h2 class="card-title mb-0 text-md-center">--}}
-                  {{--{{ $service->title }}--}}
-                {{--</h2>--}}
-                {{--@if(isset($service->subtitle))--}}
-                  {{--<div class="card-subtitle text-muted mb-0 mt-3">--}}
-                    {{--{!! $service->subtitle !!}--}}
-                  {{--</div>--}}
-                {{--@endif--}}
                 <div class="atr-card-content">
                   {!! $service->content !!}
                 </div>

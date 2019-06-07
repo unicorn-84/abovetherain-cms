@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('custom')
-  @if(Voyager::setting("content.schedule_fon_color") || Voyager::setting("content.schedule_text_color"))
+  @if(Voyager::setting("schedule.schedule_fon_color") || Voyager::setting("schedule.schedule_text_color"))
     <style>
-      @if(Voyager::setting("content.schedule_fon_color"))
-        table{background-color:{{ Voyager::setting("content.schedule_fon_color") }}!important;}
+      @if(Voyager::setting("schedule.schedule_fon_color"))
+        table{background-color:{{ Voyager::setting("schedule.schedule_fon_color") }}!important;}
       @endif
-      @if(Voyager::setting("content.schedule_text_color"))
-        table{color:{{ Voyager::setting("content.schedule_text_color") }}!important;}
+      @if(Voyager::setting("schedule.schedule_text_color"))
+        table{color:{{ Voyager::setting("schedule.schedule_text_color") }}!important;}
       @endif
     </style>
   @endif
@@ -16,16 +16,16 @@
 @section('title')
   @if(isset($page->seo_title))
     <title>{{ $page->seo_title }}</title>
-  @elseif(Voyager::setting('obshchie.seo_title'))
-    <title>{{ Voyager::setting('obshchie.seo_title') }}</title>
+  @elseif(Voyager::setting('common.seo_title'))
+    <title>{{ Voyager::setting('common.seo_title') }}</title>
   @endif
 @endsection
 
 @section('description')
   @if(isset($page->seo_description))
     <meta name="description" content="{{ $page->seo_description }}">
-  @elseif(Voyager::setting('obshchie.seo_description'))
-    <meta name="description" content="{{ Voyager::setting('obshchie.seo_description') }}">
+  @elseif(Voyager::setting('common.seo_description'))
+    <meta name="description" content="{{ Voyager::setting('common.seo_description') }}">
   @endif
 @endsection
 
@@ -48,10 +48,10 @@
 
   <main class="py-5 flex-fill" id="app">
     <div class="container">
-      @if(Voyager::setting("content.vk_sign_up"))
+      @if(Voyager::setting("schedule.vk_sign_up"))
         <div class="row">
           <div class="col-md-5 col-lg-4 col-xl-3">
-            <a href="{{ Voyager::setting("content.vk_sign_up") }}" class="btn btn-primary btn-block mb-4"
+            <a href="{{ Voyager::setting("schedule.vk_sign_up") }}" class="btn btn-primary btn-block mb-4"
                role="button"
                aria-disabled="true">
               Записаться на занятие&nbsp;

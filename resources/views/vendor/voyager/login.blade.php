@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta name="description" content="{{ Voyager::setting("admin.meta_description") }}">
   <!-- Favicon -->
-  @if(Voyager::setting('obshchie.icon'))
-    <link rel="shortcut icon" href="{{ Voyager::image( Voyager::setting('obshchie.icon')) }}" type="image/x-icon">
+  @if(Voyager::setting('common.icon'))
+    <link rel="shortcut icon" href="{{ Voyager::image( Voyager::setting('common.icon')) }}" type="image/x-icon">
   @endif
   <title>{{ Voyager::setting("admin.seo_title") }}</title>
   <link rel="stylesheet" href="{{ voyager_asset('css/app.css') }}">
@@ -62,8 +62,8 @@
                    src="{{ Voyager::image(Voyager::setting('admin.logo')) }}" alt="{{ Voyager::setting('admin.name', '') }}">
             @endif
             <div class="copy animated fadeIn">
-              <h1>{{ Voyager::setting('obshchie.title', '') }}</h1>
-              <p>{{ Voyager::setting('obshchie.description', '') }}</p>
+              <h1>{{ Voyager::setting('common.title', '') }}</h1>
+              <p>{{ Voyager::setting('common.description', '') }}</p>
             </div>
           </div> <!-- .logo-title-container -->
         </div>

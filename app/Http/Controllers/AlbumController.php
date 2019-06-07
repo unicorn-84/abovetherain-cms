@@ -15,8 +15,8 @@ class AlbumController extends Controller
     $page = Page::where('slug', 'gallery')->firstOrFail();
     $albums = Album::orderByRaw('ISNULL(position), position ASC')->get();
 
-    $layoutType = Voyager::setting('galereya.layout', 'grid');
-    $layoutColumns = Voyager::setting('galereya.columns', '4');
+    $layoutType = Voyager::setting('gallery.layout', 'grid');
+    $layoutColumns = Voyager::setting('gallery.columns', '3');
 
     if (view()->exists('pages.gallery.' . $layoutType))
       return view('pages.gallery.' . $layoutType, ['page' => $page, 'albums' => $albums, 'layoutColumns' => $layoutColumns]);
@@ -29,6 +29,6 @@ class AlbumController extends Controller
   {
     $page = Page::where('slug', 'gallery')->firstOrFail();
     $album = Album::where('slug', $slug)->firstOrFail();
-    return view('pages.album', ['page' => $page, 'album' => $album]);
+    return view('pages.gallery.album.album', ['page' => $page, 'album' => $album]);
   }
 }

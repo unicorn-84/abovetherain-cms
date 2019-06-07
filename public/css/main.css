@@ -10735,7 +10735,8 @@ p:last-child {
 
 @media (max-width: 1199.98px) {
   #abovetherain-cms__services .card .card-footer a,
-#abovetherain-cms__gallery .card .card-footer a {
+#abovetherain-cms__gallery .card .card-footer a,
+#abovetherain-cms__coaches .card .card-footer a {
     text-decoration: underline;
   }
 }

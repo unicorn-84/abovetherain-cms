@@ -9,8 +9,8 @@
         </div>
         <div class="d-flex align-items-center justify-content-center justify-content-lg-start w-100">
           <a class="navbar-brand m-0" href="{{ url('/') }}" title="Главная">
-            @if(Voyager::setting('obshchie.logo'))
-              <img src="{{ Voyager::image(Voyager::setting('obshchie.logo')) }}" alt="Логотип">
+            @if(Voyager::setting('common.logo'))
+              <img src="{{ Voyager::image(Voyager::setting('common.logo')) }}" alt="Логотип">
             @else
               <img src="{{ asset('images/icons/empty.png') }}">
             @endif

@@ -61,46 +61,41 @@
   <main class="py-5 flex-fill">
     <div class="container">
       <div class="card-columns">
-        @foreach($albums as $album)
+        @foreach($events as $event)
           <div class="card mb-4 w-100">
-            @isset($album->poster)
-              @if($album->count_images > 0 || $album->videos->count() > 0)
-                <a href="{{ route('album', $album->slug) }}">
-                  <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($album->poster) }}"
-                       alt="{{ $album->title }}">
+            @isset($event->poster)
+              @if(isset($event->content))
+                <a href="{{ route('event', $event->slug) }}">
+                  <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($event->poster) }}" alt="{{ $event->title }}">
                 </a>
               @else
-                <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($album->poster) }}"
-                     alt="{{ $album->title }}">
+                <img class="card-img-top img-thumbnail border-0" src="{{ Voyager::image($event->poster) }}" alt="{{ $event->title }}">
               @endif
             @endisset
             <div class="card-body">
-              @if($album->count_images > 0 || $album->videos->count() > 0)
+              @if(isset($event->content))
                 <h2 class="card-title m-0">
-                  <a href="{{ route('album', $album->slug) }}" class="text-reset">
-                    {{ $album->title }}
+                  <a href="{{ route('event', $event->slug) }}" class="text-reset">
+                    {{ $event->title }}
                   </a>
                 </h2>
               @else
                 <h2 class="card-title m-0">
-                  {{ $album->title }}
+                  {{ $event->title }}
                 </h2>
               @endif
-              @if($album->count_images > 0)
-                <span class="badge bg-transparent border border-info text-info badge-info mt-3">{{ $album->count_images }} фото</span>&nbsp;
+              @if($event->local_date)
+                <h4 class="card-subtitle mt-3"><span class="badge bg-transparent border border-info text-info badge-info">{{ $event->local_date }}</span></h4>
               @endif
-              @if($album->videos->count() > 0)
-                <span class="badge bg-transparent border border-primary text-primary badge-primary mt-3">{{ $album->videos->count() }} видео</span>
-              @endif
-              @isset($album->description)
-                <div class="atr-card-description mt-3 mb-0">{!! $album->description !!}</div>
+              @isset($event->description)
+                <div class="atr-card-description mt-3 mb-0">{!! $event->description !!}</div>
               @endisset
             </div>
-            @if($album->videos->count() > 0 || $album->count_images > 0)
+            @if(isset($event->content))
               <div class="card-footer">
                 <div class="text-right">
-                  <a href="{{ route('album', $album->slug) }}"
-                     class="text-reset font-weight-bold">Просмотр альбома</a>
+                  <a href="{{ route('event', $event->slug) }}"
+                     class="text-reset font-weight-bold">Подробнее...</a>
                 </div>
               </div>
             @endif
