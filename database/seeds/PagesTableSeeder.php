@@ -144,7 +144,7 @@ class PagesTableSeeder extends Seeder
         'details' => [
           'validation' => [
             'rule' => 'image'
-          ]
+          ],
         ]
       ])->save();
     }
@@ -164,7 +164,11 @@ class PagesTableSeeder extends Seeder
         'details' => [
           'validation' => [
             'rule' => 'image'
-          ]
+          ],
+          'resize' => [
+            'width' => '1200',
+            'height' => null
+          ],
         ]
       ])->save();
     }
@@ -241,7 +245,7 @@ class PagesTableSeeder extends Seeder
     $dataRow = $this->dataRow($pageDataType, 'content');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'rich_text_box',
+        'type' => 'tinymce_full',
         'display_name' => __('voyager::seeders.data_rows.content'),
         'required' => 0,
         'browse' => 0,
@@ -250,11 +254,7 @@ class PagesTableSeeder extends Seeder
         'add' => 1,
         'delete' => 1,
         'order' => 18,
-        'details' => [
-          'display' => [
-            'id' => 'atr-page-content-field',
-          ],
-        ],
+        'details' => [],
       ])->save();
     }
 
