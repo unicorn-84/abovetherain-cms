@@ -36,14 +36,9 @@
     h6 {
       margin-bottom: 1rem;
     }
-
-    img {
-      margin-bottom: 1rem;
-    }
   }
 
   &.atr-card-page {
-    .card-body,
     .card-footer {
       @include media-breakpoint-up(lg) {
         padding: 2rem;
