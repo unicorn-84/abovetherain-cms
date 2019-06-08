@@ -49,12 +49,20 @@ class ScheduleController extends Controller
       });
     }
 
+
+    $trainingsOfTheTime = $trainings->groupBy(['start_time', 'day']);
+    $trainingsOfTheDay = $trainings->groupBy(['day', 'start_time']);
+
+//    dd($trainingsOfTheDay);
+
     return view('pages.schedule', [
       'page' => $page,
       'days' => $days,
       'services' => $services,
       'coaches' => $coaches,
       'trainings' => $trainings,
+      'trainingsOfTheDay' => $trainingsOfTheDay,
+      'trainingsOfTheTime' => $trainingsOfTheTime,
     ]);
   }
 }
