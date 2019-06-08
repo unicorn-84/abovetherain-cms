@@ -117,7 +117,7 @@ class VideosTableSeeder extends Seeder
         'order' => 4,
         'details' => [
           'validation' => [
-            'rule' => 'unique:videos|max:200000'
+            'rule' => 'unique:videos|max:512000'
           ],
           'display' => [
             'width' => '6'
