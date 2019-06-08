@@ -3491,8 +3491,8 @@ document.addEventListener('DOMContentLoaded', function () {
   if (cardPageContent.children[0].tagName === 'P') {
     var p = cardPageContent.children[0];
 
-    if (p.children[0].tagName === 'IMG') {
-      p.style.margin = '-1.5rem -1rem 1rem';
+    if (p.children[0].tagName === 'IMG' && p.children.length === 1) {
+      p.style.margin = '-1.5rem -1rem 2rem';
     }
   }
 });
