@@ -41,9 +41,11 @@
       <div class="container">
         <div class="row">
           <div class="col">
-            <div class="card">
+            <div class="card atr-card-page">
               <div class="card-body">
-                {!! $page->content !!}
+                <div class="atr-card-content">
+                  {!! $page->content !!}
+                </div>
               </div>
             </div>
           </div>
