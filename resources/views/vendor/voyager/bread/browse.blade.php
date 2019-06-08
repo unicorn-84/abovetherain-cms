@@ -26,7 +26,9 @@
       @endcan
       @can('delete', app($dataType->model_name))
         @if($usesSoftDeletes)
-          <input type="checkbox" @if ($showSoftDeleted) checked @endif id="show_soft_deletes" data-toggle="toggle" data-on="{{ __('voyager::bread.soft_deletes_off') }}" data-off="{{ __('voyager::bread.soft_deletes_on') }}">
+          <input title="show_soft_deletes" type="checkbox" @if ($showSoftDeleted) checked @endif id="show_soft_deletes" data-toggle="toggle"
+                 data-on="{{ __('voyager::bread.soft_deletes_off') }}"
+                 data-off="{{ __('voyager::bread.soft_deletes_on') }}">
         @endif
       @endcan
       @foreach(Voyager::actions() as $action)
@@ -48,17 +50,19 @@
           @if ($isServerSide)
             <form method="get" class="form-search">
               <div id="search-input">
-                <select id="search_key" name="key">
+                <select id="search_key" name="key" title="search_key">
                   @foreach($searchable as $key)
-                    <option value="{{ $key }}" @if($search->key == $key || $key == $defaultSearchKey){{ 'selected' }}@endif>{{ ucwords(str_replace('_', ' ', $key)) }}</option>
+                    <option
+                      value="{{ $key }}" @if($search->key == $key || $key == $defaultSearchKey){{ 'selected' }}@endif>{{ ucwords(str_replace('_', ' ', $key)) }}</option>
                   @endforeach
                 </select>
-                <select id="filter" name="filter">
+                <select id="filter" name="filter" title="filter">
                   <option value="contains" @if($search->filter == "contains"){{ 'selected' }}@endif>contains</option>
                   <option value="equals" @if($search->filter == "equals"){{ 'selected' }}@endif>=</option>
                 </select>
                 <div class="input-group col-md-12">
-                  <input type="text" class="form-control" placeholder="{{ __('voyager::generic.search') }}" name="s" value="{{ $search->value }}">
+                  <input type="text" class="form-control" placeholder="{{ __('voyager::generic.search') }}" name="s"
+                         value="{{ $search->value }}">
                   <span class="input-group-btn">
                                             <button class="btn btn-info btn-lg" type="submit">
                                                 <i class="voyager-search"></i>
@@ -78,7 +82,7 @@
               <tr>
                 @can('delete',app($dataType->model_name))
                   <th>
-                    <input type="checkbox" class="select_all">
+                    <input type="checkbox" class="select_all" title="checkbox">
                   </th>
                 @endcan
                 @foreach($dataType->browseRows as $row)
@@ -107,7 +111,8 @@
                 <tr>
                   @can('delete',app($dataType->model_name))
                     <td>
-                      <input type="checkbox" name="row_id" id="checkbox_{{ $data->getKey() }}" value="{{ $data->getKey() }}">
+                      <input type="checkbox" name="row_id" id="checkbox_{{ $data->getKey() }}"
+                             value="{{ $data->getKey() }}" title="checkbox_{{ $data->getKey() }}">
                     </td>
                   @endcan
                   @foreach($dataType->browseRows as $row)
@@ -120,7 +125,9 @@
                       @if (isset($row->details->view))
                         @include($row->details->view, ['row' => $row, 'dataType' => $dataType, 'dataTypeContent' => $dataTypeContent, 'content' => $data->{$row->field}, 'action' => 'browse'])
                       @elseif($row->type == 'image')
-                        <img src="@if( !filter_var($data->{$row->field}, FILTER_VALIDATE_URL)){{ Voyager::image( $data->{$row->field} ) }}@else{{ $data->{$row->field} }}@endif" style="width:100px">
+                        <img
+                          src="@if( !filter_var($data->{$row->field}, FILTER_VALIDATE_URL)){{ Voyager::image( $data->{$row->field} ) }}@else{{ $data->{$row->field} }}@endif"
+                          style="width:100px">
                       @elseif($row->type == 'relationship')
                         @include('voyager::formfields.relationship', ['view' => 'browse','options' => $row->details])
                       @elseif($row->type == 'select_multiple')
@@ -170,7 +177,8 @@
                           {{ $data->{$row->field} }}
                         @endif
                       @elseif($row->type == 'color')
-                        <span class="badge badge-lg" style="background-color: {{ $data->{$row->field} }}">{{ $data->{$row->field} }}</span>
+                        <span class="badge badge-lg"
+                              style="background-color: {{ $data->{$row->field} }}">{{ $data->{$row->field} }}</span>
                       @elseif($row->type == 'text')
                         @include('voyager::multilingual.input-hidden-bread-browse')
                         <div>{{ mb_strlen( $data->{$row->field} ) > 200 ? mb_substr($data->{$row->field}, 0, 200) . ' ...' : $data->{$row->field} }}</div>
@@ -179,15 +187,18 @@
                         <div>{{ mb_strlen( $data->{$row->field} ) > 200 ? mb_substr($data->{$row->field}, 0, 200) . ' ...' : $data->{$row->field} }}</div>
                       @elseif($row->type == 'file' && !empty($data->{$row->field}) )
                         @include('voyager::multilingual.input-hidden-bread-browse')
-                        @if(json_decode($data->{$row->field}))
+                        @if(json_decode($data->{$row->field}) !== null)
                           @foreach(json_decode($data->{$row->field}) as $file)
-                            <a href="{{ Storage::disk(config('voyager.storage.disk'))->url($file->download_link) ?: '' }}" target="_blank">
+                            <a
+                              href="{{ Storage::disk(config('voyager.storage.disk'))->url($file->download_link) ?: '' }}"
+                              target="_blank">
                               {{ $file->original_name ?: '' }}
                             </a>
                             <br/>
                           @endforeach
                         @else
-                          <a href="{{ Storage::disk(config('voyager.storage.disk'))->url($data->{$row->field}) }}" target="_blank">
+                          <a href="{{ Storage::disk(config('voyager.storage.disk'))->url($data->{$row->field}) }}"
+                             target="_blank">
                             Download
                           </a>
                         @endif
@@ -201,7 +212,9 @@
                         @if($images)
                           @php $images = array_slice($images, 0, 3); @endphp
                           @foreach($images as $image)
-                            <img src="@if( !filter_var($image, FILTER_VALIDATE_URL)){{ Voyager::image( $image ) }}@else{{ $image }}@endif" style="width:50px">
+                            <img
+                              src="@if( !filter_var($image, FILTER_VALIDATE_URL)){{ Voyager::image( $image ) }}@else{{ $image }}@endif"
+                              style="width:50px">
                           @endforeach
                         @endif
                       @elseif($row->type == 'media_picker')
@@ -215,7 +228,9 @@
                         @if ($files)
                           @if (property_exists($row->details, 'show_as_images') && $row->details->show_as_images)
                             @foreach (array_slice($files, 0, 3) as $file)
-                              <img src="@if( !filter_var($file, FILTER_VALIDATE_URL)){{ Voyager::image( $file ) }}@else{{ $file }}@endif" style="width:50px">
+                              <img
+                                src="@if( !filter_var($file, FILTER_VALIDATE_URL)){{ Voyager::image( $file ) }}@else{{ $file }}@endif"
+                                style="width:50px">
                             @endforeach
                           @else
                             <ul>
@@ -231,7 +246,9 @@
                           {{ trans_choice('voyager::media.files', 0) }}
                         @elseif ($data->{$row->field} != '')
                           @if (property_exists($row->details, 'show_as_images') && $row->details->show_as_images)
-                            <img src="@if( !filter_var($data->{$row->field}, FILTER_VALIDATE_URL)){{ Voyager::image( $data->{$row->field} ) }}@else{{ $data->{$row->field} }}@endif" style="width:50px">
+                            <img
+                              src="@if( !filter_var($data->{$row->field}, FILTER_VALIDATE_URL)){{ Voyager::image( $data->{$row->field} ) }}@else{{ $data->{$row->field} }}@endif"
+                              style="width:50px">
                           @else
                             {{ $data->{$row->field} }}
                           @endif
@@ -286,16 +303,21 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('voyager::generic.close') }}"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title"><i class="voyager-trash"></i> {{ __('voyager::generic.delete_question') }} {{ strtolower($dataType->display_name_singular) }}</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('voyager::generic.close') }}"><span
+              aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title"><i
+              class="voyager-trash"></i> {{ __('voyager::generic.delete_question') }} {{ strtolower($dataType->display_name_singular) }}
+          </h4>
         </div>
         <div class="modal-footer">
           <form action="#" id="delete_form" method="POST">
             {{ method_field('DELETE') }}
             {{ csrf_field() }}
-            <input type="submit" class="btn btn-danger pull-right delete-confirm" value="{{ __('voyager::generic.delete_confirm') }}">
+            <input type="submit" class="btn btn-danger pull-right delete-confirm"
+                   value="{{ __('voyager::generic.delete_confirm') }}">
           </form>
-          <button type="button" class="btn btn-default pull-right" data-dismiss="modal">{{ __('voyager::generic.cancel') }}</button>
+          <button type="button" class="btn btn-default pull-right"
+                  data-dismiss="modal">{{ __('voyager::generic.cancel') }}</button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -333,11 +355,11 @@
       @if ($isModelTranslatable)
       $('.side-body').multilingual();
       //Reinitialise the multilingual features when they change tab
-      $('#dataTable').on('draw.dt', function(){
+      $('#dataTable').on('draw.dt', function () {
         $('.side-body').data('multilingual').init();
       })
       @endif
-      $('.select_all').on('click', function(e) {
+      $('.select_all').on('click', function (e) {
         $('input[name="row_id"]').prop('checked', $(this).prop('checked'));
       });
     });
@@ -359,11 +381,11 @@
           'sort_order' => $sortOrder,
       ];
     @endphp
-    $(function() {
-      $('#show_soft_deletes').change(function() {
+    $(function () {
+      $('#show_soft_deletes').change(function () {
         if ($(this).prop('checked')) {
           $('#dataTable').before('<a id="redir" href="{{ (route('voyager.'.$dataType->slug.'.index', array_merge($params, ['showSoftDeleted' => 1]), true)) }}"></a>');
-        }else{
+        } else {
           $('#dataTable').before('<a id="redir" href="{{ (route('voyager.'.$dataType->slug.'.index', array_merge($params, ['showSoftDeleted' => 0]), true)) }}"></a>');
         }
 
@@ -373,7 +395,7 @@
     @endif
     $('input[name="row_id"]').on('change', function () {
       var ids = [];
-      $('input[name="row_id"]').each(function() {
+      $('input[name="row_id"]').each(function () {
         if ($(this).is(':checked')) {
           ids.push($(this).val());
         }

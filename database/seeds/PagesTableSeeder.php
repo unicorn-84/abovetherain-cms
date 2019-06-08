@@ -144,8 +144,13 @@ class PagesTableSeeder extends Seeder
         'details' => [
           'validation' => [
             'rule' => 'image'
-          ]
-        ]
+          ],
+          'quality' => '75',
+          'resize' => [
+            'width' => '1920',
+            'height' => null
+          ],
+        ],
       ])->save();
     }
 
@@ -164,8 +169,13 @@ class PagesTableSeeder extends Seeder
         'details' => [
           'validation' => [
             'rule' => 'image'
-          ]
-        ]
+          ],
+          'quality' => '75',
+          'resize' => [
+            'width' => '800',
+            'height' => null
+          ],
+        ],
       ])->save();
     }
 
@@ -241,7 +251,7 @@ class PagesTableSeeder extends Seeder
     $dataRow = $this->dataRow($pageDataType, 'content');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'rich_text_box',
+        'type' => 'tinymce_full',
         'display_name' => __('voyager::seeders.data_rows.content'),
         'required' => 0,
         'browse' => 0,
@@ -250,11 +260,7 @@ class PagesTableSeeder extends Seeder
         'add' => 1,
         'delete' => 1,
         'order' => 18,
-        'details' => [
-          'display' => [
-            'id' => 'atr-page-content-field',
-          ],
-        ],
+        'details' => [],
       ])->save();
     }
 
@@ -293,15 +299,12 @@ class PagesTableSeeder extends Seeder
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu->id,
       'title' => __('voyager::seeders.menu_items.pages'),
-      'url' => '',
+      'url' => null,
       'route' => 'voyager.pages.index',
     ]);
     if (!$menuItem->exists) {
       $menuItem->fill([
-        'target' => '_self',
         'icon_class' => 'voyager-file-text',
-        'color' => null,
-        'parent_id' => null,
         'order' => 1,
       ])->save();
     }

@@ -33,8 +33,8 @@
         color: $white;
         position: relative;
 
-        &:hover::after,
-        &:focus::after {
+        &:not(.dropdown-toggle):hover::after,
+        &:not(.dropdown-toggle):focus::after {
           content: '';
           position: absolute;
           width: 100%;
@@ -55,6 +55,33 @@
         left: 0;
         bottom: 2px;
         border-bottom: 2px solid $white;
+      }
+    }
+
+    .dropdown-item {
+      letter-spacing: 1px;
+      color: rgba(0, 0, 0, 0.5);
+
+      @include media-breakpoint-up(lg) {
+        position: relative;
+        color: #212529;
+
+        &:hover::after,
+        &:focus::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 0;
+          left: 0;
+          bottom: 2px;
+          border-bottom: 2px solid;
+        }
+      }
+
+      &.active,
+      &:active {
+        color: inherit;
+        background-color: transparent;
       }
     }
   }

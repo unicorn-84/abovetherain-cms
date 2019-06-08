@@ -87,12 +87,16 @@
       font-size: 18px;
       padding-left: 0.5rem;
       font-weight: 500;
+      color: darkslateblue;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
     }
 
-    input {
-      //padding: 1rem 0.5rem;
-      //font-size: 16px;
-    }
+    //input[type='file'] {
+    // width: 100%;
+    // padding: 1rem 0.5rem;
+    // font-size: 16px;
+    //}
   }
 
   .atr-read-container {

@@ -17,8 +17,9 @@ class CreateEventsTable extends Migration
       $table->bigIncrements('id');
       $table->string('title');
       $table->string('date')->nullable();
+      $table->string('position')->nullable();
       $table->string('slug')->unique();
-      $table->string('seo_title')->nullable();
+      $table->text('seo_title')->nullable();
       $table->text('description')->nullable();
       $table->text('seo_description')->nullable();
       $table->string('poster')->nullable();

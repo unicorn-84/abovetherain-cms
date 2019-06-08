@@ -17,10 +17,10 @@ class CreateCoachesTable extends Migration
       $table->bigIncrements('id');
       $table->string('title');
       $table->string('slug')->unique();
-      $table->integer('order')->nullable();
-      $table->string('seo_title')->nullable();
+      $table->integer('position')->nullable();
+      $table->text('seo_title')->nullable();
       $table->string('poster')->nullable();
-      $table->string('seo_description')->nullable();
+      $table->text('seo_description')->nullable();
       $table->text('content')->nullable();
       $table->timestamps();
     });

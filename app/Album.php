@@ -17,11 +17,8 @@ class Album extends Model
     return 0;
   }
 
-  public function getCountVideosAttribute()
+  public function videos()
   {
-    if ($this->videos) {
-      return count(json_decode($this->videos));
-    }
-    return 0;
+    return $this->belongsToMany('App\Video');
   }
 }

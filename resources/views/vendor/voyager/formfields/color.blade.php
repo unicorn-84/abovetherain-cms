@@ -1,1 +1,2 @@
-<input type="color" class="form-control" name="{{ $row->field }}" value="{{ $dataTypeContent->{$row->field} ?? old($row->field) }}">
+<input type="color" class="form-control" name="{{ $row->field }}"
+       value="{{ old($row->field, $dataTypeContent->{$row->field}) }}">

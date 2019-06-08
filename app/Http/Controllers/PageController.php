@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
 use App\Page;
-use App\Album;
+use Request;
 
 class PageController extends Controller
 {
   public function show()
   {
-    $name = \Request::route()->getName();
+    if(Request::route()->getName()) {
+      $name = Request::route()->getName();
+    } else {
+      $name = Request::segment(1);
+    }
+
     $page = Page::where('slug', $name)->firstOrFail();
 
     if (view()->exists('pages.' . $name)) {

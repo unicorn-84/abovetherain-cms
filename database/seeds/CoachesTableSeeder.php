@@ -154,7 +154,22 @@ class CoachesTableSeeder extends Seeder
         'order' => 6,
         'details' => [
           'validation' => [
-            'rule' => 'mimes:jpeg,jpg,png|max:10240'
+            'rule' => 'image',
+          ],
+          'quality' => '75',
+          'resize' => [
+            'width' => '1200',
+            'height' => null
+          ],
+          'thumbnails' => [
+            [
+              'name' => 'resize-800',
+              'quality' => '75',
+              'resize' => [
+                'width' => '800',
+                'height' => null
+              ],
+            ],
           ],
         ],
       ])->save();
@@ -189,11 +204,11 @@ class CoachesTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($coachDataType, 'order');
+    $dataRow = $this->dataRow($coachDataType, 'position');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'number',
-        'display_name' => __('voyager::seeders.data_rows.order'),
+        'display_name' => __('voyager::seeders.data_rows.position'),
         'required' => 0,
         'browse' => 0,
         'read' => 1,
@@ -215,7 +230,7 @@ class CoachesTableSeeder extends Seeder
     $dataRow = $this->dataRow($coachDataType, 'content');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'rich_text_box',
+        'type' => 'tinymce_full',
         'display_name' => __('voyager::seeders.data_rows.content'),
         'required' => 0,
         'browse' => 0,
@@ -263,15 +278,12 @@ class CoachesTableSeeder extends Seeder
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu->id,
       'title' => __('voyager::seeders.menu_items.coaches'),
-      'url' => '',
+      'url' => null,
       'route' => 'voyager.coaches.index',
     ]);
     if (!$menuItem->exists) {
       $menuItem->fill([
-        'target' => '_self',
         'icon_class' => 'voyager-people',
-        'color' => null,
-        'parent_id' => null,
         'order' => 4,
       ])->save();
     }
@@ -280,7 +292,7 @@ class CoachesTableSeeder extends Seeder
     Permission::generateFor('coaches');
 
     //Фабрика
-//    factory(App\Coach::class, 4)->create();
+//    factory(App\Coach::class, 12)->create();
   }
 
   /**

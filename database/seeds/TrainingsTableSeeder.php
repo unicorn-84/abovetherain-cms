@@ -218,10 +218,10 @@ class TrainingsTableSeeder extends Seeder
             __('days.Monday') =>__('days.Monday'),
             __('days.Tuesday') => __('days.Tuesday'),
             __('days.Wednesday') => __('days.Wednesday'),
-            __('days.Thursday')=> __('days.Thursday'),
-            __('days.Friday')=> __('days.Friday'),
-            __('days.Saturday')=> __('days.Saturday'),
-            __('days.Sunday')=> __('days.Sunday'),
+            __('days.Thursday') => __('days.Thursday'),
+            __('days.Friday') => __('days.Friday'),
+            __('days.Saturday') => __('days.Saturday'),
+            __('days.Sunday') => __('days.Sunday'),
           ],
           'validation' => [
             'rule' => 'required'
@@ -233,11 +233,11 @@ class TrainingsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($trainingDataType, 'text_color');
+    $dataRow = $this->dataRow($trainingDataType, 'info');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'color',
-        'display_name' => __('voyager::seeders.data_rows.text_color'),
+        'type' => 'tinymce_base',
+        'display_name' => __('voyager::seeders.data_rows.info'),
         'required' => 0,
         'browse' => 0,
         'read' => 1,
@@ -246,6 +246,7 @@ class TrainingsTableSeeder extends Seeder
         'delete' => 1,
         'order' => 10,
         'details' => [
+          'default' => '#e1e1e1',
           'display' => [
             'width' => '6'
           ],
@@ -253,11 +254,11 @@ class TrainingsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($trainingDataType, 'badge_color');
+    $dataRow = $this->dataRow($trainingDataType, 'direction_color');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'color',
-        'display_name' => __('voyager::seeders.data_rows.badge_color'),
+        'type' => 'training_text_color',
+        'display_name' => __('voyager::seeders.data_rows.direction_color'),
         'required' => 0,
         'browse' => 0,
         'read' => 1,
@@ -267,17 +268,17 @@ class TrainingsTableSeeder extends Seeder
         'order' => 11,
         'details' => [
           'display' => [
-            'width' => '6'
+            'width' => '3'
           ],
         ],
       ])->save();
     }
 
-    $dataRow = $this->dataRow($trainingDataType, 'badge_text');
+    $dataRow = $this->dataRow($trainingDataType, 'time_color');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'text',
-        'display_name' => __('voyager::seeders.data_rows.badge_text'),
+        'type' => 'training_text_color',
+        'display_name' => __('voyager::seeders.data_rows.time_color'),
         'required' => 0,
         'browse' => 0,
         'read' => 1,
@@ -287,7 +288,99 @@ class TrainingsTableSeeder extends Seeder
         'order' => 12,
         'details' => [
           'display' => [
-            'width' => '6'
+            'width' => '3'
+          ],
+        ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($trainingDataType, 'coach_color');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'training_text_color',
+        'display_name' => __('voyager::seeders.data_rows.coach_color'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 12,
+        'details' => [
+          'display' => [
+            'width' => '3'
+          ],
+        ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($trainingDataType, 'fon_color');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'training_fon_color',
+        'display_name' => __('voyager::seeders.data_rows.fon_color'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 12,
+        'details' => [
+          'display' => [
+            'width' => '3'
+          ],
+        ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($trainingDataType, 'mobile_text_align');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'radio_btn',
+        'display_name' => __('voyager::seeders.data_rows.mobile_text_align'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 12,
+        'details' => [
+          'default' => 'text-left',
+          'options' => [
+            'text-left' => 'Левый край',
+            'text-center' => 'Центр',
+            'text-right' => 'Правый край',
+          ],
+          'display' => [
+            'width' => '12'
+          ],
+        ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($trainingDataType, 'laptop_text_align');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'radio_btn',
+        'display_name' => __('voyager::seeders.data_rows.laptop_text_align'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
+        'order' => 12,
+        'details' => [
+          'default' => 'text-lg-center',
+          'options' => [
+            'text-lg-left' => 'Левый край',
+            'text-lg-center' => 'Центр',
+            'text-lg-right' => 'Правый край',
+          ],
+          'display' => [
+            'width' => '12'
           ],
         ],
       ])->save();
@@ -328,15 +421,12 @@ class TrainingsTableSeeder extends Seeder
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu->id,
       'title' => __('voyager::seeders.menu_items.trainings'),
-      'url' => '',
+      'url' => null,
       'route' => 'voyager.trainings.index',
     ]);
     if (!$menuItem->exists) {
       $menuItem->fill([
-        'target' => '_self',
         'icon_class' => 'voyager-barbell',
-        'color' => null,
-        'parent_id' => null,
         'order' => 2,
       ])->save();
     }

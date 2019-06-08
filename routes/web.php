@@ -40,11 +40,6 @@ Route::get('/events/{slug}', [
   'uses' => 'EventController@show'
 ]);
 
-Route::get('/team', [
-  'as' => 'team',
-  'uses' => 'PageController@show'
-]);
-
 Route::get('/coaches', [
   'as' => 'coaches',
   'uses' => 'CoachController@index'
@@ -70,12 +65,8 @@ Route::get('/contacts', [
   'uses' => 'PageController@show'
 ]);
 
-Route::get('/requisites', [
-  'as' => 'requisites',
-  'uses' => 'PageController@show'
-]);
-
-
 Route::group(['prefix' => 'atr-admin'], function () {
     Voyager::routes();
 });
+
+Route::fallback('PageController@show');

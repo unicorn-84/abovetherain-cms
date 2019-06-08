@@ -26,7 +26,7 @@ class PermissionRoleTableSeeder extends Seeder
     $permissions = Permission::all()
       ->whereNotIn('table_name', ['roles', 'users'])
       ->whereNotIn('key', ['browse_bread', 'browse_database', 'browse_media', 'browse_compass', 'add_settings', 'delete_setting', 'add_menus', 'delete_menus']);
-//
+
 
     $role->permissions()->sync(
       $permissions->pluck('id')->all()

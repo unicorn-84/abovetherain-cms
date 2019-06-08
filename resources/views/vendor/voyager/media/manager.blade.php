@@ -521,7 +521,6 @@
                     if (type == 'image') {
                         return this.endsWithAny(['jpg', 'jpeg', 'png', 'bmp'], file);
                     }
-                    //Todo: add other types
                 } else {
                     return file.type.includes(type);
                 }

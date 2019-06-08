@@ -1,3 +1,53 @@
+.card {
+  .card-body {
+    padding: 1rem;
+
+    @include media-breakpoint-up(lg) {
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  .card-subtitle {
+    p {
+      margin: 0 !important;
+    }
+  }
+
+  .atr-card-description {
+    p {
+      margin: 0 !important;
+    }
+  }
+
+  .atr-card-content {
+    p:last-child {
+      margin: 0 !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-bottom: 1rem;
+    }
+
+    img {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &.atr-card-page {
+    .card-body,
+    .card-footer {
+      @include media-breakpoint-up(lg) {
+        padding: 2rem;
+      }
+    }
+  }
+}
+
 #abovetherain-cms__index {
   .caption {
     position: absolute;
@@ -31,6 +81,7 @@
         overflow: hidden;
 
         > * {
+          margin: 0;
           display: inline-block;
           animation-fill-mode: forwards;
           transform: translateY(100%);
@@ -52,6 +103,45 @@
   }
 }
 
+#abovetherain-cms__schedule {
+  table {
+    table-layout: fixed;
+    border: 1px solid #fff;
+    border-collapse: separate;
+    border-spacing: 0;
+
+    thead th:first-child {
+      width: 7%;
+    }
+
+    tbody {
+      tr {
+        td {
+          a {
+            @include media-breakpoint-down(lg) {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#abovetherain-cms__services,
+#abovetherain-cms__gallery,
+#abovetherain-cms__coaches {
+  .card {
+    .card-footer {
+      a {
+        @include media-breakpoint-down(lg) {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
 #abovetherain-cms__coaches {
   .card {
     padding: 0.25rem;
@@ -60,15 +150,13 @@
       position: relative;
       overflow: hidden;
     }
-  }
-}
 
-#abovetherain-cms__schedule {
-  table {
-    table-layout: fixed;
-
-    thead th:first-child {
-      width: 7%;
+    .card-img-overlay {
+      a {
+        @include media-breakpoint-down(lg) {
+          text-decoration: underline;
+        }
+      }
     }
   }
 }

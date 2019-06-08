@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('custom')
-  @if(Voyager::setting("content.schedule_fon_color") || Voyager::setting("content.schedule_text_color"))
+  @if(Voyager::setting("schedule.schedule_fon_color") || Voyager::setting("schedule.schedule_text_color"))
     <style>
-      @if(Voyager::setting("content.schedule_fon_color"))
-        table{background-color:{{ Voyager::setting("content.schedule_fon_color") }}!important;}
+      @if(Voyager::setting("schedule.schedule_fon_color"))
+        table{background-color:{{ Voyager::setting("schedule.schedule_fon_color") }}!important;}
       @endif
-      @if(Voyager::setting("content.schedule_text_color"))
-        table{color:{{ Voyager::setting("content.schedule_text_color") }}!important;}
+      @if(Voyager::setting("schedule.schedule_text_color"))
+        table{color:{{ Voyager::setting("schedule.schedule_text_color") }}!important;}
       @endif
     </style>
   @endif
@@ -16,16 +16,16 @@
 @section('title')
   @if(isset($page->seo_title))
     <title>{{ $page->seo_title }}</title>
-  @elseif(Voyager::setting("site.seo_title"))
-    <title>{{ Voyager::setting("site.seo_title") }}</title>
+  @elseif(Voyager::setting('common.seo_title'))
+    <title>{{ Voyager::setting('common.seo_title') }}</title>
   @endif
 @endsection
 
 @section('description')
   @if(isset($page->seo_description))
     <meta name="description" content="{{ $page->seo_description }}">
-  @elseif(Voyager::setting("site.seo_description"))
-    <meta name="description" content="{{ Voyager::setting("site.seo_description") }}">
+  @elseif(Voyager::setting('common.seo_description'))
+    <meta name="description" content="{{ Voyager::setting('common.seo_description') }}">
   @endif
 @endsection
 
@@ -48,10 +48,10 @@
 
   <main class="py-5 flex-fill" id="app">
     <div class="container">
-      @if(Voyager::setting("content.vk_sign_up"))
+      @if(Voyager::setting("schedule.vk_sign_up"))
         <div class="row">
-          <div class="col-md-4 col-lg-3">
-            <a href="{{ Voyager::setting("content.vk_sign_up") }}" class="btn btn-primary btn-block mb-4"
+          <div class="col-md-5 col-lg-4 col-xl-3">
+            <a href="{{ Voyager::setting("schedule.vk_sign_up") }}" class="btn btn-primary btn-block mb-4"
                role="button"
                aria-disabled="true">
               Записаться на занятие&nbsp;
@@ -62,7 +62,7 @@
       @endif
       <div class="row mb-3">
 
-        <div class="col-md-4 col-lg-3">
+        <div class="col-md-4 col-xl-3">
           <select class="custom-select mb-2" onchange="top.location.href = this.options[this.selectedIndex].value">
             <option value="{{ route('schedule') }}"{{ Request()->query('training') === null ? ' selected' : '' }}>Все
               тренировки
@@ -74,7 +74,7 @@
           </select>
         </div>
 
-        <div class="col-md-4 col-lg-3">
+        <div class="col-md-4 col-xl-3">
           <select class="custom-select mb-2" onchange="top.location.href = this.options[this.selectedIndex].value">
             <option value="{{ route('schedule') }}"{{ Request()->query('coach') === null ? ' selected' : '' }}>Все
               тренеры
@@ -86,7 +86,7 @@
           </select>
         </div>
 
-        <div class="col-md-4 col-lg-3">
+        <div class="col-md-4 col-xl-3">
           <select class="custom-select mb-2" onchange="top.location.href = this.options[this.selectedIndex].value">
             <option value="{{ route('schedule') }}"{{ Request()->query('day') === null ? ' selected' : '' }}>Все дни
             </option>
@@ -101,10 +101,9 @@
 
       <div class="row">
         <div class="col">
-
           {{--Desktop--}}
           <div class="d-none d-lg-block">
-            <table class="table border-0 text-center mb-0" style="border-radius: 0.25rem; overflow: hidden;">
+            <table class="table text-center mb-0" style="border-radius: 0.25rem; overflow: hidden;">
               <thead>
               <tr>
                 <th class="border-top-0 border-bottom border-right"></th>
@@ -150,11 +149,11 @@
 
             @foreach($days as $slug => $day)
 
-              <table class="table border-0 text-center{{ $loop->last ? ' mb-0' : ' mb-3' }}"
+              <table class="table text-center{{ $loop->last ? ' mb-0' : ' mb-3' }}"
                      style="border-radius: 0.25rem; overflow: hidden;">
                 <thead>
                 <tr>
-                  <th class="border-0">{{ $day }}</th>
+                  <th class="border-top-0 border-right-0 border-bottom border-left-0">{{ $day }}</th>
                 </tr>
                 </thead>
                 <tbody>

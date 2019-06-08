@@ -56,15 +56,20 @@
                         @if (isset($row->details->view))
                           @include($row->details->view, ['row' => $row, 'dataType' => $dataType, 'dataTypeContent' => $dataTypeContent, 'content' => $dataTypeContent->{$row->field}, 'action' => 'read'])
                         @elseif($row->type == "image")
+                          @if(isset($dataTypeContent->{$row->field}))
                           <img class="img-thumbnail"
                                style="height: 100px;" src="{{ filter_var($dataTypeContent->{$row->field}, FILTER_VALIDATE_URL) ? $dataTypeContent->{$row->field} : Voyager::image($dataTypeContent->{$row->field}) }}">
+                          @endif
                         @elseif($row->type == 'multiple_images')
+
                           @if(json_decode($dataTypeContent->{$row->field}))
                             @foreach(json_decode($dataTypeContent->{$row->field}) as $file)
+                              
                               <img class="img-thumbnail"
                                    style="height: 100px;  margin-bottom: 0.5rem;"
                                    src="{{ filter_var($file, FILTER_VALIDATE_URL) ? $file : Voyager::image($file) }}">
                             @endforeach
+
                           @else
                             <img class="img-thumbnail"
                                  style="height: 100px;  margin-bottom: 0.5rem;"

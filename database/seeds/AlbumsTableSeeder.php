@@ -100,26 +100,6 @@ class AlbumsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($albumDataType, 'description');
-    if (!$dataRow->exists) {
-      $dataRow->fill([
-        'type' => 'text_area',
-        'display_name' => __('voyager::seeders.data_rows.description'),
-        'required' => 0,
-        'browse' => 0,
-        'read' => 1,
-        'edit' => 1,
-        'add' => 1,
-        'delete' => 1,
-        'order' => 4,
-        'details' => [
-          'display' => [
-            'width' => '6'
-          ],
-        ],
-      ])->save();
-    }
-
     $dataRow = $this->dataRow($albumDataType, 'seo_title');
     if (!$dataRow->exists) {
       $dataRow->fill([
@@ -131,7 +111,7 @@ class AlbumsTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 5,
+        'order' => 4,
         'details' => [
           'display' => [
             'width' => '6'
@@ -151,6 +131,26 @@ class AlbumsTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
+        'order' => 5,
+        'details' => [
+          'display' => [
+            'width' => '6'
+          ],
+        ],
+      ])->save();
+    }
+
+    $dataRow = $this->dataRow($albumDataType, 'description');
+    if (!$dataRow->exists) {
+      $dataRow->fill([
+        'type' => 'tinymce_base',
+        'display_name' => __('voyager::seeders.data_rows.description'),
+        'required' => 0,
+        'browse' => 0,
+        'read' => 1,
+        'edit' => 1,
+        'add' => 1,
+        'delete' => 1,
         'order' => 6,
         'details' => [
           'display' => [
@@ -160,11 +160,11 @@ class AlbumsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($albumDataType, 'order');
+    $dataRow = $this->dataRow($albumDataType, 'position');
     if (!$dataRow->exists) {
       $dataRow->fill([
         'type' => 'number',
-        'display_name' => __('voyager::seeders.data_rows.order'),
+        'display_name' => __('voyager::seeders.data_rows.position'),
         'required' => 0,
         'browse' => 1,
         'read' => 1,
@@ -194,10 +194,15 @@ class AlbumsTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 6,
+        'order' => 8,
         'details' => [
           'validation' => [
-            'rule' => 'image'
+            'rule' => 'image',
+          ],
+          'quality' => '75',
+          'resize' => [
+            'width' => '800',
+            'height' => null
           ],
         ],
       ])->save();
@@ -214,14 +219,15 @@ class AlbumsTableSeeder extends Seeder
         'edit' => 1,
         'add' => 1,
         'delete' => 1,
-        'order' => 8,
+        'order' => 9,
         'details' => [
           'thumbnails' => [
             [
-              'name' => 'cropped',
-              'crop' => [
+              'name' => 'resize-800',
+              'quality' => '75',
+              'resize' => [
                 'width' => '800',
-                'height' => '533',
+                'height' => null
               ],
             ],
           ],
@@ -229,19 +235,32 @@ class AlbumsTableSeeder extends Seeder
       ])->save();
     }
 
-    $dataRow = $this->dataRow($albumDataType, 'videos');
+    $dataRow = $this->dataRow($albumDataType, 'album_belongstomany_video_relationship');
     if (!$dataRow->exists) {
       $dataRow->fill([
-        'type' => 'file',
-        'display_name' => __('voyager::seeders.data_rows.video'),
+        'type' => 'relationship',
+        'display_name' => __('voyager::seeders.data_rows.videos'),
         'required' => 0,
         'browse' => 0,
         'read' => 1,
         'edit' => 1,
         'add' => 1,
-        'delete' => 1,
-        'order' => 9,
-        'details' => [],
+        'delete' => 0,
+        'details' => [
+          'model' => 'App\\Video',
+          'table' => 'videos',
+          'type' => 'belongsToMany',
+          'column' => 'id',
+          'key' => 'id',
+          'label' => 'title',
+          'pivot_table' => 'album_video',
+          'pivot' => 1,
+          'taggable' => '0',
+          'display' => [
+            'width' => '6'
+          ],
+        ],
+        'order' => 18,
       ])->save();
     }
 
@@ -280,15 +299,12 @@ class AlbumsTableSeeder extends Seeder
     $menuItem = MenuItem::firstOrNew([
       'menu_id' => $menu->id,
       'title' => __('voyager::seeders.menu_items.albums'),
-      'url' => '',
+      'url' => null,
       'route' => 'voyager.albums.index',
     ]);
     if (!$menuItem->exists) {
       $menuItem->fill([
-        'target' => '_self',
         'icon_class' => 'voyager-photos',
-        'color' => null,
-        'parent_id' => null,
         'order' => 5,
       ])->save();
     }
@@ -297,7 +313,7 @@ class AlbumsTableSeeder extends Seeder
     Permission::generateFor('albums');
 
     //Фабрика
-//    factory(Album::class, 5)->create();
+//    factory(Album::class, 12)->create();
   }
 
   /**

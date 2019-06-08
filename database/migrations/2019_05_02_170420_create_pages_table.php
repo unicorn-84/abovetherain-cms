@@ -17,7 +17,7 @@ class CreatePagesTable extends Migration
       $table->bigIncrements('id');
       $table->string('title')->nullable();
       $table->string('slug')->unique();
-      $table->string('seo_title')->nullable();
+      $table->text('seo_title')->nullable();
       $table->text('seo_description')->nullable();
       $table->string('fon')->nullable();
       $table->string('mobile_fon')->nullable();
