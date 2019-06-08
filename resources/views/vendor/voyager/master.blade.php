@@ -2,10 +2,9 @@
 <html lang="{{ config('app.locale') }}" dir="{{ __('voyager::generic.is_rtl') == 'true' ? 'rtl' : 'ltr' }}">
 <head>
   <title>@yield('page_title', Voyager::setting('common.title'))</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}"/>
-  <meta name="assets-path" content="{{ route('voyager.assets') }}"/>
-  <meta name="robots" content="none"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="assets-path" content="{{ route('voyager.voyager_assets') }}"/>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=cyrillic" rel="stylesheet">
 
@@ -54,16 +53,19 @@
 <body class="voyager @if(isset($dataType) && isset($dataType->slug)){{ $dataType->slug }}@endif">
 
 <div id="voyager-loader">
-  @if(Voyager::setting('admin.loader'))
-      <img src="{{ Voyager::image(Voyager::setting('admin.loader', '')) }}" alt="{{ Voyager::setting('admin.name') }}" style="width: 50px; height: auto;">
-  @endif
+    <?php $admin_loader_img = Voyager::setting('admin.loader', ''); ?>
+    @if($admin_loader_img == '')
+        <img src="{{ voyager_asset('images/logo-icon.png') }}" alt="Voyager Loader">
+    @else
+        <img src="{{ Voyager::image($admin_loader_img) }}" alt="Voyager Loader">
+    @endif
 </div>
 
 <?php
 if (starts_with(app('VoyagerAuth')->user()->avatar, 'http://') || starts_with(app('VoyagerAuth')->user()->avatar, 'https://')) {
-  $user_avatar = app('VoyagerAuth')->user()->avatar;
+    $user_avatar = app('VoyagerAuth')->user()->avatar;
 } else {
-  $user_avatar = Voyager::image(app('VoyagerAuth')->user()->avatar);
+    $user_avatar = Voyager::image(app('VoyagerAuth')->user()->avatar);
 }
 ?>
 

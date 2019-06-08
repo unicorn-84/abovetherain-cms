@@ -374,42 +374,42 @@ class SettingsTableSeeder extends Seeder
       ])->save();
     }
 
-    //Admin
-//    $setting = $this->findSetting('admin.fon');
-//    if (!$setting->exists) {
-//      $setting->fill([
-//        'display_name' => __('voyager::seeders.settings.admin.fon'),
-//        'value' => '',
-//        'details' => '',
-//        'type' => 'image',
-//        'order' => 3,
-//        'group' => 'Admin',
-//      ])->save();
-//    }
-//
-//    $setting = $this->findSetting('admin.loader');
-//    if (!$setting->exists) {
-//      $setting->fill([
-//        'display_name' => __('voyager::seeders.settings.admin.loader'),
-//        'value' => '',
-//        'details' => '',
-//        'type' => 'image',
-//        'order' => 4,
-//        'group' => 'Admin',
-//      ])->save();
-//    }
-//
-//    $setting = $this->findSetting('admin.logo');
-//    if (!$setting->exists) {
-//      $setting->fill([
-//        'display_name' => __('voyager::seeders.settings.admin.logo'),
-//        'value' => '',
-//        'details' => '',
-//        'type' => 'image',
-//        'order' => 5,
-//        'group' => 'Admin',
-//      ])->save();
-//    }
+    // Admin
+    $setting = $this->findSetting('admin.fon');
+    if (!$setting->exists) {
+      $setting->fill([
+        'display_name' => __('voyager::seeders.settings.admin.fon'),
+        'value' => '',
+        'details' => '',
+        'type' => 'image',
+        'order' => 3,
+        'group' => 'Admin',
+      ])->save();
+    }
+
+    $setting = $this->findSetting('admin.loader');
+    if (!$setting->exists) {
+      $setting->fill([
+        'display_name' => __('voyager::seeders.settings.admin.loader'),
+        'value' => '',
+        'details' => '',
+        'type' => 'image',
+        'order' => 4,
+        'group' => 'Admin',
+      ])->save();
+    }
+
+    $setting = $this->findSetting('admin.logo');
+    if (!$setting->exists) {
+      $setting->fill([
+        'display_name' => __('voyager::seeders.settings.admin.logo'),
+        'value' => '',
+        'details' => '',
+        'type' => 'image',
+        'order' => 5,
+        'group' => 'Admin',
+      ])->save();
+    }
   }
 
   /**
