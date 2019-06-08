@@ -60,9 +60,9 @@
   <main class="py-5 flex-fill">
     @if($album->videos->count() > 0)
       <div class="container">
-        <div class="card-columns{{ isset($images) && count($images) > 0 ? ' mb-5' : '' }}">
+        <div class="row{{ isset($images) && count($images) > 0 ? ' mb-5' : '' }}">
           @foreach($album->videos as $video)
-            <div class="card border-0">
+            <div class="сol-md-6 col-lg-4{{ $loop->last ? '' : ' mb-4' }}">
               <div class="shadow-lg embed-responsive embed-responsive-{{ isset($video->aspect_ratio) ? $video->aspect_ratio : '16by9' }}">
                 <video src="{{ Storage::disk(config('voyager.storage.disk'))->url($video->video_uri) }}" class="embed-responsive-item" controls{!! isset($video->poster) ? ' poster="' . Storage::disk(config('voyager.storage.disk'))->url($video->poster) . '"' : '' !!}></video>
               </div>

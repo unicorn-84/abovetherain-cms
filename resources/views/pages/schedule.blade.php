@@ -4,10 +4,15 @@
   @if(Voyager::setting("schedule.schedule_fon_color") || Voyager::setting("schedule.schedule_text_color"))
     <style>
       @if(Voyager::setting("schedule.schedule_fon_color"))
-        table{background-color:{{ Voyager::setting("schedule.schedule_fon_color") }}!important;}
+        table {
+        background-color: {{ Voyager::setting("schedule.schedule_fon_color") }}   !important;
+      }
+
       @endif
       @if(Voyager::setting("schedule.schedule_text_color"))
-        table{color:{{ Voyager::setting("schedule.schedule_text_color") }}!important;}
+        table {
+        color: {{ Voyager::setting("schedule.schedule_text_color") }}   !important;
+      }
       @endif
     </style>
   @endif
@@ -116,19 +121,28 @@
               </tr>
               </thead>
               <tbody>
-              @if(count($trainings) > 0)
-                @foreach($trainings as $training)
+              @if(count($trainingsOfTheTime) > 0)
+                @foreach($trainingsOfTheTime as $time => $daysOfTheTime)
                   <tr>
                     <th
-                      class="align-middle border-top-0 border-right{{ $loop->last ? ' border-bottom-0' : ' border-bottom' }}">{{ $training->start_time }}</th>
+                      class="align-middle border-top-0 border-right{{ $loop->last ? ' border-bottom-0' : ' border-bottom' }}">{{ $time }}</th>
 
-                    @foreach($days as $slug => $day)
-                      @if($training->day === $day)
-                        @component('partials.training', ['training' => $training])
-                        @endcomponent
-                      @else
+                    @foreach($days as $weekDay)
+                      @php $emptyDay = true; @endphp
+
+                      @foreach($daysOfTheTime as $day => $trainings)
+                        @if($day === $weekDay)
+                          @php $emptyDay = false; @endphp
+                          @component('partials.training', ['training' => $trainings[0]])
+                          @endcomponent
+                          @break
+                        @endif
+                      @endforeach
+
+                      @if($emptyDay)
                         <td class="border-0"></td>
                       @endif
+
                     @endforeach
 
                   </tr>
@@ -147,7 +161,7 @@
           {{--Mobile--}}
           <div class="d-lg-none">
 
-            @foreach($days as $slug => $day)
+            @foreach($trainingsOfTheDay as $day => $timesOfTheDay)
 
               <table class="table text-center{{ $loop->last ? ' mb-0' : ' mb-3' }}"
                      style="border-radius: 0.25rem; overflow: hidden;">
@@ -158,18 +172,14 @@
                 </thead>
                 <tbody>
 
-                @foreach($trainings as $training)
-
-                  @if($training->day === $day)
+                @foreach($timesOfTheDay as $time => $trainings)
 
                   <tr>
 
-                    @component('partials.training', ['training' => $training])
+                    @component('partials.training', ['training' => $trainings[0]])
                     @endcomponent
 
                   </tr>
-
-                  @endif
 
                 @endforeach
 

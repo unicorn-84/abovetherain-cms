@@ -52,7 +52,7 @@
               @endif
               @if(Voyager::setting('common.email'))
                 <li class="mb-3 h4">
-                  <i class="fas fa-envelope fa-fw"></i>&nbsp;{{ Voyager::setting('commomn.email') }}
+                  <i class="fas fa-envelope fa-fw"></i>&nbsp;{{ Voyager::setting('common.email') }}
                 </li>
               @endif
             </ul>

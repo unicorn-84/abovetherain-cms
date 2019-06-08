@@ -45,9 +45,9 @@
                      alt="{{ $service->title }}">
               @endisset
               <div class="card-body">
-                <h2 class="card-title mb-0 text-md-center">
+                <h1 class="card-title mb-0 text-md-center">
                   {{ $service->title }}
-                </h2>
+                </h1>
                 @if(isset($service->subtitle))
                   <div class="card-subtitle text-muted mb-0 mt-3">
                     {!! $service->subtitle !!}

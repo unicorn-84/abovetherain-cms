@@ -134,7 +134,7 @@ class SettingsTableSeeder extends Seeder
       }
     }
 
-    $setting = $this->findSetting('commomn.email');
+    $setting = $this->findSetting('common.email');
     if (!$setting->exists) {
       $setting->fill([
         'display_name' => 'Email',
