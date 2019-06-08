@@ -20,6 +20,10 @@
   }
 
   .atr-card-content {
+    @include media-breakpoint-up(lg) {
+      line-height: 1.65;
+    }
+
     p:last-child {
       margin: 0 !important;
     }
