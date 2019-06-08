@@ -2,6 +2,7 @@
 
 return [
   'groups' => [
+    'Admin' => 'Админка',
     'Common'   => 'Общие',
     'Services' => 'Услуги',
     'Schedule' => 'Расписание',
