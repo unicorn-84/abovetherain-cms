@@ -26,6 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
     target.style.opacity = 1;
     window.addEventListener('load', doAnimation);
   }
+
+  const cardPageContent = document.querySelector('.atr-card-content');
+  if (cardPageContent.children[0].tagName === 'P') {
+    const p = cardPageContent.children[0];
+    if (p.children[0].tagName === 'IMG' && p.children.length === 1) {
+      p.style.marginTop = '-0.5rem';
+      p.style.marginRight = '-0.5rem';
+      p.style.marginLeft = '-0.5rem';
+    }
+  }
 });
 
 
