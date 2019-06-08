@@ -1099,6 +1099,7 @@ try {
       formats: bootstrap4Formats,
       style_formats: styleFormats,
       skin: 'voyager',
+      min_height: 350,
       skin_url: `${assetsPath}?path=js/skins/voyager`,
       convert_urls: false,
       extended_valid_elements: 'input[id|name|value|type|class|style|required|placeholder|autocomplete|onclick]',

@@ -45,9 +45,9 @@
                      alt="{{ $coach->title }}">
               @endisset
               <div class="card-body">
-                <h2 class="card-title mb-0 text-md-center">
+                <h1 class="card-title mb-0 text-md-center">
                   {{ $coach->title }}
-                </h2>
+                </h1>
                 <div class="atr-card-content mt-3">
                   {!! $coach->content !!}
                 </div>

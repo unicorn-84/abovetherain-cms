@@ -45,9 +45,9 @@
                      alt="{{ $event->title }}">
               @endisset
               <div class="card-body">
-                <h2 class="card-title mb-0 text-md-center">
+                <h1 class="card-title mb-0 text-md-center">
                   {{ $event->title }}
-                </h2>
+                </h1>
                 @if($event->local_date)
                   <h4 class="card-subtitle mt-3"><span class="badge bg-transparent border border-info text-info badge-info">{{ $event->local_date }}</span></h4>
                 @endif
