@@ -37,7 +37,7 @@
   <main class="py-5 flex-fill">
     <div class="container">
       <div class="row">
-        @if(Voyager::setting('common.address') || Voyager::setting('common.phone') || Voyager::setting('commomn.email'))
+        @if(Voyager::setting('common.address') || Voyager::setting('common.phone') || Voyager::setting('common.email'))
           <div class="col-12">
             <ul class="list-unstyled font-weight-bold text-white mb-4">
               @if(Voyager::setting('common.address'))
@@ -50,7 +50,7 @@
                   <a href="tel:{{ Voyager::setting('common.phone') }}" class="text-reset text-decoration-none" title="{{ Voyager::setting('common.phone') }}"><i class="fas fa-phone fa-rotate-90 fa-fw"></i>&nbsp;{{ Voyager::setting('common.phone') }}</a>
                 </li>
               @endif
-              @if(Voyager::setting('commomn.email'))
+              @if(Voyager::setting('common.email'))
                 <li class="mb-3 h4">
                   <i class="fas fa-envelope fa-fw"></i>&nbsp;{{ Voyager::setting('commomn.email') }}
                 </li>
