@@ -69,10 +69,12 @@
                     @endforeach
                   </ul>
                   @if(count($coach->trainings) > 0)
-                    <i class="far fa-calendar-alt h5 mb-0"></i>&nbsp;
-                    <a href="{{ route('schedule', 'coach=' . $coach->slug) }}"
-                       class="d-inline-block h5 text-reset font-weight-bold mb-0 my-lg-0{{ count($coach->services) > 0 ? ' mt-3' : '' }}">Расписание занятий
-                    </a>
+                    <div>
+                      <i class="far fa-calendar-alt h5 mb-0"></i>&nbsp;
+                      <a href="{{ route('schedule', 'coach=' . $coach->slug) }}"
+                         class="d-inline-block h5 text-reset font-weight-bold mb-0 my-lg-0{{ count($coach->services) > 0 ? ' mt-3' : '' }}">Расписание занятий
+                      </a>
+                    </div>
                   @endif
                 </div>
               @endif
