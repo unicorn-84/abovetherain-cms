@@ -36,7 +36,12 @@
     h6 {
       margin-top: 1.5rem;
       margin-bottom: 1rem;
+
+      &:first-child {
+        margin-top: 0;
+      }
     }
+
   }
 
   &.atr-card-page {
