@@ -374,6 +374,29 @@ class SettingsTableSeeder extends Seeder
       ])->save();
     }
 
+    // Альбом
+    $setting = $this->findSetting('album.layout');
+    if (!$setting->exists) {
+      $setting->fill([
+        'display_name' => 'Макет',
+        'type' => 'radio_btn',
+        'order' => 1,
+        'group' => 'Album',
+        'details' => '{"default":"grid","options":{"grid": "Сетка","masonry":"Каменная кладка"}}',
+      ])->save();
+    }
+
+    $setting = $this->findSetting('album.columns');
+    if (!$setting->exists) {
+      $setting->fill([
+        'display_name' => 'Колонки',
+        'type' => 'radio_btn',
+        'order' => 2,
+        'group' => 'Album',
+        'details' => '{"default":"3","options":{"1":"1","2":"2","3":"3","4":"4","6":"6","12":"12"}}',
+      ])->save();
+    }
+
     // Admin
     $setting = $this->findSetting('admin.fon');
     if (!$setting->exists) {

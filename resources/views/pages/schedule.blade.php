@@ -68,7 +68,7 @@
       <div class="row mb-3">
 
         <div class="col-md-4 col-xl-3">
-          <select class="custom-select mb-2" onchange="top.location.href = this.options[this.selectedIndex].value">
+          <select title="Тренировки" class="custom-select mb-2" onchange="top.location.href = this.options[this.selectedIndex].value">
             <option value="{{ route('schedule') }}"{{ Request()->query('training') === null ? ' selected' : '' }}>Все
               тренировки
             </option>
@@ -80,7 +80,7 @@
         </div>
 
         <div class="col-md-4 col-xl-3">
-          <select class="custom-select mb-2" onchange="top.location.href = this.options[this.selectedIndex].value">
+          <select title="Тренеры" class="custom-select mb-2" onchange="top.location.href = this.options[this.selectedIndex].value">
             <option value="{{ route('schedule') }}"{{ Request()->query('coach') === null ? ' selected' : '' }}>Все
               тренеры
             </option>
@@ -92,12 +92,12 @@
         </div>
 
         <div class="col-md-4 col-xl-3">
-          <select class="custom-select mb-2" onchange="top.location.href = this.options[this.selectedIndex].value">
+          <select title="Дни недели" class="custom-select mb-2" onchange="top.location.href = this.options[this.selectedIndex].value">
             <option value="{{ route('schedule') }}"{{ Request()->query('day') === null ? ' selected' : '' }}>Все дни
             </option>
-            @foreach($days as $slug => $day)
+            @foreach($days as $day)
               <option
-                value="{{ route('schedule', 'day=' . $slug) }}"{{ Request()->query('day') === $slug ? ' selected' : '' }}>{{ $day }}</option>
+                value="{{ route('schedule', 'day=' . $day) }}"{{ Request()->query('day') == $day ? ' selected' : '' }}>{{ getDayAbbr($day)['name'] }}</option>
             @endforeach
           </select>
         </div>
@@ -112,11 +112,11 @@
               <thead>
               <tr>
                 <th class="border-top-0 border-bottom border-right"></th>
-                @foreach($days as $slug => $day)
+                @foreach($days as $day)
                   <th
-                    class="d-none d-xl-table-cell p-3 border-top-0 border-bottom{{ $loop->last ? '' : ' border-right' }}">{{ $day }}</th>
+                    class="d-none d-xl-table-cell p-3 border-top-0 border-bottom{{ $loop->last ? '' : ' border-right' }}">{{ getDayAbbr($day)['name'] }}</th>
                   <th
-                    class="d-xl-none p-3 border-top-0 border-bottom{{ $loop->last ? '' : ' border-right' }}">{{ getDayAbbr($day) }}</th>
+                    class="d-xl-none p-3 border-top-0 border-bottom{{ $loop->last ? '' : ' border-right' }}">{{ getDayAbbr($day)['abbr'] }}</th>
                 @endforeach
               </tr>
               </thead>
@@ -129,9 +129,10 @@
 
                     @foreach($days as $weekDay)
                       @php $emptyDay = true; @endphp
-
+                      @php $emptyDay = true; @endphp
                       @foreach($daysOfTheTime as $day => $trainings)
-                        @if($day === $weekDay)
+
+                        @if($day == $weekDay)
                           @php $emptyDay = false; @endphp
                           @component('partials.training', ['training' => $trainings[0]])
                           @endcomponent
@@ -161,13 +162,15 @@
           {{--Mobile--}}
           <div class="d-lg-none">
 
+            @if(count($trainingsOfTheDay) > 0)
+
             @foreach($trainingsOfTheDay as $day => $timesOfTheDay)
 
               <table class="table text-center{{ $loop->last ? ' mb-0' : ' mb-3' }}"
                      style="border-radius: 0.25rem; overflow: hidden;">
                 <thead>
                 <tr>
-                  <th class="border-top-0 border-right-0 border-bottom border-left-0">{{ $day }}</th>
+                  <th class="border-top-0 border-right-0 border-bottom border-left-0">{{ getDayAbbr($day)['name'] }}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -187,6 +190,19 @@
               </table>
 
             @endforeach
+
+            @else
+
+              <table class="table text-center mb-0"
+                     style="border-radius: 0.25rem; overflow: hidden;">
+                <thead>
+                <tr>
+                  <th class="border-0">Тренировки отсутствуют</th>
+                </tr>
+                </thead>
+              </table>
+
+            @endif
 
           </div>
 

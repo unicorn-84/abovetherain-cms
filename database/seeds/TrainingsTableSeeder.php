@@ -213,15 +213,15 @@ class TrainingsTableSeeder extends Seeder
         'delete' => 1,
         'order' => 7,
         'details' => [
-          'default' => __('days.Monday'),
+          'default' => '1',
           'options' => [
-            __('days.Monday') =>__('days.Monday'),
-            __('days.Tuesday') => __('days.Tuesday'),
-            __('days.Wednesday') => __('days.Wednesday'),
-            __('days.Thursday') => __('days.Thursday'),
-            __('days.Friday') => __('days.Friday'),
-            __('days.Saturday') => __('days.Saturday'),
-            __('days.Sunday') => __('days.Sunday'),
+            '1' =>__('days.Monday'),
+            '2' => __('days.Tuesday'),
+            '3' => __('days.Wednesday'),
+            '4' => __('days.Thursday'),
+            '5' => __('days.Friday'),
+            '6' => __('days.Saturday'),
+            '7' => __('days.Sunday'),
           ],
           'validation' => [
             'rule' => 'required'

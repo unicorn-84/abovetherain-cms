@@ -48,16 +48,21 @@
                   <ul class="list-unstyled m-0">
                     @foreach($coach->services as $service)
                       <li{!! $loop->last ? '' : ' class="mb-2"' !!}>
-                        <i class="far fa-list-alt h5 mb-0"></i>&nbsp;
-                        <a href="{{ route('service', $service->slug) }}"
-                           class="text-reset font-weight-bold h5">{{ $service->title }}</a>
+                        @if($service->content)
+                          <i class="far fa-list-alt h5 mb-0"></i>&nbsp;
+                          <a href="{{ route('service', $service->slug) }}"
+                             class="text-reset font-weight-bold h5">{{ $service->title }}</a>
+                        @else
+                          <i class="far fa-list-alt h5 text-muted mb-0"></i>&nbsp;
+                          <span class="text-muted font-weight-bold h5 mb-0">{{ $service->title }}</span>
+                        @endif
                       </li>
                     @endforeach
                   </ul>
                   @if(count($coach->trainings) > 0)
+                    <i class="far fa-calendar-alt h5 mb-0"></i>&nbsp;
                     <a href="{{ route('schedule', 'coach=' . $coach->slug) }}"
-                       class="d-inline-block h5 text-reset text-decoration-none font-weight-bold mb-0 my-lg-0{{ count($coach->services) > 0 ? ' mt-4' : '' }}">
-                      <i class="far fa-calendar-alt fa-lg"></i>&nbsp;Расписание занятий
+                       class="d-inline-block h5 text-reset font-weight-bold mb-0 my-lg-0{{ count($coach->services) > 0 ? ' mt-3' : '' }}">Расписание занятий
                     </a>
                   @endif
                 </div>
