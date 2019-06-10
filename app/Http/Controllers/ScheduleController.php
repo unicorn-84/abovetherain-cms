@@ -24,13 +24,13 @@ class ScheduleController extends Controller
     $services = $trainings->pluck('service_title', 'service_slug')->unique();
     $coaches = $trainings->pluck('coach_title', 'coach_slug')->unique();
     $days = [
-      'mon' => __('days.Monday'),
-      'tue' => __('days.Tuesday'),
-      'wed' => __('days.Wednesday'),
-      'thu' => __('days.Thursday'),
-      'fri' => __('days.Friday'),
-      'sut' => __('days.Saturday'),
-      'sun' => __('days.Sunday'),
+      '1',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7',
     ];
 
 
@@ -44,16 +44,16 @@ class ScheduleController extends Controller
       });
     } elseif ($request->has('day')) {
       $trainings = $trainings->filter(function ($value) use($request, $days) {
-        $day = $days[$request->query('day')];
+        $day = $request->query('day');
         return $value->day == $day;
       });
     }
 
 
     $trainingsOfTheTime = $trainings->groupBy(['start_time', 'day']);
-    $trainingsOfTheDay = $trainings->groupBy(['day', 'start_time']);
+    $trainingsOfTheDay = $trainings->sortBy('day')->groupBy(['day', 'start_time']);
 
-//    dd($trainingsOfTheDay);
+//    dd($trainingsOfTheTime);
 
     return view('pages.schedule', [
       'page' => $page,
