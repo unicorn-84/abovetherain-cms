@@ -8,13 +8,19 @@
 
     @media (min-width: 768px) {
       .card-columns {
-        column-count: 2;
+        column-count: {{ ceil($layoutColumns / 3) }};
       }
     }
 
     @media (min-width: 992px) {
       .card-columns {
-        column-count: 3;
+        column-count: {{ ceil($layoutColumns / 1.5) }};
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .card-columns {
+        column-count: {{ $layoutColumns }};
       }
     }
   </style>
@@ -62,9 +68,12 @@
       <div class="container">
         <div class="row{{ isset($images) && count($images) > 0 ? ' mb-5' : '' }}">
           @foreach($album->videos as $video)
-            <div class="сol-md-6 col-lg-4{{ $loop->last ? '' : ' mb-4' }}">
-              <div class="shadow-lg embed-responsive embed-responsive-{{ isset($video->aspect_ratio) ? $video->aspect_ratio : '16by9' }}">
-                <video src="{{ Storage::disk(config('voyager.storage.disk'))->url($video->video_uri) }}" class="embed-responsive-item" controls{!! isset($video->poster) ? ' poster="' . Storage::disk(config('voyager.storage.disk'))->url($video->poster) . '"' : '' !!}></video>
+            <div class="col-md-6 col-lg-4{{ $loop->last ? '' : ' mb-4' }}">
+              <div
+                class="shadow-lg embed-responsive embed-responsive-{{ isset($video->aspect_ratio) ? $video->aspect_ratio : '16by9' }}">
+                <video src="{{ Storage::disk(config('voyager.storage.disk'))->url($video->video_uri) }}"
+                       class="embed-responsive-item"
+                       controls{!! isset($video->poster) ? ' poster="' . Storage::disk(config('voyager.storage.disk'))->url($video->poster) . '"' : '' !!}></video>
               </div>
             </div>
           @endforeach
@@ -77,7 +86,8 @@
           @foreach($images as $image)
             <div class="card mb-4">
               <a href={{ Voyager::image($image) }}>
-                <img src="{{ Voyager::image($album->getThumbnail($image, 'resize-800')) }}" alt="{{ $album->title }}" class="img-thumbnail border-0">
+                <img src="{{ Voyager::image($album->getThumbnail($image, 'resize-800')) }}" alt="{{ $album->title }}"
+                     class="img-thumbnail border-0">
               </a>
             </div>
           @endforeach

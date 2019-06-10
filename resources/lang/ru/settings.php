@@ -3,6 +3,7 @@
 return [
   'groups' => [
     'Admin' => 'Админка',
+    'Album' => 'Альбом',
     'Common'   => 'Общие',
     'Services' => 'Услуги',
     'Schedule' => 'Расписание',
