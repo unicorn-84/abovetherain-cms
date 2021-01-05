@@ -32,7 +32,7 @@
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
-    "axios": "^0.18",
+    "axios": "^0.21",
     "bootstrap": "^4.0.0",
     "bootstrap-vue": "^2.0.0-rc.21",
     "cross-env": "^5.1",
